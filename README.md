@@ -21,7 +21,7 @@ W pliku composer.json swojego projektu, należy dać repozytorium, tak jak jest 
 
 Następnie należy zainstalować bibliotekę:
 
-    cyberkonsultant/php-instance-sdk
+    composer require cyberkonsultant/php-instance-sdk
 
 ---
 
