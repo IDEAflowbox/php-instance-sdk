@@ -40,7 +40,7 @@ test:codingstandards:
 
 test:phpunit:
   stage: test
-  image: docker:19.03.12
+  image: docker:20-dind
   services:
     - name: docker:20-dind
       alias: docker
