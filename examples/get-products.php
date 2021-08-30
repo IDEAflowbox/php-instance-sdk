@@ -6,14 +6,14 @@ global $sdk;
 $shop = $sdk->getShopScope();
 
 dump(
-    $shop->getFeed([
+    $shop->getProducts([
         'page' => 1
     ])
 );
 
-// it just an wrapper for the method `getFeed`
+// it just an wrapper for the method `getProducts`
 dump(
-    $shop->getProducts([
+    $shop->getFeed([
         'page' => 1
     ])
 );
