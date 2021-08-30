@@ -1,0 +1,26 @@
+{
+    "name": "cyberkonsultant/php-instance-sdk",
+    "description": "Cyberkonsultant Instance SDK for PHP",
+    "type": "library",
+    "require": {
+        "php": "^7.1|^8.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "netresearch/jsonmapper": "^4.0"
+    },
+    "license": "Cyberkonsultant",
+    "autoload": {
+        "psr-4": {
+            "Cyberkonsultant\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Peter",
+            "email": "peter@omega323.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "symfony/var-dumper": "^5.3"
+    }
+}
