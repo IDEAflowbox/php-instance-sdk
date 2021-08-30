@@ -4,9 +4,13 @@ stages:
   - build
   - deploy
 
+services:
+   - name: docker:dind
+     alias: dockerservice
+
 variables:
   COMPOSER_MEMORY_LIMIT: -1
-  DOCKER_HOST: tcp://localhost:2375/
+  DOCKER_HOST: tcp://dockerservice:2375/
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
