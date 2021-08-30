@@ -42,7 +42,9 @@ test:phpunit:
   stage: test
   image: docker:19.03.12
   services:
-    - docker:19.03.12-dind
+    - name: docker:20-dind
+      alias: docker
+      command: [ "--tls=false" ]
   before_script:
     - apk add docker-compose
     - docker version
