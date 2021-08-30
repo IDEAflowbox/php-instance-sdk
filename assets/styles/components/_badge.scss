@@ -1,0 +1,16 @@
+.badge{
+	font-weight: 800;
+	font-size: $fs_base;
+	line-height: 24px;
+	padding: 8px 24px;
+	border-radius: 50px;
+	display: inline-block;
+	&--blue{
+		background: #2F80ED;
+		color: #fff;
+	}
+	&--purple{
+		background: #BB6BD9;
+		color: #fff;
+	}
+}

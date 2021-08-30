@@ -1,0 +1,10 @@
+include:
+  - './../Client/client.yml'
+
+'\App\Entity\User':
+  user_1:
+    client: '@client_1'
+    firstName: 'Joseph'
+    lastName: 'Dyke'
+    email: 'joseph.dyke@example.com'
+    password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$aFVZIzW7jBDLDoWB7WxI9w\$2Z9n3OZUE1Q0qGdkDf6CV2mEPrFftNtbZpQAQ/UZx7c' # SecretPassword123!

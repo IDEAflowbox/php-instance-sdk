@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Form;
+
+use App\Entity\Client;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class ClientBillingItemsType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('billingItems', CollectionType::class, [
+            'entry_type' => BillingItemType::class,
+            'entry_options' => ['label' => false],
+        ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Client::class,
+            'csrf_token_id' => 'client_billing_items',
+            'csrf_protection' => true,
+        ]);
+    }
+}

@@ -1,0 +1,207 @@
+{% extends 'account/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant - ustawienia{% endblock %}
+
+{% block main %}
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-main">
+        <div class="dashboard-main__content">
+            <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                <a href="" class="breadcrumbs__item">CRM</a>
+                <span class="breadcrumbs__divider">/</span>
+                <a href="" class="breadcrumbs__item">Jarosław Kowalski</a>
+            </div>
+            <!-- BREADCRUMBS! -->
+
+
+            <div class="tile mt-10 md:mt-13">
+                <div class="flex flex-wrap md:justify-between">
+                    <h6 class="heading heading--xl mt-3 mb-0">Jarosław Kowalski</h6>
+                    <div class="dropdown dropdown--box">
+                        Akcja
+                        <div class="dropdown__icon">
+                            <img loading="lazy" src="{{ asset('build/images/angle-down.svg') }}" alt="Angle down" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-wrapper mt-13">
+                    <div class="list-header">
+                        Dane użytkownika
+                    </div>
+                    <div class="mt-6">
+                        <div class="row w-full -mx-8">
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Język</div>
+                                    <div class="list-item__value">Polski</div>
+                                </div>
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Liczba zamówień</div>
+                                    <div class="list-item__value">12</div>
+                                </div>
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Kwota łączna zamówień</div>
+                                    <div class="list-item__value">3000 zł</div>
+                                </div>
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Średnia kwota zamówień</div>
+                                    <div class="list-item__value">321 zł</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex list-item">
+                                    <div class="list-item__title">Segmentacja</div>
+                                    <div class="list-item__value">
+                                        <div><div class="badge badge--blue">Płacący najwięcej</div></div>
+                                        <div class="mt-6"><div class="badge badge--purple">Kupujący najwięcej</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Kraj</div>
+                                    <div class="list-item__value">Polski</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Subskrypcja e-mail</div>
+                                    <div class="list-item__value">Aktywna</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex list-item border-b">
+                                    <div class="list-item__title">Miasto</div>
+                                    <div class="list-item__value">Warszawa</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex list-item border-b">
+                                    <div class="list-item__title">Subskrypcja SMS</div>
+                                    <div class="list-item__value">Wypisany</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex list-item border-b">
+                                    <div class="list-item__title">E-mail</div>
+                                    <div class="list-item__value">jaro@kowal.com</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8 hidden xl:block"></div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex list-item border-b">
+                                    <div class="list-item__title">Płeć</div>
+                                    <div class="list-item__value">mężczyzna</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 px-8 hidden xl:block"></div>
+                            <div class="xl:w-1/2 px-8">
+                                <div class="flex list-item border-b">
+                                    <div class="list-item__title">Numer telefonu</div>
+                                    <div class="list-item__value">987 654 321</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pseudo-table pseudo-table--logs mt-13 xl:mt-24">
+                <div class="pseudo-table-row mb-10">
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading">godzina</div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading">user</div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading">event</div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading">produkt</div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading"></div>
+                </div>
+
+                <div class="pseudo-table-row pseudo-table-row--tile">
+                    <div class="pseudo-table-row__item">12:30</div>
+                    <div class="pseudo-table-row__item">yourname@mail.com</div>
+                    <div class="pseudo-table-row__item text-nowrap">Dodanie do koszyka</div>
+                    <div class="pseudo-table-row__item flex items-center">
+                        <img loading="lazy" src="{{ asset('build/images/image.svg') }}" alt="Image" class="mr-5 pseudo-table-icon" />
+                        <span>Nike Jordan</span>
+                    </div>
+                    <div class="pseudo-table-row__item flex xl:justify-end">
+                        <img loading="lazy" src="{{ asset('build/images/pc-monitor.svg') }}" alt="Pc monitor" class="pseudo-table-icon mr-8" />
+                    </div>
+                </div>
+                <div class="pseudo-table-row pseudo-table-row--tile">
+                    <div class="pseudo-table-row__item">12:30</div>
+                    <div class="pseudo-table-row__item">yourname@mail.com</div>
+                    <div class="pseudo-table-row__item text-nowrap">Dodanie do koszyka</div>
+                    <div class="pseudo-table-row__item flex items-center">
+                        <img loading="lazy" src="{{ asset('build/images/image.svg') }}" alt="Image" class="mr-5 pseudo-table-icon" />
+                        <span>Nike Jordan</span>
+                    </div>
+                    <div class="pseudo-table-row__item flex xl:justify-end">
+                        <img loading="lazy" src="{{ asset('build/images/phone-button.svg') }}" alt="Phone" class="pseudo-table-icon mr-8" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-wrapper mt-16">
+                <div class="pagination-limit">
+                    <div class="pagination-limit__title">Pokaż</div>
+                    <input type="number" class="pagination-limit__input" value="10" min="1" max="100">
+                </div>
+
+                <div class="pagination-skipper">
+                    <a href="" class="pagination-skipper__item">
+                        <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
+                    </a>
+                    <a href="" class="pagination-skipper__item">
+                        <img loading="lazy" src="{{ asset('build/images/triangle-left.svg') }}" alt="Pointing left" />
+                    </a>
+                    <input type="number" class="pagination-skipper__input" value="1" min="1" max="433">
+                    <div class="pagination-skipper__title">z 433</div>
+                    <a href="" class="pagination-skipper__item is-active">
+                        <img loading="lazy" src="{{ asset('build/images/triangle-right.svg') }}" alt="Pointing right" />
+                    </a>
+                    <a href="" class="pagination-skipper__item is-active">
+                        <img loading="lazy" src="{{ asset('build/images/pointing-right.svg') }}" alt="Pointing right" />
+                    </a>
+                </div>
+
+                <div class="pagination-pages">
+                    <a class="pagination-pages__item">1</a>
+                    <a class="pagination-pages__item">2</a>
+                    <a class="pagination-pages__item">3</a>
+                    <a class="pagination-pages__item">4</a>
+                    <div class="pagination-pages__blank">...</div>
+                    <a class="pagination-pages__item">10</a>
+                </div>
+            </div>
+            <!-- Pagination! -->
+
+        </div>
+    </div>
+    <!-- DASHBOARD MAIN! -->
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- only for demo -->
+    <script>
+        const tabsNavDOM = document.querySelectorAll('.js-tabs-menu-item');
+        const tabsPanelDOM = document.querySelectorAll('.js-tabs-panel');
+        if(tabsNavDOM && tabsPanelDOM){
+            tabsNavDOM.forEach((x, index) => {
+                x.addEventListener('click', () => {
+                    tabsNavDOM.forEach(y => y.classList.remove('is-active'));
+                    tabsPanelDOM.forEach(y => y.classList.remove('is-active'));
+                    x.classList.add('is-active');
+                    tabsPanelDOM[index].classList.add('is-active');
+                })
+            })
+        }
+    </script>
+{% endblock %}

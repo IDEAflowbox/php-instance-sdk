@@ -1,0 +1,99 @@
+.pagination{
+	&-wrapper{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&-limit{
+		display: flex;
+		align-items: center;
+		text-transform: uppercase;
+		&__title{
+			margin-right: 16px;
+			color: #6F6E68;
+		}
+		&__input{
+			box-shadow: 0 3px 6px 0 rgba(0,0,0,0.06);
+			width:95px;
+			border-radius: 6px;
+			padding: 10px 24px;
+			border: 1px solid $c_shade_1;
+			font-size: $fs_base;
+			color: $c_primary;
+			font-weight: 800;
+			&::-webkit-inner-spin-button, &:hover::-webkit-inner-spin-button {
+				opacity: 1;
+				-webkit-appearance: none;
+				background: url('/assets/images/spin-button.svg') no-repeat 50% 50%;
+				width: 10px;
+				height: 20px;
+				position: relative;
+				cursor: pointer;
+			}
+		}
+	}
+	
+	&-skipper{
+		display: flex;
+		align-items: center;
+		&__item{
+			padding:8px;
+			opacity: 0.3;
+			cursor:pointer;
+			img, svg{
+				height: 12px;
+				width: 12px;
+			}
+			&.is-active{
+				opacity: 1;
+			}
+		}
+		&__title{
+			font-size: $fs_base;
+			color: #000;
+			margin-right:8px;
+		}
+		&__input{
+			box-shadow: 0 3px 6px 0 rgba(0,0,0,0.06);
+			text-align: center;
+			width:57px;
+			border-radius: 6px;
+			padding: 10px;
+			border: 1px solid $c_shade_1;
+			font-size: $fs_base;
+			color: $c_primary;
+			font-weight: 800;
+			margin-right:16px;
+			margin-left:8px;
+			&::-webkit-inner-spin-button{
+				-webkit-appearance: none;
+			}
+		}
+	}
+
+	&-pages{
+		display: flex;
+		align-items: center;
+		&__item{
+			background: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-shadow: 0 3px 6px 0 rgba(0,0,0,0.06);
+			border-radius: 6px;
+			width: 40px;
+			height: 40px;
+			border: 1px solid $c_shade_1;
+			font-size: $fs_base;
+			color: $c_primary;
+			font-weight: 800;
+			margin: 0 8px;
+			cursor: pointer;
+		}
+		&__blank{
+			margin: 0 8px;
+			font-size: $fs_base;
+			font-weight: 800;
+		}
+	}
+}

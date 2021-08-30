@@ -1,0 +1,139 @@
+<!-- SIDEDRAWER -->
+<div class="dashboard-sidedrawer js-dashboard-sidedrawer is-expanded">
+    <div class="dashboard-sidedrawer__top">
+        <button class="dashboard-sidedrawer__burger" onclick="document.querySelector('.js-dashboard-sidedrawer').classList.toggle('is-expanded')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="dashboard-sidedrawer__logo">
+            <img loading="lazy" src="{{ asset('build/images/idea-commerce-logo.svg') }}" alt="Idea commerce logo" />
+        </div>
+    </div>
+    <nav class="dashboard-sidedrawer__nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a class="nav-item__link">
+                    <div class="nav-item__icon">
+                        <img loading="lazy" src="{{ asset('build/images/chart.svg') }}" alt="Chart" />
+                    </div>
+                    <div class="nav-item__title">Aktywności</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-item__link">
+                    <div class="nav-item__icon">
+                        <img loading="lazy" src="{{ asset('build/images/award.svg') }}" alt="Chart" />
+                    </div>
+                    <div class="nav-item__title nav-item__title--parent">Rekomendacje</div>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="" class="nav-item__link">
+                            <div class="nav-item__title">Ranking produktów</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-item__link">
+                            <div class="nav-item__title">Ranking rekomendacji</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-item__link">
+                    <div class="nav-item__icon">
+                        <img loading="lazy" src="{{ asset('build/images/list.svg') }}" alt="List" />
+                    </div>
+                    <div class="nav-item__title">Feed</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-item__link">
+                    <div class="nav-item__icon">
+                        <img loading="lazy" src="{{ asset('build/images/questionnaire.svg') }}" alt="Questionnaire" />
+                    </div>
+                    <div class="nav-item__title nav-item__title--parent">Mapowanie danych</div>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="" class="nav-item__link">
+                            <div class="nav-item__title">Atrybuty</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-item__link">
+                            <div class="nav-item__title">Kategorie</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-item__link">
+                    <div class="nav-item__icon">
+                        <img loading="lazy" src="{{ asset('build/images/layout.svg') }}" alt="Layout" />
+                    </div>
+                    <div class="nav-item__title nav-item__title--parent">CRM</div>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="" class="nav-item__link">
+                            <div class="nav-item__title">Grupa wskaźników 1</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-item__link">
+                            <div class="nav-item__title">Grupa wskaźników 2</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-item__link">
+                            <div class="nav-item__title">Lista klientów</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-item__link {{ when_route_in(['account_billing_invoices', 'account_billing_payments'], 'is-active') }}">
+                    <div class="nav-item__icon">
+                        <img loading="lazy" src="{{ asset('build/images/wallet.svg') }}" alt="Wallet" />
+                    </div>
+                    <div class="nav-item__title nav-item__title--parent">Rozliczenia</div>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="{{ path('account_billing_invoices') }}" class="nav-item__link {{ when_route_eq('account_billing_invoices', 'is-active') }}">
+                            <div class="nav-item__title">Faktury</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('account_billing_payments') }}" class="nav-item__link {{ when_route_eq('account_billing_payments', 'is-active') }}">
+                            <div class="nav-item__title">Płatności</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-item__link {{ when_route_in(['account_settings_account_details', 'account_settings_billing_details'], 'is-active') }}">
+                    <div class="nav-item__icon">
+                        <img loading="lazy" src="{{ asset('build/images/cogwheel.svg') }}" alt="Cogwheel" />
+                    </div>
+                    <div class="nav-item__title nav-item__title--parent">Ustawienia</div>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="{{ path('account_settings_account_details') }}" class="nav-item__link {{ when_route_eq('account_settings_account_details', 'is-active') }}">
+                            <div class="nav-item__title">Dane konta</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('account_settings_billing_details') }}" class="nav-item__link {{ when_route_eq('account_settings_billing_details', 'is-active') }}">
+                            <div class="nav-item__title">Dane rozliczeniowe</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- SIDEDRAWER! -->

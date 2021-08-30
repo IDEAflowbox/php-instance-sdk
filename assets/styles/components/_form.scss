@@ -1,0 +1,118 @@
+.form-control{
+
+	label{
+		display: block;
+		text-transform: uppercase;
+		color: #8F92A0;
+		font-weight: 800;
+		font-size: $fs_sm;
+		letter-spacing: 1.5px;
+		margin-bottom: 16px;
+		white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+	}
+	input:not([type="checkbox"]):not([type="radio"]){
+		border-radius: 8px;
+		padding: 10px 16px;
+		border: 1px solid $c_shade_1;
+		width: 100%;
+		font-size: $fs_base;
+		color: $c_primary;
+		font-weight: 400;
+
+		&:focus{
+			outline:none;
+			border: 1px solid #FEF3BE;
+			// border: 2px solid #FEF3BE;
+			box-shadow: inset 0 0 1px #F6CB04;
+		}
+	}
+
+	&--icon{
+		position: relative;
+		input:not([type=checkbox]):not([type=radio]){
+			padding-left: 64px;
+			width:200px;
+		}
+		.input-icon{
+			position:absolute;
+			z-index: 1;
+			left: 24px;
+			top: 11px;
+			width: 16px;
+			height: 16px;
+			pointer-events: none;
+			img,svg{
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}
+
+.form-floating{
+	position:relative;
+
+	input:focus ~ .label,
+	input:focus-visible ~ .label,
+	input:not(:focus):valid ~ .label,
+	input:focus+span,
+	input:not(:placeholder-shown)+span{
+		top: -4px;
+		bottom: 10px;
+		left: 12px;
+		height: 12px;
+		font-size: 12px;
+		opacity: 1;
+		background: #fff;
+		padding-left:10px;
+		padding-right:10px;
+		color: #878A99;
+	}
+	input:focus{
+		border: 2px solid #9FA2B4;
+	}
+
+	input {
+		font-size: $fs_base;
+		width: 100%;
+		height: 48px;
+		border: 1px solid #D2D2D9;
+		border-radius: 4px;
+		padding: 12px 17px;
+		font-weight: 600;
+	}
+
+	.label {
+		position: absolute;
+		pointer-events: none;
+		left: 20px;
+		top: 18px;
+		transition: 0.1s ease all;
+		font-weight: bold;
+		color: #9FA2B4;
+	}
+}
+
+.form__errors {
+    padding: 0;
+	list-style-type: none;
+    font-weight: bold;
+    color: red;
+}
+
+// @media (min-width: 768px) {
+// 	.form-control--mbottom{
+// 		margin-bottom: 40px;
+// 	}
+// }
+
+// @media (min-width: 1280px) {
+// 	.form-control{
+// 		input[type="text"]{
+// 			max-width: 460px;
+// 		}
+// 	}
+// }

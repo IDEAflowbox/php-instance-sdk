@@ -1,0 +1,69 @@
+{% extends 'account/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant - dane rozliczeniowe{% endblock %}
+
+{% block main %}
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-main">
+        <ul class="tabs-menu">
+            <li class="tabs-menu-item js-tabs-menu-item"  onclick="window.location.href='{{ path('account_billing_invoices') }}'">
+                <div class="tabs-menu-item__icon">
+                    <img loading="lazy" src="{{ asset('build/images/cheque.svg') }}" alt="Cheque" />
+                </div>
+                <div class="tabs-menu-item__title">Faktury</div>
+            </li>
+            <li class="tabs-menu-item js-tabs-menu-item is-active" onclick="window.location.href='{{ path('account_billing_payments') }}'">
+                <div class="tabs-menu-item__icon">
+                    <img loading="lazy" src="{{ asset('build/images/credit-card.svg') }}" alt="Credit card" />
+                </div>
+                <div class="tabs-menu-item__title">Płatności</div>
+            </li>
+        </ul>
+        <div class="dashboard-main__content">
+            <div class="tabs-panel js-tabs-panel is-active">
+                <div class="tile">
+                    <h6 class="tile__title mt-3 mb-0">Płatności</h6>
+                    <table class="table mt-13 table--payments">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div>Data</div>
+                                <div class="md:hidden">Opis</div>
+                            </th>
+                            <th class="hidden md:table-cell">Opis</th>
+                            <th>
+                                <div>Kwota</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody--base">
+                        {% for payment in pagination %}
+                            <tr>
+                                <td>
+                                    <div>{{ payment.createdAt | date('d-m-Y') }}</div>
+                                    <div class="md:hidden">{{ payment.description }}</div>
+                                </td>
+                                <td class="hidden md:table-cell">
+                                    <div>{{ payment.description }}</div>
+                                </td>
+                                <td class="text-nowrap">{{ payment.value|price_format }} zł</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <p class="table__adnotation mb-3 mt-10">Wyświetlonych <span>{{ pagination|length }}</span> z <span>{{ pagination.getTotalItemCount }}</span></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DASHBOARD MAIN! -->
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

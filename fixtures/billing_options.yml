@@ -1,0 +1,4 @@
+'\App\Entity\BillingOption':
+  billing_option_1:
+    client: '@client_1'
+    issuerAddress: '@issuer_address_1'

@@ -1,0 +1,170 @@
+{% extends 'account/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant - dane rozliczeniowe{% endblock %}
+
+{% block main %}
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-main">
+        <ul class="tabs-menu">
+            <li class="tabs-menu-item js-tabs-menu-item is-active" onclick="window.location.href='{{ path('account_billing_invoices') }}'">
+                <div class="tabs-menu-item__icon">
+                    <img loading="lazy" src="{{ asset('build/images/cheque.svg') }}" alt="Cheque" />
+                </div>
+                <div class="tabs-menu-item__title">Faktury</div>
+            </li>
+            <li class="tabs-menu-item js-tabs-menu-item" onclick="window.location.href='{{ path('account_billing_payments') }}'">
+                <div class="tabs-menu-item__icon">
+                    <img loading="lazy" src="{{ asset('build/images/credit-card.svg') }}" alt="Credit card" />
+                </div>
+                <div class="tabs-menu-item__title">Płatności</div>
+            </li>
+        </ul>
+        <div class="dashboard-main__content">
+            <div class="tabs-panel js-tabs-panel is-active">
+                <div class="tile">
+                    <div class="row items-center">
+                        <div class="col">
+                            <h6 class="tile__title tile__title--xl mt-0 mb-6 md:mb-0">Czerwiec 2021</h6>
+                        </div>
+                        <div class="col w-full md:w-auto md:ml-auto">
+                            <button type="submit" class="btn btn--tertiary">
+                                <div class="btn__icon">
+                                    <img loading="lazy" src="{{ asset('build/images/data-download.svg') }}" alt="Floppy disk" />
+                                </div>
+                                <div class="btn__title">
+                                    Pobierz PDF
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="list-wrapper mt-10 md:mt-13">
+                        <div class="list-header mb-3 xl:mb-6">
+                            Dane faktury
+                        </div>
+
+                        <div class="flex flex-wrap w-full -mx-8">
+                            <div class="xl:w-1/2 w-full px-8 order-1 xl:order-none">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Numer rachunku</div>
+                                    <div class="list-item__value">123456789</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 w-full px-8 order-6 mt-6 xl:mt-0 xl:order-none">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Bieżące opłaty</div>
+                                    <div class="list-item__value">1.000,00 zł</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 w-full order-2 px-8 xl:order-none">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Data wystawienia</div>
+                                    <div class="list-item__value">02.06.2021</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 w-full px-8 order-8 xl:order-none">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">W tym podatek</div>
+                                    <div class="list-item__value">186,99 zł</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 w-full order-3 px-8 xl:order-none">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Termin płatności</div>
+                                    <div class="list-item__value">02.06.2021</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 w-full px-8"></div>
+                            <div class="xl:w-1/2 w-full px-8 order-4 xl:order-none">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Konto bankowe</div>
+                                    <div class="list-item__value">5555 0000 0000 1234</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 w-full px-8"></div>
+                            <div class="xl:w-1/2 w-full px-8 order-5 xl:order-none">
+                                <div class="flex border-b list-item">
+                                    <div class="list-item__title">Status</div>
+                                    <div class="list-item__value list-item__value--green">Opłacony</div>
+                                </div>
+                            </div>
+                            <div class="xl:w-1/2 w-full px-8 order-10 xl:order-none">
+                                <div class="flex border-b list-item list-item--lg">
+                                    <div class="list-item__title">Kwota rachunku</div>
+                                    <div class="list-item__value">1186,99 zł</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="tile mt-13 xl:mt-16">
+                    <h6 class="tile__title mt-3 mb-0">Poprzednie faktury</h6>
+                    <table class="table mt-13 table--invoices">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div>Numer faktury</div>
+                                <div class="md:hidden">Data wystawienia</div>
+                            </th>
+                            <th class="hidden md:table-cell">Data wystawienia</th>
+                            <th>
+                                <div>Kwota</div>
+                                <div class="md:hidden">Termin płatności</div>
+                            </th>
+                            <th class="hidden md:table-cell">Termin płatności</th>
+                            <th class="hidden md:table-cell">Dokumenty</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for invoice in pagination %}
+                            <tr>
+                                <td>
+                                    <div><b>{{ invoice.number }}</b></div>
+                                    <div class="md:hidden">{{ invoice.issuedAt|date('d-m-Y') }}</div>
+                                </td>
+                                <td>
+                                    <div class="md:hidden">{{ invoice.valueGross|price_format }} zł</div>
+                                    <div>{{ invoice.issuedAt|date('d-m-Y') }}</div>
+                                    <div class="block mt-6 md:hidden">
+                                        <a href="" download class="flex table-link">
+                                            <div class="table-icon">
+                                                <img loading="lazy" src="{{ asset('build/images/data-download.svg') }}" alt="Floppy disk" />
+                                            </div>
+                                            Pobierz PDF
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="hidden md:table-cell text-nowrap">{{ invoice.valueGross|price_format }} zł</td>
+                                <td class="hidden md:table-cell">{{ invoice.dueDate|date('d-m-Y') }}</td>
+                                <td class="hidden md:table-cell text-nowrap">
+                                    <a href="" download class="flex table-link">
+                                        <div class="table-icon">
+                                            <img loading="lazy" src="{{ asset('build/images/data-download.svg') }}" alt="Floppy disk" />
+                                        </div>
+                                        Pobierz PDF
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <p class="table__adnotation mb-3 mt-10">Wyświetlonych <span>4</span> z <span>4</span></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DASHBOARD MAIN! -->
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

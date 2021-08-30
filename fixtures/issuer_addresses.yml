@@ -1,0 +1,13 @@
+'\App\Entity\IssuerAddress':
+  issuer_address_1:
+    firstName: 'Cody'
+    lastName: 'Nelson'
+    companyName: 'Playworld'
+    email: 'cody.nelson@example.com'
+    taxId: '1246317873'
+    city: 'Lewiston'
+    zipCode: '83-501'
+    street: 'Dane Street'
+    propertyNumber: '3137'
+    country: 'USA'
+    bankAccount: '28109016230462326460404820'

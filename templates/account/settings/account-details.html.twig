@@ -1,0 +1,85 @@
+{% extends 'account/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant - ustawienia{% endblock %}
+
+{% block main %}
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-main">
+        <ul class="tabs-menu">
+            <li class="tabs-menu-item js-tabs-menu-item is-active"
+                onclick="window.location.href='{{ path('account_settings_account_details') }}'">
+                <div class="tabs-menu-item__icon">
+                    <img loading="lazy" src="{{ asset('build/images/user-edit.svg') }}" alt="User edit"/>
+                </div>
+                <div class="tabs-menu-item__title">Dane konta</div>
+            </li>
+            <li class="tabs-menu-item js-tabs-menu-item"
+                onclick="window.location.href='{{ path('account_settings_billing_details') }}'">
+                <div class="tabs-menu-item__icon">
+                    <img loading="lazy" src="{{ asset('build/images/users.svg') }}" alt="Users"/>
+                </div>
+                <div class="tabs-menu-item__title">Dane rozliczeniowe</div>
+            </li>
+        </ul>
+        <div class="dashboard-main__content">
+            <div class="tabs-panel js-tabs-panel is-active">
+                {{ form_start(formView, {'method': 'post'}) }}
+                <div class="tile">
+                    <div class="xl:max-w-184">
+                        <div class="form-control mb-10 md:mb-16">
+                            <label for="">Imię</label>
+                            {{ form_widget(formView.firstName) }}
+                            {{ form_errors(formView.firstName) }}
+                        </div>
+                        <div class="form-control mb-10 md:mb-16">
+                            <label for="">Nazwisko</label>
+                            {{ form_widget(formView.lastName) }}
+                            {{ form_errors(formView.lastName) }}
+                        </div>
+                        <div class="form-control mb-10 md:mb-16">
+                            <label for="">E - mail</label>
+                            {{ form_widget(formView.email) }}
+                            {{ form_errors(formView.email) }}
+                        </div>
+                        <button class="btn btn--tertiary">
+                            <div class="btn__icon">
+                                <img loading="lazy" src="{{ asset('build/images/access-key.svg') }}" alt="Access key"/>
+                            </div>
+                            <div class="btn__title">
+                                Zmień hasło
+                            </div>
+                        </button>
+
+                        <div class="hidden md:flex md:justify-end md:mt-16">
+                            <button type="submit" class="btn btn--secondary btn--form-submit md:hidden">
+                                <div class="btn__icon">
+                                    <img loading="lazy" src="{{ asset('build/images/floppy-disk.svg') }}"
+                                         alt="Floppy disk"/>
+                                </div>
+                                <div class="btn__title">
+                                    Zatwierdź
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="submit" class="btn btn--secondary btn--form-submit">
+                        <div class="btn__icon">
+                            <img loading="lazy" src="{{ asset('build/images/floppy-disk.svg') }}" alt="Floppy disk"/>
+                        </div>
+                        <div class="btn__title">
+                            Zatwierdź
+                        </div>
+                    </button>
+                </div>
+                {{ form_end(formView) }}
+            </div>
+        </div>
+    </div>
+    <!-- DASHBOARD MAIN! -->
+{% endblock %}

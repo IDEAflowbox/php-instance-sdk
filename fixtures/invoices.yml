@@ -1,0 +1,12 @@
+'\App\Entity\Invoice':
+  invoice_1:
+    client: '@client_1'
+    number: '115/07/2021'
+    issuedAt: '<date_create("2021-07-31")>'
+    dueDate: '<date_create("2021-08-14")>'
+    deliveryDate: '<date_create("2021-07-31")>'
+    paid: true
+    valueNet: 225000
+    valueVat: 51750
+    valueGross: 276750
+    bankAccount: '28109016230462326460404820'

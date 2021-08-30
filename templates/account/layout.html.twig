@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant{% endblock %}
+
+{% block body %}
+    <div class="dashboard-container">
+        {% block modal %}
+        {% endblock %}
+        {% block menu %}
+            {% include 'account/layout/menu.html.twig' %}
+        {% endblock %}
+
+        <div class="dashboard-wrapper">
+            {% block header %}
+                <!-- DASHBOARD HEADER -->
+                <div class="dashboard-header">
+                    <img loading="lazy" class="dashboard-header__logo" src="{{ asset('build/images/idea-commerce-logo-2.svg') }}" alt="Idea commerce logo" />
+                    <div class="dropdown">
+                        <div class="lang-change">
+                            <img loading="lazy" src="{{ asset('build/images/world.svg') }}" alt="World" />
+                            <span class="lang-change__title">Polski</span>
+                        </div>
+                        <div class="dropdown__icon">
+                            <img loading="lazy" src="{{ asset('build/images/angle-down.svg') }}" alt="Angle down" />
+                        </div>
+                    </div>
+                    <div class="dropdown ml-16">
+                        <div class="user-avatar">
+                            <img loading="lazy" src="{{ asset('build/images/avatar.jpg') }}" alt="User avatar" />
+                        </div>
+                        <div class="user-email">{{ app.user.email }}</div>
+                        <div class="dropdown__icon">
+                            <img loading="lazy" src="{{ asset('build/images/angle-down.svg') }}" alt="Angle down" />
+                        </div>
+                    </div>
+                </div>
+                <!-- DASHBOARD HEADER! -->
+            {% endblock %}
+
+            {% block main %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}

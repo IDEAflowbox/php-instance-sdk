@@ -1,0 +1,51 @@
+stages:
+  - base
+  - test
+  - build
+  - deploy
+
+variables:
+  COMPOSER_MEMORY_LIMIT: -1
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - vendor/
+
+base:
+  stage: base
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:base ./docker-files
+    - docker push $CI_REGISTRY_IMAGE:base
+  when: manual
+
+build:composer:
+  stage: build
+  image: composer:2
+  script:
+    - composer -n --no-ansi --no-scripts --ignore-platform-reqs install
+
+test:codingstandards:
+  stage: test
+  image: composer
+  script:
+    - composer -n --no-ansi --no-scripts --ignore-platform-reqs install
+    - vendor/bin/php-cs-fixer fix --verbose --dry-run --diff
+
+test:phpunit:
+  stage: test
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+  before_script:
+    - apk add docker-compose
+    - docker version
+    - docker-compose version
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker-compose -f docker-compose.test.yml run php

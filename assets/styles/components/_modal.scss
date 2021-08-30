@@ -1,0 +1,42 @@
+.modal{
+	&-overlay{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0,0,0, 0.4);
+		// z-index:0;
+	}
+
+	&-wrapper{
+		width: 100%;
+		max-width: 1050px;
+		height:100%;
+		max-height: 770px;
+		position:relative;
+		z-index: 3;
+		& > div{
+			height:100%;
+		}
+	}
+
+	&-container{
+		pointer-events: none;
+		opacity:0;
+		transition: all $tt_base;
+		position:fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 3;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&.is-active{
+			pointer-events: all;
+			opacity: 1;
+		}
+	}
+}

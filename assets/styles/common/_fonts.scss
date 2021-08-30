@@ -1,0 +1,65 @@
+@font-face {
+	font-family: "Mulish";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/assets/fonts/mulish-regular-webfont.eot");
+	src: url("/assets/fonts/mulish-regular-webfont.eot?#iefix")
+			format("embedded-opentype"),
+		url("/assets/fonts/mulish-regular-webfont.woff2")
+			format("woff2"),
+		url("/assets/fonts/mulish-regular-webfont.woff")
+			format("woff"),
+		url("/assets/fonts/mulish-regular-webfont.ttf")
+			format("truetype");
+}
+@font-face {
+	font-family: "Mulish";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("/assets/fonts/mulish-semibold-webfont.eot");
+	src: url("/assets/fonts/mulish-semibold-webfont.eot?#iefix")
+			format("embedded-opentype"),
+		url("/assets/fonts/mulish-semibold-webfont.woff2")
+			format("woff2"),
+		url("/assets/fonts/mulish-semibold-webfont.woff")
+			format("woff"),
+		url("/assets/fonts/mulish-semibold-webfont.ttf")
+			format("truetype");
+}
+@font-face {
+	font-family: "Mulish";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("/assets/fonts/mulish-bold-webfont.eot");
+	src: url("/assets/fonts/mulish-bold-webfont.eot?#iefix")
+			format("embedded-opentype"),
+		url("/assets/fonts/mulish-bold-webfont.woff2")
+			format("woff2"),
+		url("/assets/fonts/mulish-bold-webfont.woff")
+			format("woff"),
+		url("/assets/fonts/mulish-bold-webfont.ttf")
+			format("truetype");
+}
+@font-face {
+	font-family: "Mulish";
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url("/assets/fonts/mulish-extrabold-webfont.eot");
+	src: url("/assets/fonts/mulish-extrabold-webfont.eot?#iefix")
+			format("embedded-opentype"),
+		url("/assets/fonts/mulish-extrabold-webfont.woff2")
+			format("woff2"),
+		url("/assets/fonts/mulish-extrabold-webfont.woff")
+			format("woff"),
+		url("/assets/fonts/mulish-extrabold-webfont.ttf")
+			format("truetype");
+}
+
+
+html, body{
+	font-family: 'Mulish', sans-serif !important;
+}

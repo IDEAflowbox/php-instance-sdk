@@ -1,0 +1,6 @@
+'\App\Entity\Administrator':
+  administrator_1:
+    email: 'everett.hess@example.com'
+    firstName: 'Everett'
+    lastName: 'Hess'
+    password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$aFVZIzW7jBDLDoWB7WxI9w\$2Z9n3OZUE1Q0qGdkDf6CV2mEPrFftNtbZpQAQ/UZx7c' # SecretPassword123!

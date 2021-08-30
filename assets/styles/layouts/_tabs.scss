@@ -1,0 +1,62 @@
+.tabs-menu{
+	display: flex;
+	padding:24px;
+	padding-bottom:0;
+	margin:0;
+	list-style:none;
+	border-bottom: 1px solid $c_shade_8;
+
+	&-item{
+		padding-bottom:16px;
+		margin-right:32px;
+		display: flex;
+		cursor: pointer;
+
+		&__icon{
+			flex:none;
+			margin-right: 14px;
+			img, svg{
+				width: 16px;
+				height: 16px;
+				object-fit: contain;
+				fill: currentColor;
+				color: $c_shade_4;
+			}
+		}
+
+		&__title{
+			font-size: $fs_base;
+			color: $c_shade_4;
+			font-weight: bold;
+			transition: color $tt_base;
+		}
+
+		&:hover{
+			.tabs-menu-item__title{
+				color: $c_primary;
+			}
+		}
+
+		&.is-active{
+			border-bottom: 3px solid $c_secondary;
+			.tabs-menu-item__title{
+				color: $c_primary;
+			}
+		}
+	}
+}
+
+.tabs-panel{
+	display: none;
+
+	&.is-active{
+		display: block;
+	}
+}
+
+
+@media (min-width: 1280px) {
+	.tabs-menu{
+		padding: 40px 40px 0px 40px;
+	}
+}

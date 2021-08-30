@@ -1,0 +1,23 @@
+.login-page{
+	background: $c_shade_9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+
+.login-tile{
+	width: 350px;
+	max-width:calc(100vw - 44px);
+	box-shadow: 0 4px 4px 0 rgba(0,0,0, 0.25);
+	&__logo{
+		display:block;
+		margin: 0 auto;
+		max-width:220px;
+	}
+	&__divider{
+		background: #D2D2D9;
+		height: 1px;
+	}
+}

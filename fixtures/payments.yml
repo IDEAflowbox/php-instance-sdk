@@ -1,0 +1,5 @@
+'\App\Entity\Payment':
+  payment_1:
+    invoice: '@invoice_1'
+    value: 276750
+    description: 'Payment'

@@ -1,0 +1,21 @@
+.dropdown{
+	display: flex;
+	align-items: center;
+	line-height: 24px;
+	
+	&__icon{
+		margin-left: 16px;
+		width:16px;
+		height: 16px;
+		cursor: pointer;
+		display: flex;
+    justify-content: center;
+    align-items: center;
+	}
+	&--box{
+		border: 1px solid #dfe1eb;
+		box-shadow: 0 3px 6px 0 rgba(0,0,0,0.06);
+		padding: 8px 24px;
+		border-radius: 6px;
+	}
+}

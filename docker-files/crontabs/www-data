@@ -1,0 +1,4 @@
+# m h dom mon dow  command
+
+# Example cron
+# */5 * * * * /var/www/bin/console app:example:command -vvv

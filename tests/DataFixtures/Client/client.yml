@@ -1,0 +1,7 @@
+'\App\Entity\Client':
+  client_1:
+    firstName: 'Roger'
+    lastName: 'Berry'
+  client_2:
+    firstName: 'Lucy'
+    lastName: 'Cechtelar'

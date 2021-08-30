@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Faktura</title>
+
+	<style>
+		html, body{
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.container{
+			padding: 24px;
+		}
+		.header{
+			border-bottom: 1px solid rgb(187, 187, 187);
+			padding-bottom: 24px;
+		}
+		.logo{
+			width:180px;
+			object-fit: contain;
+			margin-left:auto;
+			display: block;
+		}
+		.heading{
+			background-color: #FCDE51;
+			display:inline-block;
+			padding-left: 6px;
+			padding-right: 6px;
+			font-weight: 400;
+			color: #4E4F4D;
+			margin:0;
+		}
+		.main{
+			margin-top:40px;
+		}
+		.heading--xl{
+			font-size:26px;
+		}
+		.heading--lg{
+			font-size:20px;
+		}
+		.content{
+			font-size:12px;
+			line-height:1.5;
+		}
+		.content p{margin:0}
+
+		.mt-4{margin-top: 10px}
+		.mt-6{margin-top: 15px}
+		.mt-8{margin-top: 20px}
+		.mt-10{margin-top: 26px}
+		.mt-16{margin-top: 40px}
+		.mt-22{margin-top: 54px}
+		.w-48{width:120px}
+		.inline-block{display:inline-block}
+		.text-center{text-align: center;}
+		.text-right{text-align: right;}
+		.text-red{color: #DD0000}
+
+		.w-1\/2{
+			float: left;
+			width: 50%;
+		}
+		.w-1\/3{
+			float: left;
+			width: 33.333333332%;
+		}
+		.float-left{ float:left }
+
+		.w-full{width:100%}
+
+		.clear{
+			clear:both;
+		}
+
+		table{
+			border-collapse:collapse;
+			text-align:left;
+		}
+		th{
+			background: #FCDE51;
+			padding:6px;
+			color: #4E4F4D;
+			white-space: nowrap;
+			border-bottom: 1px solid rgb(187, 187, 187);
+			font-size:12px;
+		}
+		td{
+			padding:6px;
+			vertical-align: top;
+			font-size: 12px;
+		}
+		th:not(:last-child), td:not(:last-child){ padding-right: 16px }
+		tfoot{
+			border-top: 1px solid rgb(187, 187, 187);
+		}
+
+		.custom-tile{
+			box-shadow: inset 1px 0 0 rgb(187, 187, 187);
+			padding-left: 32px;
+			width: 40%;
+			height: 50px;
+			float: left;
+		}
+
+		a{text-decoration: none;color:inherit}
+		.footer{
+			border-top: 1px solid rgb(187, 187, 187);
+			padding-top:4px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<img src="{{ image_base64('templates/invoice/logo.png') }}" class="logo">
+		</div>
+
+		<div class="main">
+			<h1 class="heading heading--xl">Faktura VAT numer FV/115/07/2021</h1>
+			<div class="content mt-4">
+				<p><span class="w-48 inline-block">Data wystawienia:</span> 27.07.2021</p>
+				<p><span class="w-48 inline-block">Data dostawy/usługi:</span> 27.07.2021</p>
+				<p><b><span class="w-48 inline-block">Termin płatności:</span> 30.07.2021</b></p>
+				<p><span class="w-48 inline-block">Miejsce wystawienia:</span> Warszawa</p>
+			</div>
+			<div class="row">
+				<div class="w-1/2 mt-16">
+					<h2 class="heading heading--lg">Sprzedawca</h2>
+					<div class="content mt-4">
+						<p>IDEA Commerce S.A</p>
+						<p>Mokotowska 1</p>
+						<p>00-640 Warszawa</p>
+						<p>NIP: 7010682602</p>
+					</div>
+				</div>
+				<div class="w-1/2 mt-16">
+					<h2 class="heading heading--lg">Nabywca</h2>
+					<div class="content mt-4">
+						<p>CLOTH SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</p>
+						<p>ul. Pomorska 6-8</p>
+						<p>85-050 Bydgoszcz</p>
+						<p>NIP: 9532776071</p>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+
+			<table class="mt-8 w-full">
+				<thead>
+					<tr>
+						<th>Lp.</th>
+						<th>Nazwa towaru / usługi</th>
+						<th>Ilość</th>
+						<th>Jm.</th>
+						<th>Cena jedn. netto</th>
+						<th>Wartość netto</th>
+						<th>Podatek</th>
+						<th>Wartość VAT</th>
+						<th>Wartość brutto</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Refaktura: Moduł "OneStepCheckoit	Magento Community License M2"</td>
+						<td class="text-right">1,000</td>
+						<td class="text-right">szt.</td>
+						<td class="text-right">2 224,11 zł</td>
+						<td class="text-right">2 224,11 zł</td>
+						<td class="text-right">23%</td>
+						<td class="text-right">511,55 zł</td>
+						<td class="text-right">2 735,66 zł</td>
+					</tr>
+				</tbody>
+
+				<tfoot>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="text-right"><b>RAZEM:</b></td>
+						<td class="text-right"><b>2 224,11 zł</b></td>
+						<td></td>
+						<td class="text-right"><b>511,55 zł</b></td>
+						<td class="text-right"><b>2 735,66 zł</b></td>
+					</tr>
+				</tfoot>
+			</table>
+
+			<table class="mt-8 w-full">
+				<thead>
+					<tr>
+						<th>Lp.</th>
+						<th class="text-center">Podatek</th>
+						<th class="text-center">Podstawa</th>
+						<th class="text-center">Wartość</th>
+						<th class="text-right">Wartość brutto</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td class="text-center">VAT-23% od netto</td>
+						<td class="text-center">2 224,11 zł</td>
+						<td class="text-center">511,55 zł</td>
+						<td class="text-right">2 735,66 zł</td>
+					</tr>
+				</tbody>
+
+			</table>
+
+			<h5 class="mt-16 mb-0" style="font-size:16px">Razem do zapłaty: 2 735,66 zł</h5>
+			<div class="content">
+				<p><div class="w-48 inline-block float-left"><b>Słownie:</b> </div><div class="float-left">Dwa tysiące siedemset trzydzieści pięć złotych sześćdziesiąt<br>sześć groszy</div></p>
+				<div class="clear"></div>
+				<p><span class="w-48 inline-block"><b>Wpłacono: </b></span>0,00 zł</p>
+				<div><span class="w-48 inline-block float-left"><b>Pozostało do <br>zapłaty:</b> </span><div class="float-left">2 735,66 zł</div></div>
+				<div class="clear"></div>
+				<p><span class="inline-block"><b>Bank:</b></span> PL66 1140 2088 0000 3548 7500 1001 (mBank)</p>
+			</div>
+			<p class="mt-10"><b class="text-red">UWAGA: nowy numer konta</b></p>
+			<div class="content mt-10">
+				<p><span class="w-48 inline-block"><b>SWIFT:</b></span> </p>
+				<div class="mt-4"><p><span class="w-48 inline-block"><b>Warunki płatności:</b> </span> W ciągu 3 dni</p></div>
+			</div>
+
+			<div class="row">
+				<div class="w-1/2 mt-16 content">
+					<p>Wystawił: Łukasz Ciesiński</p>
+				</div>
+				<div class="custom-tile mt-16 content">
+					<p>Osoba upoważniona do odbioru: Kazimierz Jasiński</p>
+				</div>
+			</div>
+			<div class="clear"></div>
+
+		</div>
+
+		<div class="footer mt-22">
+			<div class="w-1/3 content">
+				<p><span class="inline-block">Tel:</span> <a href="tel:+48 22 243 43 11">+48 22 243 43 11</a></p>
+				<p><span class="inline-block">E-mail:</span> <a href="mailto:biuro@idea-commerce.com">biuro@idea-commerce.com</a></p>
+				<p><span class="inline-block">WWWW:</span> <a href="http://www.idea-commerce.com" target="_blank">http://www.idea-commerce.com</a></p>
+				<p><span class="inline-block">NIP:</span> 7010682602</p>
+			</div>
+			<div class="w-1/3 content text-center">
+				<div class="mt-22">
+					<p>Strona: 1 / 1</p>
+				</div>
+			</div>
+			<div class="w-1/3 content text-right">
+				<p>Wygenerowano w systemie IDEAerp</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

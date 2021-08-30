@@ -1,0 +1,6 @@
+'\App\Entity\ExternalApiConfig':
+  external_api_config_1:
+    client: '@client_1'
+    url: 'https://berryroger.idea-commerce.com/api/v3'
+    login: 'berryroger'
+    password: 'YLb61z7oyl3Dgbi9ycIG'

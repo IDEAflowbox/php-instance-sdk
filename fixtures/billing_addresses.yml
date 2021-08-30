@@ -1,0 +1,13 @@
+'\App\Entity\BillingAddress':
+  billing_address_1:
+    client: '@client_1'
+    firstName: 'Edward'
+    lastName: 'Blanton'
+    companyName: 'Western Auto'
+    email: 'edward.blanton@example.com'
+    taxId: '8226550452'
+    city: 'Huntsville'
+    zipCode: '35-802'
+    street: 'New Creek Road'
+    propertyNumber: '3114'
+    country: 'USA'

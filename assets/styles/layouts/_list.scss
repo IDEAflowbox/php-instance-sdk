@@ -1,0 +1,155 @@
+// .list{
+// 	list-style: none;
+// 	padding:0;
+// 	margin-bottom:0;
+
+// 	&-header{
+// 		background: #F7F7F7;
+// 		padding: 12px 16px;
+// 		font-size: 14px;
+// 		font-weight: 800;
+// 		text-transform: uppercase;
+// 		letter-spacing: 2px;
+// 	}
+// 	&-item{
+// 		display: flex;
+// 		padding: 16px 0;
+// 		border-bottom: 1px solid #DFE1EB;
+// 		&__title{
+// 			color: #717380;
+// 			font-size: $fs_sm;
+// 			font-weight: 400;
+// 		}
+// 		&__value{
+// 			color: #151408;
+// 			font-weight: 600;
+// 			font-size: $fs_sm;
+// 			flex: 1;
+// 			text-align: right;
+// 		}
+// 		&--lg{
+// 			padding-right:16px;
+// 			.list-item__title{
+// 				font-weight: bold;
+// 				font-size: $fs_base;
+// 			}
+// 			.list-item__value{
+// 				font-size: $fs_base;
+// 				font-weight: bold;
+// 			}
+// 		}
+// 	}
+// }
+
+
+// @media (min-width: 768px){
+// 	.list-item{
+// 		padding: 16px;
+
+// 		.list-item__title{
+// 			width: 240px;
+// 			font-size: $fs_base;
+// 		}
+// 		.list-item__value{
+// 			text-align:left;
+// 			font-size: $fs_base;
+// 		}
+
+// 		&--lg{
+// 			.list-item__title{
+// 				font-size: $fs_lg;
+// 			}
+// 			.list-item__value{
+// 				font-size: $fs_lg;
+// 			}
+// 		}
+// 	}
+// }
+
+// @media (min-width: 1280px){
+// 	.list{
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 		justify-content: space-between;
+// 		&-item{
+// 			width: calc(50% - 20px);
+// 			&__value--green{
+// 				color: #219653;
+// 				font-weight:700;
+// 			}
+// 			&__value--red{
+// 				color: #b32020;
+// 				font-weight:700;
+// 			}
+// 		}
+// 	}
+// }
+
+
+.list-header{
+	background: #F7F7F7;
+	padding: 12px 16px;
+	font-size: 14px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.list-item{
+	padding: 16px 0;
+	&__title{
+		color: #717380;
+		font-size: $fs_sm;
+		font-weight: 400;
+	}
+	&__value{
+		color: #151408;
+		font-weight: 600;
+		font-size: $fs_sm;
+		flex: 1;
+		text-align: right;
+	}
+	&--lg{
+		padding-right:16px;
+		.list-item__title{
+			font-weight: bold;
+			font-size: $fs_base;
+		}
+		.list-item__value{
+			font-size: $fs_base;
+			font-weight: bold;
+		}
+	}
+}
+
+
+@media (min-width: 768px){
+	.list-item{
+		padding: 16px;
+		&__title{
+			font-size: $fs_base;
+			width: 240px;
+		}
+		&__value{
+			text-align:left;
+			font-size: $fs_base;
+		}
+		&--lg{
+			.list-item__title{
+				font-size: $fs_lg;
+			}
+			.list-item__value{
+				font-size: $fs_lg;
+			}
+		}
+	}
+}
+
+@media (min-width: 1280px){
+	.list-item{
+		&__value--green{
+			color: #219653;
+			font-weight:700;
+		}
+	}
+}

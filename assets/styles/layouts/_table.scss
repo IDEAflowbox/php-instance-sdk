@@ -1,0 +1,184 @@
+.table{
+	width: 100%;
+	thead{
+		text-align: left;
+		color: #6F6E68;
+		text-transform: uppercase;
+		font-weight: 400;
+		th{
+			padding-right:16px;
+			font-size: $fs_sm;
+		}
+	}
+	tbody{
+		td{
+			vertical-align: baseline;
+			border-bottom: 1px solid #DFE1EB;
+			padding: 24px 0;
+			font-size: $fs_sm;
+			padding-right: 16px;
+		}
+		&.tbody--base{
+			td{
+				font-size: $fs_base;
+			}
+		}
+	}
+}
+
+.table-link{
+	font-weight:bold;
+	color: #858580;
+}
+.table-icon{
+	width: 16px;
+	height: 16px;
+	margin-right:8px;
+	img,svg{
+		width:100%;
+		height:100%;
+		object-fit: contain;
+	}
+}
+
+.table__adnotation{
+	text-transform: uppercase;
+	color: #8F92A0;
+	font-size: $fs_sm;
+	span{
+		color: #151408;
+	}
+}
+
+
+.pseudo-table{
+	&-row{
+		display: flex;
+
+		&__item--heading{
+			text-align: left;
+			color: #6F6E68;
+			text-transform: uppercase;
+			font-weight: 600;
+		}
+		&--tile{
+			background: #fff;
+			box-shadow: 0px 3px 6px 0 rgb(0 0 0 / 0.06);
+			border: 1px solid #DFE1EB;
+			padding: 14px 0;
+			border-radius: 6px;
+			margin-bottom: 16px;
+			.pseudo-table-row__item:nth-child(1){
+				padding-left: 24px;
+
+			}
+			.pseudo-table-row__item:last-child{
+				padding-right: 24px;
+			}
+		}
+	}
+	&-icon{
+		width: 16px;
+		height: 16px;
+		object-fit: contain;
+	}
+}
+
+.pseudo-table--clients{
+	.pseudo-table-row__item{
+		&:nth-child(1){	width: 20% }
+		&:nth-child(2){	width: 20% }
+		&:nth-child(3){	width: 20% }
+		&:nth-child(4){	width: 20% }
+		&:nth-child(5){	width: 20% }
+	}
+}
+
+.pseudo-table--logs{
+	.pseudo-table-row__item{
+		&:nth-child(1){	width: 20% }
+		&:nth-child(2){	width: 25% }
+		&:nth-child(3){	width: 20% }
+		&:nth-child(4){	width: 20% }
+		&:nth-child(5){	width: 15% }
+	}
+}
+
+
+@media (min-width: 768px){
+	.table{
+		tbody{
+			td{
+				border-bottom: 1px solid transparent;
+			}
+		}
+	}
+	// .table--row-tiles{
+	// 	border-collapse: collapse;
+	// 	tbody tr{
+	// 		td{
+	// 			background: #fff;
+	// 			border-top: 1px solid #DFE1EB;
+	// 			border-bottom: 1px solid #DFE1EB;
+	// 		}
+	// 		td:nth-child(1){
+	// 			padding-left: 24px;
+	// 			border-top-left-radius: 6px;
+	// 			border-bottom-left-radius: 6px;
+	// 			border: 1px solid #DFE1EB;
+	// 			border-right: none;
+	// 		}
+	// 		td:last-child{
+	// 			padding-right: 24px;
+	// 			border-top-right-radius: 6px;
+	// 			border-bottom-right-radius: 6px;
+	// 			border: 1px solid #DFE1EB;
+	// 			border-left: none;
+	// 		}
+	// 	}
+	// }
+}
+@media (min-width: 1280px){
+	.table{
+		tbody{
+			&:before {
+				content:"@";
+				display:block;
+				line-height:12px;
+				text-indent:-99999px;
+			}
+			td{ 
+				font-size: $fs_base;
+				
+				padding: 12px 0;
+			}
+		}
+	}
+
+	.table--invoices{
+		thead tr{
+			th:nth-child(2){
+				width: 20%;
+			}
+			th:nth-child(3){
+				width: 15%;
+			}
+			th:nth-child(4){
+				width: 15%;
+			}
+			th:nth-child(5){
+				width: 10%;
+			}
+		}
+	}
+	.table--payments{
+		thead tr{
+			th:nth-child(2){
+				width: 50%;
+			}
+			th:nth-child(3){
+				width: 15%;
+			}
+		}
+	}
+}

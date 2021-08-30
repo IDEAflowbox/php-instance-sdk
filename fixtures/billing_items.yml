@@ -1,0 +1,19 @@
+'\App\Entity\BillingItem':
+  billing_item_1:
+    client: '@client_1'
+    name: 'User analytics data'
+    quantity: 30
+    unitPrice: 5000
+    valueNet: 150000
+    valueVat: 34500
+    valueGross: 184500
+    vatRate: 23
+  billing_item_2:
+    client: '@client_1'
+    name: 'Products recommendation'
+    quantity: 5
+    unitPrice: 15000
+    valueNet: 75000
+    valueVat: 34500
+    valueGross: 922500
+    vatRate: 23

@@ -1,0 +1,9 @@
+knp_gaufrette:
+  stream_wrapper: ~
+  adapters:
+    invoices_local_file_adapter:
+      local:
+        directory: '%kernel.project_dir%/var/data/invoices'
+  filesystems:
+    invoices_fs:
+      adapter: invoices_local_file_adapter
