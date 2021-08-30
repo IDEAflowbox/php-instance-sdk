@@ -6,6 +6,7 @@ stages:
 
 variables:
   COMPOSER_MEMORY_LIMIT: -1
+  DOCKER_HOST: tcp://localhost:2375/
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
