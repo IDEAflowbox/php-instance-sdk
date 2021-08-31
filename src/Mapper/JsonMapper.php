@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Mapper;
 
-use Cyberkonsultant\Inflector;
-
 class JsonMapper
 {
     /**
