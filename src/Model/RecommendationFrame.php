@@ -80,6 +80,28 @@ class RecommendationFrame
         return $recommendationFrame;
     }
 
+    public static function update(
+        string $id,
+        string $name,
+        string $xpath,
+        string $frame_type,
+        int $number_of_products,
+        ?string $group_id = null,
+        ?string $custom_html = null,
+        ?array $configuration = []
+    ): self {
+        $recommendationFrame = new self();
+        $recommendationFrame->id = $id;
+        $recommendationFrame->name = $name;
+        $recommendationFrame->xpath = $xpath;
+        $recommendationFrame->frame_type = $frame_type;
+        $recommendationFrame->number_of_products = $number_of_products;
+        $recommendationFrame->group_id =  $group_id;
+        $recommendationFrame->custom_html = $custom_html;
+        $recommendationFrame->configuration = $configuration;
+        return $recommendationFrame;
+    }
+
     public static function createAdvanced(
         string $name,
         string $xpath,

@@ -69,8 +69,7 @@ class Shop
      */
     public function updateUser(User $user): User
     {
-        $response = $this->cyberkonsultant->patch('/shop/users', ['json' => [
-            'user_id' => $user->id,
+        $response = $this->cyberkonsultant->put(sprintf('/shop/users/%s', $user->id), ['json' => [
             'username' => $user->username,
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
@@ -244,6 +243,26 @@ class Shop
     public function createRecommendationFrame(RecommendationFrame $recommendationFrame): RecommendationFrame
     {
         $response = $this->cyberkonsultant->post('/shop/frames', ['json' => [
+            'name' => $recommendationFrame->name,
+            'group_id' => $recommendationFrame->group_id,
+            'frame_type' => $recommendationFrame->frame_type,
+            'number_of_products' => $recommendationFrame->number_of_products,
+            'custom_html' => $recommendationFrame->custom_html,
+            'xpath' => $recommendationFrame->xpath,
+            'configuration' => count($recommendationFrame->configuration) ? $recommendationFrame->configuration : null,
+        ]]);
+
+        return $this->cyberkonsultant->map($response->getBody()->getContents(), RecommendationFrame::class);
+    }
+
+    /**
+     * @param RecommendationFrame $recommendationFrame
+     * @return RecommendationFrame
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateRecommendationFrame(RecommendationFrame $recommendationFrame): RecommendationFrame
+    {
+        $response = $this->cyberkonsultant->put(sprintf('/shop/frames/%s', $recommendationFrame->id), ['json' => [
             'name' => $recommendationFrame->name,
             'group_id' => $recommendationFrame->group_id,
             'frame_type' => $recommendationFrame->frame_type,

@@ -57,3 +57,4 @@ Poniższe przykłady demonstrują w jaki sposób można wykorzystać bibliotekę
     - [Pobierz listę ramek rekomendacyjnych](./examples/get-recommendation-frames.php)
     - [Utwórz prostą ramkę rekomendacyjną](./examples/create-simple-recommendation-frame.php)
     - [Utwórz zaawansowaną ramkę rekomendacyjną](./examples/create-advanced-recommendation-frame.php)
+    - [Zaktualizuj ramkę rekomendacyjną](./examples/update-recommendation-frame.php)
