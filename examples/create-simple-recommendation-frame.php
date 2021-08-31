@@ -29,7 +29,8 @@ try {
                     'height' => '300px',
                     'border_weight' => '2px',
                     'border_color' => '#000'
-                ]
+                ],
+                'group_id' => "90a42fc6-5dc0-4e92-93d1-0d704e2f4166",
             ]
         ))
     );

@@ -245,7 +245,12 @@ class Shop
     {
         $response = $this->cyberkonsultant->post('/shop/frames', ['json' => [
             'name' => $recommendationFrame->name,
-            'options' => $recommendationFrame->options,
+            'group_id' => $recommendationFrame->group_id,
+            'frame_type' => $recommendationFrame->frame_type,
+            'number_of_products' => $recommendationFrame->number_of_products,
+            'custom_html' => $recommendationFrame->custom_html,
+            'xpath' => $recommendationFrame->xpath,
+            'configuration' => count($recommendationFrame->configuration) ? $recommendationFrame->configuration : null,
         ]]);
 
         return $this->cyberkonsultant->map($response->getBody()->getContents(), RecommendationFrame::class);
