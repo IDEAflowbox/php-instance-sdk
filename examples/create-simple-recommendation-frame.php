@@ -7,31 +7,61 @@ $shop = $sdk->getShopScope();
 
 try {
     dump(
-        $shop->createRecommendationFrame(\Cyberkonsultant\Model\RecommendationFrame::create(
-            'Test recommendation frame',
+        $shop->createRecommendationFrame(\Cyberkonsultant\Model\RecommendationFrame::createSimple(
+            'Simple frame test',
+            '/html/body/div[3]/div/div[3]',
+            16,
             [
-                'embedding' => [
-                    'xpath' => '/html/body/div[3]/div/div[3]'
-                ],
                 'matrix' => [
                     'columns' => 8,
-                    'rows' => 2
+                    'rows' => 2,
                 ],
-                'product_view' => 'complex',
-                'number_of_products' => 16,
+                'enabled_elements' => [
+                    'thumbnail' => true,
+                    'button' => true,
+                    'contents' => true,
+                ],
                 'navigation' => [
-                    'enabled' => true,
-                    'style' => 'shape_1',
-                    'width' => '32px'
+                    'size' => '32px',
+                    'style' => 'shape_3',
+                    'color' => '#000',
                 ],
-                'container' => [
-                    'width' => '100%',
-                    'height' => '300px',
-                    'border_weight' => '2px',
-                    'border_color' => '#000'
+                'text' => [
+                    'product_contents' => '{{nazwa}} {{opis}}',
+                    'button' => '<strong>Kup teraz!</strong>',
                 ],
-                'group_id' => "90a42fc6-5dc0-4e92-93d1-0d704e2f4166",
-            ]
+                'frame' => [
+                    'dimensions' => [
+                        'width' => '100%',
+                        'height' => '300px',
+                        'margin_top' => '0',
+                        'margin_bottom' => '0',
+                        'margin_side' => '0',
+                        'space_between_elements' => '0',
+                    ],
+                    'border_radius' => 0,
+                    'style' => [
+                        'background_color' => '#000',
+                        'border_color' => '#000',
+                        'border_color_on_hover' => '#000',
+                    ],
+                    'image_style' => [
+                        'height' => '120px',
+                        'background_color' => '#fff',
+                    ],
+                    'button' => [
+                        'dimensions' => [
+                            'width' => 'auto',
+                            'height' => 'auto',
+                        ],
+                        'border_radius' => 0,
+                        'position' => 'center',
+                        'background_color' => '#000',
+                        'text_color' => '#fff',
+                    ],
+                ],
+            ],
+            "90a42fc6-5dc0-4e92-93d1-0d704e2f4166"
         ))
     );
 } catch (\GuzzleHttp\Exception\ClientException $e) {

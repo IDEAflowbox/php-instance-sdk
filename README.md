@@ -55,4 +55,5 @@ Poniższe przykłady demonstrują w jaki sposób można wykorzystać bibliotekę
     - [Pobierz listę kodów produktów wszystkich produktów dla grupy](./examples/get-group-products-codes.php)
 - **Ramki rekomendacyjne**
     - [Pobierz listę ramek rekomendacyjnych](./examples/get-recommendation-frames.php)
-    - [Utwórz ramkę rekomendacyjną](./examples/create-recommendation-frame.php)
+    - [Utwórz prostą ramkę rekomendacyjną](./examples/create-simple-recommendation-frame.php)
+    - [Utwórz zaawansowaną ramkę rekomendacyjną](./examples/create-advanced-recommendation-frame.php)
