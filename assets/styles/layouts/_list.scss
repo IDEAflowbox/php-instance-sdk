@@ -131,8 +131,10 @@
 			width: 240px;
 		}
 		&__value{
-			text-align:left;
 			font-size: $fs_base;
+		}
+		&__value:not(.text-right){
+			text-align:left;
 		}
 		&--lg{
 			.list-item__title{
@@ -141,6 +143,9 @@
 			.list-item__value{
 				font-size: $fs_lg;
 			}
+		}
+		&__value--lg{
+			font-size: $fs_lg;
 		}
 	}
 }

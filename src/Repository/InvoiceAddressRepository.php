@@ -27,7 +27,7 @@ class InvoiceAddressRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('i')
             ->andWhere('i.invoice = :invoice')
-            ->setParameter('invoice', $invoice->getId()->toBinary())
+            ->setParameter('invoice', $invoice->getId(), 'uuid')
             ->orderBy('i.createdAt', 'ASC')
             ->getQuery()
             ->getResult()
@@ -40,7 +40,7 @@ class InvoiceAddressRepository extends ServiceEntityRepository
     ): ?InvoiceAddress {
         return $this->createQueryBuilder('i')
             ->andWhere('i.invoice = :invoice')
-            ->setParameter('invoice', $invoice->getId()->toBinary())
+            ->setParameter('invoice', $invoice->getId(), 'uuid')
             ->andWhere('i.type = :type')
             ->setParameter('type', $type)
             ->setMaxResults(1)

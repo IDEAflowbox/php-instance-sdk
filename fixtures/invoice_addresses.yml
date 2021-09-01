@@ -1,5 +1,5 @@
 '\App\Entity\InvoiceAddress':
-  invoice_address_1:
+  invoice_1_address_1:
     invoice: '@invoice_1'
     type: 'customer'
     firstName: 'Edward'
@@ -12,8 +12,34 @@
     street: 'New Creek Road'
     propertyNumber: '3114'
     country: 'USA'
-  invoice_address_2:
+  invoice_1_address_2:
     invoice: '@invoice_1'
+    type: 'issuer'
+    firstName: 'Cody'
+    lastName: 'Nelson'
+    companyName: 'Playworld'
+    email: 'cody.nelson@example.com'
+    taxId: '1246317873'
+    city: 'Lewiston'
+    zipCode: '83-501'
+    street: 'Dane Street'
+    propertyNumber: '3137'
+    country: 'USA'
+  invoice_2_address_1:
+    invoice: '@invoice_2'
+    type: 'customer'
+    firstName: 'Edward'
+    lastName: 'Blanton'
+    companyName: 'Western Auto'
+    email: 'edward.blanton@example.com'
+    taxId: '8226550452'
+    city: 'Huntsville'
+    zipCode: '35-802'
+    street: 'New Creek Road'
+    propertyNumber: '3114'
+    country: 'USA'
+  invoice_2_address_2:
+    invoice: '@invoice_2'
     type: 'issuer'
     firstName: 'Cody'
     lastName: 'Nelson'

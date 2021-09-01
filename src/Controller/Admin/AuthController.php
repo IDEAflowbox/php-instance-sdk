@@ -9,6 +9,12 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AuthController extends AbstractController
 {
+    #[Route('/admin', name: 'admin_home')]
+    public function index(): Response
+    {
+        return $this->redirectToRoute('admin_client_list');
+    }
+
     #[Route('/admin/auth', name: 'admin_auth_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {

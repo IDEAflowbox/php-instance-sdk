@@ -17,7 +17,7 @@ class BillingAddress
     use TimestampableTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="billingAddresses")
+     * @ORM\OneToOne(targetEntity=Client::class, inversedBy="billingAddresses")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private ?Client $client = null;

@@ -24,8 +24,24 @@ class InvoiceItemRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('i')
             ->andWhere('i.invoice = :invoice')
-            ->setParameter('invoice', $invoice->getId()->toBinary())
+            ->setParameter('invoice', $invoice->getId(), 'uuid')
             ->orderBy('i.createdAt', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getVatSummaryByInvoice(Invoice $invoice)
+    {
+        return $this->createQueryBuilder('i')
+            ->select(
+                'SUM(i.valueVat) as valueVat',
+                'SUM(i.valueNet) as valueNet',
+                'SUM(i.valueGross) as valueGross',
+                'i.vatRate as vatRate'
+            )
+            ->andWhere('i.invoice = :invoice')
+            ->setParameter('invoice', $invoice->getId(), 'uuid')
+            ->groupBy('i.vatRate')
             ->getQuery()
             ->getResult();
     }

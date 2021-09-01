@@ -37,9 +37,9 @@ class Client
     private Collection $invoices;
 
     /**
-     * @ORM\OneToMany(targetEntity=BillingAddress::class, mappedBy="client", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=BillingAddress::class, mappedBy="client")
      */
-    private Collection $billingAddresses;
+    private ?BillingAddress $billingAddress = null;
 
     /**
      * @ORM\OneToMany(targetEntity=BillingItem::class, mappedBy="client", cascade={"persist"})
@@ -60,7 +60,6 @@ class Client
     {
         $this->users = new ArrayCollection();
         $this->invoices = new ArrayCollection();
-        $this->billingAddresses = new ArrayCollection();
         $this->billingItems = new ArrayCollection();
     }
 
@@ -100,14 +99,14 @@ class Client
         return $this;
     }
 
-    public function getBillingAddresses(): Collection
+    public function getBillingAddress(): ?BillingAddress
     {
-        return $this->billingAddresses;
+        return $this->billingAddress;
     }
 
-    public function setBillingAddresses(Collection $billingAddresses): self
+    public function setBillingAddress(?BillingAddress $billingAddress): self
     {
-        $this->billingAddresses = $billingAddresses;
+        $this->billingAddress = $billingAddress;
 
         return $this;
     }

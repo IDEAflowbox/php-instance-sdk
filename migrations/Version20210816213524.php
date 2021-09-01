@@ -20,7 +20,7 @@ final class Version20210816213524 extends AbstractMigration
         $this->addSql('CREATE UNIQUE INDEX UNIQ_58DF0651E7927C74 ON administrator (email)');
         $this->addSql('COMMENT ON COLUMN administrator.id IS \'(DC2Type:uuid)\'');
         $this->addSql('CREATE TABLE billing_address (id UUID NOT NULL, client_id UUID NOT NULL, first_name VARCHAR(255) DEFAULT NULL, last_name VARCHAR(255) DEFAULT NULL, company_name VARCHAR(255) DEFAULT NULL, email VARCHAR(255) DEFAULT NULL, tax_id VARCHAR(255) DEFAULT NULL, city VARCHAR(255) DEFAULT NULL, zip_code VARCHAR(255) DEFAULT NULL, street VARCHAR(255) DEFAULT NULL, property_number VARCHAR(30) DEFAULT NULL, country VARCHAR(255) DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE INDEX IDX_6660E45619EB6921 ON billing_address (client_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_6660E45619EB6921 ON billing_address (client_id)');
         $this->addSql('COMMENT ON COLUMN billing_address.id IS \'(DC2Type:uuid)\'');
         $this->addSql('COMMENT ON COLUMN billing_address.client_id IS \'(DC2Type:uuid)\'');
         $this->addSql('CREATE TABLE billing_item (id UUID NOT NULL, client_id UUID NOT NULL, name VARCHAR(255) DEFAULT NULL, quantity INT DEFAULT NULL, unit_price INT DEFAULT NULL, value_net INT DEFAULT NULL, value_vat INT DEFAULT NULL, value_gross INT DEFAULT NULL, vat_rate INT DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');

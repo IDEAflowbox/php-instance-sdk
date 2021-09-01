@@ -14,7 +14,7 @@ class InvoicePdfReader implements InvoicePdfReaderInterface
 
     public function read(Invoice $invoice): ?string
     {
-        if (null !== $invoice->getFileName() && !$this->invoicesFs->has($invoice->getFileName())) {
+        if (empty($invoice->getFileName()) || !$this->invoicesFs->has($invoice->getFileName())) {
             return null;
         }
 

@@ -60,11 +60,11 @@
 		.text-right{text-align: right;}
 		.text-red{color: #DD0000}
 
-		.w-1\/2{
+		.w-12{
 			float: left;
 			width: 50%;
 		}
-		.w-1\/3{
+		.w-13{
 			float: left;
 			width: 33.333333332%;
 		}
@@ -120,30 +120,30 @@
 		</div>
 
 		<div class="main">
-			<h1 class="heading heading--xl">Faktura VAT numer FV/115/07/2021</h1>
+			<h1 class="heading heading--xl">Faktura VAT numer {{ invoice.number }}</h1>
 			<div class="content mt-4">
-				<p><span class="w-48 inline-block">Data wystawienia:</span> 27.07.2021</p>
-				<p><span class="w-48 inline-block">Data dostawy/usługi:</span> 27.07.2021</p>
-				<p><b><span class="w-48 inline-block">Termin płatności:</span> 30.07.2021</b></p>
+				<p><span class="w-48 inline-block">Data wystawienia:</span> {{ invoice.issuedAt|date('d-m-Y') }}</p>
+				<p><span class="w-48 inline-block">Data dostawy/usługi:</span> {{ invoice.deliveryDate|date('d-m-Y') }}</p>
+				<p><b><span class="w-48 inline-block">Termin płatności:</span> {{ invoice.dueDate|date('d-m-Y') }}</b></p>
 				<p><span class="w-48 inline-block">Miejsce wystawienia:</span> Warszawa</p>
 			</div>
-			<div class="row">
-				<div class="w-1/2 mt-16">
+			<div class="row mt-4">
+				<div class="w-12">
 					<h2 class="heading heading--lg">Sprzedawca</h2>
 					<div class="content mt-4">
-						<p>IDEA Commerce S.A</p>
-						<p>Mokotowska 1</p>
-						<p>00-640 Warszawa</p>
-						<p>NIP: 7010682602</p>
+						<p>{{ issuer.companyName }}</p>
+						<p>{{ issuer.street }} {{ issuer.propertyNumber }}</p>
+						<p>{{ issuer.zipCode }} {{ issuer.city }}</p>
+						<p>NIP: {{ issuer.taxId }}</p>
 					</div>
 				</div>
-				<div class="w-1/2 mt-16">
+				<div class="w-12">
 					<h2 class="heading heading--lg">Nabywca</h2>
 					<div class="content mt-4">
-						<p>CLOTH SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</p>
-						<p>ul. Pomorska 6-8</p>
-						<p>85-050 Bydgoszcz</p>
-						<p>NIP: 9532776071</p>
+						<p>{{ customer.companyName }}</p>
+						<p>{{ customer.street }} {{ customer.propertyNumber }}</p>
+						<p>{{ customer.zipCode }} {{ customer.city }}</p>
+						<p>NIP: {{ customer.taxId }}</p>
 					</div>
 				</div>
 			</div>
@@ -165,17 +165,19 @@
 				</thead>
 				
 				<tbody>
+					{% for item in invoice.items %}
 					<tr>
-						<td>1</td>
-						<td>Refaktura: Moduł "OneStepCheckoit	Magento Community License M2"</td>
-						<td class="text-right">1,000</td>
+						<td>{{ loop.index }}</td>
+						<td>{{ item.name }}</td>
+						<td class="text-right">{{ item.quantity }}</td>
 						<td class="text-right">szt.</td>
-						<td class="text-right">2 224,11 zł</td>
-						<td class="text-right">2 224,11 zł</td>
-						<td class="text-right">23%</td>
-						<td class="text-right">511,55 zł</td>
-						<td class="text-right">2 735,66 zł</td>
+						<td class="text-right">{{ item.unitPrice|price_format }} zł</td>
+						<td class="text-right">{{ item.valueNet|price_format }} zł</td>
+						<td class="text-right">{{ item.vatRate }}%</td>
+						<td class="text-right">{{ item.valueVat|price_format }} zł</td>
+						<td class="text-right">{{ item.valueGross|price_format }} zł</td>
 					</tr>
+					{% endfor %}
 				</tbody>
 
 				<tfoot>
@@ -185,10 +187,10 @@
 						<td></td>
 						<td></td>
 						<td class="text-right"><b>RAZEM:</b></td>
-						<td class="text-right"><b>2 224,11 zł</b></td>
+						<td class="text-right"><b>{{ invoice.valueNet|price_format }} zł</b></td>
 						<td></td>
-						<td class="text-right"><b>511,55 zł</b></td>
-						<td class="text-right"><b>2 735,66 zł</b></td>
+						<td class="text-right"><b>{{ invoice.valueVat|price_format }} zł</b></td>
+						<td class="text-right"><b>{{ invoice.valueGross|price_format }} zł</b></td>
 					</tr>
 				</tfoot>
 			</table>
@@ -205,59 +207,64 @@
 				</thead>
 				
 				<tbody>
+					{% for rate in vatSummary %}
 					<tr>
-						<td>1</td>
-						<td class="text-center">VAT-23% od netto</td>
-						<td class="text-center">2 224,11 zł</td>
-						<td class="text-center">511,55 zł</td>
-						<td class="text-right">2 735,66 zł</td>
+						<td>{{ loop.index }}</td>
+						<td class="text-center">VAT-{{ rate.vatRate }}% od netto</td>
+						<td class="text-center">{{ rate.valueNet|price_format }} zł</td>
+						<td class="text-center">{{ rate.valueVat|price_format }}  zł</td>
+						<td class="text-right">{{ rate.valueGross|price_format }} zł</td>
 					</tr>
+					{% endfor %}
 				</tbody>
-
 			</table>
 
-			<h5 class="mt-16 mb-0" style="font-size:16px">Razem do zapłaty: 2 735,66 zł</h5>
+			<h5 class="mt-16 mb-0" style="font-size:16px">Razem do zapłaty: {{ invoice.valueGross|price_format }} zł</h5>
 			<div class="content">
-				<p><div class="w-48 inline-block float-left"><b>Słownie:</b> </div><div class="float-left">Dwa tysiące siedemset trzydzieści pięć złotych sześćdziesiąt<br>sześć groszy</div></p>
+				<p><div class="w-48 inline-block float-left"><b>Słownie:</b> </div><div class="float-left">{{ invoice.valueGross|money_to_words }}</div></p>
 				<div class="clear"></div>
+				{#
 				<p><span class="w-48 inline-block"><b>Wpłacono: </b></span>0,00 zł</p>
 				<div><span class="w-48 inline-block float-left"><b>Pozostało do <br>zapłaty:</b> </span><div class="float-left">2 735,66 zł</div></div>
 				<div class="clear"></div>
-				<p><span class="inline-block"><b>Bank:</b></span> PL66 1140 2088 0000 3548 7500 1001 (mBank)</p>
+				#}
+				<p><span class="inline-block"><b>Bank:</b></span> {{ invoice.bankAccount }}</p>
 			</div>
-			<p class="mt-10"><b class="text-red">UWAGA: nowy numer konta</b></p>
+			{#<p class="mt-10"><b class="text-red">UWAGA: nowy numer konta</b></p>
 			<div class="content mt-10">
 				<p><span class="w-48 inline-block"><b>SWIFT:</b></span> </p>
 				<div class="mt-4"><p><span class="w-48 inline-block"><b>Warunki płatności:</b> </span> W ciągu 3 dni</p></div>
 			</div>
-
 			<div class="row">
-				<div class="w-1/2 mt-16 content">
+				<div class="w-12 mt-16 content">
 					<p>Wystawił: Łukasz Ciesiński</p>
 				</div>
 				<div class="custom-tile mt-16 content">
 					<p>Osoba upoważniona do odbioru: Kazimierz Jasiński</p>
 				</div>
 			</div>
+			#}
 			<div class="clear"></div>
-
 		</div>
 
 		<div class="footer mt-22">
-			<div class="w-1/3 content">
+			<div class="content">
 				<p><span class="inline-block">Tel:</span> <a href="tel:+48 22 243 43 11">+48 22 243 43 11</a></p>
 				<p><span class="inline-block">E-mail:</span> <a href="mailto:biuro@idea-commerce.com">biuro@idea-commerce.com</a></p>
-				<p><span class="inline-block">WWWW:</span> <a href="http://www.idea-commerce.com" target="_blank">http://www.idea-commerce.com</a></p>
+				<p><span class="inline-block">WWW:</span> <a href="http://www.idea-commerce.com" target="_blank">http://www.idea-commerce.com</a></p>
 				<p><span class="inline-block">NIP:</span> 7010682602</p>
 			</div>
-			<div class="w-1/3 content text-center">
+
+			{#
+			<div class="w-13 content text-center">
 				<div class="mt-22">
 					<p>Strona: 1 / 1</p>
 				</div>
 			</div>
-			<div class="w-1/3 content text-right">
+			<div class="w-13 content text-right">
 				<p>Wygenerowano w systemie IDEAerp</p>
 			</div>
+			#}
 		</div>
 	</div>
 </body>

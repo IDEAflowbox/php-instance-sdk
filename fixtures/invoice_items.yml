@@ -1,5 +1,5 @@
 '\App\Entity\InvoiceItem':
-  invoice_item_1:
+  invoice_1_item_1:
     invoice: '@invoice_1'
     name: 'User analytics data'
     quantity: 30
@@ -8,8 +8,26 @@
     valueVat: 34500
     valueGross: 184500
     vatRate: 23
-  invoice_item_2:
+  invoice_1_item_2:
     invoice: '@invoice_1'
+    name: 'Products recommendation'
+    quantity: 5
+    unitPrice: 15000
+    valueNet: 75000
+    valueVat: 17250
+    valueGross: 92250
+    vatRate: 23
+  invoice_2_item_1:
+    invoice: '@invoice_2'
+    name: 'User analytics data'
+    quantity: 30
+    unitPrice: 5000
+    valueNet: 150000
+    valueVat: 34500
+    valueGross: 184500
+    vatRate: 23
+  invoice_2_item_2:
+    invoice: '@invoice_2'
     name: 'Products recommendation'
     quantity: 5
     unitPrice: 15000

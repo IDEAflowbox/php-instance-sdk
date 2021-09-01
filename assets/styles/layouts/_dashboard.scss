@@ -19,6 +19,18 @@
 	flex: 1;
 }
 
+.dashboard-return-bar{
+	background: $c_blue;
+	padding: 16px 24px;
+	&__title{
+		color: #fff;
+		font-weight: 800;
+		font-size: $fs_base;
+		margin: 0;
+		margin-bottom: 16px;
+	}
+}
+
 .user-avatar{
 	overflow:hidden;
 	border-radius: 100%;
@@ -80,6 +92,15 @@
 			margin-right:auto;
 		}
 	}
+	.dashboard-return-bar{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 16px 32px;
+		&__title{
+			margin-bottom:0;
+		}
+	}
 }
 
 @media (min-width: 1280px) {
@@ -93,5 +114,9 @@
 				padding: 40px 48px;
 			}
 		}
+	}
+
+	.dashboard-return-bar{
+		padding: 16px 40px;
 	}
 }

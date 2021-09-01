@@ -159,6 +159,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v5.6.0"
     },
+    "kwn/number-to-words": {
+        "version": "2.0.0"
+    },
     "laminas/laminas-code": {
         "version": "4.4.2"
     },
@@ -772,6 +775,9 @@
     },
     "twig/extra-bundle": {
         "version": "v3.3.1"
+    },
+    "twig/intl-extra": {
+        "version": "v3.3.0"
     },
     "twig/twig": {
         "version": "v3.3.2"

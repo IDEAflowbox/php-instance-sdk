@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class InvoiceDownloadController extends AbstractController
 {
-    #[Route('/account/billing/invoice/{id}/download', name: 'account_billing_invoice_download')]
+    #[Route('/account/billing/invoice/{invoice}/download', name: 'account_billing_invoice_download')]
     public function index(
         Invoice $invoice,
         InvoicePdfHttpResponseInterface $pdf

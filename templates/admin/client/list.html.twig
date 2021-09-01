@@ -1,0 +1,186 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Cyber Konsultant - lista klientów{% endblock %}
+
+{% block main %}
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-main">
+        <div class="dashboard-main__content dashboard-main__content--lg">
+
+            <div class="flex flex-wrap md:justify-between">
+                <h6 class="heading heading--xl mt-3 mb-0">Lista klientów</h6>
+                <div class="flex">
+                    <div class="form-control form-control--icon">
+                        <div class="input-icon">
+                            <img loading="lazy" src="{{ asset('build/images/search.svg') }}" alt="Search" />
+                        </div>
+                        <input type="text" placeholder="Szukaj">
+                    </div>
+                    <button type="submit" class="btn btn--sm btn--tertiary ml-16" onclick="document.querySelector('.js-modal-container').classList.toggle('is-active')">
+                        <div class="btn__icon">
+                            <img loading="lazy" src="{{ asset('build/images/plus.svg') }}" alt="Plus" />
+                        </div>
+                        <div class="btn__title">
+                            Dodaj nowego klienta
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pseudo-table pseudo-table--clients mt-13">
+                <div class="pseudo-table-row mb-10">
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading">
+                        <div>imię i nazwisko</div>
+                        <div class="md:hidden">Data wystawienia</div>
+                    </div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading hidden md:table-cell">e-mail</div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading">
+                        <div>Nazwa firmy</div>
+                        <div class="md:hidden">Miasto</div>
+                    </div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading hidden md:table-cell">Miasto</div>
+                    <div class="pseudo-table-row__item pseudo-table-row__item--heading hidden md:table-cell">Kod pocztowy</div>
+                </div>
+
+                {% for client in pagination %}
+                    <div class="pseudo-table-row pseudo-table-row--tile">
+                        <div class="pseudo-table-row__item">
+                            <div><a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</a></div>
+                        </div>
+                        <div class="pseudo-table-row__item">
+                            <div><a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.email }}</a></div>
+                        </div>
+                        <div class="pseudo-table-row__item text-nowrap">
+                            <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.companyName }}</a>
+                        </div>
+                        <div class="pseudo-table-row__item">
+                            <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.city }}</a>
+                        </div>
+                        <div class="pseudo-table-row__item">
+                            <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.zipCode }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-wrapper mt-16">
+                <div class="pagination-limit">
+                    <div class="pagination-limit__title">Pokaż</div>
+                    <input type="number" class="pagination-limit__input" value="20" min="10" max="999">
+                </div>
+
+                <div class="pagination-skipper">
+                    <a href="" class="pagination-skipper__item">
+                        <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
+                    </a>
+                    <a href="" class="pagination-skipper__item">
+                        <img loading="lazy" src="{{ asset('build/images/triangle-left.svg') }}" alt="Pointing left" />
+                    </a>
+                    <input type="number" class="pagination-skipper__input" value="1" min="1" max="433">
+                    <div class="pagination-skipper__title">z 433</div>
+                    <a href="" class="pagination-skipper__item is-active">
+                        <img loading="lazy" src="{{ asset('build/images/triangle-right.svg') }}" alt="Pointing right" />
+                    </a>
+                    <a href="" class="pagination-skipper__item is-active">
+                        <img loading="lazy" src="{{ asset('build/images/pointing-right.svg') }}" alt="Pointing right" />
+                    </a>
+                </div>
+
+                <div class="pagination-pages">
+                    <a class="pagination-pages__item">1</a>
+                    <a class="pagination-pages__item">2</a>
+                    <a class="pagination-pages__item">3</a>
+                    <a class="pagination-pages__item">4</a>
+                    <div class="pagination-pages__blank">...</div>
+                    <a class="pagination-pages__item">10</a>
+                </div>
+            </div>
+            <!-- Pagination! -->
+        </div>
+    </div>
+    <!-- DASHBOARD MAIN! -->
+{% endblock %}
+
+{% block modal %}
+<div class="modal-container js-modal-container">
+    <div class="modal-overlay" onclick="document.querySelector('.js-modal-container').classList.remove('is-active')"></div>
+    <div class="modal-wrapper">
+        <form class="tile">
+            <h6 class="tile__title tile__title--xl mt-0 mb-6 md:mb-16">Dodaj nowego klienta</h6>
+            <div class="row">
+                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
+                    <label for="">Imię</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
+                    <label for="">Nazwisko</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
+                    <label for="">Nazwa firmy</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
+                    <label for="">Nip</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control mb-10 md:mb-16 w-full md:w-2/3 xl:w-1/2 col">
+                    <label for="">Ulica</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control mb-10 md:mb-16 w-full md:w-1/3 xl:w-1/2 col">
+                    <label for="">Numer</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control mb-10 md:mb-16 w-full md:w-2/3 xl:w-1/2 col">
+                    <label for="">Miasto</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control mb-10 md:mb-16 w-full md:w-1/3 xl:w-1/2 col">
+                    <label for="">Kod pocztowy</label>
+                    <input type="text" value="Theodore">
+                </div>
+                <div class="form-control md:mb-16 w-full xl:w-1/2 col">
+                    <label for="">Kraj</label>
+                    <input type="text" value="Theodore">
+                </div>
+            </div>
+            <div class="flex flex-wrap md:justify-end xl:mt-16">
+                <button type="submit" class="btn btn--tertiary btn--form-submit w-full md:w-auto">
+                    <div class="btn__title">
+                        Anuluj
+                    </div>
+                </button>
+
+                <div class="md:ml-10">
+                    <button type="submit" class="btn btn--secondary btn--form-submit w-full md:w-auto">
+                        <div class="btn__title">
+                            Dalej
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        const tabsNavDOM = document.querySelectorAll('.js-tabs-menu-item');
+        const tabsPanelDOM = document.querySelectorAll('.js-tabs-panel');
+        if(tabsNavDOM && tabsPanelDOM){
+            tabsNavDOM.forEach((x, index) => {
+                x.addEventListener('click', () => {
+                    tabsNavDOM.forEach(y => y.classList.remove('is-active'));
+                    tabsPanelDOM.forEach(y => y.classList.remove('is-active'));
+                    x.classList.add('is-active');
+                    tabsPanelDOM[index].classList.add('is-active');
+                })
+            })
+        }
+    </script>
+{% endblock %}

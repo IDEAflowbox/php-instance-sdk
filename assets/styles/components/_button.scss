@@ -18,6 +18,14 @@
 		border: 1px solid #c8c8c880;
 	}
 
+	&--quaternary{
+		border: 1px solid #fff;
+		font-weight: 800;
+		.btn__title{
+			color: #fff;
+		}
+	}
+
 	&--form-submit{
 		margin: auto;
 		margin-top: 24px;

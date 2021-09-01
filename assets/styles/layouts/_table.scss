@@ -54,12 +54,15 @@
 .pseudo-table{
 	&-row{
 		display: flex;
-
+		&__item{
+			font-size: $fs_base;
+		}
 		&__item--heading{
 			text-align: left;
 			color: #6F6E68;
 			text-transform: uppercase;
 			font-weight: 600;
+			font-size: $fs_sm;
 		}
 		&--tile{
 			background: #fff;
@@ -82,6 +85,16 @@
 		height: 16px;
 		object-fit: contain;
 	}
+	&-action{
+		img, svg{
+			width:12px;
+			height: 12px;
+			object-fit: contain;
+		}
+
+		color: $c_shade_4;
+		font-size: $fs_sm;
+	}
 }
 
 .pseudo-table--clients{
@@ -101,6 +114,15 @@
 		&:nth-child(3){	width: 20% }
 		&:nth-child(4){	width: 20% }
 		&:nth-child(5){	width: 15% }
+	}
+}
+
+.pseudo-table--user-list{
+	.pseudo-table-row__item{
+		&:nth-child(1){	width: 20% }
+		&:nth-child(2){	width: 45% }
+		&:nth-child(3){	width: 20% }
+		&:nth-child(4){	width: 15% }
 	}
 }
 
@@ -149,8 +171,8 @@
 			}
 			td{ 
 				font-size: $fs_base;
-				
 				padding: 12px 0;
+				padding-right: 12px;
 			}
 		}
 	}
@@ -168,6 +190,23 @@
 			}
 			th:nth-child(5){
 				width: 10%;
+			}
+		}
+
+		&-2{
+			thead tr{
+				th:nth-child(1){
+					width: 64%;
+				}
+				th:nth-child(2){
+					width: 12%;
+				}
+				th:nth-child(3){
+					width: 12%;
+				}
+				th:nth-child(4){
+					width: 12%;
+				}
 			}
 		}
 	}

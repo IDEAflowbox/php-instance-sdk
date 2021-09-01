@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant - logowanie{% endblock %}
+
+{% block body %}
+    <div class="login-page">
+        <form class="tile login-tile" method="post">
+            <img loading="lazy" class="login-tile__logo" src="{{ asset('build/images/idea-commerce-logo-2.svg') }}" alt="Idea commerce logo" />
+
+            <div class="login-tile__divider mt-13"></div>
+
+            <div class="form-floating mt-16">
+                <input type="email" name="email" value="" placeholder=" " required />
+                <span class="label">Adres e-mail</span>
+                <div class="form-floating__blank"></div>
+            </div>
+            <div class="form-floating mt-10">
+                <input type="password" name="password" placeholder=" " value="" required />
+                <span class="label">Hasło</span>
+                <div class="form-floating__blank"></div>
+            </div>
+
+            {% if error %}
+                <div class="">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <button class="btn btn--secondary w-full mt-24" type="submit">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <div class="btn__title">Zaloguj</div>
+            </button>
+        </form>
+    </div>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+{% endblock %}
