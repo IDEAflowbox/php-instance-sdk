@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Model;
 
-class ErrorResponse
+interface ErrorResponse
 {
     /**
-     * @var string
+     * @return string
      */
-    public $error;
+    public function getError(): string;
 }

@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant;
 
+use Cyberkonsultant\Assembler\DataAssemblerInterface;
+use Cyberkonsultant\Assembler\PaginationResponseAssembler;
 use Cyberkonsultant\Authentication\Client;
 use Cyberkonsultant\Authentication\Credentials;
+use Cyberkonsultant\DTO\PaginationResponse;
 use Cyberkonsultant\Exception\CyberkonsultantSDKException;
-use Cyberkonsultant\Mapper\JsonMapper;
 use Cyberkonsultant\Scope\Shop;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
@@ -132,13 +134,51 @@ class Cyberkonsultant
     }
 
     /**
-     * @param array|object|string $json
-     * @param string $model
-     * @return mixed|object
+     * @param ResponseInterface $response
+     * @return array
      */
-    public function map($json, string $model)
+    public function parseResponse(ResponseInterface $response): array
     {
-        $mapper = new JsonMapper();
-        return $mapper->map($json, $model);
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    /**
+     * @param ResponseInterface $response
+     * @param string $assemblerFQCN
+     * @return PaginationResponse
+     * @throws CyberkonsultantSDKException
+     */
+    public function getPaginationResponse(ResponseInterface $response, string $assemblerFQCN): PaginationResponse
+    {
+        $assembler = new $assemblerFQCN();
+        $responseAssembler = new PaginationResponseAssembler();
+
+        if($assembler instanceof DataAssemblerInterface === false) {
+            throw new CyberkonsultantSDKException('Passed assembler class not implementing DataAssemblerInterface.');
+        }
+
+        return $responseAssembler->writeDTO(
+            $this->parseResponse($response),
+            static function (array $data) use ($assembler) {
+                return $assembler->writeDTO($data);
+            }
+        );
+    }
+
+    /**
+     * @param ResponseInterface $response
+     * @param string $assemblerFQCN
+     * @return mixed
+     * @throws CyberkonsultantSDKException
+     */
+    public function getEdgeResponse(ResponseInterface $response, string $assemblerFQCN)
+    {
+        $assembler = new $assemblerFQCN();
+
+        if($assembler instanceof DataAssemblerInterface === false) {
+            throw new CyberkonsultantSDKException('Passed assembler class not implementing DataAssemblerInterface.');
+        }
+
+        return $assembler->writeDTO($this->parseResponse($response));
     }
 }
