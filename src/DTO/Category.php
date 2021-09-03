@@ -11,17 +11,17 @@ namespace Cyberkonsultant\DTO;
 class Category
 {
     /**
-     * @var string
+     * @var string|null
      */
     protected $id;
 
     /**
      * @var string
      */
-    protected $readId;
+    protected $realId;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $name;
 
@@ -31,52 +31,36 @@ class Category
     protected $image;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $url;
 
     /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
      * Category constructor.
-     * @param string $id
-     * @param string $readId
-     * @param string $name
+     * @param string|null $id
+     * @param string $realId
+     * @param string|null $name
+     * @param string|null $url
      * @param string|null $image
-     * @param string $url
-     * @param \DateTime $createdAt
-     * @param \DateTime $updatedAt
      */
     public function __construct(
-        string $id,
-        string $readId,
-        string $name,
-        ?string $image,
-        string $url,
-        \DateTime $createdAt,
-        \DateTime $updatedAt
+        ?string $id,
+        string $realId,
+        ?string $name,
+        ?string $url,
+        ?string $image
     ) {
         $this->id = $id;
-        $this->readId = $readId;
+        $this->realId = $realId;
         $this->name = $name;
         $this->image = $image;
         $this->url = $url;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -84,17 +68,25 @@ class Category
     /**
      * @return string
      */
-    public function getReadId(): string
+    public function getRealId(): string
     {
-        return $this->readId;
+        return $this->realId;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUrl(): ?string
+    {
+        return $this->url;
     }
 
     /**
@@ -106,26 +98,34 @@ class Category
     }
 
     /**
-     * @return string
+     * @param string $realId
      */
-    public function getUrl(): string
+    public function setRealId(string $realId): void
     {
-        return $this->url;
+        $this->realId = $realId;
     }
 
     /**
-     * @return \DateTime
+     * @param string $name
      */
-    public function getCreatedAt(): \DateTime
+    public function setName(string $name): void
     {
-        return $this->createdAt;
+        $this->name = $name;
     }
 
     /**
-     * @return \DateTime
+     * @param string|null $image
      */
-    public function getUpdatedAt(): \DateTime
+    public function setImage(?string $image): void
     {
-        return $this->updatedAt;
+        $this->image = $image;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
     }
 }

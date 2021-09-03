@@ -18,8 +18,11 @@ class CriteriaAssembler
      */
     public function readDTO(Criteria $criteriaDTO): array
     {
+        $filterAssembler = new FilterAssembler();
         return [
-            'filters' => $criteriaDTO->getFilters(),
+            'filters' => array_map(static function ($filter) use ($filterAssembler) {
+                return $filterAssembler->readDTO($filter);
+            }, $criteriaDTO->getFilters()),
         ];
     }
 

@@ -3,6 +3,8 @@
 include __DIR__.'/config.php';
 global $sdk;
 
+use Cyberkonsultant\Builder\RecommendationFrameBuilder;
+
 $shop = $sdk->getShopScope();
 
 $recommendationFrameTemplateHtml = <<<EOL
@@ -43,14 +45,19 @@ $recommendationFrameTemplateHtml = <<<EOL
 EOL;
 
 try {
+    $builder = new RecommendationFrameBuilder();
+    $frame = $builder
+        ->buildAdvancedRecommendationFrame()
+        ->setName('Simple frame test')
+        ->setXPath('/html/body/div[3]/div/div[3]')
+        ->setGroupId("90a42fc6-5dc0-4e92-93d1-0d704e2f4166")
+        ->setNumberOfProducts(16)
+        ->setCustomHtml($recommendationFrameTemplateHtml)
+        ->getResult()
+    ;
+
     dump(
-        $shop->createRecommendationFrame(\Cyberkonsultant\Model\RecommendationFrame::createAdvanced(
-            'Advanced frame test',
-            '/html/body/div[3]/div/div[3]',
-            16,
-            $recommendationFrameTemplateHtml,
-            "90a42fc6-5dc0-4e92-93d1-0d704e2f4166"
-        ))
+        $shop->recommendationFrame->create($frame)
     );
 } catch (\GuzzleHttp\Exception\ClientException $e) {
     dump($sdk->map($e->getResponse()->getBody()->getContents(), \Cyberkonsultant\Model\ErrorResponse::class));

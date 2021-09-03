@@ -6,7 +6,7 @@ global $sdk;
 $shop = $sdk->getShopScope();
 
 dump(
-    $shop->getGroups([
+    $shop->group->get([
         'page' => 1
     ])
 );

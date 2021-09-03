@@ -6,5 +6,5 @@ global $sdk;
 $shop = $sdk->getShopScope();
 
 dump(
-    $shop->getGroupProductsIds("90a42fc6-5dc0-4e92-93d1-0d704e2f4166")
+    $shop->group->getProductsIds("90a42fc6-5dc0-4e92-93d1-0d704e2f4166")
 );

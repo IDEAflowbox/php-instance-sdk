@@ -34,8 +34,47 @@ class RecommendationFrameCRUD extends BaseCRUD
         );
     }
 
-    //public function find(string $id): RecommendationFrame
-    //{
-    //
-    //}
+    /**
+     * @param RecommendationFrame $recommendationFrame
+     * @return RecommendationFrame
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function create(RecommendationFrame $recommendationFrame): RecommendationFrame
+    {
+        $recommendationFrameAssembler = new RecommendationFrameAssembler();
+        $response = $this->cyberkonsultant->post('/shop/frames', [
+            'json' => $recommendationFrameAssembler->readDTO($recommendationFrame)
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, RecommendationFrameAssembler::class);
+    }
+
+    /**
+     * @param string $id
+     * @return RecommendationFrame
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function find(string $id): RecommendationFrame
+    {
+        $response = $this->cyberkonsultant->get(sprintf('/shop/frames/%s', $id));
+        return $this->cyberkonsultant->getEdgeResponse($response, RecommendationFrameAssembler::class);
+    }
+
+    /**
+     * @param RecommendationFrame $recommendationFrame
+     * @return mixed
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function update(RecommendationFrame $recommendationFrame)
+    {
+        $recommendationFrameAssembler = new RecommendationFrameAssembler();
+        $response = $this->cyberkonsultant->put(sprintf('/shop/frames/%s', $recommendationFrame->getId()), [
+            'json' => $recommendationFrameAssembler->readDTO($recommendationFrame)
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, RecommendationFrameAssembler::class);
+    }
 }

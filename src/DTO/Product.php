@@ -13,7 +13,7 @@ use Cyberkonsultant\DTO\Group\Criteria;
 class Product
 {
     /**
-     * @var string
+     * @var string|null
      */
     protected $id;
 
@@ -58,18 +58,8 @@ class Product
     protected $categories = [];
 
     /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
      * Product constructor.
-     * @param string $id
+     * @param string|null $id
      * @param string $code
      * @param string $name
      * @param string|null $image
@@ -78,11 +68,9 @@ class Product
      * @param float $grossPrice
      * @param string $url
      * @param Category[] $categories
-     * @param \DateTime $createdAt
-     * @param \DateTime $updatedAt
      */
     public function __construct(
-        string $id,
+        ?string $id,
         string $code,
         string $name,
         ?string $image,
@@ -90,9 +78,7 @@ class Product
         float $netPrice,
         float $grossPrice,
         string $url,
-        array $categories,
-        \DateTime $createdAt,
-        \DateTime $updatedAt
+        array $categories
     ) {
         $this->id = $id;
         $this->code = $code;
@@ -103,14 +89,12 @@ class Product
         $this->grossPrice = $grossPrice;
         $this->url = $url;
         $this->categories = $categories;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -180,18 +164,66 @@ class Product
     }
 
     /**
-     * @return \DateTime
+     * @param string $code
      */
-    public function getCreatedAt(): \DateTime
+    public function setCode(string $code): void
     {
-        return $this->createdAt;
+        $this->code = $code;
     }
 
     /**
-     * @return \DateTime
+     * @param string $name
      */
-    public function getUpdatedAt(): \DateTime
+    public function setName(string $name): void
     {
-        return $this->updatedAt;
+        $this->name = $name;
+    }
+
+    /**
+     * @param string|null $image
+     */
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @param string|null $description
+     */
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param float $netPrice
+     */
+    public function setNetPrice(float $netPrice): void
+    {
+        $this->netPrice = $netPrice;
+    }
+
+    /**
+     * @param float $grossPrice
+     */
+    public function setGrossPrice(float $grossPrice): void
+    {
+        $this->grossPrice = $grossPrice;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @param Category[] $categories
+     */
+    public function setCategories(array $categories): void
+    {
+        $this->categories = $categories;
     }
 }

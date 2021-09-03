@@ -61,4 +61,28 @@ class Style
     {
         return $this->borderColorOnHover;
     }
+
+    /**
+     * @param string $backgroundColor
+     */
+    public function setBackgroundColor(string $backgroundColor): void
+    {
+        $this->backgroundColor = $backgroundColor;
+    }
+
+    /**
+     * @param string $borderColor
+     */
+    public function setBorderColor(string $borderColor): void
+    {
+        $this->borderColor = $borderColor;
+    }
+
+    /**
+     * @param string $borderColorOnHover
+     */
+    public function setBorderColorOnHover(string $borderColorOnHover): void
+    {
+        $this->borderColorOnHover = $borderColorOnHover;
+    }
 }

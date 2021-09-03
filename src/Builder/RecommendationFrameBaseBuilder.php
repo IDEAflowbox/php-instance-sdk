@@ -39,33 +39,41 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
 
     /**
      * @param string $name
+     * @return RecommendationFrameBaseBuilderInterface
      */
-    public function setName(string $name): void
+    public function setName(string $name): RecommendationFrameBaseBuilderInterface
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
      * @param string|null $groupId
+     * @return RecommendationFrameBaseBuilderInterface
      */
-    public function setGroupId(?string $groupId): void
+    public function setGroupId(?string $groupId): RecommendationFrameBaseBuilderInterface
     {
         $this->groupId = $groupId;
+        return $this;
     }
 
     /**
      * @param int $numberOfProducts
+     * @return RecommendationFrameBaseBuilderInterface
      */
-    public function setNumberOfProducts(int $numberOfProducts): void
+    public function setNumberOfProducts(int $numberOfProducts): RecommendationFrameBaseBuilderInterface
     {
         $this->numberOfProducts = $numberOfProducts;
+        return $this;
     }
 
     /**
      * @param string $xpath
+     * @return RecommendationFrameBaseBuilderInterface
      */
-    public function setXpath(string $xpath): void
+    public function setXpath(string $xpath): RecommendationFrameBaseBuilderInterface
     {
         $this->xpath = $xpath;
+        return $this;
     }
 }

@@ -112,4 +112,52 @@ class Dimensions
     {
         return $this->spaceBetweenElements;
     }
+
+    /**
+     * @param string $width
+     */
+    public function setWidth(string $width): void
+    {
+        $this->width = $width;
+    }
+
+    /**
+     * @param string $height
+     */
+    public function setHeight(string $height): void
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @param string $marginTop
+     */
+    public function setMarginTop(string $marginTop): void
+    {
+        $this->marginTop = $marginTop;
+    }
+
+    /**
+     * @param string $marginBottom
+     */
+    public function setMarginBottom(string $marginBottom): void
+    {
+        $this->marginBottom = $marginBottom;
+    }
+
+    /**
+     * @param string $marginSide
+     */
+    public function setMarginSide(string $marginSide): void
+    {
+        $this->marginSide = $marginSide;
+    }
+
+    /**
+     * @param string $spaceBetweenElements
+     */
+    public function setSpaceBetweenElements(string $spaceBetweenElements): void
+    {
+        $this->spaceBetweenElements = $spaceBetweenElements;
+    }
 }

@@ -3,67 +3,73 @@
 include __DIR__.'/config.php';
 global $sdk;
 
+use Cyberkonsultant\Builder\RecommendationFrameBuilder;
+
 $shop = $sdk->getShopScope();
 
 try {
-    dump(
-        $shop->createRecommendationFrame(\Cyberkonsultant\Model\RecommendationFrame::createSimple(
-            'Simple frame test',
-            '/html/body/div[3]/div/div[3]',
-            16,
-            [
-                'matrix' => [
-                    'columns' => 8,
-                    'rows' => 2,
-                ],
-                'enabled_elements' => [
-                    'thumbnail' => true,
-                    'button' => true,
-                    'contents' => true,
-                ],
-                'navigation' => [
-                    'size' => '32px',
-                    'style' => 'shape_3',
-                    'color' => '#000',
-                ],
-                'text' => [
-                    'product_contents' => '{{nazwa}} {{opis}}',
-                    'button' => '<strong>Kup teraz!</strong>',
-                ],
-                'frame' => [
-                    'dimensions' => [
-                        'width' => '100%',
-                        'height' => '300px',
-                        'margin_top' => '0',
-                        'margin_bottom' => '0',
-                        'margin_side' => '0',
-                        'space_between_elements' => '0',
-                    ],
-                    'border_radius' => 0,
-                    'style' => [
-                        'background_color' => '#000',
-                        'border_color' => '#000',
-                        'border_color_on_hover' => '#000',
-                    ],
-                    'image_style' => [
-                        'height' => '120px',
-                        'background_color' => '#fff',
-                    ],
-                    'button' => [
-                        'dimensions' => [
-                            'width' => 'auto',
-                            'height' => 'auto',
-                        ],
-                        'border_radius' => 0,
-                        'position' => 'center',
-                        'background_color' => '#000',
-                        'text_color' => '#fff',
-                    ],
-                ],
-            ],
-            "90a42fc6-5dc0-4e92-93d1-0d704e2f4166"
-        ))
-    );
+    $builder = new RecommendationFrameBuilder();
+    $frame = $builder
+        ->buildSimpleRecommendationFrame()
+        ->setName('Simple frame test')
+        ->setXPath('/html/body/div[3]/div/div[3]')
+        ->setGroupId("90a42fc6-5dc0-4e92-93d1-0d704e2f4166")
+        ->setNumberOfProducts(16)
+        ->getConfigurationBuilder()
+            ->getMatrixBuilder()
+                ->setRows(8)
+                ->setColumns(2)
+            ->endMatrixBuilder()
+            ->getEnabledElementsBuilder()
+                ->setThumbnail(true)
+                ->setContents(true)
+                ->setButton(true)
+            ->endEnabledElementsBuilder()
+            ->getNavigationBuilder()
+                ->setStyle('shape_3')
+                ->setColor('#000')
+                ->setSize('32px')
+            ->endNavigationBuilder()
+            ->getTextBuilder()
+                ->setProductContents('{{nazwa}} {{opis}}')
+                ->setButton('<strong>Kup teraz!</strong>')
+            ->endTextBuilder()
+            ->getFrameBuilder()
+                ->setBorderRadius(0)
+                ->getDimensionsBuilder()
+                    ->setWidth('100%')
+                    ->setHeight('300px')
+                    ->setMarginTop('0')
+                    ->setMarginBottom('0')
+                    ->setMarginSide('0')
+                    ->setSpaceBetweenElements('0')
+                ->endDimensionsBuilder()
+                ->getStyleBuilder()
+                    ->setBackgroundColor('#000')
+                    ->setBorderColor('#000')
+                    ->setBorderColorOnHover('#000')
+                ->endStyleBuilder()
+                ->getImageStyleBuilder()
+                    ->setHeight('120px')
+                    ->setBackgroundColor('#fff')
+                ->endImageStyleBuilder()
+                ->getButtonBuilder()
+                    ->getDimensionsBuilder()
+                        ->setWidth('auto')
+                        ->setHeight('auto')
+                    ->endDimensionsBuilder()
+                    ->setBorderRadius(0)
+                    ->setPosition('center')
+                    ->setBackgroundColor('#000')
+                    ->setTextColor('#000')
+                ->endButtonBuilder()
+            ->endFrameBuilder()
+        ->getResult()
+    ;
+
+    $shop->recommendationFrame->create($frame);
+
+    dump($frame);
 } catch (\GuzzleHttp\Exception\ClientException $e) {
     dump($sdk->map($e->getResponse()->getBody()->getContents(), \Cyberkonsultant\Model\ErrorResponse::class));
 }

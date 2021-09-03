@@ -5,8 +5,9 @@ global $sdk;
 
 $shop = $sdk->getShopScope();
 
+
 dump(
-    $shop->getEvents([
+    $shop->event->get([
         'page' => 1,
         'date_from' => '2021-08-28',
         'date_to' => '2021-08-30',

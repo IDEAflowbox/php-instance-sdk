@@ -61,4 +61,28 @@ class Navigation
     {
         return $this->color;
     }
+
+    /**
+     * @param string $size
+     */
+    public function setSize(string $size): void
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @param string $style
+     */
+    public function setStyle(string $style): void
+    {
+        $this->style = $style;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
+    }
 }

@@ -9,7 +9,7 @@ $sdk = new Cyberkonsultant([
     'access_token' => 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2Nlc3NUb2tlbiI6IjA2ZDdiMWIzMDkzZjhhNzUyNGJiMzhjM2E5MzAwMzNkODA4ZjM5ZTZhNjZlYjc2ZTJlNmM0OTg5NjMzZjZjZmMiLCJOYW1lIjoiVm9pY2VNb2R1bGUifQ.REshovSI6SThPQ0PUj-ieflZiRJEnK-Tg5XUM727Ei4PSbXdNqQao9454ASugrmPAc-AeIwxAPJBpLOZ7j9IMgNEaFQkbzweq_untpkqikRJBcHhdJ8KdG703YGqE37abdvjqc9sM6WhlGUcOUDJmMQFXjXQ5jbKjABpg5v0jV6rNBbLpkeXQpxtH7XKW7gdTE8glA5tvqb2NGUxSHNEy6SW02F1udu6ZCnAIc2JTHbi--rwVJEf-khBlS19xtj5BjnLRaKedylsq8mdcz1g9yb1duMAT0njIF2uzZhgjqd055hq5C4E8dtIktEruf_60tlsqraE9OrRGaEown1WeO-cE0q8PMSU-aj7kgaBpJ1jSeI2TyT-nUyLiy6tlqZpcIIMCQTPikEdlwAYLsMdAZV7BU0fylmE_et2ep0Hlg-IT3sOv1_96LBPDDpu3SLj5r9Rhlmjp9aratkwlFGS1JATmrWcb9XwfxX5ZyIDKPaxMxrUZMKZR4QeHavrfOpvMMUnAMBLeMG5CuNWkwCO85MLuubMdesUdCmi-BquVh6wv-5M2UzDS1rncwYvkdZuMwIis0ZIRr_qFjibfgvl6pdjazOKurkHULRe0fwYeZvouYumUWyxcglUR4lyM8oqLYWeYeyCqHO8DXck23qossogbBjomfh0Ty9D0aTh5nY'
 ]);
 
-//$shop = $sdk->getShopScope();
+$shop = $sdk->getShopScope();
 //dump($shop->recommendationFrame->get());
 
 //$recommendationFrameTemplateHtml = <<<EOL
@@ -68,8 +68,8 @@ $frame->setNumberOfProducts(16);
 $frame
     ->getConfigurationBuilder()
     ->getMatrixBuilder()
-        ->setRows(6)
-        ->setColumns(6)
+        ->setRows(8)
+        ->setColumns(2)
     ->endMatrixBuilder()
     ->getEnabledElementsBuilder()
         ->setThumbnail(true)
@@ -116,6 +116,7 @@ $frame
         ->endButtonBuilder()
     ->endFrameBuilder()
 ;
+$shop->recommendationFrame->create($frame->getResult());
 
 
 //$configuration->getMatrixBuilder()->setColumns(6);

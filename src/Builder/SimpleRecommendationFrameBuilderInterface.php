@@ -5,7 +5,19 @@ namespace Cyberkonsultant\Builder;
 
 use Cyberkonsultant\Builder\RecommendationFrame\ConfigurationBuilderInterface;
 
+/**
+ * Interface SimpleRecommendationFrameBuilderInterface
+ *
+ * @package Cyberkonsultant
+ * @method SimpleRecommendationFrameBuilderInterface setName(string $name)
+ * @method SimpleRecommendationFrameBuilderInterface setGroupId(string $groupId)
+ * @method SimpleRecommendationFrameBuilderInterface setNumberOfProducts(int $numberOfProducts)
+ * @method SimpleRecommendationFrameBuilderInterface setXPath(string $xpath)
+ */
 interface SimpleRecommendationFrameBuilderInterface extends RecommendationFrameBaseBuilderInterface
 {
+    /**
+     * @return ConfigurationBuilderInterface
+     */
     public function getConfigurationBuilder(): ConfigurationBuilderInterface;
 }

@@ -46,4 +46,20 @@ class Text
     {
         return $this->button;
     }
+
+    /**
+     * @param string $productContents
+     */
+    public function setProductContents(string $productContents): void
+    {
+        $this->productContents = $productContents;
+    }
+
+    /**
+     * @param string $button
+     */
+    public function setButton(string $button): void
+    {
+        $this->button = $button;
+    }
 }

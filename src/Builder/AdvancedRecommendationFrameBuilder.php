@@ -24,10 +24,12 @@ class AdvancedRecommendationFrameBuilder extends RecommendationFrameBaseBuilder 
 
     /**
      * @param string $customHtml
+     * @return AdvancedRecommendationFrameBuilderInterface
      */
-    public function setCustomHtml(string $customHtml): void
+    public function setCustomHtml(string $customHtml): AdvancedRecommendationFrameBuilderInterface
     {
         $this->customHtml = $customHtml;
+        return $this;
     }
 
     /**
@@ -43,9 +45,7 @@ class AdvancedRecommendationFrameBuilder extends RecommendationFrameBaseBuilder 
             $this->numberOfProducts,
             $this->customHtml,
             $this->xpath,
-            $this->configuration,
-            null,
-            null
+            $this->configuration
         );
     }
 }

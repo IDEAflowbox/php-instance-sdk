@@ -10,6 +10,13 @@ namespace Cyberkonsultant\Builder;
  */
 interface RecommendationFrameBuilderInterface
 {
+    /**
+     * @return AdvancedRecommendationFrameBuilderInterface
+     */
     public function buildAdvancedRecommendationFrame(): AdvancedRecommendationFrameBuilderInterface;
+
+    /**
+     * @return SimpleRecommendationFrameBuilderInterface
+     */
     public function buildSimpleRecommendationFrame(): SimpleRecommendationFrameBuilderInterface;
 }

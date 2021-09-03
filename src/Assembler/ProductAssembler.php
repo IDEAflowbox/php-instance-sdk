@@ -45,8 +45,7 @@ class ProductAssembler implements DataAssemblerInterface
             'categories' => array_map(static function ($category) use ($categoryAssembler) {
                 return $categoryAssembler->readDTO($category);
             }, $productDTO->getCategories()),
-            'created_at' => $productDTO->getCreatedAt()->format(DATE_ISO8601),
-            'updated_at' => $productDTO->getUpdatedAt()->format(DATE_ISO8601),
+
         ];
     }
 
@@ -70,9 +69,7 @@ class ProductAssembler implements DataAssemblerInterface
             $product['net_price'],
             $product['gross_price'],
             $product['url'],
-            $categories,
-            (new \DateTime())->setTimestamp(strtotime($product['created_at'])),
-            (new \DateTime())->setTimestamp(strtotime($product['updated_at']))
+            $categories
         );
     }
 }

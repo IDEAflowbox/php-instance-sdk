@@ -46,4 +46,20 @@ class Dimensions
     {
         return $this->height;
     }
+
+    /**
+     * @param string $width
+     */
+    public function setWidth(string $width): void
+    {
+        $this->width = $width;
+    }
+
+    /**
+     * @param string $height
+     */
+    public function setHeight(string $height): void
+    {
+        $this->height = $height;
+    }
 }

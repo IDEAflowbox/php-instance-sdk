@@ -3,26 +3,39 @@
 include __DIR__.'/config.php';
 global $sdk;
 
+use Cyberkonsultant\Assembler\SuccessResponseAssembler;
+use Cyberkonsultant\Builder\GroupBuilder;
+use Cyberkonsultant\Builder\Group\FilterBuilder;
+
 $shop = $sdk->getShopScope();
 
 try {
+    $groupBuilder = new GroupBuilder();
+    $group = $groupBuilder
+        ->setName('Test group')
+        ->getCriteriaBuilder()
+            ->addFilter(
+                    (new FilterBuilder())
+                        ->setField('net_price')
+                        ->setOperator('>=')
+                        ->setValue('20')
+                        ->getResult()
+                    )
+            ->addFilter(
+                    (new FilterBuilder())
+                        ->setField('net_price')
+                        ->setOperator('<=')
+                        ->setValue('100')
+                        ->getResult()
+                    )
+        ->endCriteriaBuilder()
+        ->getResult();
+
     dump(
-        $shop->addGroup(\Cyberkonsultant\Model\Group::create(
-            'test-group',
-            \Cyberkonsultant\Model\Criteria::create([
-                \Cyberkonsultant\Model\Filter::create(
-                    'net_price',
-                    '>=',
-                    "6.50"
-                ),
-                \Cyberkonsultant\Model\Filter::create(
-                    'net_price',
-                    '<=',
-                    "13.0"
-                )
-            ])
-        ))
+        $shop->group->create($group)
     );
 } catch (\GuzzleHttp\Exception\ClientException $e) {
-    dump($sdk->map($e->getResponse()->getBody()->getContents(), \Cyberkonsultant\Model\ErrorResponse::class));
+    dump(
+        $sdk->getEdgeResponse($e->getResponse(), \Cyberkonsultant\Assembler\ErrorResponseAssembler::class)
+    );
 }

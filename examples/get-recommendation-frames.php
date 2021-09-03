@@ -6,7 +6,7 @@ global $sdk;
 $shop = $sdk->getShopScope();
 
 dump(
-    $shop->getRecommendationFrames([
+    $shop->recommendationFrame->get([
         'page' => 1
     ])
 );

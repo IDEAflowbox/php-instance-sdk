@@ -46,4 +46,20 @@ class ImageStyle
     {
         return $this->backgroundColor;
     }
+
+    /**
+     * @param string $height
+     */
+    public function setHeight(string $height): void
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @param string $backgroundColor
+     */
+    public function setBackgroundColor(string $backgroundColor): void
+    {
+        $this->backgroundColor = $backgroundColor;
+    }
 }

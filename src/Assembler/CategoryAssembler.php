@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Assembler;
 
-use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Button\Dimensions;
+use Cyberkonsultant\DTO\Category;
 
 /**
  * Class CategoryAssembler
@@ -13,26 +13,32 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Button\Dimension
 class CategoryAssembler implements DataAssemblerInterface
 {
     /**
-     * @param Dimensions $dimensionsDTO
+     * @param Category $categoryDTO
      * @return array
      */
-    public function readDTO(Dimensions $dimensionsDTO): array
+    public function readDTO(Category $categoryDTO): array
     {
         return [
-            'width' => $dimensionsDTO->getWidth(),
-            'height' => $dimensionsDTO->getHeight(),
+            'id' => $categoryDTO->getId(),
+            'real_id' => $categoryDTO->getRealId(),
+            'name' => $categoryDTO->getName(),
+            'url' => $categoryDTO->getUrl(),
+            'image' => $categoryDTO->getImage(),
         ];
     }
 
     /**
-     * @param array $dimensions
-     * @return Dimensions
+     * @param array $category
+     * @return Category
      */
-    public function writeDTO(array $dimensions): Dimensions
+    public function writeDTO(array $category): Category
     {
-        return new Dimensions(
-            $dimensions['width'],
-            $dimensions['height']
+        return new Category(
+            $category['id'],
+            $category['real_id'],
+            $category['name'],
+            $category['url'],
+            $category['image']
         );
     }
 }

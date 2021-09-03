@@ -10,7 +10,7 @@ use Cyberkonsultant\DTO\ErrorResponse;
  *
  * @package Cyberkonsultant
  */
-class ErrorResponseAssembler
+class ErrorResponseAssembler implements DataAssemblerInterface
 {
     /**
      * @param ErrorResponse $responseDTO

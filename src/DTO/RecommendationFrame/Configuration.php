@@ -102,4 +102,44 @@ class Configuration
     {
         return $this->frame;
     }
+
+    /**
+     * @param Matrix $matrix
+     */
+    public function setMatrix(Matrix $matrix): void
+    {
+        $this->matrix = $matrix;
+    }
+
+    /**
+     * @param EnabledElements $enabledElements
+     */
+    public function setEnabledElements(EnabledElements $enabledElements): void
+    {
+        $this->enabledElements = $enabledElements;
+    }
+
+    /**
+     * @param Navigation $navigation
+     */
+    public function setNavigation(Navigation $navigation): void
+    {
+        $this->navigation = $navigation;
+    }
+
+    /**
+     * @param Text $text
+     */
+    public function setText(Text $text): void
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @param Frame $frame
+     */
+    public function setFrame(Frame $frame): void
+    {
+        $this->frame = $frame;
+    }
 }

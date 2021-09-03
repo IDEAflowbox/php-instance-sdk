@@ -41,16 +41,6 @@ class User
     protected $sex;
 
     /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
      * User constructor.
      * @param string $id
      * @param bool $anonymous
@@ -58,8 +48,6 @@ class User
      * @param string|null $firstName
      * @param string|null $lastName
      * @param string|null $sex
-     * @param \DateTime $createdAt
-     * @param \DateTime $updatedAt
      */
     public function __construct(
         string $id,
@@ -67,9 +55,7 @@ class User
         ?string $username,
         ?string $firstName,
         ?string $lastName,
-        ?string $sex,
-        \DateTime $createdAt,
-        \DateTime $updatedAt
+        ?string $sex
     ) {
         $this->id = $id;
         $this->anonymous = $anonymous;
@@ -77,8 +63,6 @@ class User
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->sex = $sex;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
     }
 
     /**
@@ -130,18 +114,34 @@ class User
     }
 
     /**
-     * @return \DateTime
+     * @param string|null $username
      */
-    public function getCreatedAt(): \DateTime
+    public function setUsername(?string $username): void
     {
-        return $this->createdAt;
+        $this->username = $username;
     }
 
     /**
-     * @return \DateTime
+     * @param string|null $firstName
      */
-    public function getUpdatedAt(): \DateTime
+    public function setFirstName(?string $firstName): void
     {
-        return $this->updatedAt;
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @param string|null $lastName
+     */
+    public function setLastName(?string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @param string|null $sex
+     */
+    public function setSex(?string $sex): void
+    {
+        $this->sex = $sex;
     }
 }

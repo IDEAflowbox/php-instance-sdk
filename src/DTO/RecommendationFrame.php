@@ -53,16 +53,6 @@ class RecommendationFrame
     protected $configuration;
 
     /**
-     * @var \DateTime|null
-     */
-    protected $created_at;
-
-    /**
-     * @var \DateTime|null
-     */
-    protected $updated_at;
-
-    /**
      * RecommendationFrame constructor.
      * @param string|null $id
      * @param string $name
@@ -72,8 +62,6 @@ class RecommendationFrame
      * @param string|null $custom_html
      * @param string $xpath
      * @param Configuration|null $configuration
-     * @param \DateTime|null $created_at
-     * @param \DateTime|null $updated_at
      */
     public function __construct(
         ?string $id,
@@ -83,9 +71,7 @@ class RecommendationFrame
         int $number_of_products,
         ?string $custom_html,
         string $xpath,
-        ?Configuration $configuration,
-        ?\DateTime $created_at,
-        ?\DateTime $updated_at
+        ?Configuration $configuration
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -95,8 +81,6 @@ class RecommendationFrame
         $this->custom_html = $custom_html;
         $this->xpath = $xpath;
         $this->configuration = $configuration;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 
     /**
@@ -164,18 +148,58 @@ class RecommendationFrame
     }
 
     /**
-     * @return \DateTime|null
+     * @param string $name
      */
-    public function getCreatedAt(): ?\DateTime
+    public function setName(string $name): void
     {
-        return $this->created_at;
+        $this->name = $name;
     }
 
     /**
-     * @return \DateTime|null
+     * @param string|null $group_id
      */
-    public function getUpdatedAt(): ?\DateTime
+    public function setGroupId(?string $group_id): void
     {
-        return $this->updated_at;
+        $this->group_id = $group_id;
+    }
+
+    /**
+     * @param string $frame_type
+     */
+    public function setFrameType(string $frame_type): void
+    {
+        $this->frame_type = $frame_type;
+    }
+
+    /**
+     * @param int $number_of_products
+     */
+    public function setNumberOfProducts(int $number_of_products): void
+    {
+        $this->number_of_products = $number_of_products;
+    }
+
+    /**
+     * @param string|null $custom_html
+     */
+    public function setCustomHtml(?string $custom_html): void
+    {
+        $this->custom_html = $custom_html;
+    }
+
+    /**
+     * @param string $xpath
+     */
+    public function setXpath(string $xpath): void
+    {
+        $this->xpath = $xpath;
+    }
+
+    /**
+     * @param Configuration|null $configuration
+     */
+    public function setConfiguration(?Configuration $configuration): void
+    {
+        $this->configuration = $configuration;
     }
 }

@@ -39,9 +39,7 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
             'number_of_products' => $frameDTO->getNumberOfProducts(),
             'custom_html' => $frameDTO->getCustomHtml(),
             'xpath' => $frameDTO->getXpath(),
-            'configuration' => $this->configurationAssembler->readDTO($frameDTO->getConfiguration()),
-            'created_at' => $frameDTO->getCreatedAt()->format(DATE_ISO8601),
-            'updated_at' => $frameDTO->getUpdatedAt()->format(DATE_ISO8601),
+            'configuration' => $frameDTO->getConfiguration() ? $this->configurationAssembler->readDTO($frameDTO->getConfiguration()) : null,
         ];
     }
 
@@ -59,9 +57,7 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
             $frame['number_of_products'],
             $frame['custom_html'],
             $frame['xpath'],
-            $this->configurationAssembler->writeDTO($frame['configuration']),
-            (new \DateTime())->setTimestamp(strtotime($frame['created_at'])),
-            (new \DateTime())->setTimestamp(strtotime($frame['updated_at']))
+            $frame['configuration'] ? $this->configurationAssembler->writeDTO($frame['configuration']) : null
         );
     }
 }

@@ -61,4 +61,28 @@ class EnabledElements
     {
         return $this->contents;
     }
+
+    /**
+     * @param bool $thumbnail
+     */
+    public function setThumbnail(bool $thumbnail): void
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    /**
+     * @param bool $button
+     */
+    public function setButton(bool $button): void
+    {
+        $this->button = $button;
+    }
+
+    /**
+     * @param bool $contents
+     */
+    public function setContents(bool $contents): void
+    {
+        $this->contents = $contents;
+    }
 }

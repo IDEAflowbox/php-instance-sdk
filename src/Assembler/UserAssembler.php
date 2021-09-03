@@ -25,8 +25,6 @@ class UserAssembler implements DataAssemblerInterface
             'first_name' => $userDTO->getFirstName(),
             'last_name' => $userDTO->getLastName(),
             'sex' => $userDTO->getSex(),
-            'created_at' => $userDTO->getCreatedAt()->format(DATE_ISO8601),
-            'updated_at' => $userDTO->getUpdatedAt()->format(DATE_ISO8601),
         ];
     }
 
@@ -42,9 +40,7 @@ class UserAssembler implements DataAssemblerInterface
             $user['username'],
             $user['first_name'],
             $user['last_name'],
-            $user['sex'],
-            (new \DateTime())->setTimestamp(strtotime($user['created_at'])),
-            (new \DateTime())->setTimestamp(strtotime($user['updated_at']))
+            $user['sex']
         );
     }
 }

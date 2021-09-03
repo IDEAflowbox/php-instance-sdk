@@ -46,4 +46,20 @@ class Matrix
     {
         return $this->rows;
     }
+
+    /**
+     * @param int $columns
+     */
+    public function setColumns(int $columns): void
+    {
+        $this->columns = $columns;
+    }
+
+    /**
+     * @param int $rows
+     */
+    public function setRows(int $rows): void
+    {
+        $this->rows = $rows;
+    }
 }

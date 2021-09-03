@@ -35,9 +35,7 @@ class GroupAssembler implements DataAssemblerInterface
         return [
             'id' => $groupDTO->getId(),
             'name' => $groupDTO->getName(),
-            'criteria' => $this->criteriaAssembler->readDTO($groupDTO->getCriteria()),
-            'created_at' => $groupDTO->getCreatedAt()->format(DATE_ISO8601),
-            'updated_at' => $groupDTO->getUpdatedAt()->format(DATE_ISO8601),
+            'criteria' => $this->criteriaAssembler->readDTO($groupDTO->getCriteria())
         ];
     }
 
@@ -50,9 +48,7 @@ class GroupAssembler implements DataAssemblerInterface
         return new Group(
             $group['id'],
             $group['name'],
-            $this->criteriaAssembler->writeDTO($group['criteria']),
-            (new \DateTime())->setTimestamp(strtotime($group['created_at'])),
-            (new \DateTime())->setTimestamp(strtotime($group['updated_at']))
+            $this->criteriaAssembler->writeDTO($group['criteria'])
         );
     }
 }

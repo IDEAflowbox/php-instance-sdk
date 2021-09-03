@@ -11,7 +11,7 @@ namespace Cyberkonsultant\DTO;
 class Event
 {
     /**
-     * @var string
+     * @var string|null
      */
     protected $id;
 
@@ -21,7 +21,7 @@ class Event
     protected $userId;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      */
     protected $eventTime;
 
@@ -31,7 +31,7 @@ class Event
     protected $eventType;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $userScore;
 
@@ -47,20 +47,20 @@ class Event
 
     /**
      * Event constructor.
-     * @param string $id
+     * @param string|null $id
      * @param string $userId
-     * @param \DateTime $eventTime
+     * @param \DateTime|null $eventTime
      * @param string $eventType
-     * @param int $userScore
+     * @param int|null $userScore
      * @param string $productId
      * @param float $price
      */
     public function __construct(
-        string $id,
+        ?string $id,
         string $userId,
-        \DateTime $eventTime,
+        ?\DateTime $eventTime,
         string $eventType,
-        int $userScore,
+        ?int $userScore,
         string $productId,
         float $price
     ) {
@@ -74,9 +74,9 @@ class Event
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -90,9 +90,9 @@ class Event
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getEventTime(): \DateTime
+    public function getEventTime(): ?\DateTime
     {
         return $this->eventTime;
     }
@@ -106,9 +106,9 @@ class Event
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getUserScore(): int
+    public function getUserScore(): ?int
     {
         return $this->userScore;
     }

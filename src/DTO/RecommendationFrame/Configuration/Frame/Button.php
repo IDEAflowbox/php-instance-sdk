@@ -98,4 +98,44 @@ class Button
     {
         return $this->textColor;
     }
+
+    /**
+     * @param Dimensions $dimensions
+     */
+    public function setDimensions(Dimensions $dimensions): void
+    {
+        $this->dimensions = $dimensions;
+    }
+
+    /**
+     * @param int $borderRadius
+     */
+    public function setBorderRadius(int $borderRadius): void
+    {
+        $this->borderRadius = $borderRadius;
+    }
+
+    /**
+     * @param string $position
+     */
+    public function setPosition(string $position): void
+    {
+        $this->position = $position;
+    }
+
+    /**
+     * @param string $backgroundColor
+     */
+    public function setBackgroundColor(string $backgroundColor): void
+    {
+        $this->backgroundColor = $backgroundColor;
+    }
+
+    /**
+     * @param string $textColor
+     */
+    public function setTextColor(string $textColor): void
+    {
+        $this->textColor = $textColor;
+    }
 }

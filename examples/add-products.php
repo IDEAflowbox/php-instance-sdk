@@ -3,23 +3,28 @@
 include __DIR__.'/config.php';
 global $sdk;
 
+use Cyberkonsultant\Builder\ProductBuilder;
+
 $shop = $sdk->getShopScope();
 
 try {
-    $shop->addProducts([
-        \Cyberkonsultant\Model\Product::create(
-            'test.test.test',
-            'Name: test',
-            'https://dostolarni.pl/pl/products/frez-oscylacyjny-z-lamaczem-wiora-102/102.060.31',
-            100,
-            123,
-            [
-                \Cyberkonsultant\Model\Category::attach("66"),
-                \Cyberkonsultant\Model\Category::attach("67")
-            ],
-            'description test'
-        ),
-    ]);
+    $productBuilder = new ProductBuilder();
+    $product = $productBuilder
+        ->setName('Testowy produkt')
+        ->setCode(uniqid())
+        ->setUrl('https://dostolarni.pl/pl/products/frez-oscylacyjny-z-lamaczem-wiora-102/102.060.31')
+        ->setNetPrice(100)
+        ->setGrossPrice(123)
+        ->addCategory("66")
+        ->addCategory("67")
+        ->getResult()
+    ;
+
+    dump(
+        $shop->product->createMany([$product])
+    );
 } catch (\GuzzleHttp\Exception\ClientException $e) {
-    dump($sdk->map($e->getResponse()->getBody()->getContents(), \Cyberkonsultant\Model\ErrorResponse::class));
+    dump(
+        $sdk->getEdgeResponse($e->getResponse(), \Cyberkonsultant\Assembler\ErrorResponseAssembler::class)
+    );
 }

@@ -13,7 +13,7 @@ use Cyberkonsultant\DTO\Group\Criteria;
 class Group
 {
     /**
-     * @var string
+     * @var string|null
      */
     protected $id;
 
@@ -28,41 +28,25 @@ class Group
     protected $criteria;
 
     /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
      * Group constructor.
-     * @param string $id
+     * @param string|null $id
      * @param string $name
      * @param Criteria $criteria
-     * @param \DateTime $createdAt
-     * @param \DateTime $updatedAt
      */
     public function __construct(
-        string $id,
+        ?string $id,
         string $name,
-        Criteria $criteria,
-        \DateTime $createdAt,
-        \DateTime $updatedAt
+        Criteria $criteria
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->criteria = $criteria;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -81,21 +65,5 @@ class Group
     public function getCriteria(): Criteria
     {
         return $this->criteria;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
     }
 }

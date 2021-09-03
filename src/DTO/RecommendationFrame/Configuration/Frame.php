@@ -102,4 +102,44 @@ class Frame
     {
         return $this->button;
     }
+
+    /**
+     * @param int $borderRadius
+     */
+    public function setBorderRadius(int $borderRadius): void
+    {
+        $this->borderRadius = $borderRadius;
+    }
+
+    /**
+     * @param Dimensions $dimensions
+     */
+    public function setDimensions(Dimensions $dimensions): void
+    {
+        $this->dimensions = $dimensions;
+    }
+
+    /**
+     * @param Style $style
+     */
+    public function setStyle(Style $style): void
+    {
+        $this->style = $style;
+    }
+
+    /**
+     * @param ImageStyle $imageStyle
+     */
+    public function setImageStyle(ImageStyle $imageStyle): void
+    {
+        $this->imageStyle = $imageStyle;
+    }
+
+    /**
+     * @param Button $button
+     */
+    public function setButton(Button $button): void
+    {
+        $this->button = $button;
+    }
 }

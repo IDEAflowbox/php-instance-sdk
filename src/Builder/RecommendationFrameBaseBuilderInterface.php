@@ -12,9 +12,9 @@ use Cyberkonsultant\DTO\RecommendationFrame;
  */
 interface RecommendationFrameBaseBuilderInterface
 {
-    public function setName(string $name): void;
-    public function setGroupId(string $groupId): void;
-    public function setNumberOfProducts(int $numberOfProducts): void;
-    public function setXPath(string $xpath): void;
+    public function setName(string $name): RecommendationFrameBaseBuilderInterface;
+    public function setGroupId(string $groupId): RecommendationFrameBaseBuilderInterface;
+    public function setNumberOfProducts(int $numberOfProducts): RecommendationFrameBaseBuilderInterface;
+    public function setXPath(string $xpath): RecommendationFrameBaseBuilderInterface;
     public function getResult(): RecommendationFrame;
 }
