@@ -5,6 +5,11 @@ namespace Cyberkonsultant\Authentication;
 
 use Cyberkonsultant\Exception\CyberkonsultantSDKException;
 
+/**
+ * Class ApiBaseUrl
+ *
+ * @package Cyberkonsultant
+ */
 class ApiBaseUrl
 {
     /**
@@ -44,6 +49,9 @@ class ApiBaseUrl
         $this->url = rtrim($url, '/');
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return $this->url;

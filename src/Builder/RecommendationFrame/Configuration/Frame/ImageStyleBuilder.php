@@ -6,6 +6,11 @@ namespace Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\FrameBuilderInterface;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\ImageStyle;
 
+/**
+ * Class ImageStyleBuilder
+ *
+ * @package Cyberkonsultant
+ */
 class ImageStyleBuilder implements ImageStyleBuilderInterface
 {
     /**

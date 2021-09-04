@@ -6,7 +6,7 @@ namespace Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame;
 /**
  * Class Style
  *
- * @package Cyberkonsultant\DTO
+ * @package Cyberkonsultant
  */
 class Style
 {

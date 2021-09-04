@@ -5,6 +5,11 @@ namespace Cyberkonsultant\Model;
 
 use Cyberkonsultant\DTO\RecommendationFrame;
 
+/**
+ * Interface RecommendationFramesListResponse
+ *
+ * @package Cyberkonsultant
+ */
 interface RecommendationFramesListResponse extends ListResponse
 {
     /**

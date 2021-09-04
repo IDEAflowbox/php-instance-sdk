@@ -5,6 +5,11 @@ namespace Cyberkonsultant\Authentication;
 
 use Cyberkonsultant\Exception\CyberkonsultantSDKException;
 
+/**
+ * Class Credentials
+ *
+ * @package Cyberkonsultant
+ */
 class Credentials
 {
     /**

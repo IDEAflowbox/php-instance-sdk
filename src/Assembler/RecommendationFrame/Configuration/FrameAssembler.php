@@ -9,13 +9,36 @@ use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame\ImageStyle
 use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame\StyleAssembler;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame;
 
+/**
+ * Class FrameAssembler
+ *
+ * @package Cyberkonsultant
+ */
 class FrameAssembler
 {
+    /**
+     * @var DimensionsAssembler
+     */
     protected $dimensionsAssembler;
+
+    /**
+     * @var StyleAssembler
+     */
     protected $styleAssembler;
+
+    /**
+     * @var ImageStyleAssembler
+     */
     protected $imageStyleAssembler;
+
+    /**
+     * @var ButtonAssembler
+     */
     protected $buttonAssembler;
 
+    /**
+     * FrameAssembler constructor.
+     */
     public function __construct()
     {
         $this->dimensionsAssembler = new DimensionsAssembler();
@@ -24,6 +47,10 @@ class FrameAssembler
         $this->buttonAssembler = new ButtonAssembler();
     }
 
+    /**
+     * @param Frame $frameDTO
+     * @return array
+     */
     public function readDTO(Frame $frameDTO): array
     {
         return [
@@ -35,6 +62,10 @@ class FrameAssembler
         ];
     }
 
+    /**
+     * @param array $frame
+     * @return Frame
+     */
     public function writeDTO(array $frame): Frame
     {
         return new Frame(

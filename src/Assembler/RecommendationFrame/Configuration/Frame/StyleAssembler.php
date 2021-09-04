@@ -5,8 +5,17 @@ namespace Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame;
 
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Style;
 
+/**
+ * Class StyleAssembler
+ *
+ * @package Cyberkonsultant
+ */
 class StyleAssembler
 {
+    /**
+     * @param Style $styleDTO
+     * @return array
+     */
     public function readDTO(Style $styleDTO): array
     {
         return [
@@ -16,6 +25,10 @@ class StyleAssembler
         ];
     }
 
+    /**
+     * @param array $style
+     * @return Style
+     */
     public function writeDTO(array $style): Style
     {
         return new Style(

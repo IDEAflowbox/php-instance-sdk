@@ -6,9 +6,7 @@ namespace Cyberkonsultant\CRUD;
 use Cyberkonsultant\Assembler\GroupAssembler;
 use Cyberkonsultant\Assembler\PaginationResponseAssembler;
 use Cyberkonsultant\Assembler\ProductAssembler;
-use Cyberkonsultant\Assembler\RecommendationFrameAssembler;
 use Cyberkonsultant\DTO\Group;
-use Cyberkonsultant\DTO\RecommendationFrame;
 use Cyberkonsultant\Model\ListResponse;
 
 /**

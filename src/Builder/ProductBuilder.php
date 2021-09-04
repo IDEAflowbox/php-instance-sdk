@@ -8,7 +8,8 @@ use Cyberkonsultant\DTO\Product;
 
 /**
  * Class ProductBuilder
- * @package Cyberkonsultant\Builder
+ *
+ * @package Cyberkonsultant
  */
 class ProductBuilder implements ProductBuilderInterface
 {

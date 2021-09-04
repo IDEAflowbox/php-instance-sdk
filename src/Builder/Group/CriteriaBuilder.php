@@ -9,7 +9,8 @@ use Cyberkonsultant\DTO\Group\Filter;
 
 /**
  * Class CriteriaBuilder
- * @package Cyberkonsultant\Builder\Group
+ *
+ * @package Cyberkonsultant
  */
 class CriteriaBuilder implements CriteriaBuilderInterface
 {

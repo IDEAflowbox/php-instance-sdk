@@ -6,6 +6,11 @@ namespace Cyberkonsultant\Builder\RecommendationFrame\Configuration;
 use Cyberkonsultant\Builder\RecommendationFrame\ConfigurationBuilderInterface;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\EnabledElements;
 
+/**
+ * Class EnabledElementsBuilder
+ *
+ * @package Cyberkonsultant
+ */
 class EnabledElementsBuilder implements EnabledElementsBuilderInterface
 {
     /**

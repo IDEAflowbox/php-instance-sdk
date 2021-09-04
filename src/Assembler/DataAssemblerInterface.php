@@ -6,7 +6,7 @@ namespace Cyberkonsultant\Assembler;
 /**
  * Interface DataAssemblerInterface
  *
- * @package Cyberkonsultant\Assembler
+ * @package Cyberkonsultant
  * @method readDTO($data)
  * @method writeDTO($data)
  */

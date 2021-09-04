@@ -3,6 +3,11 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Model;
 
+/**
+ * Interface ListResponse
+ *
+ * @package Cyberkonsultant
+ */
 interface ListResponse
 {
     /**

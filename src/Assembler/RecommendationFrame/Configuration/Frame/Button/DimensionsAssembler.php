@@ -5,8 +5,17 @@ namespace Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame\Butt
 
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Button\Dimensions;
 
+/**
+ * Class DimensionsAssembler
+ *
+ * @package Cyberkonsultant
+ */
 class DimensionsAssembler
 {
+    /**
+     * @param Dimensions $dimensionsDTO
+     * @return array
+     */
     public function readDTO(Dimensions $dimensionsDTO): array
     {
         return [
@@ -15,6 +24,10 @@ class DimensionsAssembler
         ];
     }
 
+    /**
+     * @param array $dimensions
+     * @return Dimensions
+     */
     public function writeDTO(array $dimensions): Dimensions
     {
         return new Dimensions(

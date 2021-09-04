@@ -7,6 +7,11 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class Client
+ *
+ * @package Cyberkonsultant
+ */
 class Client
 {
     /**

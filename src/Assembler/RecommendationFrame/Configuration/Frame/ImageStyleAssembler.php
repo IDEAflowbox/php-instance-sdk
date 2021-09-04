@@ -5,8 +5,17 @@ namespace Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame;
 
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\ImageStyle;
 
+/**
+ * Class ImageStyleAssembler
+ *
+ * @package Cyberkonsultant
+ */
 class ImageStyleAssembler
 {
+    /**
+     * @param ImageStyle $imageStyleDTO
+     * @return array
+     */
     public function readDTO(ImageStyle $imageStyleDTO): array
     {
         return [
@@ -15,6 +24,10 @@ class ImageStyleAssembler
         ];
     }
 
+    /**
+     * @param array $imageStyle
+     * @return ImageStyle
+     */
     public function writeDTO(array $imageStyle): ImageStyle
     {
         return new ImageStyle(

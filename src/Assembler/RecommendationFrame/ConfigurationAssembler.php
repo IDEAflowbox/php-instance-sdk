@@ -10,14 +10,41 @@ use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\NavigationAssemb
 use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\TextAssembler;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration;
 
+/**
+ * Class ConfigurationAssembler
+ *
+ * @package Cyberkonsultant
+ */
 class ConfigurationAssembler
 {
+    /**
+     * @var MatrixAssembler
+     */
     protected $matrixAssembler;
+
+    /**
+     * @var EnabledElementsAssembler
+     */
     protected $enabledElementsAssembler;
+
+    /**
+     * @var NavigationAssembler
+     */
     protected $navigationAssembler;
+
+    /**
+     * @var TextAssembler
+     */
     protected $textAssembler;
+
+    /**
+     * @var FrameAssembler
+     */
     protected $frameAssembler;
 
+    /**
+     * ConfigurationAssembler constructor.
+     */
     public function __construct()
     {
         $this->matrixAssembler = new MatrixAssembler();
@@ -27,6 +54,10 @@ class ConfigurationAssembler
         $this->frameAssembler = new FrameAssembler();
     }
 
+    /**
+     * @param Configuration $configurationDTO
+     * @return array
+     */
     public function readDTO(Configuration $configurationDTO): array
     {
         return [
@@ -38,6 +69,10 @@ class ConfigurationAssembler
         ];
     }
 
+    /**
+     * @param array $configuration
+     * @return Configuration
+     */
     public function writeDTO(array $configuration): Configuration
     {
         return new Configuration(

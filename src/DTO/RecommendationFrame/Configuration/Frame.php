@@ -11,7 +11,7 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Style;
 /**
  * Class Frame
  *
- * @package Cyberkonsultant\DTO
+ * @package Cyberkonsultant
  */
 class Frame
 {

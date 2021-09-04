@@ -10,13 +10,46 @@ use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\StyleBuilder
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ImageStyleBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ButtonBuilderInterface;
 
+/**
+ * Interface FrameBuilderInterface
+ *
+ * @package Cyberkonsultant
+ */
 interface FrameBuilderInterface
 {
+    /**
+     * @param int $borderRadius
+     * @return FrameBuilderInterface
+     */
     public function setBorderRadius(int $borderRadius): FrameBuilderInterface;
+
+    /**
+     * @return DimensionsBuilderInterface
+     */
     public function getDimensionsBuilder(): DimensionsBuilderInterface;
+
+    /**
+     * @return StyleBuilderInterface
+     */
     public function getStyleBuilder(): StyleBuilderInterface;
+
+    /**
+     * @return ImageStyleBuilderInterface
+     */
     public function getImageStyleBuilder(): ImageStyleBuilderInterface;
+
+    /**
+     * @return ButtonBuilderInterface
+     */
     public function getButtonBuilder(): ButtonBuilderInterface;
+
+    /**
+     * @return Frame
+     */
     public function getResult(): Frame;
+
+    /**
+     * @return ConfigurationBuilderInterface
+     */
     public function endFrameBuilder(): ConfigurationBuilderInterface;
 }

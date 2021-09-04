@@ -7,7 +7,8 @@ use Cyberkonsultant\DTO\PaginationResponse;
 
 /**
  * Class PaginationResponseAssembler
- * @package Cyberkonsultant\Assembler
+ *
+ * @package Cyberkonsultant
  */
 class PaginationResponseAssembler
 {

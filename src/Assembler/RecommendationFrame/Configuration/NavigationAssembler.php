@@ -5,8 +5,17 @@ namespace Cyberkonsultant\Assembler\RecommendationFrame\Configuration;
 
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Navigation;
 
+/**
+ * Class NavigationAssembler
+ *
+ * @package Cyberkonsultant
+ */
 class NavigationAssembler
 {
+    /**
+     * @param Navigation $navigationDTO
+     * @return array
+     */
     public function readDTO(Navigation $navigationDTO): array
     {
         return [
@@ -16,6 +25,10 @@ class NavigationAssembler
         ];
     }
 
+    /**
+     * @param array $navigation
+     * @return Navigation
+     */
     public function writeDTO(array $navigation): Navigation
     {
         return new Navigation(

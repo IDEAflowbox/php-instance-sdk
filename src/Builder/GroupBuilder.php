@@ -9,7 +9,8 @@ use Cyberkonsultant\DTO\Group;
 
 /**
  * Class GroupBuilder
- * @package Cyberkonsultant\Builder
+ *
+ * @package Cyberkonsultant
  */
 class GroupBuilder implements GroupBuilderInterface
 {

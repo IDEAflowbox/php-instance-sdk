@@ -8,7 +8,8 @@ use Cyberkonsultant\DTO\RecommendationFrame;
 
 /**
  * Class RecommendationFrameAssembler
- * @package Cyberkonsultant\Assembler
+ *
+ * @package Cyberkonsultant
  */
 class RecommendationFrameAssembler implements DataAssemblerInterface
 {

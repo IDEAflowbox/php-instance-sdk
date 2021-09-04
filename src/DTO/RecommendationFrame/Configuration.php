@@ -12,7 +12,7 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Text;
 /**
  * Class Configuration
  *
- * @package Cyberkonsultant\DTO
+ * @package Cyberkonsultant
  */
 class Configuration
 {

@@ -5,8 +5,17 @@ namespace Cyberkonsultant\Assembler\RecommendationFrame\Configuration;
 
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Text;
 
+/**
+ * Class TextAssembler
+ *
+ * @package Cyberkonsultant
+ */
 class TextAssembler
 {
+    /**
+     * @param Text $textDTO
+     * @return array
+     */
     public function readDTO(Text $textDTO): array
     {
         return [
@@ -15,6 +24,10 @@ class TextAssembler
         ];
     }
 
+    /**
+     * @param array $text
+     * @return Text
+     */
     public function writeDTO(array $text): Text
     {
         return new Text(
