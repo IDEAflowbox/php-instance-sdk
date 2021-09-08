@@ -10,6 +10,7 @@ use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ClientRepository::class)
@@ -44,6 +45,7 @@ class Client
     /**
      * @ORM\OneToMany(targetEntity=BillingItem::class, mappedBy="client", cascade={"persist"})
      */
+    #[Assert\Valid]
     private Collection $billingItems;
 
     /**
@@ -119,6 +121,24 @@ class Client
     public function setBillingItems(Collection $billingItems): self
     {
         $this->billingItems = $billingItems;
+
+        return $this;
+    }
+
+    public function addBillingItem(BillingItem $billingItem): self
+    {
+        $billingItem->setClient($this);
+
+        if (!$this->billingItems->contains($billingItem)) {
+            $this->billingItems->add($billingItem);
+        }
+
+        return $this;
+    }
+
+    public function removeBillingItem(BillingItem $billingItem): self
+    {
+        $this->billingItems->removeElement($billingItem);
 
         return $this;
     }

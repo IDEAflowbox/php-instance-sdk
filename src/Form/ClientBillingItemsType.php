@@ -12,10 +12,14 @@ class ClientBillingItemsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('billingItems', CollectionType::class, [
-            'entry_type' => BillingItemType::class,
-            'entry_options' => ['label' => false],
-        ]);
+        $builder
+            ->add('billingItems', CollectionType::class, [
+                'entry_type' => BillingItemType::class,
+                'entry_options' => ['label' => false],
+                'by_reference' => false,
+                'allow_add' => true,
+                'allow_delete' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,100 +1,37 @@
 <?php
 
-namespace App\Entity;
+namespace App\Dto;
 
-use App\Entity\Traits\TimestampableTrait;
-use App\Entity\Traits\UuidTrait;
-use App\Repository\BillingAddressRepository;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity(repositoryClass=BillingAddressRepository::class)
- */
-class BillingAddress
+class CreateClientDto
 {
-    use UuidTrait;
-    use TimestampableTrait;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Client::class, inversedBy="billingAddress")
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
-     */
-    private ?Client $client = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $firstName = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $lastName = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $companyName = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $email = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $taxId = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $city = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $zipCode = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $street = null;
 
-    /**
-     * @ORM\Column(type="string", length=30, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $propertyNumber = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     #[Assert\NotBlank]
     private ?string $country = null;
-
-    public function getClient(): ?Client
-    {
-        return $this->client;
-    }
-
-    public function setClient(?Client $client): self
-    {
-        $this->client = $client;
-        if (null !== $client) {
-            $client->setBillingAddress($this);
-        }
-
-        return $this;
-    }
 
     public function getFirstName(): ?string
     {
@@ -128,18 +65,6 @@ class BillingAddress
     public function setCompanyName(?string $companyName): self
     {
         $this->companyName = $companyName;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(?string $email): self
-    {
-        $this->email = $email;
 
         return $this;
     }

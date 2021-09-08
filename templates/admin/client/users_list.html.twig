@@ -1,0 +1,42 @@
+<div class="flex flex-wrap md:justify-between mt-13 xl:mt-16">
+    <h6 class="heading heading--xl mt-3 mb-0">Lista użytkowników</h6>
+
+    <button type="submit" class="btn btn--sm btn--tertiary ml-16" onclick="document.querySelector('.js-modal-container').classList.toggle('is-active')">
+        <div class="btn__icon">
+            <img loading="lazy" src="{{ asset('build/images/plus.svg') }}" alt="Plus" />
+        </div>
+        <div class="btn__title">
+            Dodaj nowego użytkownika
+        </div>
+    </button>
+</div>
+
+<div class="pseudo-table pseudo-table--user-list mt-13 xl:mt-24">
+    <div class="pseudo-table-row mb-10">
+        <div class="pseudo-table-row__item pseudo-table-row__item--heading">imię i nazwisko</div>
+        <div class="pseudo-table-row__item pseudo-table-row__item--heading">e-mail</div>
+        <div class="pseudo-table-row__item pseudo-table-row__item--heading">rola</div>
+        <div class="pseudo-table-row__item pseudo-table-row__item--heading"></div>
+    </div>
+
+    {% for user in client.users %}
+        <div class="pseudo-table-row pseudo-table-row--tile">
+            <div class="pseudo-table-row__item">{{ user.firstName }} {{ user.lastName }}</div>
+            <div class="pseudo-table-row__item">{{ user.email }}</div>
+            <div class="pseudo-table-row__item">
+                <div class="dropdown">
+                    <div class="dropdown__title">Użytkownik</div>
+                    <div class="dropdown__icon">
+                        <img loading="lazy" src="{{ asset('build/images/angle-down.svg') }}" alt="Angle down" />
+                    </div>
+                </div>
+            </div>
+            <div class="pseudo-table-row__item flex xl:justify-end">
+                <a href="{{ path('admin_client_user_remove', {'client': client.id, 'user': user.id}) }}" class="pseudo-table-action flex items-center">
+                    <img loading="lazy" src="{{ asset('build/images/bin.svg') }}" alt="Bin" class="pseudo-table-icon mr-4" />
+                    <span>Usuń</span>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

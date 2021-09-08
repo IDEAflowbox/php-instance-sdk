@@ -1,0 +1,10 @@
+{% if is_granted('IS_IMPERSONATOR') %}
+<!-- ADMIN RETURN BAR -->
+<div class="dashboard-return-bar">
+    <h6 class="dashboard-return-bar__title">Administrator zalogowany: {{ impersonator_user_name() }}</h6>
+    <a href="{{ impersonation_exit_path(path('admin_client_show', {'client': app.user.client.id }) ) }}" class="btn btn--quaternary">
+        <span class="btn__title">Powrót do panelu administratora</span>
+    </a>
+</div>
+<!-- ADMIN RETURN BAR! -->
+{% endif %}

@@ -11,7 +11,7 @@ security:
             algorithm: auto
 
     role_hierarchy:
-        ROLE_ADMIN:       [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN: [ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         app_user_provider:
@@ -29,14 +29,17 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         admin:
+            context: app
             pattern: ^/admin
             lazy: true
+            switch_user: true
             provider: app_admin_provider
             custom_authenticator: App\Security\AdminFormAuthenticator
             logout:
                 path: admin_logout
                 target: /admin/login
         main:
+            context: app
             pattern: ^/account
             lazy: true
             switch_user: true

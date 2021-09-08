@@ -9,6 +9,8 @@
 {% block main %}
     <!-- DASHBOARD MAIN -->
     <div class="dashboard-main">
+        {% include 'account/layout/impersonation.html.twig' %}
+
         <ul class="tabs-menu">
             <li class="tabs-menu-item js-tabs-menu-item is-active" onclick="window.location.href='{{ path('account_billing_invoices') }}'">
                 <div class="tabs-menu-item__icon">
