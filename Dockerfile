@@ -1,4 +1,4 @@
-FROM $CI_REGISTRY_IMAGE:base
+FROM git-ck.idea-commerce.com:5050/cyberkonsultant/webpanel:base
 
 ENV TZ Europe/Warsaw
 
