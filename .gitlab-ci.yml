@@ -31,6 +31,24 @@ base:
     - docker push $CI_REGISTRY_IMAGE:base
   when: manual
 
+buildimage:
+  stage: build
+  image: docker:19.03.12
+  variables:
+    DOCKER_HOST: tcp://docker:2375 
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  services:
+    - name: docker:20-dind
+      alias: docker
+      command: [ "--tls=false" ]
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:webpanel 
+    - docker push $CI_REGISTRY_IMAGE:webpanel
+  when: manual 
+
 build:composer:
   stage: build
   image: composer:2
