@@ -51,13 +51,7 @@ RUN \
     mkdir -p /var/www/public && \
     chown -R www-data:www-data /var/www/ && \
     cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" && \
-    curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
-
-COPY . /var/www/public
-RUN \
-    cd /var/www/public && \
-    /usr/bin/composer -n --no-ansi --no-scripts --ignore-platform-reqs install
-RUN chown -R www-data:www-data /var/www/ 
+    curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 ADD ./etc /etc
 
