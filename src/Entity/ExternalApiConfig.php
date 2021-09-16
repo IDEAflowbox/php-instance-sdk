@@ -32,13 +32,7 @@ class ExternalApiConfig
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     #[Assert\NotBlank]
-    private ?string $login = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    #[Assert\NotBlank]
-    private ?string $password = null;
+    private ?string $token = null;
 
     public function getClient(): ?Client
     {
@@ -64,26 +58,14 @@ class ExternalApiConfig
         return $this;
     }
 
-    public function getLogin(): ?string
+    public function getToken(): ?string
     {
-        return $this->login;
+        return $this->token;
     }
 
-    public function setLogin(?string $login): self
+    public function setToken(?string $token): self
     {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(?string $password): self
-    {
-        $this->password = $password;
+        $this->token = $token;
 
         return $this;
     }

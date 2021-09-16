@@ -1,142 +1,114 @@
 {% if pageCount > 1 %}
-    <!-- Pagination -->
+<!-- Pagination -->
+<form method="get" name="pagination">
     <div class="pagination-wrapper mt-16">
         <div class="pagination-limit">
             <div class="pagination-limit__title">Pokaż</div>
-            <input type="number" class="pagination-limit__input" value="20" min="10" max="999">
+            <input type="number" name="limit" class="pagination-limit__input" value="{% if query.limit is defined %}{{ query.limit }}{% else %}25{% endif %}" min="10" max="999">
         </div>
 
         <!-- Pagination mobile -->
         <div class="pagination-mixed mt-13 md:mt-0">
-            <a href="" class="pagination-mixed__item pagination-mixed__item--border-r is-disabled">
-                <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
-            </a>
-            <a href="" class="pagination-mixed__item pagination-mixed__item--border-r is-disabled">
-                <img loading="lazy" src="{{ asset('build/images/triangle-left.svg') }}" alt="Pointing left" />
-            </a>
-            <a href="" class="pagination-mixed__item is-active">
-                1
-            </a>
-            <a href="" class="pagination-mixed__item">
-                2
-            </a>
-            <a href="" class="pagination-mixed__item">
-                ...
-            </a>
-            <a href="" class="pagination-mixed__item pagination-mixed__item--border-r">
-                433
-            </a>
-            <a href="" class="pagination-mixed__item pagination-mixed__item--border-r">
-                <img loading="lazy" src="{{ asset('build/images/triangle-right.svg') }}" alt="Pointing right" />
-            </a>
-            <a href="" class="pagination-mixed__item">
-                <img loading="lazy" src="{{ asset('build/images/pointing-right.svg') }}" alt="Pointing right" />
-            </a>
-        </div>
-        <!-- Pagination mobile! -->
-
-        <!-- Pagination desktop -->
-        <div class="pagination-skipper">
-            <a href="" class="pagination-skipper__item">
-                <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
-            </a>
-            <a href="" class="pagination-skipper__item">
-                <img loading="lazy" src="{{ asset('build/images/triangle-left.svg') }}" alt="Pointing left" />
-            </a>
-            <input type="number" class="pagination-skipper__input" value="1" min="1" max="433">
-            <div class="pagination-skipper__title">z 433</div>
-            <a href="" class="pagination-skipper__item is-active">
-                <img loading="lazy" src="{{ asset('build/images/triangle-right.svg') }}" alt="Pointing right" />
-            </a>
-            <a href="" class="pagination-skipper__item is-active">
-                <img loading="lazy" src="{{ asset('build/images/pointing-right.svg') }}" alt="Pointing right" />
-            </a>
-        </div>
-
-        <div class="pagination-pages">
-            <a class="pagination-pages__item">1</a>
-            <a class="pagination-pages__item">2</a>
-            <a class="pagination-pages__item">3</a>
-            <a class="pagination-pages__item">4</a>
-            <div class="pagination-pages__blank">...</div>
-            <a class="pagination-pages__item">10</a>
-        </div>
-        <!-- Pagination desktop! -->
-
-    </div>
-    <!-- Pagination! -->
-
-
-
-    <nav>
-        {% set classAlign = (align is not defined) ? '' : align=='center' ? ' justify-content-center' : (align=='right' ? ' justify-content-end' : '') %}
-        {% set classSize = (size is not defined) ? '' : size=='large' ? ' pagination-lg' : (size=='small' ? ' pagination-sm' : '') %}
-        <ul class="pagination{{ classAlign }}{{ classSize }}">
+            {% if first is defined %}
+                <a href="{{ path(route, query|merge({(pageParameterName): first})) }}" class="pagination-mixed__item pagination-mixed__item--border-r is-disabled">
+                    <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
+                </a>
+            {% endif %}
 
             {% if previous is defined %}
-                <li class="page-item">
-                    <a class="page-link" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
-                </li>
-            {% else %}
-                <li class="page-item disabled">
-                    <span class="page-link">&laquo;&nbsp;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</span>
-                </li>
+                <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}" class="pagination-mixed__item pagination-mixed__item--border-r is-disabled">
+                    <img loading="lazy" src="{{ asset('build/images/triangle-left.svg') }}" alt="Pointing left" />
+                </a>
             {% endif %}
 
-            {% if startPage > 1 %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
-                </li>
-                {% if startPage == 3 %}
-                    <li class="page-item">
-                        <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
-                    </li>
-                {% elseif startPage != 2 %}
-                    <li class="page-item disabled">
-                        <span class="page-link">&hellip;</span>
-                    </li>
-                {% endif %}
-            {% endif %}
 
             {% for page in pagesInRange %}
-                {% if page != current %}
-                    <li class="page-item">
-                        <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
-                    </li>
-                {% else %}
-                    <li class="page-item active">
-                        <span class="page-link">{{ page }}</span>
-                    </li>
-                {% endif %}
-
+                <a href="{{ path(route, query|merge({(pageParameterName): page})) }}" class="pagination-mixed__item{% if page == current %} is-active{% endif %}">{{ page }}</a>
             {% endfor %}
 
             {% if pageCount > endPage %}
                 {% if pageCount > (endPage + 1) %}
                     {% if pageCount > (endPage + 2) %}
-                        <li class="page-item disabled">
-                            <span class="page-link">&hellip;</span>
-                        </li>
+                        <a href="" class="pagination-mixed__item">...</a>
                     {% else %}
-                        <li class="page-item">
-                            <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
-                        </li>
+                        <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}" class="pagination-mixed__item">{{ pageCount -1 }}</a>
                     {% endif %}
                 {% endif %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
-                </li>
+                <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}"  class="pagination-mixed__item pagination-mixed__item--border-r">{{ pageCount }}</a>
             {% endif %}
 
             {% if next is defined %}
-                <li class="page-item">
-                    <a class="page-link" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
-                </li>
-            {% else %}
-                <li  class="page-item disabled">
-                    <span class="page-link">{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;&raquo;</span>
-                </li>
+                <a href="{{ path(route, query|merge({(pageParameterName): next})) }}" class="pagination-mixed__item pagination-mixed__item--border-r">
+                    <img loading="lazy" src="{{ asset('build/images/triangle-right.svg') }}" alt="Pointing right" />
+                </a>
             {% endif %}
-        </ul>
-    </nav>
+
+            {% if last is defined and current != last %}
+                <a href="{{ path(route, query|merge({(pageParameterName): last})) }}" class="pagination-mixed__item">
+                    <img loading="lazy" src="{{ asset('build/images/pointing-right.svg') }}" alt="Pointing right" />
+                </a>
+            {% endif %}
+        </div>
+        <!-- Pagination mobile! -->
+
+        <!-- Pagination desktop -->
+        <div class="pagination-skipper">
+            {% if first is defined %}
+                <a href="{{ path(route, query|merge({(pageParameterName): first})) }}" class="pagination-skipper__item">
+                    <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
+                </a>
+            {% endif %}
+
+            {% if previous is defined %}
+                <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}" class="pagination-skipper__item">
+                    <img loading="lazy" src="{{ asset('build/images/triangle-left.svg') }}" alt="Pointing left" />
+                </a>
+            {% endif %}
+
+            <input type="number" name="page" class="pagination-skipper__input" value="{{ current }}" min="1" max="433">
+
+            <div class="pagination-skipper__title">z {{ pageCount }}</div>
+
+            {% if next is defined %}
+                <a href="{{ path(route, query|merge({(pageParameterName): next})) }}" class="pagination-skipper__item is-active">
+                    <img loading="lazy" src="{{ asset('build/images/triangle-right.svg') }}" alt="Pointing right" />
+                </a>
+            {% endif %}
+
+            {% if last is defined and current != last %}
+                <a href="{{ path(route, query|merge({(pageParameterName): last})) }}" class="pagination-skipper__item is-active">
+                    <img loading="lazy" src="{{ asset('build/images/pointing-right.svg') }}" alt="Pointing right" />
+                </a>
+            {% endif %}
+        </div>
+
+        <div class="pagination-pages">
+            {% for page in pagesInRange %}
+                <a href="{{ path(route, query|merge({(pageParameterName): page})) }}" class="pagination-pages__item">{{ page }}</a>
+            {% endfor %}
+
+            {% if pageCount > endPage %}
+                {% if pageCount > (endPage + 1) %}
+                    {% if pageCount > (endPage + 2) %}
+                        <div class="pagination-pages__blank">...</div>
+                    {% else %}
+                        <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}" class="pagination-pages__item">{{ pageCount -1 }}</a>
+                    {% endif %}
+                {% endif %}
+                <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}" class="pagination-pages__item">{{ pageCount }}</a>
+            {% endif %}
+        </div>
+        <!-- Pagination desktop! -->
+
+    </div>
+    <!-- Pagination! -->
+</form>
+    <script>
+        (function (){
+            const form = document.querySelector('form[name="pagination"]');
+            form.addEventListener('input', function (event) {
+                form.submit();
+            })
+        }());
+    </script>
 {% endif %}

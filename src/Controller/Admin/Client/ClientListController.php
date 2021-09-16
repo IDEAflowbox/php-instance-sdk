@@ -23,7 +23,7 @@ class ClientListController extends AbstractController
         $pagination = $paginator->paginate(
             $repository->queryBuilder($request->get('search')),
             $request->query->getInt('page', 1),
-            $request->query->getInt('limit', 25)
+            $request->query->getInt('limit', 1)
         );
 
         $form = $this->createForm(CreateClientType::class);

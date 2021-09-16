@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ClientEditController extends AbstractController
+class ClientBillingItemsEditController extends AbstractController
 {
     #[Route('/admin/client/{client}/billing-items/edit', name: 'admin_client_billing_items_edit')]
     public function show(

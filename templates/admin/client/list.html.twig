@@ -69,6 +69,11 @@
                 {% endfor %}
             </div>
 
+
+            {{ knp_pagination_render(pagination, 'admin/pagination.html.twig') }}
+
+
+            {#
             <!-- Pagination -->
             <div class="pagination-wrapper mt-16">
                 <div class="pagination-limit">
@@ -135,6 +140,7 @@
 
             </div>
             <!-- Pagination! -->
+            #}
         </div>
     </div>
     <!-- DASHBOARD MAIN! -->

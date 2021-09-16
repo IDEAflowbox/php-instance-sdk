@@ -2,10 +2,8 @@
   external_api_config_1:
     client: '@client_1'
     url: 'https://berryroger.idea-commerce.com/api/v3'
-    login: 'berryroger'
-    password: 'YLb61z7oyl3Dgbi9ycIG'
+    token: 'YLb61z7oyl3Dgbi9ycIG'
   external_api_config_2:
     client: '@client_2'
     url: 'https://william164.idea-commerce.com/api/v3'
-    login: 'william164'
-    password: 'ew3ti6eeQu'
+    token: 'ew3ti6eeQu'

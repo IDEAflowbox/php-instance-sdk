@@ -1,0 +1,16 @@
+{% extends 'admin/client/client.html.twig' %}
+
+{% block client %}
+    {% include 'admin/client/edit/client_api.html.twig' %}
+    {% include 'admin/client/show/billing_items.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        (function (){
+
+        }());
+    </script>
+{% endblock %}
