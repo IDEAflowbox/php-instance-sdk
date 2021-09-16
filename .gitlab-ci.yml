@@ -1,7 +1,7 @@
 stages:
   - base
-  - test
   - build
+  - test
   - deploy
  
  
