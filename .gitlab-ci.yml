@@ -3,7 +3,8 @@ stages:
   - test
   - build
   - deploy
-
+ 
+ 
 variables:
   COMPOSER_MEMORY_LIMIT: -1
   DOCKER_HOST: tcp://docker:2375/
