@@ -2,6 +2,7 @@
 
 namespace App\Dto;
 
+use App\Entity\IssuerAddress;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class CreateClientDto
@@ -32,6 +33,9 @@ class CreateClientDto
 
     #[Assert\NotBlank]
     private ?string $country = null;
+
+    #[Assert\NotNull]
+    private ?IssuerAddress $issuerAddress = null;
 
     public function getFirstName(): ?string
     {
@@ -137,6 +141,18 @@ class CreateClientDto
     public function setCountry(?string $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getIssuerAddress(): ?IssuerAddress
+    {
+        return $this->issuerAddress;
+    }
+
+    public function setIssuerAddress(?IssuerAddress $issuerAddress): self
+    {
+        $this->issuerAddress = $issuerAddress;
 
         return $this;
     }

@@ -13,15 +13,12 @@
 		width: 100%;
 		max-width: 1050px;
 		height:100%;
-		max-height: 770px;
 		position:relative;
 		z-index: 3;
 		display: flex;
-    align-items: center;
+    align-items: stretch;
 		
-		&--md{
-			max-width: 560px;
-		}
+		
 		& > div{
 			height:100%;
 		}
@@ -32,17 +29,41 @@
 		opacity:0;
 		transition: all $tt_base;
 		position:fixed;
-		top: 0;
+		top: 60px;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		z-index: 3;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		&.is-active{
 			pointer-events: all;
 			opacity: 1;
+		}
+		.tile{
+			overflow-y:auto;
+			height:100%;
+			background-color:#F5F6FA;
+		}
+	}
+}
+
+@media (min-width: 768px){
+	.modal-container{
+		top: 0px;
+		z-index: 5;
+		padding: 38px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.tile{
+			background-color: #fff;
+			height: auto;
+		}
+	}
+	.modal-wrapper{
+    align-items: stretch;
+		height: auto;
+		&--md{
+			max-width: 560px;
 		}
 	}
 }

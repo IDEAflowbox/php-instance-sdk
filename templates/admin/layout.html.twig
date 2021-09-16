@@ -15,17 +15,22 @@
             {% block header %}
             <!-- DASHBOARD HEADER -->
             <div class="dashboard-header">
-                <img loading="lazy" class="dashboard-header__logo" src="{{ asset('build/images/idea-commerce-logo-2.svg') }}" alt="Idea commerce logo" />
+                <a href="{{ path('admin_client_list') }}" class="dashboard-header__logo flex">
+                    <img loading="lazy" src="{{ asset('build/images/idea-commerce-logo-2.svg') }}" alt="Idea commerce logo" />
+                </a>
                 <div class="dropdown">
                     <div class="lang-change">
                         <img loading="lazy" src="{{ asset('build/images/world.svg') }}" alt="World" />
-                        <span class="lang-change__title">Polski</span>
+                        <span class="lang-change__title">
+							<div class="hidden md:block">Polski</div>
+							<div class="md:hidden">PL</div>
+						</span>
                     </div>
-                    <div class="dropdown__icon">
+                    <div class="dropdown__icon hidden md:flex">
                         <img loading="lazy" src="{{ asset('build/images/angle-down.svg') }}" alt="Angle down" />
                     </div>
                 </div>
-                <div class="dropdown ml-16">
+                <div class="dropdown ml-8 md:ml-16">
                     <div class="user-avatar">
                         <img loading="lazy" src="{{ asset('build/images/avatar.jpg') }}" alt="User avatar" />
                     </div>

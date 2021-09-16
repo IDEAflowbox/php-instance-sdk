@@ -23,10 +23,25 @@ class ClientRepository extends ServiceEntityRepository
         parent::__construct($registry, Client::class);
     }
 
-    public function queryBuilder(): ?QueryBuilder
+    public function queryBuilder(?string $search = null): ?QueryBuilder
     {
-        return $this->createQueryBuilder('c')
-            ->orderBy('c.createdAt');
+        $qb = $this->createQueryBuilder('c');
+
+        if (!empty($search)) {
+            $qb->join('c.billingAddress', 'ba');
+            $qb->where('c.firstName LIKE :search');
+            $qb->orWhere('c.lastName LIKE :search');
+            $qb->orWhere('ba.firstName LIKE :search');
+            $qb->orWhere('ba.lastName LIKE :search');
+            $qb->orWhere('ba.companyName LIKE :search');
+            $qb->orWhere('ba.zipCode LIKE :search');
+            $qb->orWhere('ba.city LIKE :search');
+            $qb->orWhere('ba.street LIKE :search');
+            $qb->orWhere('ba.country LIKE :search');
+            $qb->setParameter('search', '%'.$search.'%');
+        }
+
+        return $qb->orderBy('c.createdAt');
     }
 
     public function findClientsWithoutInvoiceForTheBillingPeriod(

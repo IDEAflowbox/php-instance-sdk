@@ -1,5 +1,6 @@
 .table{
 	width: 100%;
+	table-layout:fixed;
 	thead{
 		text-align: left;
 		color: #6F6E68;
@@ -54,6 +55,8 @@
 .pseudo-table{
 	&-row{
 		display: flex;
+		flex-wrap:wrap;
+		&.hidden{ display:none }
 		&__item{
 			font-size: $fs_base;
 		}
@@ -68,16 +71,10 @@
 			background: #fff;
 			box-shadow: 0px 3px 6px 0 rgb(0 0 0 / 0.06);
 			border: 1px solid #DFE1EB;
-			padding: 14px 0;
+			padding: 32px 24px;
 			border-radius: 6px;
 			margin-bottom: 16px;
-			.pseudo-table-row__item:nth-child(1){
-				padding-left: 24px;
 
-			}
-			.pseudo-table-row__item:last-child{
-				padding-right: 24px;
-			}
 		}
 	}
 	&-icon{
@@ -97,15 +94,7 @@
 	}
 }
 
-.pseudo-table--clients{
-	.pseudo-table-row__item{
-		&:nth-child(1){	width: 20% }
-		&:nth-child(2){	width: 20% }
-		&:nth-child(3){	width: 20% }
-		&:nth-child(4){	width: 20% }
-		&:nth-child(5){	width: 20% }
-	}
-}
+
 
 .pseudo-table--logs{
 	.pseudo-table-row__item{
@@ -119,18 +108,38 @@
 
 .pseudo-table--user-list{
 	.pseudo-table-row__item{
-		&:nth-child(1){	width: 20% }
-		&:nth-child(2){	width: 45% }
-		&:nth-child(3){	width: 20% }
-		&:nth-child(4){	width: 15% }
+		&:nth-child(1){	width: 50% }
+		&:nth-child(2){	width: 50% }
+		&:nth-child(3){	width: 100% }
+		&:nth-child(4){	width: 100% }
 	}
 }
 
 
+.pseudo-table--clients{
+	.pseudo-table-row__item{
+		&:nth-child(1){	width: 50% }
+		&:nth-child(2){	width: 50% }
+		&:nth-child(3){	width: 100% }
+		&:nth-child(4){	width: 50% }
+		&:nth-child(5){	width: 50% }
+	}
+}
+
+.table--invoices{
+	&-2{
+		tbody tr{
+			td:nth-child(3){
+				width: 80px;
+			}
+		}
+	}
+}
+
 @media (min-width: 768px){
 	.table{
 		tbody{
-			td{
+			td:not(.border-b){
 				border-bottom: 1px solid transparent;
 			}
 		}
@@ -159,6 +168,62 @@
 	// 		}
 	// 	}
 	// }
+	.pseudo-table--clients{
+		.pseudo-table-row__item{
+			&:nth-child(1){	width: 30% }
+			&:nth-child(2){	width: 40% }
+			&:nth-child(3){	width: 30% }
+			&:nth-child(4){	width: 30% }
+			&:nth-child(5){	width: 40% }
+		}
+	}
+	.pseudo-table--user-list{
+		.pseudo-table-row__item{
+			&:nth-child(1){	width: calc(40% - 40px) }
+			&:nth-child(2){	width: 35% }
+			&:nth-child(3){	width: 25% }
+			&:nth-child(4){	width: 40px }
+		}
+	}
+	.table--invoices{
+		&-2{
+			thead tr{
+				th:nth-child(1){
+					width: 40px;
+				}
+				th:nth-child(3){
+					width: 80px;
+				}
+				th:nth-child(4){
+					width: 140px;
+				}
+
+				th:nth-child(5){
+					width: 60px;
+				}
+			}
+		}
+		&-3{
+			thead tr{
+				th:nth-child(1){
+					width: 40px;
+				}
+				th:nth-child(3){
+					width: 80px;
+				}
+				th:nth-child(4){
+					width: 120px;
+				}
+
+				th:nth-child(5){
+					width: 100px;
+				}
+				th:nth-child(6){
+					width: 70px;
+				}
+			}
+		}
+	}
 }
 @media (min-width: 1280px){
 	.table{
@@ -196,16 +261,24 @@
 		&-2{
 			thead tr{
 				th:nth-child(1){
-					width: 64%;
+					width: 40px;
 				}
 				th:nth-child(2){
-					width: 12%;
+					width: 59%;
 				}
+				th:nth-child(5){
+					width: 60px;
+				}
+			}
+		}
+		&-3{
+			thead tr{
+
 				th:nth-child(3){
-					width: 12%;
+					width: 100px;
 				}
 				th:nth-child(4){
-					width: 12%;
+					width: 200px;
 				}
 			}
 		}
@@ -218,6 +291,41 @@
 			th:nth-child(3){
 				width: 15%;
 			}
+		}
+	}
+
+	.pseudo-table{
+		&-row{
+			&.xl\:flex{ display:flex }
+			&--tile{
+				padding: 14px 0;
+	
+				.pseudo-table-row__item:nth-child(1){
+					padding-left: 24px;
+				}
+				.pseudo-table-row__item:last-child{
+					padding-right: 24px;
+				}
+			}
+		}
+	}
+
+	.pseudo-table--user-list{
+		.pseudo-table-row__item{
+			&:nth-child(1){	width: 25% }
+			&:nth-child(2){	width: 25% }
+			&:nth-child(3){	width: 25% }
+			&:nth-child(4){	width: 25% }
+		}
+	}
+
+	.pseudo-table--clients{
+		.pseudo-table-row__item{
+			&:nth-child(1){	width: 20% }
+			&:nth-child(2){	width: 20% }
+			&:nth-child(3){	width: 20% }
+			&:nth-child(4){	width: 20% }
+			&:nth-child(5){	width: 20% }
 		}
 	}
 }

@@ -1,0 +1,58 @@
+<div class="modal-container js-modal-container {% if userModalShow %}is-active{% endif %}">
+    <div class="modal-overlay" onclick="document.querySelector('.js-modal-container').classList.remove('is-active')"></div>
+    <div class="modal-wrapper modal-wrapper--md">
+        {% form_theme userFormView 'form/form_layout.html.twig' %}
+        {{ form_start(userFormView, {'method': 'post', 'attr': {'class': 'tile flex flex-col w-full' }}) }}
+            <h6 class="tile__title tile__title--lg mt-0 mb-6 md:mb-16">Dodaj nowego użytkownika: {{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</h6>
+            <div class="form-control mb-10 md:mb-13 w-full">
+                <label for="">Imię</label>
+                {{ form_widget(userFormView.firstName) }}
+                {{ form_errors(userFormView.firstName) }}
+            </div>
+            <div class="form-control mb-10 md:mb-13 w-full">
+                <label for="">Nazwisko</label>
+                {{ form_widget(userFormView.lastName) }}
+                {{ form_errors(userFormView.lastName) }}
+            </div>
+            <div class="form-control w-full mb-10 md:mb-13">
+                <label for="">E-mail</label>
+                {{ form_widget(userFormView.email) }}
+                {{ form_errors(userFormView.email) }}
+            </div>
+            <div class="flex w-full items-end">
+                <div class="form-control flex-1  form-control--icon-right">
+                    <label for="">Hasło</label>
+                    <div class="relative">
+                        {{ form_widget(userFormView.plainPassword) }}
+                        {{ form_errors(userFormView.plainPassword) }}
+                        <img loading="lazy" src="{{ asset('build/images/b-eye.svg') }}" alt="Menu" class="cursor-pointer input-icon" />
+                    </div>
+                </div>
+                <div class="mb-2 ml-8">
+                    <button class="btn btn--quinary ml-auto">
+                        <span class="btn__title">Generuj</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-auto">
+                <div class="-mx-3 flex md:justify-end mt-13 md:mt-16">
+                    <div class="px-3 w-1/2 md:w-auto">
+                        <button type="reset" class="btn btn--tertiary btn--form-submit w-full md:w-auto" onclick="document.querySelector('.js-modal-container').classList.remove('is-active')">
+                            <div class="btn__title">
+                                Anuluj
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="px-3 w-1/2 md:w-auto">
+                        <button type="submit" class="btn btn--secondary btn--form-submit w-full md:w-auto">
+                            <div class="btn__title">
+                                Dalej
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {{ form_end(userFormView) }}
+    </div>
+</div>

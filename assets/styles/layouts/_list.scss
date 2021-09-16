@@ -108,9 +108,13 @@
 		font-size: $fs_sm;
 		flex: 1;
 		text-align: right;
+		&--green{
+			color: #219653;
+			font-weight:700;
+		}
 	}
 	&--lg{
-		padding-right:16px;
+		// padding-right:16px;
 		.list-item__title{
 			font-weight: bold;
 			font-size: $fs_base;
@@ -146,15 +150,6 @@
 		}
 		&__value--lg{
 			font-size: $fs_lg;
-		}
-	}
-}
-
-@media (min-width: 1280px){
-	.list-item{
-		&__value--green{
-			color: #219653;
-			font-weight:700;
 		}
 	}
 }

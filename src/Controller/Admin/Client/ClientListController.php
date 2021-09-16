@@ -21,9 +21,9 @@ class ClientListController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $pagination = $paginator->paginate(
-            $repository->createQueryBuilder('c'),
+            $repository->queryBuilder($request->get('search')),
             $request->query->getInt('page', 1),
-            25
+            $request->query->getInt('limit', 25)
         );
 
         $form = $this->createForm(CreateClientType::class);
@@ -36,6 +36,8 @@ class ClientListController extends AbstractController
         }
 
         return $this->render('admin/client/list.html.twig', [
+            'search' => $request->get('search'),
+            'limit' => $request->query->getInt('limit', 25),
             'pagination' => $pagination,
             'formView' => $form->createView(),
             'clientModalShow' => $form->isSubmitted() && !$form->isValid(),

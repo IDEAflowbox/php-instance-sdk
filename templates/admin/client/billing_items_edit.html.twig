@@ -1,0 +1,97 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Cyber Konsultant - lista klientów{% endblock %}
+
+{% block main %}
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-main">
+        <div class="dashboard-main__content dashboard-main__content--lg">
+            <h6 class="heading heading--xl mt-3 mb-0"><a href="{{ path('admin_client_list') }}">Lista klientów</a> / <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</a> </h6>
+            {% include 'admin/client/show/client_details.html.twig' %}
+            {% include 'admin/client/show/client_api.html.twig' %}
+            {% include 'admin/client/edit/billing_items.html.twig' %}
+            {% include 'admin/client/users_list.html.twig' %}
+        </div>
+    </div>
+    <!-- DASHBOARD MAIN! -->
+{% endblock %}
+
+{#{% block modal %}#}
+{#    {% include 'admin/client/modal/user_add_modal.html.twig' %}#}
+{#{% endblock %}#}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        (function (){
+            const calc = function () {
+                document.querySelector('[data-content="net-value"]').innerHTML = '';
+                document.querySelector('[data-content="vat-value"]').innerHTML = '';
+                document.querySelector('[data-content="gross-value"]').innerHTML = '';
+
+                let netValue = 0;
+                let vatValue = 0;
+
+                document.querySelectorAll('div[data-content="billing-items"] div[data-content="billing-item"]').forEach((tr) => {
+                    const quantity = parseInt(tr.querySelector('input[data-content="quantity"]').value)
+                    const unitPrice = parseFloat(tr.querySelector('input[data-content="unit-price"]').value.replace(',','.'))
+
+                    if (quantity > 0 && unitPrice > 0) {
+                        const quantity = parseInt(tr.querySelector('input[data-content="quantity"]').value)
+
+                        netValue += unitPrice * quantity;
+
+                        const vatRate = parseInt(tr.querySelector('select[data-content="vat-rate"]').value)
+                        if (vatRate > 0) {
+                            vatValue += unitPrice * quantity  * vatRate/100;
+                        }
+                    }
+                });
+
+                document.querySelector('[data-content="net-value"]').innerHTML = new Intl.NumberFormat('PL-pl').format(netValue) + ' PLN';
+                document.querySelector('[data-content="vat-value"]').innerHTML =new Intl.NumberFormat('PL-pl').format(vatValue) + ' PLN';
+                document.querySelector('[data-content="gross-value"]').innerHTML = new Intl.NumberFormat('PL-pl').format(netValue + vatValue) + ' PLN';
+            };
+
+            calc();
+
+            const table = document.querySelector('div[data-content="billing-items"]');
+            table.addEventListener('input', function (event) {
+                calc();
+            })
+
+            const add = document.querySelector('button[name="add-billing-item"]');
+            add.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const collectionHolder = document.querySelector('div[data-content="billing-items"]');
+                const item = document.createElement('div');
+
+                item.innerHTML = collectionHolder
+                    .dataset
+                    .prototype
+                    .replace(
+                        /__name__/g,
+                        collectionHolder.dataset.index
+                    );
+
+                collectionHolder.appendChild(item.firstElementChild);
+                collectionHolder.dataset.index++;
+            })
+        }());
+
+        const tabsNavDOM = document.querySelectorAll('.js-tabs-menu-item');
+        const tabsPanelDOM = document.querySelectorAll('.js-tabs-panel');
+        if(tabsNavDOM && tabsPanelDOM){
+            tabsNavDOM.forEach((x, index) => {
+                x.addEventListener('click', () => {
+                    tabsNavDOM.forEach(y => y.classList.remove('is-active'));
+                    tabsPanelDOM.forEach(y => y.classList.remove('is-active'));
+                    x.classList.add('is-active');
+                    tabsPanelDOM[index].classList.add('is-active');
+                })
+            })
+        }
+    </script>
+{% endblock %}

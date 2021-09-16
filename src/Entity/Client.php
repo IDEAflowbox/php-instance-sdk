@@ -163,6 +163,9 @@ class Client
     public function setBillingOption(?BillingOption $billingOption): self
     {
         $this->billingOption = $billingOption;
+        if (null !== $billingOption) {
+            $billingOption->setClient($this);
+        }
 
         return $this;
     }

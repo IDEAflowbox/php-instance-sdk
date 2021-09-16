@@ -7,81 +7,10 @@
     <!-- DASHBOARD MAIN -->
     <div class="dashboard-main">
         <div class="dashboard-main__content dashboard-main__content--lg">
-            <h6 class="heading heading--xl mt-3 mb-0">Lista klientów / {{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</h6>
-
-            <div class="tile mt-10 md:mt-13">
-                <div class="flex flex-wrap md:justify-between">
-                    <h6 class="heading heading--xl mt-3 mb-0">{{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</h6>
-                    {% if client.users|length %}
-                    <a href="{{ path('account_settings_billing_details', {'_switch_user': client.users|first.email}) }}" class="btn btn--sm btn--tertiary ml-16">
-                        <div class="btn__title">
-                            Przejdź do panelu klienta
-                        </div>
-                    </a>
-                    {% endif %}
-                </div>
-
-                <div class="list-wrapper mt-13">
-                    <div class="row w-full -mx-8">
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex border-b list-item">
-                                <div class="list-item__title">Imię i nazwisko</div>
-                                <div class="list-item__value">{{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</div>
-                            </div>
-                        </div>
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex border-b list-item">
-                                <div class="list-item__title">Adres do API</div>
-                                <div class="list-item__value">{% if client.externalApiConfig %}{{ client.externalApiConfig.url }}{% endif %}</div>
-                            </div>
-                        </div>
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex border-b list-item">
-                                <div class="list-item__title">Nazwa firmy</div>
-                                <div class="list-item__value">{{ client.billingAddress.companyName }}</div>
-                            </div>
-                        </div>
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex border-b list-item">
-                                <div class="list-item__title">Login</div>
-                                <div class="list-item__value">{% if client.externalApiConfig %}{{ client.externalApiConfig.login }}{% endif %}</div>
-                            </div>
-                        </div>
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex border-b list-item">
-                                <div class="list-item__title">NIP</div>
-                                <div class="list-item__value">{{ client.billingAddress.taxId }}</div>
-                            </div>
-                        </div>
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex list-item">
-                                <div class="list-item__title">Hasło do API</div>
-                                <div class="list-item__value flex items-center">
-                                    <span class="mr-8">{% if client.externalApiConfig %}{{ client.externalApiConfig.password }}{% endif %}</span>
-                                    <button class="btn btn--quinary">
-                                        <span class="btn__title">Ukryj</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex border-b list-item">
-                                <div class="list-item__title">Adres</div>
-                                <div class="list-item__value">123456789</div>
-                            </div>
-                        </div>
-                        <div class="hidden xl:block xl:w-1/2"></div>
-                        <div class="w-full xl:w-1/2 px-8">
-                            <div class="flex border-b list-item">
-                                <div class="list-item__title">Saldo klienta</div>
-                                <div class="list-item__value">Opłacone</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {% include 'admin/client/billing_items.html.twig' %}
+            <h6 class="heading heading--xl mt-3 mb-0"><a href="{{ path('admin_client_list') }}">Lista klientów</a> / <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</a> </h6>
+            {% include 'admin/client/show/client_details.html.twig' %}
+            {% include 'admin/client/show/client_api.html.twig' %}
+            {% include 'admin/client/show/billing_items.html.twig' %}
             {% include 'admin/client/users_list.html.twig' %}
         </div>
     </div>
@@ -89,123 +18,13 @@
 {% endblock %}
 
 {% block modal %}
-    <div class="modal-container js-modal-container {% if userModalShow %}is-active{% endif %}">
-        <div class="modal-overlay" onclick="document.querySelector('.js-modal-container').classList.remove('is-active')"></div>
-        <div class="modal-wrapper modal-wrapper--md">
-            {% form_theme userFormView 'form/form_layout.html.twig' %}
-            {{ form_start(userFormView, {'method': 'post', 'attr': {'class': 'tile' }}) }}
-            <form class="tile">
-                <h6 class="tile__title tile__title--lg mt-0 mb-6 md:mb-16">Dodaj nowego użytkownika: {{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</h6>
-                <div class="row">
-                    <div class="form-control mb-10 md:mb-13 w-full col">
-                        <label for="">Imię</label>
-                        {{ form_widget(userFormView.firstName) }}
-                        {{ form_errors(userFormView.firstName) }}
-                    </div>
-                    <div class="form-control mb-10 md:mb-13 w-full col">
-                        <label for="">Nazwisko</label>
-                        {{ form_widget(userFormView.lastName) }}
-                        {{ form_errors(userFormView.lastName) }}
-                    </div>
-                    <div class="form-control w-full col">
-                        <label for="">E-mail</label>
-                        {{ form_widget(userFormView.email) }}
-                        {{ form_errors(userFormView.email) }}
-                    </div>
-                    <div class="form-control w-full col">
-                        <label for="">Hasło</label>
-                        {{ form_widget(userFormView.plainPassword) }}
-                        {{ form_errors(userFormView.plainPassword) }}
-                    </div>
-                </div>
-                <div class="flex flex-wrap md:justify-end xl:mt-16">
-                    <a href="{{ path('admin_client_show', {'client': client.id}) }}" class="btn btn--tertiary btn--form-submit w-full md:w-auto">
-                        <div class="btn__title">
-                            Anuluj
-                        </div>
-                    </a>
-
-                    <div class="md:ml-10">
-                        <button type="submit" class="btn btn--secondary btn--form-submit w-full md:w-auto">
-                            <div class="btn__title">
-                                Dalej
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            {{ form_end(userFormView) }}
-        </div>
-    </div>
+    {% include 'admin/client/modal/user_add_modal.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
 
     <script>
-        (function (){
-            const calc = function () {
-                document.querySelector('[data-content="net-value"]').innerHTML = '';
-                document.querySelector('[data-content="vat-value"]').innerHTML = '';
-                document.querySelector('[data-content="gross-value"]').innerHTML = '';
-
-                let netValue = 0;
-                let vatValue = 0;
-
-                document.querySelectorAll('table[data-content="billing-items"] tbody tr').forEach((tr) => {
-                    const quantity = parseInt(tr.querySelector('input[data-content="quantity"]').value)
-                    const unitPrice = parseFloat(tr.querySelector('input[data-content="unit-price"]').value.replace(',','.'))
-
-                    if (quantity > 0 && unitPrice > 0) {
-                        const quantity = parseInt(tr.querySelector('input[data-content="quantity"]').value)
-
-                        netValue += unitPrice * quantity;
-
-                        const vatRate = parseInt(tr.querySelector('select[data-content="vat-rate"]').value)
-                        if (vatRate > 0) {
-                            vatValue += unitPrice * quantity  * vatRate/100;
-                        }
-                    }
-                });
-
-                document.querySelector('[data-content="net-value"]').innerHTML = new Intl.NumberFormat('PL-pl').format(netValue) + ' PLN';
-                document.querySelector('[data-content="vat-value"]').innerHTML =new Intl.NumberFormat('PL-pl').format(vatValue) + ' PLN';
-                document.querySelector('[data-content="gross-value"]').innerHTML = new Intl.NumberFormat('PL-pl').format(netValue + vatValue) + ' PLN';
-            };
-
-            calc();
-
-            const table = document.querySelector('table[data-content="billing-items"]');
-            table.addEventListener('click', function (event) {
-                if ('remove' === event.target.getAttribute('data-action')) {
-                    event.preventDefault();
-                    event.target.parentNode.parentNode.remove();
-                }
-            })
-
-            table.addEventListener('input', function (event) {
-                calc();
-            })
-
-            const add = document.querySelector('button[name="add-billing-item"]');
-            add.addEventListener('click', function (event) {
-                event.preventDefault();
-
-                const collectionHolder = document.querySelector('table[data-content="billing-items"]');
-                const item = document.createElement('tr');
-
-                item.innerHTML = collectionHolder
-                    .dataset
-                    .prototype
-                    .replace(
-                        /__name__/g,
-                        collectionHolder.dataset.index
-                    );
-
-                collectionHolder.querySelector('tbody').appendChild(item);
-                collectionHolder.dataset.index++;
-            })
-        }());
-
         const tabsNavDOM = document.querySelectorAll('.js-tabs-menu-item');
         const tabsPanelDOM = document.querySelectorAll('.js-tabs-panel');
         if(tabsNavDOM && tabsPanelDOM){

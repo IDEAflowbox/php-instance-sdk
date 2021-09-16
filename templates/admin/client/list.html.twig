@@ -7,57 +7,63 @@
     <div class="dashboard-main">
         <div class="dashboard-main__content dashboard-main__content--lg">
 
-            <div class="flex flex-wrap md:justify-between">
+            <div class="flex flex-wrap">
                 <h6 class="heading heading--xl mt-3 mb-0">Lista klientów</h6>
-                <div class="flex">
-                    <div class="form-control form-control--icon">
-                        <div class="input-icon">
-                            <img loading="lazy" src="{{ asset('build/images/search.svg') }}" alt="Search" />
-                        </div>
-                        <input type="text" placeholder="Szukaj">
+
+                    <div class="form-control form-control--icon ml-auto">
+                        <form method="get">
+                            <div class="input-icon">
+                                <img loading="lazy" src="{{ asset('build/images/search.svg') }}" alt="Search" />
+                            </div>
+                            <input type="text" name="search" value="{{ search }}" placeholder="Szukaj">
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn--sm btn--tertiary ml-16" onclick="document.querySelector('.js-modal-container').classList.toggle('is-active')">
-                        <div class="btn__icon">
-                            <img loading="lazy" src="{{ asset('build/images/plus.svg') }}" alt="Plus" />
-                        </div>
-                        <div class="btn__title">
-                            Dodaj nowego klienta
-                        </div>
-                    </button>
-                </div>
+                <button type="submit" class="btn btn--sm btn--tertiary md:ml-16 mt-13 md:mt-0 w-full md:w-auto" onclick="document.querySelector('.js-modal-container').classList.toggle('is-active')">
+                    <div class="btn__icon">
+                        <img loading="lazy" src="{{ asset('build/images/plus.svg') }}" alt="Plus" />
+                    </div>
+                    <div class="btn__title">
+                        Dodaj nowego klienta
+                    </div>
+                </button>
             </div>
 
             <div class="pseudo-table pseudo-table--clients mt-13">
-                <div class="pseudo-table-row mb-10">
+                <div class="pseudo-table-row mb-10 hidden xl:flex">
                     <div class="pseudo-table-row__item pseudo-table-row__item--heading">
                         <div>imię i nazwisko</div>
-                        <div class="md:hidden">Data wystawienia</div>
                     </div>
                     <div class="pseudo-table-row__item pseudo-table-row__item--heading hidden md:table-cell">e-mail</div>
                     <div class="pseudo-table-row__item pseudo-table-row__item--heading">
-                        <div>Nazwa firmy</div>
+                        <div>Firma</div>
                         <div class="md:hidden">Miasto</div>
                     </div>
                     <div class="pseudo-table-row__item pseudo-table-row__item--heading hidden md:table-cell">Miasto</div>
                     <div class="pseudo-table-row__item pseudo-table-row__item--heading hidden md:table-cell">Kod pocztowy</div>
                 </div>
 
+
                 {% for client in pagination %}
                     <div class="pseudo-table-row pseudo-table-row--tile">
-                        <div class="pseudo-table-row__item">
+                        <div class="pseudo-table-row__item md:order-1">
+                            <div class="pseudo-table-row__item--heading xl:hidden mb-2">Imię i nazwisko</div>
                             <div><a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</a></div>
                         </div>
-                        <div class="pseudo-table-row__item">
+                        <div class="pseudo-table-row__item md:order-2">
+                            <div class="pseudo-table-row__item--heading xl:hidden mb-2 mt-6 md:mt-0">E-mail</div>
                             <div><a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.email }}</a></div>
                         </div>
-                        <div class="pseudo-table-row__item text-nowrap">
+                        <div class="pseudo-table-row__item md:order-4">
+                            <div class="pseudo-table-row__item--heading xl:hidden mb-2 mt-6">Nazwa firmy</div>
                             <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.companyName }}</a>
                         </div>
-                        <div class="pseudo-table-row__item">
-                            <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.city }}</a>
+                        <div class="pseudo-table-row__item md:order-5">
+                            <div class="pseudo-table-row__item--heading xl:hidden mb-2 mt-6">Miasto</div>
+                            <div><a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.city }}</a></div>
                         </div>
-                        <div class="pseudo-table-row__item">
-                            <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.zipCode }}</a>
+                        <div class="pseudo-table-row__item md:order-5">
+                            <div class="pseudo-table-row__item--heading xl:hidden mb-2 mt-6">Kod pocztowy</div>
+                            <div><a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.zipCode }}</a></div>
                         </div>
                     </div>
                 {% endfor %}
@@ -70,6 +76,36 @@
                     <input type="number" class="pagination-limit__input" value="20" min="10" max="999">
                 </div>
 
+                <!-- Pagination mobile -->
+                <div class="pagination-mixed mt-13 md:mt-0">
+                    <a href="" class="pagination-mixed__item pagination-mixed__item--border-r is-disabled">
+                        <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
+                    </a>
+                    <a href="" class="pagination-mixed__item pagination-mixed__item--border-r is-disabled">
+                        <img loading="lazy" src="{{ asset('build/images/triangle-left.svg') }}" alt="Pointing left" />
+                    </a>
+                    <a href="" class="pagination-mixed__item is-active">
+                        1
+                    </a>
+                    <a href="" class="pagination-mixed__item">
+                        2
+                    </a>
+                    <a href="" class="pagination-mixed__item">
+                        ...
+                    </a>
+                    <a href="" class="pagination-mixed__item pagination-mixed__item--border-r">
+                        433
+                    </a>
+                    <a href="" class="pagination-mixed__item pagination-mixed__item--border-r">
+                        <img loading="lazy" src="{{ asset('build/images/triangle-right.svg') }}" alt="Pointing right" />
+                    </a>
+                    <a href="" class="pagination-mixed__item">
+                        <img loading="lazy" src="{{ asset('build/images/pointing-right.svg') }}" alt="Pointing right" />
+                    </a>
+                </div>
+                <!-- Pagination mobile! -->
+
+                <!-- Pagination desktop -->
                 <div class="pagination-skipper">
                     <a href="" class="pagination-skipper__item">
                         <img loading="lazy" src="{{ asset('build/images/pointing-left.svg') }}" alt="Pointing left" />
@@ -95,6 +131,8 @@
                     <div class="pagination-pages__blank">...</div>
                     <a class="pagination-pages__item">10</a>
                 </div>
+                <!-- Pagination desktop! -->
+
             </div>
             <!-- Pagination! -->
         </div>
@@ -103,77 +141,89 @@
 {% endblock %}
 
 {% block modal %}
-<div class="modal-container js-modal-container {% if clientModalShow %}is-active{% endif %}">
-    <div class="modal-overlay" onclick="document.querySelector('.js-modal-container').classList.remove('is-active')"></div>
-    <div class="modal-wrapper">
-        {% form_theme formView 'form/form_layout.html.twig' %}
-        {{ form_start(formView, {'method': 'post', 'attr': {'class': 'tile' }}) }}
-            <h6 class="tile__title tile__title--xl mt-0 mb-6 md:mb-16">Dodaj nowego klienta</h6>
-            <div class="row">
-                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
-                    <label for="create_client_firstName">Imię</label>
-                    {{ form_widget(formView.firstName) }}
-                    {{ form_errors(formView.firstName) }}
-                </div>
-                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
-                    <label for="create_client_lastName">Nazwisko</label>
-                    {{ form_widget(formView.lastName) }}
-                    {{ form_errors(formView.lastName) }}
-                </div>
-                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
-                    <label for="create_client_companyName">Nazwa firmy</label>
-                    {{ form_widget(formView.companyName) }}
-                    {{ form_errors(formView.companyName) }}
-                </div>
-                <div class="form-control mb-10 md:mb-16 w-full xl:w-1/2 col">
-                    <label for="create_client_taxId">Nip</label>
-                    {{ form_widget(formView.taxId) }}
-                    {{ form_errors(formView.taxId) }}
-                </div>
-                <div class="form-control mb-10 md:mb-16 w-full md:w-2/3 xl:w-1/2 col">
-                    <label for="create_client_street">Ulica</label>
-                    {{ form_widget(formView.street) }}
-                    {{ form_errors(formView.street) }}
-                </div>
-                <div class="form-control mb-10 md:mb-16 w-full md:w-1/3 xl:w-1/2 col">
-                    <label for="create_client_propertyNumber">Numer</label>
-                    {{ form_widget(formView.propertyNumber) }}
-                    {{ form_errors(formView.propertyNumber) }}
-                </div>
-                <div class="form-control mb-10 md:mb-16 w-full md:w-2/3 xl:w-1/2 col">
-                    <label for="create_client_city">Miasto</label>
-                    {{ form_widget(formView.city) }}
-                    {{ form_errors(formView.city) }}
-                </div>
-                <div class="form-control mb-10 md:mb-16 w-full md:w-1/3 xl:w-1/2 col">
-                    <label for="create_client_zipCode">Kod pocztowy</label>
-                    {{ form_widget(formView.zipCode) }}
-                    {{ form_errors(formView.zipCode) }}
-                </div>
-                <div class="form-control md:mb-16 w-full xl:w-1/2 col">
-                    <label for="create_client_country">Kraj</label>
-                    {{ form_widget(formView.country) }}
-                    {{ form_errors(formView.country) }}
-                </div>
-            </div>
-            <div class="flex flex-wrap md:justify-end xl:mt-16">
-                <button type="reset" class="btn btn--tertiary btn--form-submit w-full md:w-auto">
-                    <div class="btn__title">
-                        Anuluj
+    <div class="modal-container js-modal-container {% if clientModalShow %}is-active{% endif %}">
+        <div class="modal-overlay" onclick="document.querySelector('.js-modal-container').classList.remove('is-active')"></div>
+        <div class="modal-wrapper">
+            {% form_theme formView 'form/form_layout.html.twig' %}
+            {{ form_start(formView, {'method': 'post', 'attr': {'class': 'tile' }}) }}
+                <h6 class="tile__title tile__title--xl mt-0 mb-6 md:mb-16">Dodaj nowego klienta</h6>
+                <div class="row">
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 col">
+                        <label for="create_client_firstName">Imię</label>
+                        {{ form_widget(formView.firstName) }}
+                        {{ form_errors(formView.firstName) }}
                     </div>
-                </button>
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 col">
+                        <label for="create_client_lastName">Nazwisko</label>
+                        {{ form_widget(formView.lastName) }}
+                        {{ form_errors(formView.lastName) }}
+                    </div>
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 col">
+                        <label for="create_client_companyName">Nazwa firmy</label>
+                        {{ form_widget(formView.companyName) }}
+                        {{ form_errors(formView.companyName) }}
+                    </div>
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 col">
+                        <label for="create_client_taxId">Nip</label>
+                        {{ form_widget(formView.taxId) }}
+                        {{ form_errors(formView.taxId) }}
+                    </div>
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 col">
+                        <label for="create_client_street">Ulica</label>
+                        {{ form_widget(formView.street) }}
+                        {{ form_errors(formView.street) }}
+                    </div>
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 xl:w-1/2 col">
+                        <label for="create_client_propertyNumber">Numer</label>
+                        {{ form_widget(formView.propertyNumber) }}
+                        {{ form_errors(formView.propertyNumber) }}
+                    </div>
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 col">
+                        <label for="create_client_city">Miasto</label>
+                        {{ form_widget(formView.city) }}
+                        {{ form_errors(formView.city) }}
+                    </div>
+                    <div class="form-control mb-10 md:mb-16 w-full md:w-1/2 xl:w-1/2 col">
+                        <label for="create_client_zipCode">Kod pocztowy</label>
+                        {{ form_widget(formView.zipCode) }}
+                        {{ form_errors(formView.zipCode) }}
+                    </div>
+                    <div class="form-control mb-10 md:mb-0 xl:mb-16 w-full md:w-1/2 col">
+                        <label for="create_client_country">Kraj</label>
+                        {{ form_widget(formView.country) }}
+                        {{ form_errors(formView.country) }}
+                    </div>
+                    <div class="form-control md:mb-10 w-full md:w-1/2 hidden xl:block col"></div>
 
-                <div class="md:ml-10">
-                    <button type="submit" class="btn btn--secondary btn--form-submit w-full md:w-auto">
-                        <div class="btn__title">
-                            Dalej
+                    <div class="form-control w-full md:w-1/2 col">
+                        <label for="">Wystawca faktury</label>
+                        <div class="relative">
+                            {{ form_widget(formView.issuerAddress) }}
+                            {{ form_errors(formView.issuerAddress) }}
+                            <div class="select-icon"></div>
                         </div>
-                    </button>
+                    </div>
                 </div>
-            </div>
+                <div class="row md:justify-end mt-13 md:mt-16">
+                    <div class="col w-1/2 md:w-auto">
+                        <button type="reset" class="btn btn--tertiary btn--form-submit w-full md:w-auto" onclick="document.querySelector('.js-modal-container').classList.remove('is-active')">
+                            <div class="btn__title">
+                                Anuluj
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="md:ml-10 xl:ml-0 w-1/2 md:w-auto">
+                        <button type="submit" class="btn btn--secondary btn--form-submit w-full md:w-auto">
+                            <div class="btn__title">
+                                Dalej
+                            </div>
+                        </button>
+                    </div>
+                </div>
             {{ form_end(formView) }}
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block javascripts %}

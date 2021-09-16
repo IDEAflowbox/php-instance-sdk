@@ -7,6 +7,23 @@
 		display: flex;
 		align-items: center;
 	}
+	&__nav{
+		z-index: 6;
+		max-height: 100%;
+    overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			width: 4px;
+		}
+		
+		&::-webkit-scrollbar-track {
+			background: $c_shade_9;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: $c_shade_4;
+		}
+	}
 	&__logo{
 		margin: auto;
 		transform: translateX(-12px);

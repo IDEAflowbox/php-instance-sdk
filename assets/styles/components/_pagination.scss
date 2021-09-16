@@ -1,6 +1,7 @@
 .pagination{
 	&-wrapper{
-		display: flex;
+		display: block;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 	}
@@ -35,7 +36,7 @@
 	}
 	
 	&-skipper{
-		display: flex;
+		display: none;
 		align-items: center;
 		&__item{
 			padding:8px;
@@ -73,7 +74,7 @@
 	}
 
 	&-pages{
-		display: flex;
+		display: none;
 		align-items: center;
 		&__item{
 			background: #fff;
@@ -95,6 +96,67 @@
 			margin: 0 8px;
 			font-size: $fs_base;
 			font-weight: 800;
+		}
+	}
+}
+
+.pagination-mixed{
+	display:flex;
+	background: #fff;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.06);
+	border: 1px solid $c_shade_1;
+	border-radius: 6px;
+	&__item{
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 38px;
+		font-size: $fs_base;
+		color: $c_primary;
+		font-weight: 800;
+		cursor: pointer;
+		
+		&.pagination-mixed__item--border-r{
+			border-right: 1px solid $c_shade_1;
+		}
+
+		&.is-active{
+			background:rgba($c_shade_8, 0.4);
+		}
+
+		&.is-disabled{
+			pointer-events: none;
+			svg, img{
+				opacity: 0.3;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px){
+	.pagination{
+		&-wrapper{
+			display: flex;
+		}
+		&-mixed{
+			&__item{
+				flex:none;
+			}
+		}
+	}
+}
+@media (min-width: 1280px){
+	.pagination{
+		&-skipper{
+			display: flex;
+		}
+		&-pages{
+			display:flex;
+		}
+		&-mixed{
+			display:none;
 		}
 	}
 }

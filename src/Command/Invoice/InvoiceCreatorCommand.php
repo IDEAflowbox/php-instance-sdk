@@ -33,7 +33,7 @@ class InvoiceCreatorCommand extends Command
         $period = new DateInterval('P1M');
         $clients = $this->repository->findClientsWithoutInvoiceForTheBillingPeriod($period);
         foreach ($clients as $client) {
-            $this->bus->dispatch(new CreateInvoice($client));
+            $this->bus->dispatch(new CreateInvoice($client->getId()));
         }
 
         return Command::SUCCESS;

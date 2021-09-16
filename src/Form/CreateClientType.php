@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Dto\CreateClientDto;
+use App\Entity\IssuerAddress;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,7 +23,19 @@ class CreateClientType extends AbstractType
             ->add('street')
             ->add('propertyNumber')
             ->add('country')
-        ;
+            ->add('issuerAddress', EntityType::class, [
+                'class' => IssuerAddress::class,
+                'choice_label' => function (IssuerAddress $address) {
+                    return implode(
+                        ', ',
+                        [
+                            $address->getCompanyName(),
+                            $address->getCity(),
+                            $address->getCountry(),
+                        ]
+                    );
+                },
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
