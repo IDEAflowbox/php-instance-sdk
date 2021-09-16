@@ -15,7 +15,7 @@
     <div class="pseudo-table-row mb-10">
         <div class="pseudo-table-row__item pseudo-table-row__item--heading">imię i nazwisko</div>
         <div class="pseudo-table-row__item pseudo-table-row__item--heading">e-mail</div>
-        <div class="pseudo-table-row__item pseudo-table-row__item--heading">rola</div>
+        {#<div class="pseudo-table-row__item pseudo-table-row__item--heading">rola</div>#}
         <div class="pseudo-table-row__item pseudo-table-row__item--heading"></div>
     </div>
 
@@ -23,6 +23,7 @@
         <div class="pseudo-table-row pseudo-table-row--tile">
             <div class="pseudo-table-row__item">{{ user.firstName }} {{ user.lastName }}</div>
             <div class="pseudo-table-row__item">{{ user.email }}</div>
+            {#
             <div class="pseudo-table-row__item">
                 <div class="dropdown">
                     <div class="dropdown__title">Użytkownik</div>
@@ -31,6 +32,7 @@
                     </div>
                 </div>
             </div>
+            #}
             <div class="pseudo-table-row__item flex xl:justify-end">
                 <a href="{{ path('admin_client_user_remove', {'client': client.id, 'user': user.id}) }}" class="pseudo-table-action flex items-center">
                     <img loading="lazy" src="{{ asset('build/images/bin.svg') }}" alt="Bin" class="pseudo-table-icon mr-4" />
