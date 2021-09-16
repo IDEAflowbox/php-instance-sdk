@@ -1,3 +1,7 @@
 framework:
     mailer:
         dsn: '%env(MAILER_DSN)%'
+        envelope:
+            sender: 'cyberkonsultant@idea-commerce.com'
+        headers:
+            from: 'Cyber Konsultant <cyberkonsultant@idea-commerce.com>'

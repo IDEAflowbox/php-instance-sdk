@@ -67,4 +67,12 @@ class InvoiceRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
             ;
     }
+
+    public function getNextNumber(): int
+    {
+        return (int) $this->createQueryBuilder('i')
+            ->select('MAX(i.number)')
+            ->getQuery()
+            ->getSingleScalarResult() + 1;
+    }
 }

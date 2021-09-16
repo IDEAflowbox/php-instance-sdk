@@ -2,3 +2,6 @@
   client_1:
     firstName: 'Roger'
     lastName: 'Berry'
+  client_2:
+    firstName: 'Charles'
+    lastName: 'Todd'

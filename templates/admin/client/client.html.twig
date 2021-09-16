@@ -1,0 +1,47 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-main">
+        <div class="dashboard-main__content dashboard-main__content--lg">
+            <h6 class="heading heading--xl mt-3 mb-0"><a href="{{ path('admin_client_list') }}">Lista klientów</a> / <a href="{{ path('admin_client_show', {'client': client.id}) }}">{{ client.billingAddress.firstName }} {{ client.billingAddress.lastName }}</a> </h6>
+            {% include 'admin/client/show/client_details.html.twig' %}
+            {% block client %}{% endblock %}
+            {% include 'admin/client/users_list.html.twig' %}
+        </div>
+    </div>
+    <!-- DASHBOARD MAIN! -->
+{% endblock %}
+
+{% block modal %}
+    {{ render(controller(
+        'App\\Controller\\Admin\\Client\\ClientUserAddController::addUser', {client: client.id}
+    )) }}
+
+
+{#    App\Controller\Admin\Client\ClientUserAddController#}
+
+
+{#    {{ render(path('admin_client_user_add', {client: client.id})) }}#}
+
+{#    {% include 'admin/client/modal/user_add_modal.html.twig' %}#}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        const tabsNavDOM = document.querySelectorAll('.js-tabs-menu-item');
+        const tabsPanelDOM = document.querySelectorAll('.js-tabs-panel');
+        if(tabsNavDOM && tabsPanelDOM){
+            tabsNavDOM.forEach((x, index) => {
+                x.addEventListener('click', () => {
+                    tabsNavDOM.forEach(y => y.classList.remove('is-active'));
+                    tabsPanelDOM.forEach(y => y.classList.remove('is-active'));
+                    x.classList.add('is-active');
+                    tabsPanelDOM[index].classList.add('is-active');
+                })
+            })
+        }
+    </script>
+{% endblock %}

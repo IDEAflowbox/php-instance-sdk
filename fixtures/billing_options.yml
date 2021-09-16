@@ -2,3 +2,6 @@
   billing_option_1:
     client: '@client_1'
     issuerAddress: '@issuer_address_1'
+  billing_option_2:
+    client: '@client_2'
+    issuerAddress: '@issuer_address_2'

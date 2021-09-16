@@ -25,11 +25,11 @@
                     <div class="relative">
                         {{ form_widget(userFormView.plainPassword) }}
                         {{ form_errors(userFormView.plainPassword) }}
-                        <img loading="lazy" src="{{ asset('build/images/b-eye.svg') }}" alt="Menu" class="cursor-pointer input-icon" />
+                        <img loading="lazy" src="{{ asset('build/images/b-eye.svg') }}" alt="Menu" class="cursor-pointer input-icon" onclick="document.querySelector('#user_plainPassword').type = 'text'" />
                     </div>
                 </div>
                 <div class="mb-2 ml-8">
-                    <button class="btn btn--quinary ml-auto">
+                    <button data-action="random-password" class="btn btn--quinary ml-auto">
                         <span class="btn__title">Generuj</span>
                     </button>
                 </div>
@@ -56,3 +56,23 @@
         {{ form_end(userFormView) }}
     </div>
 </div>
+
+<script>
+    (function (){
+        const button = document.querySelector('button[data-action="random-password"]');
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var passwordLength = 12;
+            var password = "";
+            for (var i = 0; i <= passwordLength; i++) {
+                var randomNumber = Math.floor(Math.random() * chars.length);
+                password += chars.substring(randomNumber, randomNumber +1);
+            }
+            document.getElementById("user_plainPassword").value = password;
+            document.getElementById('user_plainPassword').type = 'text'
+        });
+    }())
+</script>
+

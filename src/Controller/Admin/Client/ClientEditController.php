@@ -8,7 +8,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ClientEditController extends AbstractController
@@ -17,7 +16,6 @@ class ClientEditController extends AbstractController
     public function show(
         Client $client,
         Request $request,
-        UserPasswordHasherInterface $hasher,
         EntityManagerInterface $em
     ): Response {
         $billingItemsForm = $this->createForm(ClientBillingItemsType::class, $client);
