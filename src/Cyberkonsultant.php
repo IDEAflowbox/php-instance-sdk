@@ -10,6 +10,7 @@ use Cyberkonsultant\Authentication\Credentials;
 use Cyberkonsultant\DTO\PaginationResponse;
 use Cyberkonsultant\Exception\CyberkonsultantSDKException;
 use Cyberkonsultant\Scope\Shop;
+use Cyberkonsultant\Scope\Voice;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
@@ -131,6 +132,14 @@ class Cyberkonsultant
     public function getShopScope(): Shop
     {
         return new Shop($this);
+    }
+
+    /**
+     * @return Voice
+     */
+    public function getVoiceScope(): Voice
+    {
+        return new Voice($this);
     }
 
     /**

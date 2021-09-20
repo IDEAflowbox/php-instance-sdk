@@ -58,3 +58,7 @@ Poniższe przykłady demonstrują w jaki sposób można wykorzystać bibliotekę
     - [Utwórz prostą ramkę rekomendacyjną](./examples/create-simple-recommendation-frame.php)
     - [Utwórz zaawansowaną ramkę rekomendacyjną](./examples/create-advanced-recommendation-frame.php)
     - [Zaktualizuj ramkę rekomendacyjną](./examples/update-recommendation-frame.php)
+- **[Voice] Połączenia**
+    - [Pobierz listę połączeń](./examples/get-calls.php)
+    - [Dodaj połączenie](./examples/create-call.php)
+    - [Oznacz połączenie jako przetworzone](./examples/mark-call-as-processed.php)
