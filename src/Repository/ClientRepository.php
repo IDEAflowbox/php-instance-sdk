@@ -2,11 +2,13 @@
 
 namespace App\Repository;
 
+use App\DoctrineExtensions\IlikeWalker;
 use App\Entity\Client;
 use App\Entity\Invoice;
 use DateInterval;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -25,6 +27,13 @@ class ClientRepository extends ServiceEntityRepository
 
     public function queryBuilder(?string $search = null): ?QueryBuilder
     {
+        $this->getEntityManager()
+            ->getConfiguration()
+            ->setDefaultQueryHint(
+            Query::HINT_CUSTOM_OUTPUT_WALKER,
+            IlikeWalker::class
+            );
+
         $qb = $this->createQueryBuilder('c');
 
         if (!empty($search)) {
