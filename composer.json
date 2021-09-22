@@ -37,7 +37,6 @@
         "symfony/mime": "5.3.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "5.3.*",
-        "symfony/orm-pack": "^2.1",
         "symfony/process": "5.3.*",
         "symfony/property-access": "5.3.*",
         "symfony/property-info": "5.3.*",
@@ -71,12 +70,21 @@
         "symfony/stopwatch": "5.3.*",
         "symfony/web-profiler-bundle": "5.3.*"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/theofidry/AliceBundle"
+        }
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "github-oauth": {
+            "github.com": "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"
+        }
     },
     "autoload": {
         "psr-4": {
