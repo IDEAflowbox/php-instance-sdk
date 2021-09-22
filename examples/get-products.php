@@ -10,10 +10,3 @@ dump(
         'page' => 1
     ])
 );
-
-// it just an wrapper for the method `getProducts`
-dump(
-    $shop->feed->get([
-        'page' => 1
-    ])
-);

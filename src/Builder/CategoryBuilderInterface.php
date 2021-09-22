@@ -13,10 +13,10 @@ use Cyberkonsultant\DTO\Category;
 interface CategoryBuilderInterface
 {
     /**
-     * @param string $realId
+     * @param string $id
      * @return CategoryBuilderInterface
      */
-    public function setRealId(string $realId): CategoryBuilderInterface;
+    public function setId(string $id): CategoryBuilderInterface;
 
     /**
      * @param string $name

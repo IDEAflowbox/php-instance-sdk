@@ -55,10 +55,10 @@ interface ProductBuilderInterface
     public function setUrl(string $url): ProductBuilderInterface;
 
     /**
-     * @param string $realId
+     * @param string $id
      * @return ProductBuilderInterface
      */
-    public function addCategory(string $realId): ProductBuilderInterface;
+    public function addCategory(string $id): ProductBuilderInterface;
 
     /**
      * @return Product

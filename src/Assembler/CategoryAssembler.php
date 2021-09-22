@@ -20,7 +20,6 @@ class CategoryAssembler implements DataAssemblerInterface
     {
         return [
             'id' => $categoryDTO->getId(),
-            'real_id' => $categoryDTO->getRealId(),
             'name' => $categoryDTO->getName(),
             'url' => $categoryDTO->getUrl(),
             'image' => $categoryDTO->getImage(),
@@ -35,7 +34,6 @@ class CategoryAssembler implements DataAssemblerInterface
     {
         return new Category(
             $category['id'],
-            $category['real_id'],
             $category['name'],
             $category['url'],
             $category['image']

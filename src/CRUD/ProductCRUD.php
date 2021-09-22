@@ -24,7 +24,7 @@ class ProductCRUD extends BaseCRUD
      */
     public function get(array $query = []): ListResponse
     {
-        $response = $this->cyberkonsultant->get('/shop/feed', ['query' => $query]);
+        $response = $this->cyberkonsultant->get('/shop/products', ['query' => $query]);
         $assembler = new PaginationResponseAssembler();
         $productAssembler = new ProductAssembler();
 
@@ -45,8 +45,13 @@ class ProductCRUD extends BaseCRUD
     public function create(Product $product): SuccessResponse
     {
         $productAssembler = new ProductAssembler();
-        $response = $this->cyberkonsultant->post('/shop/feed', [
-            'json' => [$productAssembler->readDTO($product)]
+        $json = $productAssembler->readDTO($product);
+        $json['categories'] = array_map(static function ($category) {
+            return $category['id'];
+        }, $json['categories']);
+
+        $response = $this->cyberkonsultant->post('/shop/products', [
+            'json' => [$json]
         ]);
 
         return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
@@ -61,9 +66,14 @@ class ProductCRUD extends BaseCRUD
     public function createMany(array $products): SuccessResponse
     {
         $productAssembler = new ProductAssembler();
-        $response = $this->cyberkonsultant->post('/shop/feed', [
+        $response = $this->cyberkonsultant->post('/shop/products', [
             'json' => array_map(static function($product) use ($productAssembler) {
-                return $productAssembler->readDTO($product);
+                $json = $productAssembler->readDTO($product);
+                $json['categories'] = array_map(static function ($category) {
+                    return $category['id'];
+                }, $json['categories']);
+
+                return $json;
             }, $products)
         ]);
 

@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Scope;
 
+use Cyberkonsultant\CRUD\CategoryCRUD;
 use Cyberkonsultant\CRUD\EventCRUD;
+use Cyberkonsultant\CRUD\FeatureCRUD;
 use Cyberkonsultant\CRUD\GroupCRUD;
 use Cyberkonsultant\CRUD\ProductCRUD;
 use Cyberkonsultant\CRUD\RecommendationFrameCRUD;
@@ -43,14 +45,19 @@ class Shop
     public $product;
 
     /**
-     * @var ProductCRUD
-     */
-    public $feed;
-
-    /**
      * @var GroupCRUD
      */
     public $group;
+
+    /**
+     * @var CategoryCRUD
+     */
+    public $category;
+
+    /**
+     * @var FeatureCRUD
+     */
+    public $feature;
 
     /**
      * Shop constructor.
@@ -63,7 +70,9 @@ class Shop
         $this->recommendationFrame = new RecommendationFrameCRUD($this->cyberkonsultant);
         $this->event = new EventCRUD($this->cyberkonsultant);
         $this->user = new UserCRUD($this->cyberkonsultant);
-        $this->product = $this->feed = new ProductCRUD($this->cyberkonsultant);
+        $this->product = new ProductCRUD($this->cyberkonsultant);
         $this->group = new GroupCRUD($this->cyberkonsultant);
+        $this->category = new CategoryCRUD($this->cyberkonsultant);
+        $this->feature = new FeatureCRUD($this->cyberkonsultant);
     }
 }

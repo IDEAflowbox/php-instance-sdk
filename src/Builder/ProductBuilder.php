@@ -124,14 +124,13 @@ class ProductBuilder implements ProductBuilderInterface
     }
 
     /**
-     * @param string $realId
+     * @param string $id
      * @return ProductBuilderInterface
      */
-    public function addCategory(string $realId): ProductBuilderInterface
+    public function addCategory(string $id): ProductBuilderInterface
     {
         $this->categories[] = new Category(
-            null,
-            $realId,
+            $id,
             null,
             null,
             null

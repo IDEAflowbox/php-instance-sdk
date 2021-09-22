@@ -44,9 +44,15 @@ Poniższe przykłady demonstrują w jaki sposób można wykorzystać bibliotekę
     - [Pobierz listę użytkowników](./examples/get-users.php)
     - [Pobierz pojedyńczego użytkownika](./examples/get-user.php)
     - [Zaktualizuj użytkownika](./examples/update-user.php)
-- **Produkty/Feed**
+- **Produkty**
     - [Pobierz listę produktów](./examples/get-products.php)
     - [Dodaj produkty](./examples/add-products.php)
+- **Kategorie**
+    - [Pobierz listę kategorii](./examples/get-categories.php)
+    - [Dodaj kategorię](./examples/add-category.php)
+- **Cechy**
+    - [Pobierz listę cech](./examples/get-features.php)
+    - [Dodaj cechę](./examples/add-feature.php)
 - **Grupy**
     - [Pobierz listę grup](./examples/get-groups.php)
     - [Dodaj grupę](./examples/add-group.php)

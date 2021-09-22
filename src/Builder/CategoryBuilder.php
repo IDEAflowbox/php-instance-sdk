@@ -15,7 +15,7 @@ class CategoryBuilder implements CategoryBuilderInterface
     /**
      * @var string
      */
-    protected $realId;
+    protected $id;
 
     /**
      * @var string
@@ -33,12 +33,12 @@ class CategoryBuilder implements CategoryBuilderInterface
     protected $url;
 
     /**
-     * @param string $realId
+     * @param string $id
      * @return CategoryBuilderInterface
      */
-    public function setRealId(string $realId): CategoryBuilderInterface
+    public function setId(string $id): CategoryBuilderInterface
     {
-        $this->realId = $realId;
+        $this->id = $id;
         return $this;
     }
 
@@ -78,8 +78,7 @@ class CategoryBuilder implements CategoryBuilderInterface
     public function getResult(): Category
     {
         return new Category(
-            null,
-            $this->realId,
+            $this->id,
             $this->name,
             $this->url,
             $this->image

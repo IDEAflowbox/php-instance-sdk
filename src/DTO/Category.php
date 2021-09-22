@@ -11,14 +11,9 @@ namespace Cyberkonsultant\DTO;
 class Category
 {
     /**
-     * @var string|null
-     */
-    protected $id;
-
-    /**
      * @var string
      */
-    protected $realId;
+    protected $id;
 
     /**
      * @var string|null
@@ -37,40 +32,29 @@ class Category
 
     /**
      * Category constructor.
-     * @param string|null $id
-     * @param string $realId
+     * @param string $id
      * @param string|null $name
      * @param string|null $url
      * @param string|null $image
      */
     public function __construct(
-        ?string $id,
-        string $realId,
+        string $id,
         ?string $name,
         ?string $url,
         ?string $image
     ) {
         $this->id = $id;
-        $this->realId = $realId;
         $this->name = $name;
         $this->image = $image;
         $this->url = $url;
     }
 
     /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
      * @return string
      */
-    public function getRealId(): string
+    public function getId(): string
     {
-        return $this->realId;
+        return $this->id;
     }
 
     /**
@@ -98,11 +82,11 @@ class Category
     }
 
     /**
-     * @param string $realId
+     * @param string $id
      */
-    public function setRealId(string $realId): void
+    public function setId(string $id): void
     {
-        $this->realId = $realId;
+        $this->id = $id;
     }
 
     /**
