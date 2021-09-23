@@ -17,7 +17,10 @@ class FeatureCRUD extends BaseCRUD
 {
     /**
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(): array
     {
@@ -32,8 +35,10 @@ class FeatureCRUD extends BaseCRUD
     /**
      * @param Feature $feature
      * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function create(Feature $feature): SuccessResponse
     {
@@ -48,8 +53,10 @@ class FeatureCRUD extends BaseCRUD
     /**
      * @param array $features
      * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function createMany(array $features): SuccessResponse
     {

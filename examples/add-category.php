@@ -17,7 +17,7 @@ try {
     dump(
         $shop->category->create($category)
     );
-} catch (\GuzzleHttp\Exception\ClientException $e) {
+} catch (\Cyberkonsultant\Exception\ClientException $e) {
     dump(
         $sdk->getEdgeResponse($e->getResponse(), \Cyberkonsultant\Assembler\ErrorResponseAssembler::class)
     );

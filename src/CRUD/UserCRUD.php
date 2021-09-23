@@ -18,7 +18,10 @@ class UserCRUD extends BaseCRUD
     /**
      * @param array $query
      * @return ListResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(array $query = []): ListResponse
     {
@@ -37,8 +40,10 @@ class UserCRUD extends BaseCRUD
     /**
      * @param string $id
      * @return User
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function find(string $id): User
     {
@@ -49,8 +54,10 @@ class UserCRUD extends BaseCRUD
     /**
      * @param User $user
      * @return mixed
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function update(User $user)
     {

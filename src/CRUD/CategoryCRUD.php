@@ -17,7 +17,10 @@ class CategoryCRUD extends BaseCRUD
 {
     /**
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(): array
     {
@@ -32,8 +35,10 @@ class CategoryCRUD extends BaseCRUD
     /**
      * @param Category $category
      * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function create(Category $category): SuccessResponse
     {
@@ -48,8 +53,10 @@ class CategoryCRUD extends BaseCRUD
     /**
      * @param array $categories
      * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function createMany(array $categories): SuccessResponse
     {

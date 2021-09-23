@@ -4,10 +4,7 @@ declare(strict_types=1);
 namespace Cyberkonsultant\CRUD;
 
 use Cyberkonsultant\Assembler\CallAssembler;
-use Cyberkonsultant\Assembler\EventAssembler;
-use Cyberkonsultant\Assembler\PaginationResponseAssembler;
 use Cyberkonsultant\DTO\Call;
-use Cyberkonsultant\DTO\Event;
 use Cyberkonsultant\Model\ListResponse;
 
 /**
@@ -18,9 +15,11 @@ use Cyberkonsultant\Model\ListResponse;
 class CallCrud extends BaseCRUD
 {
     /**
-     * @param array $query
-     * @return ListResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return array
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(): array
     {
@@ -35,8 +34,10 @@ class CallCrud extends BaseCRUD
     /**
      * @param Call $event
      * @return Call
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function create(Call $event): Call
     {
@@ -50,7 +51,10 @@ class CallCrud extends BaseCRUD
 
     /**
      * @param string $callId
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function markAsProcessed(string $callId): void
     {

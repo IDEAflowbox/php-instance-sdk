@@ -18,7 +18,10 @@ class RecommendationFrameCRUD extends BaseCRUD
     /**
      * @param array $query
      * @return ListResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(array $query = []): ListResponse
     {
@@ -37,8 +40,10 @@ class RecommendationFrameCRUD extends BaseCRUD
     /**
      * @param RecommendationFrame $recommendationFrame
      * @return RecommendationFrame
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function create(RecommendationFrame $recommendationFrame): RecommendationFrame
     {
@@ -53,8 +58,10 @@ class RecommendationFrameCRUD extends BaseCRUD
     /**
      * @param string $id
      * @return RecommendationFrame
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function find(string $id): RecommendationFrame
     {
@@ -65,8 +72,10 @@ class RecommendationFrameCRUD extends BaseCRUD
     /**
      * @param RecommendationFrame $recommendationFrame
      * @return mixed
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function update(RecommendationFrame $recommendationFrame)
     {

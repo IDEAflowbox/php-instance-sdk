@@ -70,6 +70,6 @@ try {
     $shop->recommendationFrame->create($frame);
 
     dump($frame);
-} catch (\GuzzleHttp\Exception\ClientException $e) {
+} catch (\Cyberkonsultant\Exception\ClientException $e) {
     dump($sdk->map($e->getResponse()->getBody()->getContents(), \Cyberkonsultant\Model\ErrorResponse::class));
 }

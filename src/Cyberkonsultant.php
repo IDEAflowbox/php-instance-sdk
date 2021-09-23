@@ -11,8 +11,7 @@ use Cyberkonsultant\DTO\PaginationResponse;
 use Cyberkonsultant\Exception\CyberkonsultantSDKException;
 use Cyberkonsultant\Scope\Shop;
 use Cyberkonsultant\Scope\Voice;
-use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\ResponseInterface;
+use Unirest\Response;
 
 /**
  * Class Cyberkonsultant
@@ -66,10 +65,13 @@ class Cyberkonsultant
      *
      * @param string $uri
      * @param array $options
-     * @return ResponseInterface
-     * @throws GuzzleException
+     * @return Response
+     * @throws CyberkonsultantSDKException
+     * @throws Exception\ClientException
+     * @throws Exception\ServerException
+     * @throws \Unirest\Exception
      */
-    public function get(string $uri, array $options = []): ResponseInterface
+    public function get(string $uri, array $options = []): Response
     {
         return $this->client->sendRequest('GET', $uri, $options);
     }
@@ -79,10 +81,13 @@ class Cyberkonsultant
      *
      * @param string $uri
      * @param array $options
-     * @return ResponseInterface
-     * @throws GuzzleException
+     * @return Response
+     * @throws CyberkonsultantSDKException
+     * @throws Exception\ClientException
+     * @throws Exception\ServerException
+     * @throws \Unirest\Exception
      */
-    public function post(string $uri, array $options = []): ResponseInterface
+    public function post(string $uri, array $options = []): Response
     {
         return $this->client->sendRequest('post', $uri, $options);
     }
@@ -92,10 +97,13 @@ class Cyberkonsultant
      *
      * @param string $uri
      * @param array $options
-     * @return ResponseInterface
-     * @throws GuzzleException
+     * @return Response
+     * @throws CyberkonsultantSDKException
+     * @throws Exception\ClientException
+     * @throws Exception\ServerException
+     * @throws \Unirest\Exception
      */
-    public function delete(string $uri, array $options = []): ResponseInterface
+    public function delete(string $uri, array $options = []): Response
     {
         return $this->client->sendRequest('DELETE', $uri, $options);
     }
@@ -105,10 +113,13 @@ class Cyberkonsultant
      *
      * @param string $uri
      * @param array $options
-     * @return ResponseInterface
-     * @throws GuzzleException
+     * @return Response
+     * @throws CyberkonsultantSDKException
+     * @throws Exception\ClientException
+     * @throws Exception\ServerException
+     * @throws \Unirest\Exception
      */
-    public function patch(string $uri, array $options = []): ResponseInterface
+    public function patch(string $uri, array $options = []): Response
     {
         return $this->client->sendRequest('PATCH', $uri, $options);
     }
@@ -118,10 +129,13 @@ class Cyberkonsultant
      *
      * @param string $uri
      * @param array $options
-     * @return ResponseInterface
-     * @throws GuzzleException
+     * @return Response
+     * @throws CyberkonsultantSDKException
+     * @throws Exception\ClientException
+     * @throws Exception\ServerException
+     * @throws \Unirest\Exception
      */
-    public function put(string $uri, array $options = []): ResponseInterface
+    public function put(string $uri, array $options = []): Response
     {
         return $this->client->sendRequest('PUT', $uri, $options);
     }
@@ -143,21 +157,21 @@ class Cyberkonsultant
     }
 
     /**
-     * @param ResponseInterface $response
+     * @param Response $response
      * @return array
      */
-    public function parseResponse(ResponseInterface $response): array
+    public function parseResponse(Response $response): array
     {
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->raw_body, true);
     }
 
     /**
-     * @param ResponseInterface $response
+     * @param Response $response
      * @param string $assemblerFQCN
      * @return PaginationResponse
      * @throws CyberkonsultantSDKException
      */
-    public function getPaginationResponse(ResponseInterface $response, string $assemblerFQCN): PaginationResponse
+    public function getPaginationResponse(Response $response, string $assemblerFQCN): PaginationResponse
     {
         $assembler = new $assemblerFQCN();
         $responseAssembler = new PaginationResponseAssembler();
@@ -175,12 +189,12 @@ class Cyberkonsultant
     }
 
     /**
-     * @param ResponseInterface $response
+     * @param Response $response
      * @param string $assemblerFQCN
      * @return mixed
      * @throws CyberkonsultantSDKException
      */
-    public function getEdgeResponse(ResponseInterface $response, string $assemblerFQCN)
+    public function getEdgeResponse(Response $response, string $assemblerFQCN)
     {
         $assembler = new $assemblerFQCN();
 

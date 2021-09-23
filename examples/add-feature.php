@@ -24,7 +24,7 @@ try {
     dump(
         $shop->feature->create($feature)
     );
-} catch (\GuzzleHttp\Exception\ClientException $e) {
+} catch (\Cyberkonsultant\Exception\ClientException $e) {
     dump(
         $sdk->getEdgeResponse($e->getResponse(), \Cyberkonsultant\Assembler\ErrorResponseAssembler::class)
     );

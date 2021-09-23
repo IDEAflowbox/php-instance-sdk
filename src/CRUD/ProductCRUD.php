@@ -20,7 +20,10 @@ class ProductCRUD extends BaseCRUD
     /**
      * @param array $query
      * @return ListResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(array $query = []): ListResponse
     {
@@ -39,8 +42,10 @@ class ProductCRUD extends BaseCRUD
     /**
      * @param Product $product
      * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function create(Product $product): SuccessResponse
     {
@@ -59,9 +64,11 @@ class ProductCRUD extends BaseCRUD
 
     /**
      * @param array $products
-     * @return Product
+     * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function createMany(array $products): SuccessResponse
     {

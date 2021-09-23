@@ -19,7 +19,10 @@ class GroupCRUD extends BaseCRUD
     /**
      * @param array $query
      * @return ListResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(array $query = []): ListResponse
     {
@@ -38,8 +41,10 @@ class GroupCRUD extends BaseCRUD
     /**
      * @param Group $group
      * @return Group
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function create(Group $group): Group
     {
@@ -55,7 +60,10 @@ class GroupCRUD extends BaseCRUD
      * @param string $groupId
      * @param array $query
      * @return ListResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function getProducts(string $groupId, array $query = []): ListResponse
     {
@@ -77,7 +85,10 @@ class GroupCRUD extends BaseCRUD
     /**
      * @param string $groupId
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function getProductsIds(string $groupId): array
     {
@@ -88,7 +99,10 @@ class GroupCRUD extends BaseCRUD
     /**
      * @param string $groupId
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function getProductsCodes(string $groupId): array
     {

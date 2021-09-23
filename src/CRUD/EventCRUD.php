@@ -18,7 +18,10 @@ class EventCRUD extends BaseCRUD
     /**
      * @param array $query
      * @return ListResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function get(array $query = []): ListResponse
     {
@@ -37,8 +40,10 @@ class EventCRUD extends BaseCRUD
     /**
      * @param Event $event
      * @return Event
+     * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
      */
     public function create(Event $event): Event
     {
