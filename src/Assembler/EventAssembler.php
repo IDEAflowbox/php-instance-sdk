@@ -25,6 +25,8 @@ class EventAssembler implements DataAssemblerInterface
             'event_type' => $eventDTO->getEventType(),
             'user_score' => $eventDTO->getUserScore(),
             'product_id' => $eventDTO->getProductId(),
+            'category_id' => $eventDTO->getCategoryId(),
+            'cart_id' => $eventDTO->getCartId(),
             'price' => $eventDTO->getPrice(),
         ];
     }
@@ -35,13 +37,16 @@ class EventAssembler implements DataAssemblerInterface
      */
     public function writeDTO(array $event): Event
     {
+        $eventTime = strtotime($event['event_time']);
         return new Event(
             $event['id'],
             $event['user_id'],
-            (new \DateTime())->setTimestamp(strtotime($event['event_time'])),
+            $eventTime ? (new \DateTime())->setTimestamp($eventTime) : null,
             $event['event_type'],
             $event['user_score'],
             $event['product_id'],
+            $event['category_id'],
+            $event['cart_id'],
             $event['price']
         );
     }

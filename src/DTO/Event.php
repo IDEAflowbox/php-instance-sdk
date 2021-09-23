@@ -41,6 +41,16 @@ class Event
     protected $productId;
 
     /**
+     * @var string
+     */
+    protected $categoryId;
+
+    /**
+     * @var string|null
+     */
+    protected $cartId;
+
+    /**
      * @var float
      */
     protected $price;
@@ -53,6 +63,8 @@ class Event
      * @param string $eventType
      * @param int|null $userScore
      * @param string $productId
+     * @param string $categoryId
+     * @param string|null $cartId
      * @param float $price
      */
     public function __construct(
@@ -62,6 +74,8 @@ class Event
         string $eventType,
         ?int $userScore,
         string $productId,
+        string $categoryId,
+        ?string $cartId,
         float $price
     ) {
         $this->id = $id;
@@ -70,6 +84,8 @@ class Event
         $this->eventType = $eventType;
         $this->userScore = $userScore;
         $this->productId = $productId;
+        $this->categoryId = $categoryId;
+        $this->cartId = $cartId;
         $this->price = $price;
     }
 
@@ -119,6 +135,22 @@ class Event
     public function getProductId(): string
     {
         return $this->productId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategoryId(): string
+    {
+        return $this->categoryId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCartId(): ?string
+    {
+        return $this->cartId;
     }
 
     /**

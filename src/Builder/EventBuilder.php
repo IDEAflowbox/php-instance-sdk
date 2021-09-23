@@ -33,6 +33,16 @@ class EventBuilder implements EventBuilderInterface
     protected $price;
 
     /**
+     * @var string
+     */
+    protected $categoryId;
+
+    /**
+     * @var string|null
+     */
+    protected $cartId;
+
+    /**
      * @param string $userId
      * @return EventBuilderInterface
      */
@@ -73,6 +83,26 @@ class EventBuilder implements EventBuilderInterface
     }
 
     /**
+     * @param string $categoryId
+     * @return EventBuilderInterface
+     */
+    public function setCategoryId(string $categoryId): EventBuilderInterface
+    {
+        $this->categoryId = $categoryId;
+        return $this;
+    }
+
+    /**
+     * @param string $cartId
+     * @return EventBuilderInterface
+     */
+    public function setCartId(string $cartId): EventBuilderInterface
+    {
+        $this->cartId = $cartId;
+        return $this;
+    }
+
+    /**
      * @return Event
      */
     public function getResult(): Event
@@ -84,6 +114,8 @@ class EventBuilder implements EventBuilderInterface
             $this->type,
             null,
             $this->productId,
+            $this->categoryId,
+            $this->cartId,
             $this->price
         );
     }
