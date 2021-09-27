@@ -50,6 +50,7 @@ Poniższe przykłady demonstrują w jaki sposób można wykorzystać bibliotekę
 - **Kategorie**
     - [Pobierz listę kategorii](./examples/get-categories.php)
     - [Dodaj kategorię](./examples/add-category.php)
+    - [Powiąż kategorie](./examples/associate-categories.php)
 - **Cechy**
     - [Pobierz listę cech](./examples/get-features.php)
     - [Dodaj cechę](./examples/add-feature.php)

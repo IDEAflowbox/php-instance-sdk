@@ -25,6 +25,9 @@ class UserAssembler implements DataAssemblerInterface
             'first_name' => $userDTO->getFirstName(),
             'last_name' => $userDTO->getLastName(),
             'sex' => $userDTO->getSex(),
+            'country' => $userDTO->getCountry(),
+            'city' => $userDTO->getCity(),
+            'postcode' => $userDTO->getPostcode(),
         ];
     }
 
@@ -40,7 +43,10 @@ class UserAssembler implements DataAssemblerInterface
             $user['username'],
             $user['first_name'],
             $user['last_name'],
-            $user['sex']
+            $user['sex'],
+            $user['country'],
+            $user['city'],
+            $user['postcode']
         );
     }
 }

@@ -69,4 +69,43 @@ class CategoryCRUD extends BaseCRUD
 
         return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
     }
+
+    /**
+     * @param string $shopCategoryId
+     * @param string|null $associateTo
+     * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function associate(string $shopCategoryId, ?string $associateTo = null): SuccessResponse
+    {
+        $response = $this->cyberkonsultant->post('/shop/categories/associate', [
+            'json' => [
+                [
+                    'shop_category_id' => $shopCategoryId,
+                    'associate_to' => $associateTo,
+                ]
+            ]
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
+    }
+
+    public function associateMany(array $associations): SuccessResponse
+    {
+        $associationsCategories = [];
+        foreach ($associations as $shopCategoryId => $associateTo) {
+            $associationsCategories[] = [
+                'shop_category_id' => $shopCategoryId,
+                'associate_to' => $associateTo,
+            ];
+        }
+        $response = $this->cyberkonsultant->post('/shop/categories/associate', [
+            'json' => $associationsCategories
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
+    }
 }

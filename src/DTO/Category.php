@@ -31,22 +31,30 @@ class Category
     protected $url;
 
     /**
+     * @var string|null
+     */
+    protected $associatedTo;
+
+    /**
      * Category constructor.
      * @param string $id
      * @param string|null $name
      * @param string|null $url
      * @param string|null $image
+     * @param string|null $associatedTo
      */
     public function __construct(
         string $id,
         ?string $name,
         ?string $url,
-        ?string $image
+        ?string $image,
+        ?string $associatedTo
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->image = $image;
         $this->url = $url;
+        $this->associatedTo = $associatedTo;
     }
 
     /**
@@ -111,5 +119,21 @@ class Category
     public function setUrl(string $url): void
     {
         $this->url = $url;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAssociatedTo(): ?string
+    {
+        return $this->associatedTo;
+    }
+
+    /**
+     * @param string|null $associatedTo
+     */
+    public function setAssociatedTo(?string $associatedTo): void
+    {
+        $this->associatedTo = $associatedTo;
     }
 }

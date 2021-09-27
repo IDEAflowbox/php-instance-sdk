@@ -41,6 +41,21 @@ class User
     protected $sex;
 
     /**
+     * @var string|null
+     */
+    protected $country;
+
+    /**
+     * @var string|null
+     */
+    protected $city;
+
+    /**
+     * @var string|null
+     */
+    protected $postcode;
+
+    /**
      * User constructor.
      * @param string $id
      * @param bool $anonymous
@@ -48,6 +63,9 @@ class User
      * @param string|null $firstName
      * @param string|null $lastName
      * @param string|null $sex
+     * @param string|null $country
+     * @param string|null $city
+     * @param string|null $postcode
      */
     public function __construct(
         string $id,
@@ -55,7 +73,10 @@ class User
         ?string $username,
         ?string $firstName,
         ?string $lastName,
-        ?string $sex
+        ?string $sex,
+        ?string $country,
+        ?string $city,
+        ?string $postcode
     ) {
         $this->id = $id;
         $this->anonymous = $anonymous;
@@ -63,6 +84,9 @@ class User
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->sex = $sex;
+        $this->country = $country;
+        $this->city = $city;
+        $this->postcode = $postcode;
     }
 
     /**
@@ -143,5 +167,53 @@ class User
     public function setSex(?string $sex): void
     {
         $this->sex = $sex;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string|null $country
+     */
+    public function setCountry(?string $country): void
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string|null $city
+     */
+    public function setCity(?string $city): void
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPostcode(): ?string
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * @param string|null $postcode
+     */
+    public function setPostcode(?string $postcode): void
+    {
+        $this->postcode = $postcode;
     }
 }
