@@ -1,0 +1,22 @@
+.ant-pro-sider-logo img {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 32px !important;
+}
+.ant-layout-sider {
+  .ant-menu-dark .ant-menu-inline.ant-menu-sub,
+  .ant-menu,
+  &.ant-pro-sider {
+    background: #151408 !important;
+  }
+
+  .ant-pro-sider-logo {
+    margin: 20px 0;
+    align-items: center;
+    display: inline-block;
+  }
+}
+
+.ant-pro-fixed-header-action {
+  height: 80px !important;
+}

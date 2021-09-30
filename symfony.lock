@@ -168,6 +168,12 @@
     "liip/test-fixtures-bundle": {
         "version": "2.0.1"
     },
+    "limenius/react-bundle": {
+        "version": "v5.0.3"
+    },
+    "limenius/react-renderer": {
+        "version": "v5.0.3"
+    },
     "monolog/monolog": {
         "version": "2.3.2"
     },
@@ -176,6 +182,9 @@
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
+    },
+    "nacmartin/phpexecjs": {
+        "version": "v3.0.0"
     },
     "nelmio/alice": {
         "version": "3.2",

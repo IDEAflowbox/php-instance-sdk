@@ -1,0 +1,66 @@
+.ant-notification-notice {
+  padding: 10px;
+  border-radius: 6px;
+
+  &.ant-notification-notice-success .ant-notification-notice-content:before {
+    background: #52c41a;
+  }
+
+  &.ant-notification-notice-info .ant-notification-notice-content:before {
+    background: #1890ff;
+  }
+
+  &.ant-notification-notice-error .ant-notification-notice-content:before {
+    background: #ff4d4f;
+  }
+
+  &.ant-notification-notice-warning .ant-notification-notice-content:before {
+    background: #faad14;
+  }
+
+  .ant-notification-notice-icon {
+    display: none;
+    margin-left: 15px;
+    margin-top: 7px;
+    font-size: 16px;
+  }
+
+  //.ant-notification-notice-close {
+  //  position: absolute;
+  //  top: 50%;
+  //  transform: translateY(-50%);
+  //}
+
+  .ant-notification-notice-content {
+    position: relative;
+
+    .ant-notification-notice-message {
+      padding-top: 5px;
+      //margin-bottom: 0;
+      font-weight: bold;
+      //margin-left: 40px;
+      margin-left: 15px;
+    }
+
+    .ant-notification-notice-description {
+      padding-bottom: 5px;
+      margin-left: 15px;
+    }
+
+    .ant-notification-notice-message,
+    .ant-notification-notice-description {
+      //margin-left: 60px;
+    }
+
+    &:before {
+      width: 4px;
+      height: 100%;
+      border-radius: 6px;
+      content: '';
+      position: absolute;
+      background: #eee;
+      top: 0;
+      left: 0;
+    }
+  }
+}

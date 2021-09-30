@@ -34,3 +34,9 @@ services:
     App\Twig\ImageBase64Extension:
         arguments:
             $basePath: '%kernel.project_dir%/'
+
+    App\Twig\ReactGlobalComponentExtension:
+        arguments:
+            $renderer: "@limenius_react.react_renderer"
+            $contextProvider: "@limenius_react.context_provider"
+            $defaultRendering: "both"

@@ -18,6 +18,8 @@
         "knplabs/knp-gaufrette-bundle": "^0.7.1",
         "knplabs/knp-paginator-bundle": "^5.6",
         "kwn/number-to-words": "^2.0",
+        "limenius/react-bundle": "^5.0",
+        "limenius/react-renderer": "^5.0",
         "mpdf/mpdf": "^8.0",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.1",

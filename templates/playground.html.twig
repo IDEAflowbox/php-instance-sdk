@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
 </head>
 <body>
 
 {% block body %}
-<div id="root"></div>
+{{ react_component('Layout', {'props': {}, 'rendering': 'server_side'}) }}
+{{ react_global_component('Menu') }}
+{{ react_global_component('Header') }}
 {% endblock %}
 {% block javascripts %}
-
-    <!-- Include the compiled script-->
-    <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
-
+<script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
 {% endblock %}
 </body>
 </html>
