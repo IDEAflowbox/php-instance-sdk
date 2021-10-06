@@ -40,14 +40,22 @@ class ReactGlobalComponentExtension extends ReactRenderExtension
         ];
     }
 
+    public function reactRenderComponent(string $componentName, array $options = array()): string
+    {
+        if (!isset($options['props'])) {
+            $options['props'] = [];
+        }
+        if (!isset($options['props']['_globals'])) {
+            $options['props']['_globals'] = [];
+        }
+        $options['props']['_globals']['user'] = $this->getUser();
+
+        return parent::reactRenderComponent($componentName, $options);
+    }
+
     public function reactRenderGlobalComponent(string $componentName): string
     {
         return $this->reactRenderComponent($componentName, [
-            'props' => [
-                '_global' => [
-                    'user' => $this->getUser()
-                ]
-            ],
             'rendering' => 'client_side',
         ]);
     }

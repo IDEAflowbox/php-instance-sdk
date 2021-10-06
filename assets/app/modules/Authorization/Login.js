@@ -1,118 +1,61 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import styled, {css} from "styled-components";
 import {Typography} from 'antd';
-import {Form, Input, Button, Checkbox} from 'antd';
-import {Link} from 'react-router-dom';
-import background from '../../resources/images/login-background.jpeg';
-import {AuthContext} from "../../library/common/providers/auth/context";
-import requiredNoAuth from "../../library/common/decorators/required-no-auth";
-import toastr from "../../library/utilities/toastr";
-import {history} from "../../main/history";
+import {Form as AntdForm, Input, Button, Checkbox} from 'antd';
+import Form from '../../library/common/components/form';
+import logo from '../../resources/images/logo-black.svg';
 import './styles.scss';
-const {Text, Title} = Typography;
 
-const PhotoWrapper = styled.div`
-width: 100%;
-height: 100%;
-${props => props.url && css`
-background: url('${props.url}') no-repeat;
-background-size: cover;
-background-position: center;
-`}
-`;
+const {Text, Title} = Typography;
+const {Item} = AntdForm;
 
 const Login = (props) => {
-    const [form] = Form.useForm();
-    const [requesting, setRequesting] = useState(false);
-
     return (
-        <AuthContext.Consumer>
-            {(authState) => {
-                const onFinish = (values) => {
-                    setRequesting(true);
+        <div className="form-wrapper login-page">
+            <div className="logo">
+                <img src={logo} alt="Cyber konsultant" />
+            </div>
 
-                    authState
-                        .login(values.email, values.password)
-                        .then((success) => {
-                            history.push('/');
-                        })
-                        .catch(() => {
-                            setRequesting(false);
-                            toastr.error(
-                                'Unable to authenticate',
-                                'The credentials you entered did not matched our records. Please recheck and try again.'
-                            );
-                        })
-                    ;
-                };
+            <div className="form-body">
+                <Form method="post">
+                    <Item
+                        name="email"
+                        label="Adres e-mail"
+                        required
+                    >
+                        <Input placeholder="np. jan.kowalski@gmail.com" name="email" />
+                    </Item>
+                    <Item
+                        name="password"
+                        label="Hasło"
+                        required
+                    >
+                        <Input type="password" placeholder="Wprowadź hasło" name="password" />
+                    </Item>
+                    {/*<Item>*/}
+                    {/*    <Item name="remember" valuePropName="checked" noStyle>*/}
+                    {/*        <Checkbox>Remember me</Checkbox>*/}
+                    {/*    </Item>*/}
 
-                return (
-                    <div id="login-page">
-                        <div className="wrapper">
-                            <div className="intro-container">
-                                <PhotoWrapper url={background}/>
-                            </div>
-                            <div className="form-container">
-                                <div className="form-wrapper">
-                                    <Title level={3}>Login</Title>
+                    {/*    <a className="login-form-forgot" href="/forgot-password">*/}
+                    {/*        Forgot password*/}
+                    {/*    </a>*/}
+                    {/*</Item>*/}
+                    <Item>
+                        <Button
+                            htmlType="submit"
+                            type="primary"
+                            className="login-form-button"
+                            block
+                        >Zaloguj</Button>
+                    </Item>
 
-                                    <div className="form-body">
-                                        <Title level={5}>Login to your account</Title>
-                                        <Text type="secondary">We believe that we have made a step forward here and hope that you will like it.</Text>
-
-                                        <Form
-                                            form={form}
-                                            layout="vertical"
-                                            className="login-form"
-                                            initialValues={{remember: false}}
-                                            onFinish={onFinish}
-                                        >
-                                            <Form.Item
-                                                name="email"
-                                                label="E-mail address"
-                                                rules={[{required: true, message: 'Please input your e-mail address!'}]}
-                                                required
-                                            >
-                                                <Input placeholder="Eg. john@doe.com" />
-                                            </Form.Item>
-                                            <Form.Item
-                                                name="password"
-                                                label="Password"
-                                                rules={[{required: true, message: 'Please input your password!'}]}
-                                                required
-                                            >
-                                                <Input type="password" placeholder="Enter your password" />
-                                            </Form.Item>
-                                            <Form.Item>
-                                                <Form.Item name="remember" valuePropName="checked" noStyle>
-                                                    <Checkbox>Remember me</Checkbox>
-                                                </Form.Item>
-
-                                                <Link className="login-form-forgot" to="/forgot-password">
-                                                    Forgot password
-                                                </Link>
-                                            </Form.Item>
-                                            <Form.Item>
-                                                <Button
-                                                    htmlType="submit"
-                                                    type="primary"
-                                                    className="login-form-button"
-                                                    disabled={requesting}
-                                                    loading={requesting}
-                                                >Log in</Button>
-                                            </Form.Item>
-
-                                            <p style={{textAlign: 'center'}}>Don't have an account yet? <Link to="/register">Join now</Link></p>
-                                        </Form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }}
-        </AuthContext.Consumer>
+                    <Input type="hidden" name="_csrf_token" value={props.csrf}/>
+                    {/*<p style={{textAlign: 'center'}}>Don't have an account yet? <a href="/register">Join now</a></p>*/}
+                </Form>
+            </div>
+        </div>
     )
 }
 
-export default requiredNoAuth(Login);
+export default Login;

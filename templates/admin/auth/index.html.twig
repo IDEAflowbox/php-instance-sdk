@@ -1,41 +1,17 @@
-{% extends 'base.html.twig' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cyber Konsultant - logowanie</title>
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+</head>
+<body>
+{{ react_component('NotAuthLayout', {'props': {}, 'rendering': 'server_side'}) }}
+{{ react_component('Login', {'props': {'csrf': csrf_token('authenticate')}, 'rendering': 'client_side'}) }}
 
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-{% endblock %}
-
-{% block title %}Cyber Konsultant - logowanie{% endblock %}
-
-{% block body %}
-    <div class="login-page">
-        <form class="tile login-tile" method="post">
-            <img loading="lazy" class="login-tile__logo" src="{{ asset('build/images/idea-commerce-logo-2.svg') }}" alt="Idea commerce logo" />
-
-            <div class="login-tile__divider mt-13"></div>
-
-            <div class="form-floating mt-16">
-                <input type="email" name="email" value="" placeholder=" " required />
-                <span class="label">Adres e-mail</span>
-                <div class="form-floating__blank"></div>
-            </div>
-            <div class="form-floating mt-10">
-                <input type="password" name="password" placeholder=" " value="" required />
-                <span class="label">Hasło</span>
-                <div class="form-floating__blank"></div>
-            </div>
-
-            {% if error %}
-                <div class="">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
-
-            <button class="btn btn--secondary w-full mt-24" type="submit">
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <div class="btn__title">Zaloguj</div>
-            </button>
-        </form>
-    </div>
-
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-{% endblock %}
+<script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+</body>
+</html>

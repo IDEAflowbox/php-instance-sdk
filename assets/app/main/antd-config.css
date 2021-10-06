@@ -73,7 +73,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 0.5em;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
 }
 p {
   margin-top: 0;
@@ -110,7 +110,7 @@ ul ol {
   margin-bottom: 0;
 }
 dt {
-  font-weight: 500;
+  font-weight: 700;
 }
 dd {
   margin-bottom: 0.5em;
@@ -4260,7 +4260,7 @@ a.ant-btn-sm {
   margin-bottom: -1px;
   padding: 0 24px;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   background: transparent;
   border-bottom: 1px solid #f0f0f0;
@@ -4507,7 +4507,7 @@ a.ant-btn-sm {
 .ant-card-meta-title {
   overflow: hidden;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -6029,7 +6029,7 @@ textarea.ant-picker-input > input {
 }
 .ant-picker-header-view {
   flex: auto;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 40px;
 }
 .ant-picker-header-view button {
@@ -6794,7 +6794,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   display: flex;
   margin: 16px 0;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   white-space: nowrap;
   text-align: center;
@@ -6968,7 +6968,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 .ant-drawer-title {
   margin: 0;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   line-height: 22px;
 }
@@ -16477,7 +16477,7 @@ textarea.ant-mentions {
 .ant-modal-title {
   margin: 0;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   line-height: 22px;
   word-wrap: break-word;
@@ -16603,7 +16603,7 @@ textarea.ant-mentions {
   display: block;
   overflow: hidden;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   line-height: 1.4;
 }
@@ -17106,7 +17106,7 @@ textarea.ant-mentions {
   color: #FCDE51;
 }
 .ant-pagination-item-active {
-  font-weight: 500;
+  font-weight: 700;
   background: #fff;
   border-color: #FCDE51;
 }
@@ -17619,7 +17619,7 @@ textarea.ant-pagination-options-quick-jumper input {
   margin: 0;
   padding: 5px 16px 4px;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   border-bottom: 1px solid #f0f0f0;
 }
 .ant-popover-inner-content {
@@ -19932,7 +19932,7 @@ span.ant-radio + * {
   color: #fff;
 }
 .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-title {
-  font-weight: 500;
+  font-weight: 700;
 }
 .ant-steps-item-finish .ant-steps-item-icon {
   background-color: #fff;
@@ -20869,7 +20869,7 @@ span.ant-radio + * {
 }
 .ant-table-thead > tr > th {
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   text-align: left;
   background: #fafafa;
   border-bottom: 1px solid #f0f0f0;
@@ -23265,7 +23265,7 @@ span.ant-transfer-list-search-action {
 }
 .ant-tree .ant-tree-treenode:not(.ant-tree .ant-tree-treenode-disabled).filter-node .ant-tree-title {
   color: inherit;
-  font-weight: 500;
+  font-weight: 700;
 }
 .ant-tree-indent {
   align-self: stretch;
@@ -23700,7 +23700,7 @@ span.ant-transfer-list-search-action {
 }
 .ant-select-tree .ant-select-tree-treenode:not(.ant-select-tree .ant-select-tree-treenode-disabled).filter-node .ant-select-tree-title {
   color: inherit;
-  font-weight: 500;
+  font-weight: 700;
 }
 .ant-select-tree-indent {
   align-self: stretch;

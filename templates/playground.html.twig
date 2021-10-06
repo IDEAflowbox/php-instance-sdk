@@ -12,10 +12,23 @@
 <body>
 
 {% block body %}
+{% endblock %}
+
+{% block component_layout %}
 {{ react_component('Layout', {'props': {}, 'rendering': 'server_side'}) }}
+{% endblock %}
+
+{% block component_menu %}
 {{ react_global_component('Menu') }}
+{% endblock %}
+
+{% block component_header %}
 {{ react_global_component('Header') }}
 {% endblock %}
+
+{% block components %}
+{% endblock %}
+
 {% block javascripts %}
 <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
 {% endblock %}

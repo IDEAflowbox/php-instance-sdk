@@ -2,16 +2,16 @@
 
 namespace App\Controller\Admin\Client;
 
+use App\Controller\BaseController;
 use App\Factory\ClientFactory;
 use App\Form\CreateClientType;
 use App\Repository\ClientRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ClientListController extends AbstractController
+class ClientListController extends BaseController
 {
     #[Route('/admin/client/list', name: 'admin_client_list')]
     public function index(
@@ -26,6 +26,11 @@ class ClientListController extends AbstractController
             $request->query->getInt('limit', 25)
         );
 
+        $view = $this->createView($pagination);
+        if ($this->isXhrRequest()) {
+            return $this->handleView($view);
+        }
+
         $form = $this->createForm(CreateClientType::class);
         $form->handleRequest($request);
 
@@ -36,11 +41,7 @@ class ClientListController extends AbstractController
         }
 
         return $this->render('admin/client/list.html.twig', [
-            'search' => $request->get('search'),
-            'limit' => $request->query->getInt('limit', 25),
-            'pagination' => $pagination,
-            'formView' => $form->createView(),
-            'clientModalShow' => $form->isSubmitted() && !$form->isValid(),
+            'pagination' => $this->serializeViewToObject($view),
         ]);
     }
 }

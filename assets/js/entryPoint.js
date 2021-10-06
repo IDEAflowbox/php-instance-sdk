@@ -1,17 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactOnRails from "react-on-rails";
 
 import Layout from '../app/library/common/components/layout';
-
-const Entry = (props) => {
-    return (
-        <div id="root"/>
-    )
-}
-
-console.log('entry point');
+import NotAuthLayout from '../app/library/common/components/not-auth-layout';
 
 ReactOnRails.register({
-    EntryApp: Entry,
-    Layout
+    Layout,
+    NotAuthLayout,
 });

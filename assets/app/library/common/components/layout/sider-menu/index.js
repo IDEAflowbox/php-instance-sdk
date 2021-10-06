@@ -16,8 +16,6 @@ const {SubMenu} = Menu;
 const SiderMenu = (props) => {
     const [collapsed, setCollapsed] = useState(false)
 
-    console.log(props);
-
     return (
         <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} width={240}>
             <div className="logo">

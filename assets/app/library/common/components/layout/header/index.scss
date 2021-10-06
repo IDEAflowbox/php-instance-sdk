@@ -11,3 +11,14 @@
   height: 80px !important;
   line-height: 80px !important;
 }
+
+.site-layout-header .logo a {
+  display: inline-block;
+  width: 150px !important;
+  margin-left: 40px;
+}
+
+.site-layout-header .logo a img {
+  width: 100%;
+  max-width: 100%;
+}

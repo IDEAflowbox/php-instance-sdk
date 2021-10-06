@@ -1,15 +1,13 @@
 import {Avatar, Dropdown, Space, Spin, Layout, Menu} from "antd";
 import React from "react";
 import LanguageSelector from "../../language-selector";
-import {AppContext} from "../../../providers/app/context";
+import logo from "../../../../../resources/images/logo-black.svg";
 import HeaderItem from "../header-item";
 import {UserOutlined} from "@ant-design/icons";
 
 const {Header} = Layout;
 
 const ExtHeader = (props) => {
-    console.log(props);
-
     const menuOverlay = (
         <Menu>
             <Menu.Item>
@@ -24,14 +22,20 @@ const ExtHeader = (props) => {
 
     return (
         <Header className="site-layout-header">
+            {props.admin ? (
+                <div className="logo">
+                    <a href="#">
+                        <img src={logo} alt="Cyber konsultant" />
+                    </a>
+                </div>
+            ) : null}
             <div style={{flex: '1 1 0%'}}/>
-
             <LanguageSelector lang="pl" />
-            {props['_global'].user ? (
+            {props['_globals'].user ? (
                 <Dropdown overlay={menuOverlay}>
                     <HeaderItem>
                         <Space>
-                            <Avatar shape="circle" size="small" icon={<UserOutlined />} /> {props['_global'].user.username}
+                            <Avatar shape="circle" size="small" icon={<UserOutlined />} /> {props['_globals'].user.username}
                         </Space>
                     </HeaderItem>
                 </Dropdown>

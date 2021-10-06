@@ -15,15 +15,11 @@
 {% endblock %}
 
 {% block component_layout %}
-    {{ react_component('Layout', {'props': {}, 'rendering': 'server_side'}) }}
-{% endblock %}
-
-{% block component_menu %}
-    {{ react_global_component('Menu') }}
+    {{ react_component('Layout', {'props': {'admin': true}, 'rendering': 'server_side'}) }}
 {% endblock %}
 
 {% block component_header %}
-    {{ react_global_component('Header') }}
+    {{ react_component('Header', {'props': {'admin': true}, 'rendering': 'client_side'}) }}
 {% endblock %}
 
 {% block components %}

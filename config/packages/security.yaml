@@ -37,7 +37,7 @@ security:
             custom_authenticator: App\Security\AdminFormAuthenticator
             logout:
                 path: admin_logout
-                target: /admin/login
+                target: /admin/auth
         main:
             context: app
             pattern: ^/account
