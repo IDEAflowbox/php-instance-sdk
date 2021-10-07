@@ -22,7 +22,7 @@ class ExternalApiConfigType extends AbstractType
         $resolver->setDefaults([
             'data_class' => ExternalApiConfig::class,
             'csrf_token_id' => 'external_api_config',
-            'csrf_protection' => true,
+            'csrf_protection' => false,
         ]);
     }
 }

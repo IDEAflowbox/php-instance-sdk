@@ -4,6 +4,7 @@ import MenuInvoker from "./Invokers/MenuInvoker";
 import HeaderInvoker from "./Invokers/HeaderInvoker";
 import LoginInvoker from "./Invokers/LoginInvoker";
 import ClientListInvoker from "./Invokers/ClientListInvoker";
+import ClientDetailsInvoker from "./Invokers/ClientDetailsInvoker";
 
 import '../app/library/common/components/layout/sider-menu/index.scss';
 import '../app/library/common/components/layout/header/index.scss';
@@ -16,4 +17,5 @@ ReactOnRails.register({
     Header: HeaderInvoker,
     Login: LoginInvoker,
     ClientList: ClientListInvoker,
+    ClientDetails: ClientDetailsInvoker,
 });

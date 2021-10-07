@@ -29,7 +29,7 @@ class ClientBillingItemsType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Client::class,
             'csrf_token_id' => 'client_billing_items',
-            'csrf_protection' => true,
+            'csrf_protection' => false,
         ]);
     }
 }

@@ -1,6 +1,12 @@
-{% extends 'admin/client/client.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block client %}
-    {% include 'admin/client/show/client_api.html.twig' %}
-    {% include 'admin/client/show/billing_items.html.twig' %}
+{% block title %}Cyber Konsultant{% endblock %}
+
+{% set switch_user_url = null %}
+{% if client.users|length %}
+{% set switch_user_url = path('account_settings_billing_details', {'_switch_user': client.users|first.email}) %}
+{% endif %}
+{% block components %}
+    {{ react_component('ClientDetails', {'props': {'client': client, 'switch_user_url': switch_user_url}, 'rendering': 'client_side'}) }}
 {% endblock %}
+

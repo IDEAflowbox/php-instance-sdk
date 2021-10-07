@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from "antd";
-import axios from "axios";
+import axios from "../../../../main/axios";
 import {usePrevious} from "../../../utilities/use-previous";
 import {useQueryParam} from "../../../utilities/use-query-param";
 let throttleId;

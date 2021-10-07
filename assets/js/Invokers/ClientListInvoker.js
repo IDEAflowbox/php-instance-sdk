@@ -1,14 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import BaseInvoker from "./BaseInvoker";
 import ClientList from "../../app/modules/Admin/ClientList";
 
-class ClientListInvoker extends React.PureComponent {
+class ClientListInvoker extends BaseInvoker {
     componentDidMount() {
-        ReactDOM.render(<ClientList {...this.props}/> , document.getElementById('content'));
-    }
-
-    render() {
-        return null;
+        this.renderComponent(<ClientList {...this.props}/> , document.getElementById('content'));
     }
 }
 

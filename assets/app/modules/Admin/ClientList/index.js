@@ -4,6 +4,9 @@ import columns from './_columns';
 import {SearchOutlined, PlusOutlined} from "@ant-design/icons";
 import ListView from '../../../library/common/components/list-view';
 import {useQueryParam} from "../../../library/utilities/use-query-param";
+import {createModal} from "../../../library/common/components/modal";
+import AddClientModal from "./add-client-modal";
+import {AppContext} from "../../../library/common/providers/app/context";
 const {Title} = Typography;
 
 const ClientList = (props) => {
@@ -12,6 +15,14 @@ const ClientList = (props) => {
 
     const handleChangeText = (e) => {
         setSearchValue(e.target.value)
+    }
+
+    const handleNewClient = () => {
+        const modal = createModal({
+            width: '90%',
+            style: {maxWidth: 960},
+            content: <AppContext.Provider value={props['_globals']}><AddClientModal close={() => modal.destroy()}/></AppContext.Provider>,
+        });
     }
 
     return (
@@ -24,7 +35,7 @@ const ClientList = (props) => {
                     <Space>
                         <Input placeholder="Szukaj" prefix={<SearchOutlined />} onChange={handleChangeText} defaultValue={search}/>
 
-                        <Button type="default" icon={<PlusOutlined />}>
+                        <Button type="default" icon={<PlusOutlined />} onClick={handleNewClient}>
                             Dodaj nowego klienta
                         </Button>
                     </Space>

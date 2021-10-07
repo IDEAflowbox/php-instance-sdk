@@ -41,3 +41,7 @@ services:
             $renderer: "@limenius_react.react_renderer"
             $contextProvider: "@limenius_react.context_provider"
             $defaultRendering: "both"
+
+    App\EventListener\JsonRequestTransformerListener:
+        tags:
+            - { name: "kernel.event_listener", event: "kernel.request", method: "onKernelRequest", priority: "100" }

@@ -1,6 +1,5 @@
 import React from 'react';
 import {AppContext} from "./context";
-import axios from "../../../../main/axios";
 
 export class AppProvider extends React.Component {
 
@@ -8,25 +7,11 @@ export class AppProvider extends React.Component {
         super(props);
 
         this.state = {
-            // initialized: false
-            initialized: true,
+            issuers_addresses: [],
             user: {
-                email: 'peter@omega323.com'
+                username: 'peter@omega323.com'
             }
         };
-    }
-
-    componentDidMount() {
-        // axios
-        //     .get('/api/user/overview')
-        //     .then((response) => {
-        //     this.setState({
-        //         initialized: true,
-        //         user: response.data.data.user,
-        //         subscription: response.data.data.subscription,
-        //     })
-        // })
-        // ;
     }
 
     render() {

@@ -21,6 +21,8 @@ class ClientBillingItemsEditController extends AbstractController
         $billingItemsForm = $this->createForm(ClientBillingItemsType::class, $client);
         $billingItemsForm->handleRequest($request);
 
+        dump($billingItemsForm, $billingItemsForm->isValid());
+
         if ($billingItemsForm->isSubmitted() && $billingItemsForm->isValid()) {
             $em->persist($client);
             $em->flush();

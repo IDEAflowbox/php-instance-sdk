@@ -9,9 +9,15 @@ class Instance {
         }
 
         this.axios = axios.create({
-            baseURL: process.env.REACT_APP_API_SERVER_URL,
-            headers: this.getHeaders(),
-            withCredentials: true
+            // baseURL: process.env.REACT_APP_API_SERVER_URL,
+            // headers: this.getHeaders(),
+            // withCredentials: true
+            headers: {
+                accept: 'application/json',
+            },
+            params: {
+                xhr: true
+            }
         });
         this.token = undefined;
         this.isTokenFresh = false;
