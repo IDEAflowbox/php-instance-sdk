@@ -5,27 +5,27 @@ const columns = [
     {
         title: 'Imię i nazwisko',
         key: 'name',
-        render: (_, client) => `${client.billing_address.first_name} ${client.billing_address.last_name}`
+        render: (_, client) => `${client.billingAddress.firstName} ${client.billingAddress.lastName}`
     },
     {
         title: 'E-mail',
         key: 'email',
-        render: (_, client) => client.billing_address.email,
+        render: (_, client) => client.billingAddress.email,
     },
     {
         title: 'Firma',
         key: 'company',
-        render: (_, client) => client.billing_address.company_name,
+        render: (_, client) => client.billingAddress.companyName,
     },
     {
         title: 'Miasto',
         key: 'city',
-        render: (_, client) => client.billing_address.city,
+        render: (_, client) => client.billingAddress.city,
     },
     {
         title: 'Kod pocztowy',
-        key: 'zip_code',
-        render: (_, client) => client.billing_address.zip_code,
+        key: 'zipCode',
+        render: (_, client) => client.billingAddress.zipCode,
     },
     {
         title: ' ',

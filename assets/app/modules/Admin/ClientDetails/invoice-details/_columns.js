@@ -44,12 +44,12 @@ function columns(editing, handleDelete) {
         },
         {
             title: 'Cena jedn. netto',
-            dataIndex: 'unit_price',
+            dataIndex: 'unitPrice',
             key: 'unitPrice',
             render: (unitPrice, item, index) => {
                 if (editing) {
                     return (
-                        <Form.Item name={['item', item.id.uid, 'unit_price']} initialValue={unitPrice} noStyle={true}>
+                        <Form.Item name={['item', item.id.uid, 'unitPrice']} initialValue={unitPrice} noStyle={true}>
                             <InputNumber min={0} formatter={value => `${value} zł`} parser={value => value.replace(/\$\s?|(,*)/g, '')} />
                         </Form.Item>
                     )
@@ -60,12 +60,12 @@ function columns(editing, handleDelete) {
         },
         {
             title: 'VAT',
-            dataIndex: 'vat_rate',
+            dataIndex: 'vatRate',
             key: 'vatRate',
             render: (vatRate, item, index) => {
                 if (editing) {
                     return (
-                        <Form.Item name={['item', item.id.uid, 'vat_rate']} initialValue={vatRate} noStyle={true}>
+                        <Form.Item name={['item', item.id.uid, 'vatRate']} initialValue={vatRate} noStyle={true}>
                             <InputNumber min={0} max={100} formatter={value => `${value}%`} parser={value => value.replace('%', '')} />
                         </Form.Item>
                     )

@@ -7,7 +7,7 @@ export class AppProvider extends React.Component {
         super(props);
 
         this.state = {
-            issuers_addresses: [],
+            issuersAddresses: [],
             user: {
                 username: 'peter@omega323.com'
             }

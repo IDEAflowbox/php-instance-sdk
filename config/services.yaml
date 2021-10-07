@@ -41,6 +41,7 @@ services:
             $renderer: "@limenius_react.react_renderer"
             $contextProvider: "@limenius_react.context_provider"
             $defaultRendering: "both"
+            $impersonateUrlGenerator: "@security.impersonate_url_generator"
 
     App\EventListener\JsonRequestTransformerListener:
         tags:

@@ -23,7 +23,7 @@ const SiderMenu = (props) => {
                     <img src={logo} alt="Cyber konsultant" />
                 </a>
             </div>
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" defaultOpenKeys={['sub1', 'sub2', 'sub3', 'sub4', 'sub5']}>
                 <Menu.Item key="1" icon={<BarChartOutlined />}>
                     Aktywności
                 </Menu.Item>

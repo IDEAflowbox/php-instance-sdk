@@ -28,7 +28,7 @@ class BillingDetailsType extends AbstractType
         $resolver->setDefaults([
             'data_class' => BillingAddress::class,
             'csrf_token_id' => 'billing_details',
-            'csrf_protection' => true,
+            'csrf_protection' => false,
         ]);
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Layout} from 'antd';
 import styled from "styled-components";
+import Impersonation from "./impersonation";
 
 const {Content, Footer} = Layout;
 
@@ -10,6 +11,10 @@ const MainLayout = (props) => {
             {!props.admin ? <div id="sider-menu"/> : null}
             <Layout className="site-layout">
                 <div id="header"/>
+                <Impersonation
+                    impersonationExitPath={props['_globals'].impersonationExitPath}
+                    name={`${props['_globals'].user.firstName} ${props['_globals'].user.lastName}`}
+                />
 
                 <Content style={{ margin: '0 16px' }}>
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>

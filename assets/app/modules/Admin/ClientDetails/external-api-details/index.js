@@ -10,7 +10,7 @@ const {Title} = Typography;
 
 const ExternalApiDetails = (props) => {
     const [editing, setEditing] = useState(false);
-    const [externalApiConfig, setExternalApiConfig] = useState(props.client.external_api_config);
+    const [externalApiConfig, setExternalApiConfig] = useState(props.client.externalApiConfig);
     const [loading, setLoading] = useState(false);
 
     const data = [

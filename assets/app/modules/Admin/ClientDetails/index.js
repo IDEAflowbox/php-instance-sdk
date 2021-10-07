@@ -40,8 +40,8 @@ const Details = (props) => {
 }
 
 const ClientDetails = (props) => {
-    const {users, billing_address} = props.client;
-    const {first_name, last_name, companyName, taxId} = billing_address;
+    const {users, billingAddress} = props.client;
+    const {firstName, lastName, companyName, taxId} = billingAddress;
 
     const handleNewUser = () => {
         const modal = createModal({
@@ -55,7 +55,7 @@ const ClientDetails = (props) => {
         <>
             <Row style={{marginBottom: 20}}>
                 <Col span={24}>
-                    <Title level={4}><a href="/admin/client/list">Lista klientów</a> / {first_name} {last_name}</Title>
+                    <Title level={4}><a href="/admin/client/list">Lista klientów</a> / {firstName} {lastName}</Title>
                 </Col>
             </Row>
             <Row style={{marginBottom: 20}}>
@@ -63,7 +63,7 @@ const ClientDetails = (props) => {
                     <Content>
                         <Row>
                             <Col span={12}>
-                                <Title level={4}>{first_name} {last_name}</Title>
+                                <Title level={4}>{firstName} {lastName}</Title>
                             </Col>
                             <Col span={12} style={{display: 'flex', alignItems: 'flex-end', flexDirection: 'column'}}>
                                 <Show condition={props.switch_user_url}>
@@ -76,10 +76,10 @@ const ClientDetails = (props) => {
                         <Row>
                             <Col span={24}>
                                 <Details
-                                    name={`${first_name} ${last_name}`}
+                                    name={`${firstName} ${lastName}`}
                                     companyName={companyName}
                                     taxId={taxId}
-                                    address={`${billing_address?.street} ${billing_address?.property_number}, ${billing_address?.zip_code} ${billing_address?.city}, ${billing_address?.country}`}
+                                    address={`${billingAddress?.street} ${billingAddress?.propertyNumber}, ${billingAddress?.zipCode} ${billingAddress?.city}, ${billingAddress?.country}`}
                                 />
                             </Col>
                         </Row>
@@ -120,7 +120,7 @@ const ClientDetails = (props) => {
                             {
                                 key: 'name',
                                 title: 'Imię i nazwisko',
-                                render: (_, user) => `${user.first_name} ${user.last_name}`
+                                render: (_, user) => `${user.firstName} ${user.lastName}`
                             },
                             {
                                 key: 'email',

@@ -2432,7 +2432,7 @@ html {
   border-left-color: #d9d9d9;
 }
 .ant-btn-ghost {
-  color: rgba(0, 0, 0, 0.65);
+  color: #fff;
   background: transparent;
   border-color: #d9d9d9;
 }
@@ -21750,7 +21750,7 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
 }
 .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active,
 .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab-active {
-  color: #FCDE51;
+  color: rgba(0, 0, 0, 0.65);
   background: #fff;
 }
 .ant-tabs-card > .ant-tabs-nav .ant-tabs-ink-bar,
@@ -21930,7 +21930,13 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
 .ant-tabs-tab-btn {
   outline: none;
   transition: all 0.3s;
+  color: #b3b3b3;
 }
+
+.ant-tabs-tab-btn:hover {
+  color: rgba(0, 0, 0, 0.65);
+}
+
 .ant-tabs-tab-remove {
   flex: none;
   margin-right: -4px;
@@ -21947,10 +21953,10 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   color: rgba(0, 0, 0, 0.85);
 }
 .ant-tabs-tab:hover {
-  color: #ffeb7a;
+  color: rgba(0, 0, 0, 0.65);
 }
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #FCDE51;
+  color: rgba(0, 0, 0, 0.65);
   text-shadow: 0 0 0.25px currentColor;
 }
 .ant-tabs-tab.ant-tabs-tab-disabled {

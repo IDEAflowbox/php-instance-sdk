@@ -2,16 +2,16 @@
 
 namespace App\Controller\Account\Settings;
 
+use App\Controller\BaseController;
 use App\Form\BillingDetailsType;
 use App\Repository\BillingAddressRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
-class BillingDetailsController extends AbstractController
+class BillingDetailsController extends BaseController
 {
     #[Route('/account/settings/billing', name: 'account_settings_billing_details')]
     public function billingDetails(
@@ -45,8 +45,9 @@ class BillingDetailsController extends AbstractController
             return $this->redirectToRoute('account_settings_billing_details');
         }
 
+        $billingAddressView = $this->createView($billingAddress);
         return $this->render('account/settings/billing-details.html.twig', [
-            'formView' => $form->createView(),
+            'billingAddress' => $this->serializeViewToObject($billingAddressView)
         ]);
     }
 }

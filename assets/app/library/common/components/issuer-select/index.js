@@ -18,7 +18,7 @@ export default class IssuerSelect extends React.Component
                 {value => {
                     return (
                         <Select {...this.props}>
-                            {value.issuers_addresses.map(issuer => <Select.Option key={issuer.id} value={issuer.id}>{issuer.name}</Select.Option>)}
+                            {value.issuersAddresses.map(issuer => <Select.Option key={issuer.id} value={issuer.id}>{issuer.name}</Select.Option>)}
                         </Select>
                     )
                 }}

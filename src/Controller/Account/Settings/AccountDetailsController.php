@@ -2,6 +2,7 @@
 
 namespace App\Controller\Account\Settings;
 
+use App\Controller\BaseController;
 use App\Form\AccountDetailsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
-class AccountDetailsController extends AbstractController
+class AccountDetailsController extends BaseController
 {
     #[Route('/account/settings/account', name: 'account_settings_account_details')]
     public function accountDetails(
@@ -29,8 +30,9 @@ class AccountDetailsController extends AbstractController
             return $this->redirectToRoute('account_settings_account_details');
         }
 
+        $userView = $this->createView($user);
         return $this->render('account/settings/account-details.html.twig', [
-            'formView' => $form->createView(),
+            'user' => $this->serializeViewToObject($userView),
         ]);
     }
 }

@@ -12,13 +12,13 @@ import notifications from "../../../../library/common/components/notifications";
 const {Title, Paragraph} = Typography;
 
 const InvoiceDetails = (props) => {
-    const {billing_address, billing_option, billing_items} = props.client;
+    const {billingAddress, billingOption, billingItems} = props.client;
     const [editing, setEditing] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const [dataSource, setDataSource] = useState({
-        items: billing_items,
-        issuer_address_id: billing_option.issuer_address.id.uid
+        items: billingItems,
+        issuerAddressId: billingOption.issuerAddress.id.uid
     });
 
     const handleAddItem = () => {
@@ -30,8 +30,8 @@ const InvoiceDetails = (props) => {
                     key: dataSource.items.length+1,
                     name: '',
                     quantity: 0,
-                    unit_price: 0,
-                    vat_rate: 0,
+                    unitPrice: 0,
+                    vatRate: 0,
                     id: {
                         uid: String(Math.random())
                     }
@@ -50,7 +50,7 @@ const InvoiceDetails = (props) => {
         })
 
         setDataSource({
-            issuer_address_id: values.issuer_address_id,
+            issuerAddressId: values.issuerAddressId,
             items
         });
         setLoading(true);
@@ -59,13 +59,13 @@ const InvoiceDetails = (props) => {
             .post(`/admin/client/${props.client.id.uid}/billing-items/edit`, {
                 client_billing_items: {
                     billingOption: {
-                        issuerAddress: values.issuer_address_id
+                        issuerAddress: values.issuerAddressId
                     },
                     billingItems: items.map(item => ({
                         name: item.name,
                         quantity: item.quantity,
-                        unitPrice: (item.unit_price/100),
-                        vatRate: item.vat_rate,
+                        unitPrice: (item.unitPrice/100),
+                        vatRate: item.vatRate,
                     }))
                 }
             })
@@ -93,8 +93,8 @@ const InvoiceDetails = (props) => {
     }
 
     dataSource.items.forEach(item => {
-        summary.net += item.unit_price*item.quantity;
-        summary.vat += item.unit_price*(item.vat_rate/100)*item.quantity;
+        summary.net += item.unitPrice*item.quantity;
+        summary.vat += item.unitPrice*(item.vatRate/100)*item.quantity;
         summary.gross = summary.net+summary.vat;
     })
 
@@ -139,12 +139,12 @@ const InvoiceDetails = (props) => {
                                 <Title level={5} style={{padding: 3, background: '#f7f7f7', textTransform: 'uppercase'}}>Wystawca faktury</Title>
                                 {
                                     editing ? (
-                                        <Form.Item name="issuer_address_id" noStyle={true}>
+                                        <Form.Item name="issuerAddressId" noStyle={true}>
                                             <IssuerSelect />
                                         </Form.Item>
                                     ) : (
                                         <AppContext.Consumer>
-                                            {value => <Paragraph>{value.issuers_addresses.find(a => a.id === dataSource.issuer_address_id).name}</Paragraph>}
+                                            {value => <Paragraph>{value.issuersAddresses.find(a => a.id === dataSource.issuerAddressId).name}</Paragraph>}
                                         </AppContext.Consumer>
                                     )
                                 }
