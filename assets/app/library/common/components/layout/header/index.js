@@ -11,11 +11,11 @@ const ExtHeader = (props) => {
     const menuOverlay = (
         <Menu>
             <Menu.Item>
-                <a href="/">Ustawienia konta</a>
+                <a href="/account/settings/account">Ustawienia konta</a>
             </Menu.Item>
             <Menu.Divider/>
             <Menu.Item>
-                <a href="/">Wyloguj</a>
+                <a href="/logout">Wyloguj</a>
             </Menu.Item>
         </Menu>
     );

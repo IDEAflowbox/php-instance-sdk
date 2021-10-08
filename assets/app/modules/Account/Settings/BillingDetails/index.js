@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import Content from "../../../../library/common/components/content";
-import TabsSwitch from "../../../../library/common/components/tabs-switch";
-import {CreditCardOutlined, SaveOutlined, UserOutlined} from "@ant-design/icons";
+import {SaveOutlined} from "@ant-design/icons";
 import {Button, Col, Form, Input, Row, Space} from "antd";
 import axios from "../../../../main/axios";
 import Title from "antd/es/typography/Title";
+import Tabs from "../tabs";
 
 const BillingDetails = (props) => {
     const [loading, setLoading] = useState(false);
@@ -43,23 +43,8 @@ const BillingDetails = (props) => {
 
     return (
         <>
-            <TabsSwitch
-                items={[
-                    {
-                        key: 'account',
-                        title: 'Dane konta',
-                        prefix: <UserOutlined />,
-                        onClick: (item, index) => window.location.href = '/account/settings/account',
-                    },
-                    {
-                        key: 'billing',
-                        title: 'Dane rozliczeniowe',
-                        prefix: <CreditCardOutlined />,
-                        onClick: (item, index) => window.location.href = '/account/settings/billing',
-                    }
-                ]}
-                activeKeys={['billing']}
-            />
+
+            <Tabs activeKeys={['billing']} />
 
             <Form
                 form={form}

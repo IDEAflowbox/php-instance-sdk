@@ -69,8 +69,8 @@ class ReactGlobalComponentExtension extends ReactRenderExtension
 
         return [
             'username' => $this->user->getUserIdentifier(),
-            'first_name' => $this->user->getLastName(),
-            'last_name' => $this->user->getFirstName(),
+            'firstName' => $this->user->getLastName(),
+            'lastName' => $this->user->getFirstName(),
         ];
     }
 
