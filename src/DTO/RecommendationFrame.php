@@ -25,22 +25,22 @@ class RecommendationFrame
     /**
      * @var string|null
      */
-    protected $group_id;
+    protected $groupId;
 
     /**
      * @var string
      */
-    protected $frame_type;
+    protected $frameType;
 
     /**
      * @var int
      */
-    protected $number_of_products = 0;
+    protected $numberOfProducts = 0;
 
     /**
      * @var string|null
      */
-    protected $custom_html;
+    protected $customHtml;
 
     /**
      * @var string
@@ -56,29 +56,29 @@ class RecommendationFrame
      * RecommendationFrame constructor.
      * @param string|null $id
      * @param string $name
-     * @param string|null $group_id
-     * @param string $frame_type
-     * @param int $number_of_products
-     * @param string|null $custom_html
+     * @param string|null $groupId
+     * @param string $frameType
+     * @param int $numberOfProducts
+     * @param string|null $customHtml
      * @param string $xpath
      * @param Configuration|null $configuration
      */
     public function __construct(
         ?string $id,
         string $name,
-        ?string $group_id,
-        string $frame_type,
-        int $number_of_products,
-        ?string $custom_html,
+        ?string $groupId,
+        string $frameType,
+        int $numberOfProducts,
+        ?string $customHtml,
         string $xpath,
         ?Configuration $configuration
     ) {
         $this->id = $id;
         $this->name = $name;
-        $this->group_id = $group_id;
-        $this->frame_type = $frame_type;
-        $this->number_of_products = $number_of_products;
-        $this->custom_html = $custom_html;
+        $this->groupId = $groupId;
+        $this->frameType = $frameType;
+        $this->numberOfProducts = $numberOfProducts;
+        $this->customHtml = $customHtml;
         $this->xpath = $xpath;
         $this->configuration = $configuration;
     }
@@ -104,7 +104,7 @@ class RecommendationFrame
      */
     public function getGroupId(): ?string
     {
-        return $this->group_id;
+        return $this->groupId;
     }
 
     /**
@@ -112,7 +112,7 @@ class RecommendationFrame
      */
     public function getFrameType(): string
     {
-        return $this->frame_type;
+        return $this->frameType;
     }
 
     /**
@@ -120,7 +120,7 @@ class RecommendationFrame
      */
     public function getNumberOfProducts(): int
     {
-        return $this->number_of_products;
+        return $this->numberOfProducts;
     }
 
     /**
@@ -128,7 +128,7 @@ class RecommendationFrame
      */
     public function getCustomHtml(): ?string
     {
-        return $this->custom_html;
+        return $this->customHtml;
     }
 
     /**
@@ -156,35 +156,35 @@ class RecommendationFrame
     }
 
     /**
-     * @param string|null $group_id
+     * @param string|null $groupId
      */
-    public function setGroupId(?string $group_id): void
+    public function setGroupId(?string $groupId): void
     {
-        $this->group_id = $group_id;
+        $this->groupId = $groupId;
     }
 
     /**
-     * @param string $frame_type
+     * @param string $frameType
      */
-    public function setFrameType(string $frame_type): void
+    public function setFrameType(string $frameType): void
     {
-        $this->frame_type = $frame_type;
+        $this->frameType = $frameType;
     }
 
     /**
-     * @param int $number_of_products
+     * @param int $numberOfProducts
      */
-    public function setNumberOfProducts(int $number_of_products): void
+    public function setNumberOfProducts(int $numberOfProducts): void
     {
-        $this->number_of_products = $number_of_products;
+        $this->numberOfProducts = $numberOfProducts;
     }
 
     /**
-     * @param string|null $custom_html
+     * @param string|null $customHtml
      */
-    public function setCustomHtml(?string $custom_html): void
+    public function setCustomHtml(?string $customHtml): void
     {
-        $this->custom_html = $custom_html;
+        $this->customHtml = $customHtml;
     }
 
     /**
