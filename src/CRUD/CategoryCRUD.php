@@ -98,8 +98,8 @@ class CategoryCRUD extends BaseCRUD
         $associationsCategories = [];
         foreach ($associations as $shopCategoryId => $associateTo) {
             $associationsCategories[] = [
-                'shop_category_id' => $shopCategoryId,
-                'associate_to' => $associateTo,
+                'shop_category_id' => (string) $shopCategoryId,
+                'associate_to' => (string) $associateTo,
             ];
         }
         $response = $this->cyberkonsultant->post('/shop/categories/associate', [

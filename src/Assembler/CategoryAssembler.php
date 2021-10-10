@@ -23,6 +23,7 @@ class CategoryAssembler implements DataAssemblerInterface
             'name' => $categoryDTO->getName(),
             'url' => $categoryDTO->getUrl(),
             'image' => $categoryDTO->getImage(),
+            'associated_to' => $categoryDTO->getAssociatedTo(),
         ];
     }
 
@@ -36,7 +37,8 @@ class CategoryAssembler implements DataAssemblerInterface
             $category['id'],
             $category['name'],
             $category['url'],
-            $category['image']
+            $category['image'],
+            isset($category['associated_to']) ? $category['associated_to'] : null,
         );
     }
 }

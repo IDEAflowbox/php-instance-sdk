@@ -37,7 +37,7 @@ class PaginationResponseAssembler
             $response['current_page'],
             $response['last_page'],
             $response['rows'],
-            $response['data']
+            isset($response['data']) ? $response['data'] : []
         );
 
         if ($callback instanceof \Closure) {
