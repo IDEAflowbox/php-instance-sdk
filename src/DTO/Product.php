@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\DTO;
 
-use Cyberkonsultant\DTO\Group\Criteria;
-
 /**
  * Class Product
  *

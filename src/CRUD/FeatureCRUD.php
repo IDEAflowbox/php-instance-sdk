@@ -69,4 +69,43 @@ class FeatureCRUD extends BaseCRUD
 
         return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
     }
+
+    /**
+     * @param string $choiceId
+     * @param string|null $associateTo
+     * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function associate(string $choiceId, ?string $associateTo = null): SuccessResponse
+    {
+        $response = $this->cyberkonsultant->post('/shop/features/associate', [
+            'json' => [
+                [
+                    'choice_id' => $choiceId,
+                    'associate_to' => $associateTo,
+                ]
+            ]
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
+    }
+
+    public function associateMany(array $associations): SuccessResponse
+    {
+        $associationsFeatures = [];
+        foreach ($associations as $choiceId => $associateTo) {
+            $associationsFeatures[] = [
+                'choice_id' => (string) $choiceId,
+                'associate_to' => (string) $associateTo,
+            ];
+        }
+        $response = $this->cyberkonsultant->post('/shop/features/associate', [
+            'json' => $associationsFeatures
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
+    }
 }

@@ -55,23 +55,23 @@ class RecommendationFrame
     /**
      * RecommendationFrame constructor.
      * @param string|null $id
-     * @param string $name
+     * @param string|null $name
      * @param string|null $groupId
-     * @param string $frameType
-     * @param int $numberOfProducts
+     * @param string|null $frameType
+     * @param int|null $numberOfProducts
      * @param string|null $customHtml
-     * @param string $xpath
+     * @param string|null $xpath
      * @param Configuration|null $configuration
      */
     public function __construct(
-        ?string $id,
-        string $name,
-        ?string $groupId,
-        string $frameType,
-        int $numberOfProducts,
-        ?string $customHtml,
-        string $xpath,
-        ?Configuration $configuration
+        ?string $id = null,
+        ?string $name = null,
+        ?string $groupId = null,
+        ?string $frameType = null,
+        ?int $numberOfProducts = null,
+        ?string $customHtml = null,
+        ?string $xpath = null,
+        ?Configuration $configuration = null
     ) {
         $this->id = $id;
         $this->name = $name;
