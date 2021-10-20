@@ -28,6 +28,11 @@ class User
     /**
      * @var string|null
      */
+    protected $email;
+
+    /**
+     * @var string|null
+     */
     protected $firstName;
 
     /**
@@ -60,6 +65,7 @@ class User
      * @param string $id
      * @param bool $anonymous
      * @param string|null $username
+     * @param string|null $email
      * @param string|null $firstName
      * @param string|null $lastName
      * @param string|null $sex
@@ -71,6 +77,7 @@ class User
         string $id,
         bool $anonymous,
         ?string $username,
+        ?string $email,
         ?string $firstName,
         ?string $lastName,
         ?string $sex,
@@ -81,6 +88,7 @@ class User
         $this->id = $id;
         $this->anonymous = $anonymous;
         $this->username = $username;
+        $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->sex = $sex;
@@ -116,6 +124,14 @@ class User
     /**
      * @return string|null
      */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -143,6 +159,14 @@ class User
     public function setUsername(?string $username): void
     {
         $this->username = $username;
+    }
+
+    /**
+     * @param string|null $email
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
     }
 
     /**
