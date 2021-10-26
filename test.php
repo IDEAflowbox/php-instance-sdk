@@ -34,9 +34,3 @@ if ($errors) {
 } else {
     echo "\e[1;32;40mThere were no errors.\e[0m".PHP_EOL;
 }
-
-//system('clear');
-//
-//foreach ($tests as $test => $value) {
-//    echo '[x] [Passed] '.$test.PHP_EOL;
-//}
