@@ -48,7 +48,7 @@ class Category
         ?string $name,
         ?string $url,
         ?string $image,
-        ?string $associatedTo
+        ?string $associatedTo = null
     ) {
         $this->id = $id;
         $this->name = $name;

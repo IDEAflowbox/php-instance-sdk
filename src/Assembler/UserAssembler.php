@@ -25,6 +25,7 @@ class UserAssembler implements DataAssemblerInterface
             'email' => $userDTO->getEmail(),
             'first_name' => $userDTO->getFirstName(),
             'last_name' => $userDTO->getLastName(),
+            'phone_number' => $userDTO->getPhoneNumber(),
             'sex' => $userDTO->getSex(),
             'country' => $userDTO->getCountry(),
             'city' => $userDTO->getCity(),
@@ -41,14 +42,15 @@ class UserAssembler implements DataAssemblerInterface
         return new User(
             $user['id'],
             $user['anonymous'],
-            $user['username'],
-            $user['email'],
-            $user['first_name'],
-            $user['last_name'],
-            $user['sex'],
-            $user['country'],
-            $user['city'],
-            $user['postcode']
+            isset($user['username']) ? $user['username'] : null,
+            isset($user['email']) ? $user['email'] : null,
+            isset($user['first_name']) ? $user['first_name'] : null,
+            isset($user['last_name']) ? $user['last_name'] : null,
+            isset($user['phone_number']) ? $user['phone_number'] : null,
+            isset($user['sex']) ? $user['sex'] : null,
+            isset($user['country']) ? $user['country'] : null,
+            isset($user['city']) ? $user['city'] : null,
+            isset($user['postcode']) ? $user['postcode'] : null,
         );
     }
 }

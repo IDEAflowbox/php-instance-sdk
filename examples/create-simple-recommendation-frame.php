@@ -64,6 +64,7 @@ try {
                     ->setTextColor('#000')
                 ->endButtonBuilder()
             ->endFrameBuilder()
+        ->endConfigurationBuilder()
         ->getResult()
     ;
 

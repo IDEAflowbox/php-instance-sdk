@@ -9,6 +9,7 @@ use Cyberkonsultant\Authentication\Client;
 use Cyberkonsultant\Authentication\Credentials;
 use Cyberkonsultant\DTO\PaginationResponse;
 use Cyberkonsultant\Exception\CyberkonsultantSDKException;
+use Cyberkonsultant\Scope\Crm;
 use Cyberkonsultant\Scope\Shop;
 use Cyberkonsultant\Scope\Voice;
 use Unirest\Response;
@@ -154,6 +155,14 @@ class Cyberkonsultant
     public function getVoiceScope(): Voice
     {
         return new Voice($this);
+    }
+
+    /**
+     * @return Crm
+     */
+    public function getCrmScope(): Crm
+    {
+        return new Crm($this);
     }
 
     /**
