@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Cyberkonsultant\Assembler;
 
 use Cyberkonsultant\DTO\Event;
+use Cyberkonsultant\Utils\DateTimeFormat;
 
 /**
  * Class EventAssembler
@@ -21,7 +22,7 @@ class EventAssembler implements DataAssemblerInterface
         return [
             'id' => $eventDTO->getId(),
             'user_id' => $eventDTO->getUserId(),
-            'event_time' => $eventDTO->getEventTime() ? $eventDTO->getEventTime()->format(DATE_ISO8601) : null,
+            'event_time' => $eventDTO->getEventTime() ? $eventDTO->getEventTime()->format(DateTimeFormat::ZULU) : null,
             'event_type' => $eventDTO->getEventType(),
             'user_score' => $eventDTO->getUserScore(),
             'product_id' => $eventDTO->getProductId(),

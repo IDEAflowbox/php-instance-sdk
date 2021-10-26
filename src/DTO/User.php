@@ -43,6 +43,11 @@ class User
     /**
      * @var string|null
      */
+    protected $phoneNumber;
+
+    /**
+     * @var string|null
+     */
     protected $sex;
 
     /**
@@ -68,6 +73,7 @@ class User
      * @param string|null $email
      * @param string|null $firstName
      * @param string|null $lastName
+     * @param string|null $phoneNumber
      * @param string|null $sex
      * @param string|null $country
      * @param string|null $city
@@ -80,6 +86,7 @@ class User
         ?string $email,
         ?string $firstName,
         ?string $lastName,
+        ?string $phoneNumber,
         ?string $sex,
         ?string $country,
         ?string $city,
@@ -91,6 +98,7 @@ class User
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+        $this->phoneNumber = $phoneNumber;
         $this->sex = $sex;
         $this->country = $country;
         $this->city = $city;
@@ -122,43 +130,19 @@ class User
     }
 
     /**
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getFirstName(): ?string
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getSex(): ?string
-    {
-        return $this->sex;
-    }
-
-    /**
      * @param string|null $username
      */
     public function setUsername(?string $username): void
     {
         $this->username = $username;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
     }
 
     /**
@@ -170,6 +154,14 @@ class User
     }
 
     /**
+     * @return string|null
+     */
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    /**
      * @param string|null $firstName
      */
     public function setFirstName(?string $firstName): void
@@ -178,11 +170,43 @@ class User
     }
 
     /**
+     * @return string|null
+     */
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    /**
      * @param string|null $lastName
      */
     public function setLastName(?string $lastName): void
     {
         $this->lastName = $lastName;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string|null $phoneNumber
+     */
+    public function setPhoneNumber(?string $phoneNumber): void
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSex(): ?string
+    {
+        return $this->sex;
     }
 
     /**

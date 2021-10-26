@@ -93,7 +93,7 @@ class GroupCRUD extends BaseCRUD
     public function getProductsIds(string $groupId): array
     {
         $response = $this->cyberkonsultant->get(sprintf('/shop/groups/%s/products-ids', $groupId));
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->raw_body);
     }
 
     /**
@@ -107,6 +107,6 @@ class GroupCRUD extends BaseCRUD
     public function getProductsCodes(string $groupId): array
     {
         $response = $this->cyberkonsultant->get(sprintf('/shop/groups/%s/products-codes', $groupId));
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->raw_body);
     }
 }

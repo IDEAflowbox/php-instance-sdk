@@ -1,0 +1,88 @@
+<?php
+declare(strict_types=1);
+
+namespace Cyberkonsultant\Builder;
+
+use Cyberkonsultant\DTO\PageEvent;
+
+/**
+ * Class PageEventBuilder
+ *
+ * @package Cyberkonsultant
+ */
+class PageEventBuilder implements PageEventBuilderInterface
+{
+    /**
+     * @var string
+     */
+    protected $userId;
+
+    /**
+     * @var string
+     */
+    protected $productId;
+
+    /**
+     * @var string
+     */
+    protected $type;
+
+    /**
+     * @var string
+     */
+    protected $url;
+
+    /**
+     * @param string $userId
+     * @return PageEventBuilderInterface
+     */
+    public function setUserId(string $userId): PageEventBuilderInterface
+    {
+        $this->userId = $userId;
+        return $this;
+    }
+
+    /**
+     * @param string $productId
+     * @return PageEventBuilderInterface
+     */
+    public function setProductId(string $productId): PageEventBuilderInterface
+    {
+        $this->productId = $productId;
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     * @return PageEventBuilderInterface
+     */
+    public function setType(string $type): PageEventBuilderInterface
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @param string $url
+     * @return PageEventBuilderInterface
+     */
+    public function setUrl(string $url): PageEventBuilderInterface
+    {
+        $this->url = $url;
+        return $this;
+    }
+
+    /**
+     * @return PageEvent
+     */
+    public function getResult(): PageEvent
+    {
+        $pageEvent = new PageEvent();
+        $pageEvent->setUserId($this->userId);
+        $pageEvent->setEventType($this->type);
+        $pageEvent->setProductId($this->productId);
+        $pageEvent->setUrl($this->url);
+
+        return $pageEvent;
+    }
+}
