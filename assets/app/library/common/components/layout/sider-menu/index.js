@@ -50,11 +50,17 @@ const SiderMenu = (props) => {
                         <a href="/mapping/categories">Kategorie</a>
                     </Menu.Item>
                 </SubMenu>
-                {/*<SubMenu key="/crm" icon={<ContactsOutlined />} title="CRM">*/}
-                {/*    <Menu.Item key="21">Grupa wskaźników 1</Menu.Item>*/}
-                {/*    <Menu.Item key="22">Grupa wskaźników 2</Menu.Item>*/}
-                {/*    <Menu.Item key="23">Lista klientów</Menu.Item>*/}
-                {/*</SubMenu>*/}
+                <SubMenu key="/crm" icon={<ContactsOutlined />} title="CRM">
+                    <Menu.Item key="/crm/segments">
+                        <a href="/crm/segments">Segmenty</a>
+                    </Menu.Item>
+                    <Menu.Item key="/crm/mailing">
+                        <a href="/crm/mailing">Mailing</a>
+                    </Menu.Item>
+                    <Menu.Item key="/crm/users">
+                        <a href="/crm/users">Lista klientów</a>
+                    </Menu.Item>
+                </SubMenu>
                 <SubMenu key="/account/billing" icon={<DollarCircleOutlined />} title="Rozliczenia">
                     <Menu.Item key="/account/billing/invoices">
                         <a href="/account/billing/invoices">Faktury</a>

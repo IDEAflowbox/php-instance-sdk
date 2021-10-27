@@ -6,8 +6,6 @@ import ListView from "../../../library/common/components/list-view";
 const {Title} = Typography;
 
 const FeedList = (props) => {
-    console.log(props);
-
     return (
         <>
             <Title level={2}>Feed produktowy</Title>
