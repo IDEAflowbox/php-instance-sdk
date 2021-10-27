@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from "classnames";
+import {Badge} from "antd";
 
 const TabsSwitch = (props) => {
     return (
@@ -16,7 +17,7 @@ const TabsSwitch = (props) => {
                                     'ant-tabs-tab-active': active,
                                 })} key={item.key} style={active ? {borderBottom: '2px solid #FCDE51', paddingLeft: 15, paddingRight: 15} : {}}>
                                     <div onClick={() => item.onClick && item.onClick(item, index)} role="tab" aria-selected={active} className="ant-tabs-tab-btn" tabIndex={index} id={`rc-tabs-0-tab-${index}`} aria-controls={`rc-tabs-0-panel-${index}`}>
-                                        {item.prefix}{item.title}
+                                        {item.prefix}{item.title}{item.title ? <Badge count={item.badge} style={{ backgroundColor: 'rgb(252, 222, 81)', color: '#000', border: 'none', marginLeft: 10}}/> : null}
                                     </div>
                                 </div>
                             )

@@ -40,7 +40,7 @@ security:
                 target: /admin/auth
         main:
             context: app
-            pattern: ^/account
+            pattern: ^/
             lazy: true
             switch_user: true
             provider: app_user_provider

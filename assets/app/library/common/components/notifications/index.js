@@ -9,6 +9,14 @@ const notifications = {
             placement: 'topRight',
         });
 
+    },
+    error: (message) => {
+        notification.error({
+            message: `Wystąpił błąd!`,
+            description: message,
+            placement: 'topRight',
+        });
+
     }
 }
 

@@ -11,11 +11,11 @@ const languages = [
         name: 'Polski',
         flag: PLFlag
     },
-    {
-        code: 'en',
-        name: 'English',
-        flag: USFlag
-    }
+    // {
+    //     code: 'en',
+    //     name: 'English',
+    //     flag: USFlag
+    // }
 ];
 
 const LanguageSelector = (props) => {

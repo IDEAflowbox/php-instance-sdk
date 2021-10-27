@@ -10,11 +10,18 @@ const {Header} = Layout;
 const ExtHeader = (props) => {
     const menuOverlay = (
         <Menu>
-            <Menu.Item>
-                <a href="/account/settings/account">Ustawienia konta</a>
-            </Menu.Item>
-            <Menu.Divider/>
-            <Menu.Item>
+            {
+                props.admin ? null : (
+                    <>
+                        <Menu.Item key="account">
+                            <a href="/account/settings/account">Ustawienia konta</a>
+                        </Menu.Item>
+                        <Menu.Divider key="divider"/>
+                    </>
+                )
+            }
+
+            <Menu.Item key="logout">
                 <a href="/logout">Wyloguj</a>
             </Menu.Item>
         </Menu>

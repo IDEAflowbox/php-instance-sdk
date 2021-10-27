@@ -9,8 +9,8 @@ const ListView = (props) => {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [data, setData] = useState(props.pagination.items);
-    const [pageSize, setPageSize] = useState(props.pagination.num_items_per_page);
-    const [total, setTotal] = useState(props.pagination.total_count);
+    const [pageSize, setPageSize] = useState(props.pagination.numItemsPerPage);
+    const [total, setTotal] = useState(props.pagination.totalCount);
     const [queryPage, setQueryPage, deleteQueryPage] = useQueryParam('page');
     const [querySearch, setQuerySearch] = useQueryParam('search');
 

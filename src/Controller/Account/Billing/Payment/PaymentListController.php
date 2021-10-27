@@ -2,6 +2,7 @@
 
 namespace App\Controller\Account\Billing\Payment;
 
+use App\Controller\BaseController;
 use App\Repository\PaymentRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
-class PaymentListController extends AbstractController
+class PaymentListController extends BaseController
 {
     #[Route('/account/billing/payments', name: 'account_billing_payments')]
     public function payments(
@@ -25,8 +26,13 @@ class PaymentListController extends AbstractController
             25
         );
 
+        $view = $this->createView($pagination);
+        if ($this->isXhrRequest()) {
+            return $this->handleView($view);
+        }
+
         return $this->render('account/billing/payment/list.html.twig', [
-            'pagination' => $pagination,
+            'pagination' => $this->serializeViewToObject($view),
         ]);
     }
 }

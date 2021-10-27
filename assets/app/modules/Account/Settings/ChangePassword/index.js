@@ -50,6 +50,7 @@ const ChangePassword = (props) => {
                 })
                 form.setFields(fields);
             })
+        ;
     };
 
     const onFinishFailed = (errorInfo) => {

@@ -5,6 +5,7 @@ namespace App\Controller;
 use FOS\RestBundle\Context\Context;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
 
 abstract class BaseController extends AbstractFOSRestController
@@ -47,10 +48,13 @@ abstract class BaseController extends AbstractFOSRestController
 
     protected function serializeView(View $view): string
     {
-        return $this->serializer->serialize($view->getData(), $view->getFormat());
+        $context = SerializationContext::create();
+        $context->setSerializeNull($view->getContext()->getSerializeNull());
+
+        return $this->serializer->serialize($view->getData(), $view->getFormat(), $context);
     }
 
-    protected function serializeViewToObject(View $view): object
+    protected function serializeViewToObject(View $view): object|array
     {
         return json_decode($this->serializeView($view));
     }
