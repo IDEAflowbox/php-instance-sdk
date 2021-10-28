@@ -22,6 +22,7 @@ class PaginationResponseAssembler
             'current_page' => $response->getCurrentPage(),
             'last_page' => $response->getLastPage(),
             'rows' => $response->getRows(),
+            'rows_per_page' => $response->getRowsPerPage(),
             'data' => $response->getData(),
         ];
     }
@@ -33,12 +34,15 @@ class PaginationResponseAssembler
      */
     public function writeDTO(array $response, ?callable $callback = null): PaginationResponse
     {
-        $paginationResponse = new PaginationResponse(
-            $response['current_page'],
-            $response['last_page'],
-            $response['rows'],
-            isset($response['data']) ? $response['data'] : []
-        );
+        $paginationResponse = new PaginationResponse();
+        $paginationResponse->setCurrentPage($response['current_page']);
+        $paginationResponse->setLastPage($response['last_page']);
+        $paginationResponse->setRows($response['rows']);
+        $paginationResponse->setRowsPerPage($response['rows_per_page']);
+        if (isset($response['data'])) {
+            $paginationResponse->setData($response['data']);
+        }
+
 
         if ($callback instanceof \Closure) {
             $paginationResponse->setData(array_map($callback, $paginationResponse->getData()));
