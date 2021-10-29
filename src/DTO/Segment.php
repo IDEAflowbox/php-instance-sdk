@@ -40,12 +40,12 @@ class Segment
     /**
      * @var int
      */
-    protected $countUsers;
+    protected $countUsers = 0;
 
     /**
      * @var string
      */
-    protected $status;
+    protected $status = "";
 
     /**
      * @return string|null
