@@ -34,9 +34,9 @@ const ListView = (props) => {
             .get(window.location.href, {headers: {accept: 'application/json'}})
             .then(response => {
                 setData(response.data.items);
-                setPageSize(response.data.num_items_per_page);
-                setTotal(response.data.total_count);
-                setPage(response.data.current_page_number);
+                setPageSize(response.data.numItemsPerPage);
+                setTotal(response.data.totalCount);
+                setPage(response.data.currentPageNumber);
                 setLoading(false);
             })
         ;

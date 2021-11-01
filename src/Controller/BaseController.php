@@ -7,10 +7,32 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
+use phpDocumentor\Reflection\Utils;
 
 abstract class BaseController extends AbstractFOSRestController
 {
+    private const PAGINATOR_DEFAULT_LIMIT = 20;
+    private const PAGINATOR_MAX_LIMIT = 50;
+
     protected SerializerInterface $serializer;
+
+    public function getPaginatorLimit(): int
+    {
+        if (!$request = $this->get('request_stack')->getCurrentRequest()) {
+            return self::PAGINATOR_MAX_LIMIT;
+        }
+
+        $limit = $request->get('limit', self::PAGINATOR_DEFAULT_LIMIT);
+        if ($limit <= 0) {
+            return self::PAGINATOR_DEFAULT_LIMIT;
+        }
+
+        if ($limit > self::PAGINATOR_MAX_LIMIT) {
+            return self::PAGINATOR_MAX_LIMIT;
+        }
+
+        return $limit;
+    }
 
     public function __construct(SerializerInterface $serializer)
     {

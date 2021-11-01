@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant - segmenty{% endblock %}
+
+{% block components %}
+    {{ react_component('Crm_Segments_List', {'props': {'pagination': pagination}, 'rendering': 'client_side'}) }}
+{% endblock %}

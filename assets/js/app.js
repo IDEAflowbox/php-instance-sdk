@@ -16,6 +16,7 @@ import MappingCategoriesInvoker from "./Invokers/Mapping/CategoriesInvoker";
 import FramesListInvoker from "./Invokers/Frames/FramesListInvoker";
 import FramesAddAdvancedInvoker from "./Invokers/Frames/Add/AdvancedInvoker";
 import CrmUsersListInvoker from "./Invokers/Crm/Users/ListInvoker";
+import CrmSegmentsListInvoker from "./Invokers/Crm/Segments/ListInvoker";
 
 import '../app/library/common/components/layout/sider-menu/index.scss';
 import '../app/library/common/components/layout/impersonation/index.scss';
@@ -50,4 +51,5 @@ ReactOnRails.register({
     Frames_Add_Advanced: FramesAddAdvancedInvoker,
 
     Crm_Users_List: CrmUsersListInvoker,
+    Crm_Segments_List: CrmSegmentsListInvoker,
 });

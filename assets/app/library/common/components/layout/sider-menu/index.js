@@ -23,7 +23,7 @@ const SiderMenu = (props) => {
                     <img src={logo} alt="Cyber konsultant" />
                 </a>
             </div>
-            <Menu selectable={false} theme="dark" defaultSelectedKeys={[window.location.pathname]} mode="inline" defaultOpenKeys={['/recommendations', '/mapping', '/crm', '/account/billing', '/account/settings']}>
+            <Menu selectable={false} theme="dark" defaultSelectedKeys={[window.location.pathname]} mode="inline" defaultOpenKeys={['/recommendations', '/mapping', '/crm', '/account/billing', '/account/settings', '/crm/_mailing']}>
                 {/*<Menu.Item key="/activities" icon={<BarChartOutlined />}>*/}
                 {/*    <a href="/activities">Aktywności</a>*/}
                 {/*</Menu.Item>*/}
@@ -54,12 +54,17 @@ const SiderMenu = (props) => {
                     <Menu.Item key="/crm/segments">
                         <a href="/crm/segments">Segmenty</a>
                     </Menu.Item>
-                    <Menu.Item key="/crm/mailing">
-                        <a href="/crm/mailing">Mailing</a>
-                    </Menu.Item>
                     <Menu.Item key="/crm/users">
                         <a href="/crm/users">Lista klientów</a>
                     </Menu.Item>
+                    <SubMenu key="/crm/_mailing" title="Mailing">
+                        <Menu.Item key="/crm/mailing">
+                            <a href="/crm/mailing">Mailing</a>
+                        </Menu.Item>
+                        <Menu.Item key="/crm/senders">
+                            <a href="/crm/mailing/senders">Nadawcy</a>
+                        </Menu.Item>
+                    </SubMenu>
                 </SubMenu>
                 <SubMenu key="/account/billing" icon={<DollarCircleOutlined />} title="Rozliczenia">
                     <Menu.Item key="/account/billing/invoices">
