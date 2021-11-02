@@ -61,7 +61,7 @@ const SiderMenu = (props) => {
                         <Menu.Item key="/crm/mailing">
                             <a href="/crm/mailing">Mailing</a>
                         </Menu.Item>
-                        <Menu.Item key="/crm/senders">
+                        <Menu.Item key="/crm/mailing/senders">
                             <a href="/crm/mailing/senders">Nadawcy</a>
                         </Menu.Item>
                     </SubMenu>

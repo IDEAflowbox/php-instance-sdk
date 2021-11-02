@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Cyber Konsultant - użytkownicy{% endblock %}
+
+{% block components %}
+    {{ react_component('Crm_Mailing_Mailing_List', {'props': {'pagination': pagination}, 'rendering': 'client_side'}) }}
+{% endblock %}

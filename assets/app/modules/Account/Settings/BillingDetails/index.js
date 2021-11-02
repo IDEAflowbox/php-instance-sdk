@@ -26,7 +26,6 @@ const BillingDetails = (props) => {
                 const errorsKeys = Object.keys(errors);
                 const fields = [];
 
-
                 errorsKeys.forEach(input => {
                     fields.push({
                         name: input,
