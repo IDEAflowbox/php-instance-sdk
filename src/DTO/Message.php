@@ -21,6 +21,11 @@ class Message
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $title;
+
+    /**
      * @var \DateTime
      */
     protected $startDate;
@@ -90,6 +95,22 @@ class Message
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
     }
 
     /**

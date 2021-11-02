@@ -18,6 +18,11 @@ class MessageBuilder implements MessageBuilderInterface
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $title;
+
+    /**
      * @var \DateTime
      */
     protected $startDate;
@@ -49,6 +54,16 @@ class MessageBuilder implements MessageBuilderInterface
     public function setName(string $name): MessageBuilderInterface
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @return MessageBuilderInterface
+     */
+    public function setTitle(string $title): MessageBuilderInterface
+    {
+        $this->title = $title;
         return $this;
     }
 
@@ -109,6 +124,7 @@ class MessageBuilder implements MessageBuilderInterface
     {
         $message = new Message();
         $message->setName($this->name);
+        $message->setTitle($this->title);
         $message->setStartDate($this->startDate);
         $message->setSegmentId($this->segmentId);
         $message->setSenderId($this->senderId);

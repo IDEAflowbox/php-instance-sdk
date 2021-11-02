@@ -20,6 +20,12 @@ interface MessageBuilderInterface
     public function setName(string $name): MessageBuilderInterface;
 
     /**
+     * @param string $title
+     * @return MessageBuilderInterface
+     */
+    public function setTitle(string $title): MessageBuilderInterface;
+
+    /**
      * @param \DateTime $startDate
      * @return MessageBuilderInterface
      */

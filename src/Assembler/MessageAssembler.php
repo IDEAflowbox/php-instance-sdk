@@ -22,6 +22,7 @@ class MessageAssembler implements DataAssemblerInterface
         return [
             'id' => $messageDTO->getId(),
             'name' => $messageDTO->getName(),
+            'title' => $messageDTO->getTitle(),
             'start_date' => $messageDTO->getStartDate() ? $messageDTO->getStartDate()->format(DateTimeFormat::ZULU) : null,
             'segment_id' => $messageDTO->getSegmentId(),
             'sender_id' => $messageDTO->getSenderId(),
@@ -42,6 +43,7 @@ class MessageAssembler implements DataAssemblerInterface
         $startDate = strtotime($message['start_date']);
         $messageDTO = new Message();
         $messageDTO->setName($message['name']);
+        $messageDTO->setTitle($message['title']);
         if ($startDate) {
             $messageDTO->setStartDate((new \DateTime())->setTimestamp($startDate));
         }
