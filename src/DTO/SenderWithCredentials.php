@@ -16,12 +16,12 @@ class SenderWithCredentials extends Sender
     protected $host;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $username;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $password;
 
@@ -47,9 +47,9 @@ class SenderWithCredentials extends Sender
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
@@ -63,9 +63,9 @@ class SenderWithCredentials extends Sender
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }

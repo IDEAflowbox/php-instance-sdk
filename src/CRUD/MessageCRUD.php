@@ -85,4 +85,21 @@ class MessageCRUD extends BaseCRUD
 
         return $response->raw_body;
     }
+
+    /**
+     * @param string $messageId
+     * @return Message
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function cancel(string $messageId): Message
+    {
+        $response = $this->cyberkonsultant->patch(
+            sprintf('/crm/mailer/messages/%s/cancel', $messageId)
+        );
+
+        return $this->cyberkonsultant->getEdgeResponse($response, MessageAssembler::class);
+    }
 }
