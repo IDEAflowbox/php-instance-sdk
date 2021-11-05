@@ -30,4 +30,5 @@ RUN composer config \
 RUN composer -n --no-scripts --no-ansi install && \
     yarn install && \
     yarn encore production && \
-    yarn build
+    yarn build && \
+    yarn build-serverside
