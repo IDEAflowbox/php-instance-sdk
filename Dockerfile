@@ -20,8 +20,10 @@ RUN if [[ "$XDEBUG_ENABLED" = "1" ]] ; then pecl install xdebug \
   && echo "xdebug.client_host = host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "xdebug.client_port = 9003" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; fi
 
+RUN composer config gitlab-domains git-ck.idea-commerce.com 
+
 RUN composer config \
-  --auth git-ck.idea-commerce.com "8wySy6kfPb_Hs6yLst-r" \
+  --auth gitlab-token.git-ck.idea-commerce.com "8wySy6kfPb_Hs6yLst-r" \
   --no-ansi \
   --no-interaction
 
