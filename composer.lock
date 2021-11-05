@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f37cafa6425984df3ed22941d8cc0eca",
+    "content-hash": "a14c7f5e90163d266f1d8eee51aaba3c",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -200,7 +200,7 @@
             "version": "v1.2.5",
             "source": {
                 "type": "git",
-                "url": "https://repos.o323.com/cyberkonsultant/php-instance-sdk",
+                "url": "https://git-ck.idea-commerce.com/omega323/php-instance-sdk",
                 "reference": "baf66d63663fb7a91939f3f1a0afd27fa4116cda"
             },
             "require": {
