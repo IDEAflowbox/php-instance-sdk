@@ -20,7 +20,7 @@ const ExtList = (props) => {
                 }
 
                 return (
-                    <List.Item style={{justifyContent: 'normal', fontSize: 13}}>
+                    <List.Item style={{justifyContent: 'normal', fontSize: 13, alignItems: "start"}}>
                         <div style={{width: 300, color: '#717380'}}>{item.renderName ? item.renderName(item.name) : item.name}</div>
                         <div style={{width: 300, color: '#000'}}>{item.render ? item.render(item.value) : item.value}</div>
                     </List.Item>

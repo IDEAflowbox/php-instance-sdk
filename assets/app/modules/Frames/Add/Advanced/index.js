@@ -4,6 +4,7 @@ import {PlusOutlined, SaveOutlined} from "@ant-design/icons";
 import Content from "../../../../library/common/components/content";
 import AceEditor from "react-ace";
 import axios from "../../../../main/axios";
+import ScenarioSelect from "../../../../library/common/components/scenario-select";
 
 const {Title, Paragraph} = Typography;
 
@@ -25,14 +26,14 @@ const FramesAddAdvanced = (props) => {
         </Form.Item>
     );
 
-    // steps.push(
-    //     <Form.Item
-    //         name="groupId"
-    //         label="Scenariusz użycia"
-    //     >
-    //         <Input />
-    //     </Form.Item>
-    // );
+    steps.push(
+        <Form.Item
+            name="groupId"
+            label="Scenariusz użycia"
+        >
+            <ScenarioSelect />
+        </Form.Item>
+    );
 
     steps.push(
         <Form.Item
@@ -84,6 +85,7 @@ const FramesAddAdvanced = (props) => {
                 create_advanced_frame: {
                     ...values,
                     name: frameName,
+                    groupId: values.groupId.value,
                 }
             })
             .then(response => {
