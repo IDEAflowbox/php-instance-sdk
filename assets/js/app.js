@@ -11,11 +11,13 @@ import ChangePasswordInvoker from "./Invokers/Account/Settings/ChangePasswordInv
 import InvoicesInvoker from "./Invokers/Account/Billings/InvoicesInvoker";
 import PaymentsInvoker from "./Invokers/Account/Billings/PaymentsInvoker";
 import FeedListInvoker from "./Invokers/Feed/ListInvoker";
+import ScenarioListInvoker from "./Invokers/Scenario/ListInvoker";
 import MappingFeaturesInvoker from "./Invokers/Mapping/FeaturesInvoker";
 import MappingCategoriesInvoker from "./Invokers/Mapping/CategoriesInvoker";
 import FramesListInvoker from "./Invokers/Frames/FramesListInvoker";
 import FramesAddAdvancedInvoker from "./Invokers/Frames/Add/AdvancedInvoker";
 import CrmUsersListInvoker from "./Invokers/Crm/Users/ListInvoker";
+import CrmUsersDetailsInvoker from "./Invokers/Crm/Users/DetailsInvoker";
 import CrmSegmentsListInvoker from "./Invokers/Crm/Segments/ListInvoker";
 import CrmMailingMailingListInvoker from "./Invokers/Crm/Mailing/Mailing/ListInvoker";
 import CrmMailingMailingAddInvoker from "./Invokers/Crm/Mailing/Mailing/AddInvoker";
@@ -46,6 +48,7 @@ ReactOnRails.register({
     Account_Billings_Payments: PaymentsInvoker,
 
     Feed_List: FeedListInvoker,
+    Scenario_List: ScenarioListInvoker,
 
     Mapping_Categories: MappingCategoriesInvoker,
     Mapping_Features: MappingFeaturesInvoker,
@@ -54,6 +57,7 @@ ReactOnRails.register({
     Frames_Add_Advanced: FramesAddAdvancedInvoker,
 
     Crm_Users_List: CrmUsersListInvoker,
+    Crm_Users_Details: CrmUsersDetailsInvoker,
     Crm_Segments_List: CrmSegmentsListInvoker,
 
     Crm_Mailing_Mailing_List: CrmMailingMailingListInvoker,

@@ -1,35 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import {Badge, Button, Col, Pagination, Row, Space, Spin, Typography} from 'antd';
-import Content from "../../../../library/common/components/content";
-import SegmentStatus from "../../../../library/common/components/segment-status";
-import List from "../../../../library/common/components/list";
-import {useQueryParam} from "../../../../library/utilities/use-query-param";
-import axios from "../../../../main/axios";
+import {Button, Col, Pagination, Row, Spin, Typography} from 'antd';
+import Content from "../../../library/common/components/content";
+import List from "../../../library/common/components/list";
 import {PlusOutlined} from "@ant-design/icons";
-import {createModal} from "../../../../library/common/components/modal";
-import AddSegmentModal from "./add-segment-modal";
-import {SegmentParameterTypesTranslations} from "../../../../library/common/components/segment-parameter-type-selector";
-import SegmentName from "../../../../library/common/components/segment-name";
+import {useQueryParam} from "../../../library/utilities/use-query-param";
+import axios from "../../../main/axios";
+import {createModal} from "../../../library/common/components/modal";
+import AddScenarioModal from "./add-scenario-modal";
+import {ScenarioFieldTypesTranslations} from "../../../library/common/components/scenario-field-type-selector";
 
 const {Title} = Typography;
 
-const RenderSegment = (props) => {
-    const data = [
-        {
-            name: 'Zasięg',
-            value: props.countUsers,
-        },
-        {
-            name: 'Kolor',
-            value: props.color,
-            render: (color) => <Space><SegmentName color={color} name={color} /></Space>,
-        }
-    ]
+const RenderScenario = (props) => {
     const dataParams = [];
-
-    props.parameters.forEach(parameter => {
+    props.criteria.filters.forEach(parameter => {
         dataParams.push({
-            name: SegmentParameterTypesTranslations[parameter.type],
+            name: ScenarioFieldTypesTranslations[parameter.field],
             value: `${parameter.operator} ${parameter.value}`
         })
     });
@@ -40,13 +26,9 @@ const RenderSegment = (props) => {
                 <Col span={12}>
                     <Title level={5}>{props.name}</Title>
                 </Col>
-                <Col span={12} style={{display: 'flex', alignItems: 'flex-end', flexDirection: 'column'}}>
-                    <SegmentStatus status={props.status} />
-                </Col>
             </Row>
             <Row>
                 <Col span={24}>
-                    <List data={data}/>
                     <List data={dataParams}/>
                 </Col>
             </Row>
@@ -54,7 +36,7 @@ const RenderSegment = (props) => {
     )
 }
 
-const SegmentsList = (props) => {
+const ScenarioList = (props) => {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [data, setData] = useState(props.pagination.items);
@@ -97,11 +79,11 @@ const SegmentsList = (props) => {
         onChange: onChangePage
     };
 
-    const handleNewSegment = () => {
+    const handleNewScenario = () => {
         const modal = createModal({
             width: '90%',
             style: {maxWidth: 960},
-            content: <AddSegmentModal close={() => modal.destroy()}/>
+            content: <AddScenarioModal close={() => modal.destroy()}/>
         });
     }
 
@@ -109,21 +91,21 @@ const SegmentsList = (props) => {
         <>
             <Row style={{marginBottom: 20}}>
                 <Col span={12}>
-                    <Title level={2}>Segmenty</Title>
+                    <Title level={2}>Scenariusze</Title>
                 </Col>
                 <Col span={12} style={{display: 'flex', alignItems: 'flex-end', flexDirection: 'column'}}>
-                    <Button type="default" icon={<PlusOutlined />} onClick={handleNewSegment}>
-                        Dodaj nowy segment
+                    <Button type="default" icon={<PlusOutlined />} onClick={handleNewScenario}>
+                        Dodaj nowy scenariusz
                     </Button>
                 </Col>
             </Row>
 
             <Spin spinning={loading}>
-                {data.map(item => <RenderSegment key={item.id} {...item}/>)}
+                {data.map(item => <RenderScenario key={item.id} {...item}/>)}
             </Spin>
             <Pagination {...pagination} />
         </>
     )
 }
 
-export default SegmentsList;
+export default ScenarioList;

@@ -33,6 +33,12 @@ const columns = [
         title: 'Adres',
         key: 'address',
         render: (_, user) => `${user.postcode} ${user.city}, ${user.country}`
+    },
+    {
+        title: ' ',
+        key: 'actions',
+        align: 'right',
+        render: (_, user) => <Button type="primary" href={`/crm/users/${user.id}`}>Podgląd</Button>
     }
 ]
 

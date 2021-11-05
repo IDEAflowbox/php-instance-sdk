@@ -23,7 +23,7 @@ const SiderMenu = (props) => {
                     <img src={logo} alt="Cyber konsultant" />
                 </a>
             </div>
-            <Menu selectable={false} theme="dark" defaultSelectedKeys={[window.location.pathname]} mode="inline" defaultOpenKeys={['/recommendations', '/mapping', '/crm', '/account/billing', '/account/settings', '/crm/_mailing']}>
+            <Menu selectable={false} theme="dark" defaultSelectedKeys={[window.location.pathname]} mode="inline" defaultOpenKeys={['/recommendations', '/mapping', '/crm', '/account/billing', '/account/settings', '/crm/_mailing', '/feed/_']}>
                 {/*<Menu.Item key="/activities" icon={<BarChartOutlined />}>*/}
                 {/*    <a href="/activities">Aktywności</a>*/}
                 {/*</Menu.Item>*/}
@@ -37,11 +37,14 @@ const SiderMenu = (props) => {
                         </a>
                     </Menu.Item>
                 </SubMenu>
-                <Menu.Item key="/feed" icon={<TagsOutlined />}>
-                    <a href="/feed">
-                        Feed
-                    </a>
-                </Menu.Item>
+                <SubMenu key="/feed/_" icon={<TagsOutlined />} title="Feed">
+                    <Menu.Item key="/feed">
+                        <a href="/feed">Lista produktów</a>
+                    </Menu.Item>
+                    <Menu.Item key="/feed/scenarios">
+                        <a href="/feed/scenarios">Scenariusze</a>
+                    </Menu.Item>
+                </SubMenu>
                 <SubMenu key="/mapping" icon={<NodeIndexOutlined />} title="Mapowanie danych">
                     <Menu.Item key="/mapping/features">
                         <a href="/mapping/features">Atrybuty</a>
