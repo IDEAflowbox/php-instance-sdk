@@ -28,6 +28,5 @@ RUN composer config \
   --no-interaction
 
 RUN composer -n --no-scripts --no-ansi install && \
-    chown -R www-data:www-data var/ && \
     yarn install && \
     yarn encore production
