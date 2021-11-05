@@ -3,6 +3,7 @@
 namespace App\Controller\Admin\Client;
 
 use App\Entity\Client;
+use App\Entity\ExternalApiConfig;
 use App\Form\ExternalApiConfigType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,11 +19,14 @@ class ClientApiEditController extends AbstractController
         Request $request,
         EntityManagerInterface $em
     ): Response {
-        $externalApiConfigForm = $this->createForm(ExternalApiConfigType::class, $client->getExternalApiConfig());
+        $externalApiConfig = $client->getExternalApiConfig()
+            ? $client->getExternalApiConfig()
+            : (new ExternalApiConfig())->setClient($client);
+        $externalApiConfigForm = $this->createForm(ExternalApiConfigType::class, $externalApiConfig);
         $externalApiConfigForm->handleRequest($request);
 
         if ($externalApiConfigForm->isSubmitted() && $externalApiConfigForm->isValid()) {
-            $em->persist($client->getExternalApiConfig());
+            $em->persist($externalApiConfig);
             $em->flush();
 
             return $this->redirectToRoute('admin_client_show', ['client' => $client->getId()]);

@@ -14,6 +14,9 @@
     "composer/xdebug-handler": {
         "version": "2.0.2"
     },
+    "cyberkonsultant/php-instance-sdk": {
+        "version": "v1.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -130,8 +133,29 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "friendsofsymfony/rest-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "fa845143b7e0a4c70aedd1a88c549e6d977e9ae5"
+        },
+        "files": [
+            "config/packages/fos_rest.yaml"
+        ]
+    },
     "gedmo/doctrine-extensions": {
         "version": "v3.1.0"
+    },
+    "guzzlehttp/guzzle": {
+        "version": "7.3.0"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.5.0"
+    },
+    "guzzlehttp/psr7": {
+        "version": "2.1.0"
     },
     "hautelook/alice-bundle": {
         "version": "2.1",
@@ -145,6 +169,26 @@
             "config/packages/dev/hautelook_alice.yaml",
             "config/packages/test/hautelook_alice.yaml",
             "fixtures/.gitignore"
+        ]
+    },
+    "jms/metadata": {
+        "version": "2.5.1"
+    },
+    "jms/serializer": {
+        "version": "3.14.0"
+    },
+    "jms/serializer-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "384cec52df45f3bfd46a09930d6960a58872b268"
+        },
+        "files": [
+            "config/packages/dev/jms_serializer.yaml",
+            "config/packages/jms_serializer.yaml",
+            "config/packages/prod/jms_serializer.yaml"
         ]
     },
     "knplabs/gaufrette": {
@@ -168,6 +212,15 @@
     "liip/test-fixtures-bundle": {
         "version": "2.0.1"
     },
+    "limenius/react-bundle": {
+        "version": "v5.0.3"
+    },
+    "limenius/react-renderer": {
+        "version": "v5.0.3"
+    },
+    "mashape/unirest-php": {
+        "version": "v3.0.4"
+    },
     "monolog/monolog": {
         "version": "2.3.2"
     },
@@ -176,6 +229,9 @@
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
+    },
+    "nacmartin/phpexecjs": {
+        "version": "v3.0.0"
     },
     "nelmio/alice": {
         "version": "3.2",
@@ -217,6 +273,9 @@
     "phpspec/prophecy": {
         "version": "1.13.0"
     },
+    "phpstan/phpdoc-parser": {
+        "version": "0.5.7"
+    },
     "phpunit/php-code-coverage": {
         "version": "9.2.6"
     },
@@ -255,11 +314,23 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-factory": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/link": {
         "version": "1.1.1"
     },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -538,9 +609,6 @@
     "symfony/options-resolver": {
         "version": "v5.3.4"
     },
-    "symfony/orm-pack": {
-        "version": "v2.1.0"
-    },
     "symfony/password-hasher": {
         "version": "v5.3.4"
     },
@@ -784,5 +852,11 @@
     },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
+    },
+    "willdurand/negotiation": {
+        "version": "3.0.0"
     }
 }

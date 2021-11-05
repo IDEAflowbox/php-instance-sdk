@@ -28,7 +28,7 @@ class AccountChangePasswordType extends AbstractType
         $resolver->setDefaults([
             'data_class' => ChangePasswordDto::class,
             'csrf_token_id' => 'change_password',
-            'csrf_protection' => true,
+            'csrf_protection' => false,
         ]);
     }
 }

@@ -36,7 +36,7 @@ class BillingOptionType extends AbstractType
         $resolver->setDefaults([
             'data_class' => BillingOption::class,
             'csrf_token_id' => 'billing_option',
-            'csrf_protection' => true,
+            'csrf_protection' => false,
         ]);
     }
 }

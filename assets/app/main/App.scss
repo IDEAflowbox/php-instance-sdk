@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;900&display=swap');
+
+body {
+  font-family: Mulish, apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
+
+.ant-table table {
+  border-collapse:separate;
+  border-spacing: 0 10px;
+}
+
+.ant-table, .ant-table-small .ant-table-thead > tr > th {
+  background-color: transparent;
+}
+
+tr.ant-table-row.ant-table-row-level-0 {
+  position: relative;
+  border: 1px solid #DFE1EB;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 6px rgb(0 0 0 / 6%);
+  border-radius: 6px;
+}
+
+tr.ant-table-row.ant-table-row-level-0 {
+  background: #fff;
+}
+
+tr.ant-table-row.ant-table-row-level-0 td:first-child,
+tr.ant-table-row.ant-table-row-level-0 th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+tr.ant-table-row.ant-table-row-level-0 td:last-child,
+tr.ant-table-row.ant-table-row-level-0 th:last-child {
+  border-radius: 0 10px 10px 0;
+}

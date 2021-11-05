@@ -34,3 +34,15 @@ services:
     App\Twig\ImageBase64Extension:
         arguments:
             $basePath: '%kernel.project_dir%/'
+
+    App\Twig\ReactGlobalComponentExtension:
+        decorates: "limenius_react.render_extension"
+        arguments:
+            $renderer: "@limenius_react.react_renderer"
+            $contextProvider: "@limenius_react.context_provider"
+            $defaultRendering: "both"
+            $impersonateUrlGenerator: "@security.impersonate_url_generator"
+
+    App\EventListener\JsonRequestTransformerListener:
+        tags:
+            - { name: "kernel.event_listener", event: "kernel.request", method: "onKernelRequest", priority: "100" }

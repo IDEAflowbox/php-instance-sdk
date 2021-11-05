@@ -1,0 +1,24 @@
+.site-layout-header {
+  position: relative !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  background: #fff !important;
+  -webkit-box-shadow: 0 1px 4px rgb(0 21 41 / 8%) !important;
+  box-shadow: 0 1px 4px rgb(0 21 41 / 8%) !important;
+  height: 80px !important;
+  line-height: 80px !important;
+}
+
+.site-layout-header .logo a {
+  display: inline-block;
+  width: 150px !important;
+  margin-left: 40px;
+}
+
+.site-layout-header .logo a img {
+  width: 100%;
+  max-width: 100%;
+}

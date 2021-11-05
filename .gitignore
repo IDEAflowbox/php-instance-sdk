@@ -6,6 +6,7 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /vendor/
+/var/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

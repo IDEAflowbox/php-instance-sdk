@@ -29,7 +29,7 @@ class ExternalApiConfig
     private ?string $url = null;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     #[Assert\NotBlank]
     private ?string $token = null;

@@ -42,8 +42,7 @@ class CreateClientType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => CreateClientDto::class,
-            'csrf_token_id' => 'client',
-            'csrf_protection' => true,
+            'csrf_protection' => false,
         ]);
     }
 }

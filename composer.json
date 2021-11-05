@@ -10,14 +10,19 @@
         "ext-openssl": "*",
         "beberlei/assert": "^3.3",
         "composer/package-versions-deprecated": "1.11.99.2",
+        "cyberkonsultant/php-instance-sdk": "^1.0",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.4",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.9",
+        "friendsofsymfony/rest-bundle": "^3.0",
         "gedmo/doctrine-extensions": "^3.1",
+        "jms/serializer-bundle": "^3.10",
         "knplabs/knp-gaufrette-bundle": "^0.7.1",
         "knplabs/knp-paginator-bundle": "^5.6",
         "kwn/number-to-words": "^2.0",
+        "limenius/react-bundle": "^5.0",
+        "limenius/react-renderer": "^5.0",
         "mpdf/mpdf": "^8.0",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.1",
@@ -74,6 +79,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/theofidry/AliceBundle"
+        },
+        {
+            "type": "vcs",
+            "url": "https://repos.o323.com/cyberkonsultant/php-instance-sdk"
         }
     ],
     "config": {

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+</head>
+<body>
+
+{% block body %}
+{% endblock %}
+
+{% block component_layout %}
+{{ react_component('Layout', {'props': {}, 'rendering': 'server_side'}) }}
+{% endblock %}
+
+{% block component_menu %}
+{{ react_global_component('Menu') }}
+{% endblock %}
+
+{% block component_header %}
+{{ react_global_component('Header') }}
+{% endblock %}
+
+{% block components %}
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+{% endblock %}
+</body>
+</html>

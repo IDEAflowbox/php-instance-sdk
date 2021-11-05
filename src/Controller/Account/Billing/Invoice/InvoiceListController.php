@@ -2,6 +2,7 @@
 
 namespace App\Controller\Account\Billing\Invoice;
 
+use App\Controller\BaseController;
 use App\Repository\InvoiceRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
-class InvoiceListController extends AbstractController
+class InvoiceListController extends BaseController
 {
     #[Route('/account/billing/invoices', name: 'account_billing_invoices')]
     public function index(
@@ -33,9 +34,15 @@ class InvoiceListController extends AbstractController
             25
         );
 
+        $paginationView = $this->createView($pagination);
+        $lastInvoiceView = $this->createView($last);
+        if ($this->isXhrRequest()) {
+            return $this->handleView($paginationView);
+        }
+
         return $this->render('account/billing/invoice/list.html.twig', [
-            'pagination' => $pagination,
-            'last' => $last,
+            'pagination' => $this->serializeViewToObject($paginationView),
+            'last' => $this->serializeViewToObject($lastInvoiceView),
         ]);
     }
 }
