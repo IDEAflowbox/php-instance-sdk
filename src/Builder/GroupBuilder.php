@@ -55,10 +55,9 @@ class GroupBuilder implements GroupBuilderInterface
      */
     public function getResult(): Group
     {
-        return new Group(
-            null,
-            $this->name,
-            $this->criteriaBuilder->getResult()
-        );
+        $group = new Group();
+        $group->setName($this->name);
+        $group->setCriteria($this->criteriaBuilder->getResult());
+        return $group;
     }
 }

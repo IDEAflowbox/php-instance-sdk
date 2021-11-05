@@ -48,7 +48,9 @@ class CriteriaBuilder implements CriteriaBuilderInterface
      */
     public function getResult(): Criteria
     {
-        return new Criteria($this->filters);
+        $criteria = new Criteria();
+        $criteria->setFilters($this->filters);
+        return $criteria;
     }
 
     /**

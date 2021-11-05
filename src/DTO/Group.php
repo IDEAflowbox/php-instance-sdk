@@ -23,24 +23,16 @@ class Group
     protected $name;
 
     /**
-     * @var Criteria
+     * @var Criteria|null
      */
     protected $criteria;
 
     /**
-     * Group constructor.
      * @param string|null $id
-     * @param string $name
-     * @param Criteria $criteria
      */
-    public function __construct(
-        ?string $id,
-        string $name,
-        Criteria $criteria
-    ) {
+    public function setId(?string $id): void
+    {
         $this->id = $id;
-        $this->name = $name;
-        $this->criteria = $criteria;
     }
 
     /**
@@ -60,10 +52,26 @@ class Group
     }
 
     /**
-     * @return Criteria
+     * @param string $name
      */
-    public function getCriteria(): Criteria
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return Criteria|null
+     */
+    public function getCriteria(): ?Criteria
     {
         return $this->criteria;
+    }
+
+    /**
+     * @param Criteria $criteria
+     */
+    public function setCriteria(Criteria $criteria): void
+    {
+        $this->criteria = $criteria;
     }
 }

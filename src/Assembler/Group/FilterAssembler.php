@@ -31,10 +31,10 @@ class FilterAssembler
      */
     public function writeDTO(array $filter): Filter
     {
-        return new Filter(
-            $filter['field'],
-            $filter['operator'],
-            $filter['value']
-        );
+        $filterDTO = new Filter();
+        $filterDTO->setField($filter['field']);
+        $filterDTO->setOperator($filter['operator']);
+        $filterDTO->setValue($filter['value']);
+        return $filterDTO;
     }
 }

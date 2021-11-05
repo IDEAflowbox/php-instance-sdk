@@ -13,13 +13,12 @@ class Criteria
     /**
      * @var Filter[]
      */
-    protected $filters;
+    protected $filters = [];
 
     /**
-     * Criteria constructor.
      * @param Filter[] $filters
      */
-    public function __construct(array $filters)
+    public function setFilters(array $filters): void
     {
         $this->filters = $filters;
     }

@@ -62,10 +62,10 @@ class FilterBuilder implements FilterBuilderInterface
      */
     public function getResult(): Filter
     {
-        return new Filter(
-            $this->field,
-            $this->operator,
-            $this->value
-        );
+        $filter = new Filter();
+        $filter->setField($this->field);
+        $filter->setOperator($this->operator);
+        $filter->setValue($this->value);
+        return $filter;
     }
 }

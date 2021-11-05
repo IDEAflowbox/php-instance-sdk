@@ -66,44 +66,19 @@ class User
     protected $postcode;
 
     /**
-     * User constructor.
-     * @param string $id
-     * @param bool $anonymous
-     * @param string|null $username
-     * @param string|null $email
-     * @param string|null $firstName
-     * @param string|null $lastName
-     * @param string|null $phoneNumber
-     * @param string|null $sex
-     * @param string|null $country
-     * @param string|null $city
-     * @param string|null $postcode
+     * @var array|Segment[]
      */
-    public function __construct(
-        string $id,
-        bool $anonymous,
-        ?string $username,
-        ?string $email,
-        ?string $firstName,
-        ?string $lastName,
-        ?string $phoneNumber,
-        ?string $sex,
-        ?string $country,
-        ?string $city,
-        ?string $postcode
-    ) {
-        $this->id = $id;
-        $this->anonymous = $anonymous;
-        $this->username = $username;
-        $this->email = $email;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->phoneNumber = $phoneNumber;
-        $this->sex = $sex;
-        $this->country = $country;
-        $this->city = $city;
-        $this->postcode = $postcode;
-    }
+    protected $segments = [];
+
+    /**
+     * @var array|Event[]
+     */
+    protected $events = [];
+
+    /**
+     * @var array|PageEvent[]
+     */
+    protected $pageEvents = [];
 
     /**
      * @return string
@@ -114,11 +89,27 @@ class User
     }
 
     /**
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return bool
      */
     public function isAnonymous(): bool
     {
         return $this->anonymous;
+    }
+
+    /**
+     * @param bool $anonymous
+     */
+    public function setAnonymous(bool $anonymous): void
+    {
+        $this->anonymous = $anonymous;
     }
 
     /**
@@ -263,5 +254,53 @@ class User
     public function setPostcode(?string $postcode): void
     {
         $this->postcode = $postcode;
+    }
+
+    /**
+     * @return array|Segment[]
+     */
+    public function getSegments(): array
+    {
+        return $this->segments;
+    }
+
+    /**
+     * @param array|Segment[] $segments
+     */
+    public function setSegments(array $segments): void
+    {
+        $this->segments = $segments;
+    }
+
+    /**
+     * @return array|Event[]
+     */
+    public function getEvents(): array
+    {
+        return $this->events;
+    }
+
+    /**
+     * @param array|Event[] $events
+     */
+    public function setEvents(array $events): void
+    {
+        $this->events = $events;
+    }
+
+    /**
+     * @return array|PageEvent[]
+     */
+    public function getPageEvents(): array
+    {
+        return $this->pageEvents;
+    }
+
+    /**
+     * @param array|PageEvent[] $pageEvents
+     */
+    public function setPageEvents(array $pageEvents): void
+    {
+        $this->pageEvents = $pageEvents;
     }
 }

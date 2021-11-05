@@ -33,10 +33,10 @@ class CriteriaAssembler
     public function writeDTO(array $criteria): Criteria
     {
         $filterAssembler = new FilterAssembler();
-        return new Criteria(
-            array_map(static function ($filter) use ($filterAssembler) {
-                return $filterAssembler->writeDTO($filter);
-            }, $criteria['filters'])
-        );
+        $criteriaDTO = new Criteria();
+        $criteriaDTO->setFilters(array_map(static function ($filter) use ($filterAssembler) {
+            return $filterAssembler->writeDTO($filter);
+        }, $criteria['filters']));
+        return $criteriaDTO;
     }
 }

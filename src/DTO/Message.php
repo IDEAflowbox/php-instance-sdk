@@ -16,27 +16,27 @@ class Message
     protected $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $name;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $title;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      */
     protected $startDate;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $segmentId;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $senderId;
 
@@ -82,9 +82,9 @@ class Message
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -98,9 +98,9 @@ class Message
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -114,9 +114,9 @@ class Message
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): ?\DateTime
     {
         return $this->startDate;
     }
@@ -130,9 +130,9 @@ class Message
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSegmentId(): string
+    public function getSegmentId(): ?string
     {
         return $this->segmentId;
     }
@@ -146,9 +146,9 @@ class Message
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSenderId(): string
+    public function getSenderId(): ?string
     {
         return $this->senderId;
     }

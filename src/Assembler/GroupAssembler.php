@@ -45,10 +45,10 @@ class GroupAssembler implements DataAssemblerInterface
      */
     public function writeDTO(array $group): Group
     {
-        return new Group(
-            $group['id'],
-            $group['name'],
-            $this->criteriaAssembler->writeDTO($group['criteria'])
-        );
+        $groupDTO = new Group();
+        $groupDTO->setId($group['id']);
+        $groupDTO->setName($group['name']);
+        $groupDTO->setCriteria($this->criteriaAssembler->writeDTO($group['criteria']));
+        return $groupDTO;
     }
 }
