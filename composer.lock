@@ -197,11 +197,11 @@
         },
         {
             "name": "cyberkonsultant/php-instance-sdk",
-            "version": "v1.2.2",
+            "version": "v1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://repos.o323.com/cyberkonsultant/php-instance-sdk",
-                "reference": "a3275dfaf340d2c045181a5fa3015f767eede419"
+                "reference": "baf66d63663fb7a91939f3f1a0afd27fa4116cda"
             },
             "require": {
                 "ext-json": "*",
@@ -227,7 +227,7 @@
                 }
             ],
             "description": "Cyberkonsultant Instance SDK for PHP",
-            "time": "2021-10-29T13:47:42+00:00"
+            "time": "2021-11-05T08:37:07+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2510,16 +2510,16 @@
         },
         {
             "name": "kwn/number-to-words",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kwn/number-to-words.git",
-                "reference": "eb5d3493a5df0e3bac8a5156051ab9bcc35ec837"
+                "reference": "4bc4b334d1ef7fe34406472f570aff5f9a7b2107"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kwn/number-to-words/zipball/eb5d3493a5df0e3bac8a5156051ab9bcc35ec837",
-                "reference": "eb5d3493a5df0e3bac8a5156051ab9bcc35ec837",
+                "url": "https://api.github.com/repos/kwn/number-to-words/zipball/4bc4b334d1ef7fe34406472f570aff5f9a7b2107",
+                "reference": "4bc4b334d1ef7fe34406472f570aff5f9a7b2107",
                 "shasum": ""
             },
             "require": {
@@ -2557,9 +2557,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kwn/number-to-words/issues",
-                "source": "https://github.com/kwn/number-to-words/tree/2.1.1"
+                "source": "https://github.com/kwn/number-to-words/tree/2.2.0"
             },
-            "time": "2021-10-06T10:54:44+00:00"
+            "time": "2021-11-03T12:14:38+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -2888,16 +2888,16 @@
         },
         {
             "name": "mpdf/mpdf",
-            "version": "v8.0.13",
+            "version": "v8.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "42f145615cfe830fd432474da1d2e1f927efe402"
+                "reference": "ab362c8b11667813487be5d3da64b31c89d9d826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/42f145615cfe830fd432474da1d2e1f927efe402",
-                "reference": "42f145615cfe830fd432474da1d2e1f927efe402",
+                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/ab362c8b11667813487be5d3da64b31c89d9d826",
+                "reference": "ab362c8b11667813487be5d3da64b31c89d9d826",
                 "shasum": ""
             },
             "require": {
@@ -2906,7 +2906,7 @@
                 "myclabs/deep-copy": "^1.7",
                 "paragonie/random_compat": "^1.4|^2.0|^9.99.99",
                 "php": "^5.6 || ^7.0 || ~8.0.0 || ~8.1.0",
-                "psr/log": "^1.0",
+                "psr/log": "^1.0 || ^2.0",
                 "setasign/fpdi": "^2.1"
             },
             "require-dev": {
@@ -2959,7 +2959,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-09-10T10:09:59+00:00"
+            "time": "2021-11-02T20:27:57+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -10616,16 +10616,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.13.0",
+            "version": "v4.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "50953a2691a922aa1769461637869a0a2faa3f53"
+                "reference": "63a79e8daa781cac14e5195e63ed8ae231dd10fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/50953a2691a922aa1769461637869a0a2faa3f53",
-                "reference": "50953a2691a922aa1769461637869a0a2faa3f53",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/63a79e8daa781cac14e5195e63ed8ae231dd10fd",
+                "reference": "63a79e8daa781cac14e5195e63ed8ae231dd10fd",
                 "shasum": ""
             },
             "require": {
@@ -10666,9 +10666,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.1"
             },
-            "time": "2021-09-20T12:20:58+00:00"
+            "time": "2021-11-03T20:52:16+00:00"
         },
         {
             "name": "phar-io/manifest",

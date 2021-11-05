@@ -82,7 +82,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://repos.o323.com/cyberkonsultant/php-instance-sdk"
+            "url": "https://git-ck.idea-commerce.com/cyberkonsultant/webpanel"
         }
     ],
     "config": {
