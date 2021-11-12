@@ -16,7 +16,7 @@ class ProductBuilder implements ProductBuilderInterface
     /**
      * @var string
      */
-    protected $code;
+    protected $id;
 
     /**
      * @var string
@@ -54,12 +54,23 @@ class ProductBuilder implements ProductBuilderInterface
     protected $categories = [];
 
     /**
+     * @param string $id
+     * @return ProductBuilderInterface
+     */
+    public function setId(string $id): ProductBuilderInterface
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
      * @param string $code
      * @return ProductBuilderInterface
+     * @deprecated since version 1.2.6
      */
     public function setCode(string $code): ProductBuilderInterface
     {
-        $this->code = $code;
+        $this->id = $code;
         return $this;
     }
 
@@ -144,8 +155,7 @@ class ProductBuilder implements ProductBuilderInterface
     public function getResult(): Product
     {
         return new Product(
-            null,
-            $this->code,
+            $this->id,
             $this->name,
             $this->image,
             $this->description,

@@ -13,8 +13,15 @@ use Cyberkonsultant\DTO\Product;
 interface ProductBuilderInterface
 {
     /**
+     * @param string $id
+     * @return ProductBuilderInterface
+     */
+    public function setId(string $id): ProductBuilderInterface;
+
+    /**
      * @param string $code
      * @return ProductBuilderInterface
+     * @deprecated since version 1.2.6. Use method `setId` instead.
      */
     public function setCode(string $code): ProductBuilderInterface;
 

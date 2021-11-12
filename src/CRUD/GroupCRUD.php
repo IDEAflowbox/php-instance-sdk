@@ -95,18 +95,4 @@ class GroupCRUD extends BaseCRUD
         $response = $this->cyberkonsultant->get(sprintf('/shop/groups/%s/products-ids', $groupId));
         return json_decode($response->raw_body);
     }
-
-    /**
-     * @param string $groupId
-     * @return array
-     * @throws \Cyberkonsultant\Exception\ClientException
-     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
-     * @throws \Cyberkonsultant\Exception\ServerException
-     * @throws \Unirest\Exception
-     */
-    public function getProductsCodes(string $groupId): array
-    {
-        $response = $this->cyberkonsultant->get(sprintf('/shop/groups/%s/products-codes', $groupId));
-        return json_decode($response->raw_body);
-    }
 }

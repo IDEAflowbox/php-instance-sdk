@@ -35,7 +35,6 @@ class ProductAssembler implements DataAssemblerInterface
         $categoryAssembler = $this->categoryAssembler;
         return [
             'id' => $productDTO->getId(),
-            'code' => $productDTO->getCode(),
             'name' => $productDTO->getName(),
             'image' => $productDTO->getImage(),
             'description' => $productDTO->getDescription(),
@@ -62,7 +61,6 @@ class ProductAssembler implements DataAssemblerInterface
 
         return new Product(
             $product['id'],
-            $product['code'],
             $product['name'],
             $product['image'],
             $product['description'],

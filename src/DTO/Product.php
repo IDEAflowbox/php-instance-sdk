@@ -11,14 +11,9 @@ namespace Cyberkonsultant\DTO;
 class Product
 {
     /**
-     * @var string|null
-     */
-    protected $id;
-
-    /**
      * @var string
      */
-    protected $code;
+    protected $id;
 
     /**
      * @var string
@@ -58,7 +53,6 @@ class Product
     /**
      * Product constructor.
      * @param string|null $id
-     * @param string $code
      * @param string $name
      * @param string|null $image
      * @param string|null $description
@@ -68,8 +62,7 @@ class Product
      * @param Category[] $categories
      */
     public function __construct(
-        ?string $id,
-        string $code,
+        string $id,
         string $name,
         ?string $image,
         ?string $description,
@@ -79,7 +72,6 @@ class Product
         array $categories
     ) {
         $this->id = $id;
-        $this->code = $code;
         $this->name = $name;
         $this->image = $image;
         $this->description = $description;
@@ -90,7 +82,7 @@ class Product
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getId(): ?string
     {
@@ -98,11 +90,11 @@ class Product
     }
 
     /**
-     * @return string
+     * @param string $id
      */
-    public function getCode(): string
+    public function setId(string $id): void
     {
-        return $this->code;
+        $this->id = $id;
     }
 
     /**
@@ -159,14 +151,6 @@ class Product
     public function getCategories(): array
     {
         return $this->categories;
-    }
-
-    /**
-     * @param string $code
-     */
-    public function setCode(string $code): void
-    {
-        $this->code = $code;
     }
 
     /**
