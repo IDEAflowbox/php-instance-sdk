@@ -34,7 +34,7 @@ class StyleAssembler
         return new Style(
             $style['background_color'],
             $style['border_color'],
-            $style['border_color_on_hover'],
+            $style['border_color_on_hover']
         );
     }
 }

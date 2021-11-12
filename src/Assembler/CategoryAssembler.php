@@ -38,7 +38,7 @@ class CategoryAssembler implements DataAssemblerInterface
             $category['name'],
             $category['url'],
             $category['image'],
-            isset($category['associated_to']) ? $category['associated_to'] : null,
+            isset($category['associated_to']) ? $category['associated_to'] : null
         );
     }
 }

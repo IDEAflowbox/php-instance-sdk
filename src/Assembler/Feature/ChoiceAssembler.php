@@ -32,7 +32,7 @@ class ChoiceAssembler
     {
         return new Choice(
             $choice['id'],
-            $choice['name'],
+            $choice['name']
         );
     }
 }
