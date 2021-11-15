@@ -6,10 +6,10 @@ import {Button, Space} from "antd";
 const columns = [
     {
         title: ' ',
-        key: 'code',
-        dataIndex: 'code',
+        key: 'id',
+        dataIndex: 'id',
         align: 'right',
-        render: (code, product, index) => index+1
+        render: (id, product, index) => index+1
     },
     {
         title: 'Nazwa',
@@ -30,8 +30,8 @@ const columns = [
     },
     {
         title: 'Kod produktu',
-        key: 'code',
-        dataIndex: 'code',
+        key: 'id',
+        dataIndex: 'id',
     },
     {
         title: 'Cena netto',
