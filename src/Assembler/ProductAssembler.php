@@ -17,6 +17,10 @@ class ProductAssembler implements DataAssemblerInterface
      * @var CategoryAssembler
      */
     protected $categoryAssembler;
+    /**
+     * @var ProductFeatureAssembler
+     */
+    protected $productFeatureAssembler;
 
     /**
      * ProductAssembler constructor.
@@ -24,6 +28,7 @@ class ProductAssembler implements DataAssemblerInterface
     public function __construct()
     {
         $this->categoryAssembler = new CategoryAssembler();
+        $this->productFeatureAssembler = new ProductFeatureAssembler();
     }
 
     /**
@@ -33,6 +38,7 @@ class ProductAssembler implements DataAssemblerInterface
     public function readDTO(Product $productDTO): array
     {
         $categoryAssembler = $this->categoryAssembler;
+        $productFeatureAssembler = $this->productFeatureAssembler;
         return [
             'id' => $productDTO->getId(),
             'name' => $productDTO->getName(),
@@ -44,7 +50,9 @@ class ProductAssembler implements DataAssemblerInterface
             'categories' => array_map(static function ($category) use ($categoryAssembler) {
                 return $categoryAssembler->readDTO($category);
             }, $productDTO->getCategories()),
-
+            'features' => array_map(static function ($feature) use ($productFeatureAssembler) {
+                return $productFeatureAssembler->readDTO($feature);
+            }, $productDTO->getFeatures()),
         ];
     }
 

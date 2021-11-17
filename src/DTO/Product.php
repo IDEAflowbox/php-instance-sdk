@@ -51,6 +51,11 @@ class Product
     protected $categories = [];
 
     /**
+     * @var []ProductFeature
+     */
+    protected $features = [];
+
+    /**
      * Product constructor.
      * @param string|null $id
      * @param string $name
@@ -60,6 +65,7 @@ class Product
      * @param float $grossPrice
      * @param string $url
      * @param Category[] $categories
+     * @param array $features
      */
     public function __construct(
         string $id,
@@ -69,7 +75,8 @@ class Product
         float $netPrice,
         float $grossPrice,
         string $url,
-        array $categories
+        array $categories,
+        array $features = []
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -79,6 +86,7 @@ class Product
         $this->grossPrice = $grossPrice;
         $this->url = $url;
         $this->categories = $categories;
+        $this->features = $features;
     }
 
     /**
@@ -207,5 +215,21 @@ class Product
     public function setCategories(array $categories): void
     {
         $this->categories = $categories;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFeatures(): array
+    {
+        return $this->features;
+    }
+
+    /**
+     * @param mixed $features
+     */
+    public function setFeatures(array $features): void
+    {
+        $this->features = $features;
     }
 }

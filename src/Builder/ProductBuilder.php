@@ -5,6 +5,7 @@ namespace Cyberkonsultant\Builder;
 
 use Cyberkonsultant\DTO\Category;
 use Cyberkonsultant\DTO\Product;
+use Cyberkonsultant\DTO\ProductFeature;
 
 /**
  * Class ProductBuilder
@@ -52,6 +53,11 @@ class ProductBuilder implements ProductBuilderInterface
      * @var Category[]
      */
     protected $categories = [];
+
+    /**
+     * @var ProductFeature[]
+     */
+    protected $features = [];
 
     /**
      * @param string $id
@@ -149,6 +155,12 @@ class ProductBuilder implements ProductBuilderInterface
         return $this;
     }
 
+    public function addFeature(string $featureId, string $choiceId): ProductBuilderInterface
+    {
+        $this->features[] = new ProductFeature($featureId, $choiceId);
+        return $this;
+    }
+
     /**
      * @return Product
      */
@@ -162,7 +174,8 @@ class ProductBuilder implements ProductBuilderInterface
             $this->netPrice,
             $this->grossPrice,
             $this->url,
-            $this->categories
+            $this->categories,
+            $this->features
         );
     }
 }

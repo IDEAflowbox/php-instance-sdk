@@ -11,12 +11,13 @@ try {
     $productBuilder = new ProductBuilder();
     $product = $productBuilder
         ->setName('Testowy produkt')
-        ->setCode(uniqid())
+        ->setId(uniqid())
         ->setUrl('https://dostolarni.pl/pl/products/frez-oscylacyjny-z-lamaczem-wiora-102/102.060.31')
         ->setNetPrice(100)
         ->setGrossPrice(123)
-        ->addCategory("f379ea39-b9b4-4810-ab07-98f4d1aa2044")
-        ->addCategory("f379ea39-b9b4-4810-ab07-98f4d1aa2043")
+        ->addCategory("12")
+        ->addFeature("php", "sdk")
+        ->addFeature("php2", "sdk2")
         ->getResult()
     ;
 

@@ -68,6 +68,13 @@ interface ProductBuilderInterface
     public function addCategory(string $id): ProductBuilderInterface;
 
     /**
+     * @param string $featureId
+     * @param string $choiceId
+     * @return ProductBuilderInterface
+     */
+    public function addFeature(string $featureId, string $choiceId): ProductBuilderInterface;
+
+    /**
      * @return Product
      */
     public function getResult(): Product;
