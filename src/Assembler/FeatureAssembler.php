@@ -1,40 +1,57 @@
 <?php
 declare(strict_types=1);
 
-namespace Cyberkonsultant\Assembler\Feature;
+namespace Cyberkonsultant\Assembler;
 
-use Cyberkonsultant\DTO\Feature\Choice;
+use Cyberkonsultant\Assembler\Feature\ChoiceAssembler;
+use Cyberkonsultant\DTO\Feature;
 
 /**
- * Class ChoiceAssembler
+ * Class FeatureAssembler
  *
  * @package Cyberkonsultant
  */
-class ChoiceAssembler
+class FeatureAssembler implements DataAssemblerInterface
 {
     /**
-     * @param Choice $choiceDTO
+     * @var ChoiceAssembler
+     */
+    protected $choiceAssembler;
+
+    public function __construct()
+    {
+        $this->choiceAssembler = new ChoiceAssembler();
+    }
+
+    /**
+     * @param Feature $featureDTO
      * @return array
      */
-    public function readDTO(Choice $choiceDTO): array
+    public function readDTO(Feature $featureDTO): array
     {
+        $choiceAssembler = $this->choiceAssembler;
         return [
-            'id' => $choiceDTO->getId(),
-            'name' => $choiceDTO->getName(),
-            'associated_to' => $choiceDTO->getAssociatedTo()
+            'id' => $featureDTO->getId(),
+            'name' => $featureDTO->getName(),
+            'choices' => array_map(static function (Feature\Choice $choice) use ($choiceAssembler) {
+                return $choiceAssembler->readDTO($choice);
+            }, $featureDTO->getChoices()),
         ];
     }
 
     /**
-     * @param array $choice
-     * @return Choice
+     * @param array $feature
+     * @return Feature
      */
-    public function writeDTO(array $choice): Choice
+    public function writeDTO(array $feature): Feature
     {
-        return new Choice(
-            $choice['id'],
-            $choice['name'],
-            $choice['associated_to']
+        $choiceAssembler = $this->choiceAssembler;
+        return new Feature(
+            $feature['id'],
+            $feature['name'],
+            array_map(static function ($choice) use ($choiceAssembler) {
+                return $choiceAssembler->writeDTO($choice);
+            }, $feature['choices'])
         );
     }
 }
