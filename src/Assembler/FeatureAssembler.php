@@ -1,57 +1,40 @@
 <?php
 declare(strict_types=1);
 
-namespace Cyberkonsultant\Assembler;
+namespace Cyberkonsultant\Assembler\Feature;
 
-use Cyberkonsultant\Assembler\Feature\ChoiceAssembler;
-use Cyberkonsultant\DTO\Feature;
+use Cyberkonsultant\DTO\Feature\Choice;
 
 /**
- * Class FeatureAssembler
+ * Class ChoiceAssembler
  *
  * @package Cyberkonsultant
  */
-class FeatureAssembler implements DataAssemblerInterface
+class ChoiceAssembler
 {
     /**
-     * @var ChoiceAssembler
-     */
-    protected $choiceAssembler;
-
-    public function __construct()
-    {
-        $this->choiceAssembler = new ChoiceAssembler();
-    }
-
-    /**
-     * @param Feature $featureDTO
+     * @param Choice $choiceDTO
      * @return array
      */
-    public function readDTO(Feature $featureDTO): array
+    public function readDTO(Choice $choiceDTO): array
     {
-        $choiceAssembler = $this->choiceAssembler;
         return [
-            'id' => $featureDTO->getId(),
-            'name' => $featureDTO->getName(),
-            'choices' => array_map(static function (Feature\Choice $choice) use ($choiceAssembler) {
-                return $choiceAssembler->readDTO($choice);
-            }, $featureDTO->getChoices()),
+            'id' => $choiceDTO->getId(),
+            'name' => $choiceDTO->getName(),
+            'associated_to' => $choiceDTO->getAssociatedTo()
         ];
     }
 
     /**
-     * @param array $feature
-     * @return Feature
+     * @param array $choice
+     * @return Choice
      */
-    public function writeDTO(array $feature): Feature
+    public function writeDTO(array $choice): Choice
     {
-        $choiceAssembler = $this->choiceAssembler;
-        return new Feature(
-            $feature['id'],
-            $feature['name'],
-            array_map(static function ($choice) use ($choiceAssembler) {
-                return $choiceAssembler->writeDTO($choice);
-            }, $feature['choices'])
+        return new Choice(
+            $choice['id'],
+            $choice['name'],
+            $choice['associated_to']
         );
     }
 }
