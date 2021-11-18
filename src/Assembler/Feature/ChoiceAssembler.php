@@ -21,6 +21,7 @@ class ChoiceAssembler
         return [
             'id' => $choiceDTO->getId(),
             'name' => $choiceDTO->getName(),
+            'associated_to' => $choiceDTO->getAssociatedTo()
         ];
     }
 
@@ -32,7 +33,8 @@ class ChoiceAssembler
     {
         return new Choice(
             $choice['id'],
-            $choice['name']
+            $choice['name'],
+            $choice['associated_to']
         );
     }
 }
