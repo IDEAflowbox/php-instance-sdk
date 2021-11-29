@@ -45,6 +45,16 @@ class ProductBuilder implements ProductBuilderInterface
     protected $grossPrice;
 
     /**
+     * @var float|null
+     */
+    protected $grossSalePrice;
+
+    /**
+     * @var int
+     */
+    protected $stock;
+
+    /**
      * @var string
      */
     protected $url;
@@ -131,6 +141,26 @@ class ProductBuilder implements ProductBuilderInterface
     }
 
     /**
+     * @param float $grossSalePrice
+     * @return ProductBuilderInterface
+     */
+    public function setGrossSalePrice(float $grossSalePrice): ProductBuilderInterface
+    {
+        $this->grossSalePrice = $grossSalePrice;
+        return $this;
+    }
+
+    /**
+     * @param int $stock
+     * @return ProductBuilderInterface
+     */
+    public function setStock(int $stock): ProductBuilderInterface
+    {
+        $this->stock = $stock;
+        return $this;
+    }
+
+    /**
      * @param string $url
      * @return ProductBuilderInterface
      */
@@ -166,16 +196,18 @@ class ProductBuilder implements ProductBuilderInterface
      */
     public function getResult(): Product
     {
-        return new Product(
-            $this->id,
-            $this->name,
-            $this->image,
-            $this->description,
-            $this->netPrice,
-            $this->grossPrice,
-            $this->url,
-            $this->categories,
-            $this->features
-        );
+        $product = new Product();
+        $product->setId($this->id);
+        $product->setName($this->name);
+        $product->setImage($this->image);
+        $product->setDescription($this->description);
+        $product->setNetPrice($this->netPrice);
+        $product->setGrossPrice($this->grossPrice);
+        $product->setGrossSalePrice($this->grossSalePrice);
+        $product->setStock($this->stock);
+        $product->setUrl($this->url);
+        $product->setCategories($this->categories);
+        $product->setFeatures($this->features);
+        return $product;
     }
 }

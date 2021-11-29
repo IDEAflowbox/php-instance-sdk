@@ -41,9 +41,29 @@ class Product
     protected $grossPrice;
 
     /**
+     * @var float|null
+     */
+    protected $grossSalePrice;
+
+    /**
+     * @var int
+     */
+    protected $stock = 0;
+
+    /**
      * @var string
      */
     protected $url;
+
+    /**
+     * @var \DateTime|null
+     */
+    protected $createdAt;
+
+    /**
+     * @var \DateTime|null
+     */
+    protected $updatedAt;
 
     /**
      * @var Category[]
@@ -54,40 +74,6 @@ class Product
      * @var []ProductFeature
      */
     protected $features = [];
-
-    /**
-     * Product constructor.
-     * @param string|null $id
-     * @param string $name
-     * @param string|null $image
-     * @param string|null $description
-     * @param float $netPrice
-     * @param float $grossPrice
-     * @param string $url
-     * @param Category[] $categories
-     * @param array $features
-     */
-    public function __construct(
-        string $id,
-        string $name,
-        ?string $image,
-        ?string $description,
-        float $netPrice,
-        float $grossPrice,
-        string $url,
-        array $categories,
-        array $features = []
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->image = $image;
-        $this->description = $description;
-        $this->netPrice = $netPrice;
-        $this->grossPrice = $grossPrice;
-        $this->url = $url;
-        $this->categories = $categories;
-        $this->features = $features;
-    }
 
     /**
      * @return string
@@ -231,5 +217,69 @@ class Product
     public function setFeatures(array $features): void
     {
         $this->features = $features;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getGrossSalePrice(): ?float
+    {
+        return $this->grossSalePrice;
+    }
+
+    /**
+     * @param float|null $grossSalePrice
+     */
+    public function setGrossSalePrice(?float $grossSalePrice): void
+    {
+        $this->grossSalePrice = $grossSalePrice;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param int $stock
+     */
+    public function setStock(int $stock): void
+    {
+        $this->stock = $stock;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime|null $createdAt
+     */
+    public function setCreatedAt(?\DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime|null $updatedAt
+     */
+    public function setUpdatedAt(?\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 }

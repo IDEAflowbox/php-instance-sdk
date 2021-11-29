@@ -5,6 +5,7 @@ namespace Cyberkonsultant\Assembler;
 
 use Cyberkonsultant\DTO\Category;
 use Cyberkonsultant\DTO\Product;
+use Cyberkonsultant\Utils\DateTimeFormat;
 
 /**
  * Class ProductAssembler
@@ -46,6 +47,8 @@ class ProductAssembler implements DataAssemblerInterface
             'description' => $productDTO->getDescription(),
             'net_price' => $productDTO->getNetPrice(),
             'gross_price' => $productDTO->getGrossPrice(),
+            'gross_sale_price' => $productDTO->getGrossSalePrice(),
+            'stock' => $productDTO->getStock(),
             'url' => $productDTO->getUrl(),
             'categories' => array_map(static function ($category) use ($categoryAssembler) {
                 return $categoryAssembler->readDTO($category);
@@ -53,6 +56,8 @@ class ProductAssembler implements DataAssemblerInterface
             'features' => array_map(static function ($feature) use ($productFeatureAssembler) {
                 return $productFeatureAssembler->readDTO($feature);
             }, $productDTO->getFeatures()),
+            'created_at' => $productDTO->getCreatedAt() ? $productDTO->getCreatedAt()->format(DateTimeFormat::ZULU) : null,
+            'updated_at' => $productDTO->getUpdatedAt() ? $productDTO->getUpdatedAt()->format(DateTimeFormat::ZULU) : null,
         ];
     }
 
@@ -67,15 +72,23 @@ class ProductAssembler implements DataAssemblerInterface
                 return $categoryAssembler->writeDTO($category);
             }, $product['categories']) : [];
 
-        return new Product(
-            $product['id'],
-            $product['name'],
-            $product['image'],
-            $product['description'],
-            $product['net_price'],
-            $product['gross_price'],
-            $product['url'],
-            $categories
-        );
+        $createdAt = strtotime($product['created_at']);
+        $updatedAt = strtotime($product['updated_at']);
+
+        $productDTO = new Product();
+        $productDTO->setId($product['id']);
+        $productDTO->setName($product['name']);
+        $productDTO->setImage($product['image']);
+        $productDTO->setDescription($product['description']);
+        $productDTO->setNetPrice($product['net_price']);
+        $productDTO->setGrossPrice($product['gross_price']);
+        $productDTO->setUrl($product['url']);
+        $productDTO->setCategories($categories);
+        $productDTO->setGrossSalePrice(isset($product['gross_sale_price']) ? $product['gross_sale_price'] : null);
+        $productDTO->setStock($product['stock']);
+        $productDTO->setCreatedAt($createdAt ? (new \DateTime())->setTimestamp($createdAt) : null);
+        $productDTO->setUpdatedAt($updatedAt ? (new \DateTime())->setTimestamp($updatedAt) : null);
+
+        return $productDTO;
     }
 }

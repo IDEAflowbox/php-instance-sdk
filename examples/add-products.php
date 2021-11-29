@@ -15,6 +15,8 @@ try {
         ->setUrl('https://dostolarni.pl/pl/products/frez-oscylacyjny-z-lamaczem-wiora-102/102.060.31')
         ->setNetPrice(100)
         ->setGrossPrice(123)
+        ->setGrossSalePrice(50)
+        ->setStock(987654)
         ->addCategory("12")
         ->addFeature("php", "sdk")
         ->addFeature("php2", "sdk2")
