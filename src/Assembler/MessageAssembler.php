@@ -42,6 +42,7 @@ class MessageAssembler implements DataAssemblerInterface
     {
         $startDate = strtotime($message['start_date']);
         $messageDTO = new Message();
+        $messageDTO->setId($message['id']);
         $messageDTO->setName($message['name']);
         $messageDTO->setTitle($message['title']);
         if ($startDate) {
