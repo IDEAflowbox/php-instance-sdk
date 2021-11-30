@@ -38,6 +38,7 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
             'group_id' => $frameDTO->getGroupId(),
             'frame_type' => $frameDTO->getFrameType(),
             'number_of_products' => $frameDTO->getNumberOfProducts(),
+            'minimal_stock' => $frameDTO->getMinimalStock(),
             'custom_html' => $frameDTO->getCustomHtml(),
             'xpath' => $frameDTO->getXpath(),
             'configuration' => $frameDTO->getConfiguration() ? $this->configurationAssembler->readDTO($frameDTO->getConfiguration()) : null,
@@ -50,15 +51,20 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
      */
     public function writeDTO(array $frame): RecommendationFrame
     {
-        return new RecommendationFrame(
-            $frame['id'],
-            $frame['name'],
-            $frame['group_id'],
-            $frame['frame_type'],
-            $frame['number_of_products'],
-            $frame['custom_html'],
-            $frame['xpath'],
-            $frame['configuration'] ? $this->configurationAssembler->writeDTO($frame['configuration']) : null
-        );
+        $configuration = null;
+        if (isset($frame['configuration'])) {
+            $configuration = $this->configurationAssembler->writeDTO($frame['configuration']);
+        }
+
+        $frameDTO = new RecommendationFrame($frame['frame_type']);
+        $frameDTO->setId($frame['id']);
+        $frameDTO->setName($frame['name']);
+        $frameDTO->setGroupId($frame['group_id']);
+        $frameDTO->setNumberOfProducts($frame['number_of_products']);
+        $frameDTO->setMinimalStock($frame['minimal_stock']);
+        $frameDTO->setCustomHtml($frame['custom_html']);
+        $frameDTO->setXpath($frame['xpath']);
+        $frameDTO->setConfiguration($configuration);
+        return $frameDTO;
     }
 }

@@ -14,6 +14,7 @@ try {
         ->setName('Simple frame test')
         ->setXPath('/html/body/div[3]/div/div[3]')
         ->setGroupId("90a42fc6-5dc0-4e92-93d1-0d704e2f4166")
+        ->setMinimalStock(50)
         ->setNumberOfProducts(16)
         ->getConfigurationBuilder()
             ->getMatrixBuilder()

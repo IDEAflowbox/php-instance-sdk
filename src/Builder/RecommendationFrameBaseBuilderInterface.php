@@ -31,6 +31,12 @@ interface RecommendationFrameBaseBuilderInterface
     public function setNumberOfProducts(int $numberOfProducts): RecommendationFrameBaseBuilderInterface;
 
     /**
+     * @param int $minimalStock
+     * @return RecommendationFrameBaseBuilderInterface
+     */
+    public function setMinimalStock(int $minimalStock): RecommendationFrameBaseBuilderInterface;
+
+    /**
      * @param string $xpath
      * @return RecommendationFrameBaseBuilderInterface
      */

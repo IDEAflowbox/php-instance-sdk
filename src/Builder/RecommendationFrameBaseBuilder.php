@@ -33,6 +33,11 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
     protected $numberOfProducts;
 
     /**
+     * @var int
+     */
+    protected $minimalStock = 0;
+
+    /**
      * @var string
      */
     protected $xpath;
@@ -64,6 +69,16 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
     public function setNumberOfProducts(int $numberOfProducts): RecommendationFrameBaseBuilderInterface
     {
         $this->numberOfProducts = $numberOfProducts;
+        return $this;
+    }
+
+    /**
+     * @param int $minimalStock
+     * @return RecommendationFrameBaseBuilderInterface
+     */
+    public function setMinimalStock(int $minimalStock): RecommendationFrameBaseBuilderInterface
+    {
+        $this->minimalStock = $minimalStock;
         return $this;
     }
 

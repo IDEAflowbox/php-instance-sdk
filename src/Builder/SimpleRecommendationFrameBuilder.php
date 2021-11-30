@@ -43,17 +43,13 @@ class SimpleRecommendationFrameBuilder extends RecommendationFrameBaseBuilder im
      */
     public function getResult(): RecommendationFrame
     {
-        return new RecommendationFrame(
-            null,
-            $this->name,
-            $this->groupId,
-            self::FRAME_TYPE,
-            $this->numberOfProducts,
-            null,
-            $this->xpath,
-            $this->getConfigurationBuilder()->getResult(),
-            null,
-            null
-        );
+        $recommendationFrame = new RecommendationFrame(self::FRAME_TYPE);
+        $recommendationFrame->setName($this->name);
+        $recommendationFrame->setGroupId($this->groupId);
+        $recommendationFrame->setNumberOfProducts($this->numberOfProducts);
+        $recommendationFrame->setMinimalStock($this->minimalStock);
+        $recommendationFrame->setXpath($this->xpath);
+        $recommendationFrame->setConfiguration($this->getConfigurationBuilder()->getResult());
+        return $recommendationFrame;
     }
 }

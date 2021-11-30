@@ -38,6 +38,11 @@ class RecommendationFrame
     protected $numberOfProducts = 0;
 
     /**
+     * @var int
+     */
+    protected $minimalStock = 0;
+
+    /**
      * @var string|null
      */
     protected $customHtml;
@@ -52,35 +57,9 @@ class RecommendationFrame
      */
     protected $configuration;
 
-    /**
-     * RecommendationFrame constructor.
-     * @param string|null $id
-     * @param string|null $name
-     * @param string|null $groupId
-     * @param string|null $frameType
-     * @param int|null $numberOfProducts
-     * @param string|null $customHtml
-     * @param string|null $xpath
-     * @param Configuration|null $configuration
-     */
-    public function __construct(
-        ?string $id = null,
-        ?string $name = null,
-        ?string $groupId = null,
-        ?string $frameType = null,
-        ?int $numberOfProducts = null,
-        ?string $customHtml = null,
-        ?string $xpath = null,
-        ?Configuration $configuration = null
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->groupId = $groupId;
-        $this->frameType = $frameType;
-        $this->numberOfProducts = $numberOfProducts;
-        $this->customHtml = $customHtml;
-        $this->xpath = $xpath;
-        $this->configuration = $configuration;
+    public function __construct(?string $type = null)
+    {
+        $this->frameType = $type;
     }
 
     /**
@@ -92,59 +71,19 @@ class RecommendationFrame
     }
 
     /**
+     * @param string|null $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return string
      */
     public function getName(): string
     {
         return $this->name;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getGroupId(): ?string
-    {
-        return $this->groupId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFrameType(): string
-    {
-        return $this->frameType;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfProducts(): int
-    {
-        return $this->numberOfProducts;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCustomHtml(): ?string
-    {
-        return $this->customHtml;
-    }
-
-    /**
-     * @return string
-     */
-    public function getXpath(): string
-    {
-        return $this->xpath;
-    }
-
-    /**
-     * @return Configuration|null
-     */
-    public function getConfiguration(): ?Configuration
-    {
-        return $this->configuration;
     }
 
     /**
@@ -156,11 +95,27 @@ class RecommendationFrame
     }
 
     /**
+     * @return string|null
+     */
+    public function getGroupId(): ?string
+    {
+        return $this->groupId;
+    }
+
+    /**
      * @param string|null $groupId
      */
     public function setGroupId(?string $groupId): void
     {
         $this->groupId = $groupId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrameType(): string
+    {
+        return $this->frameType;
     }
 
     /**
@@ -172,11 +127,43 @@ class RecommendationFrame
     }
 
     /**
+     * @return int
+     */
+    public function getNumberOfProducts(): int
+    {
+        return $this->numberOfProducts;
+    }
+
+    /**
      * @param int $numberOfProducts
      */
     public function setNumberOfProducts(int $numberOfProducts): void
     {
         $this->numberOfProducts = $numberOfProducts;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMinimalStock(): int
+    {
+        return $this->minimalStock;
+    }
+
+    /**
+     * @param int $minimalStock
+     */
+    public function setMinimalStock(int $minimalStock): void
+    {
+        $this->minimalStock = $minimalStock;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCustomHtml(): ?string
+    {
+        return $this->customHtml;
     }
 
     /**
@@ -188,11 +175,27 @@ class RecommendationFrame
     }
 
     /**
+     * @return string
+     */
+    public function getXpath(): string
+    {
+        return $this->xpath;
+    }
+
+    /**
      * @param string $xpath
      */
     public function setXpath(string $xpath): void
     {
         $this->xpath = $xpath;
+    }
+
+    /**
+     * @return Configuration|null
+     */
+    public function getConfiguration(): ?Configuration
+    {
+        return $this->configuration;
     }
 
     /**
