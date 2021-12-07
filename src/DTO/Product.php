@@ -23,6 +23,16 @@ class Product
     /**
      * @var string|null
      */
+    protected $currency;
+
+    /**
+     * @var string|null
+     */
+    protected $sku;
+
+    /**
+     * @var string|null
+     */
     protected $image;
 
     /**
@@ -66,6 +76,11 @@ class Product
     protected $updatedAt;
 
     /**
+     * @var \DateTime|null
+     */
+    protected $deletedAt;
+
+    /**
      * @var Category[]
      */
     protected $categories = [];
@@ -97,6 +112,38 @@ class Product
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     */
+    public function setCurrency(?string $currency): void
+    {
+        $this->currency = $currency;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSku(): ?string
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @param string|null $sku
+     */
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
     }
 
     /**
@@ -249,6 +296,22 @@ class Product
     public function setStock(int $stock): void
     {
         $this->stock = $stock;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDeletedAt(): ?\DateTime
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param \DateTime|null $deletedAt
+     */
+    public function setDeletedAt(?\DateTime $deletedAt): void
+    {
+        $this->deletedAt = $deletedAt;
     }
 
     /**

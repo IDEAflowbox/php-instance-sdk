@@ -60,6 +60,16 @@ class ProductBuilder implements ProductBuilderInterface
     protected $url;
 
     /**
+     * @var string
+     */
+    protected $currency;
+
+    /**
+     * @var string
+     */
+    protected $sku;
+
+    /**
      * @var Category[]
      */
     protected $categories = [];
@@ -161,6 +171,26 @@ class ProductBuilder implements ProductBuilderInterface
     }
 
     /**
+     * @param string $currency
+     * @return ProductBuilderInterface
+     */
+    public function setCurrency(string $currency): ProductBuilderInterface
+    {
+        $this->currency = $currency;
+        return $this;
+    }
+
+    /**
+     * @param string $sku
+     * @return ProductBuilderInterface
+     */
+    public function setSku(string $sku): ProductBuilderInterface
+    {
+        $this->sku = $sku;
+        return $this;
+    }
+
+    /**
      * @param string $url
      * @return ProductBuilderInterface
      */
@@ -206,6 +236,8 @@ class ProductBuilder implements ProductBuilderInterface
         $product->setGrossSalePrice($this->grossSalePrice);
         $product->setStock($this->stock);
         $product->setUrl($this->url);
+        $product->setCurrency($this->currency);
+        $product->setSku($this->sku);
         $product->setCategories($this->categories);
         $product->setFeatures($this->features);
         return $product;

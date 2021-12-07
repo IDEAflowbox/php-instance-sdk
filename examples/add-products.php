@@ -17,6 +17,8 @@ try {
         ->setGrossPrice(123)
         ->setGrossSalePrice(50)
         ->setStock(987654)
+        ->setSku("123/XX/EE")
+        ->setCurrency("PLN")
         ->addCategory("12")
         ->addFeature("php", "sdk")
         ->addFeature("php2", "sdk2")

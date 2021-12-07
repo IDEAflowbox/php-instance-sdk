@@ -48,6 +48,8 @@ class ProductAssembler implements DataAssemblerInterface
             'net_price' => $productDTO->getNetPrice(),
             'gross_price' => $productDTO->getGrossPrice(),
             'gross_sale_price' => $productDTO->getGrossSalePrice(),
+            'currency' => $productDTO->getCurrency(),
+            'sku' => $productDTO->getSku(),
             'stock' => $productDTO->getStock(),
             'url' => $productDTO->getUrl(),
             'categories' => array_map(static function ($category) use ($categoryAssembler) {
@@ -56,6 +58,7 @@ class ProductAssembler implements DataAssemblerInterface
             'features' => array_map(static function ($feature) use ($productFeatureAssembler) {
                 return $productFeatureAssembler->readDTO($feature);
             }, $productDTO->getFeatures()),
+            'deleted_at' => $productDTO->getDeletedAt() ? $productDTO->getDeletedAt()->format(DateTimeFormat::ZULU) : null,
             'created_at' => $productDTO->getCreatedAt() ? $productDTO->getCreatedAt()->format(DateTimeFormat::ZULU) : null,
             'updated_at' => $productDTO->getUpdatedAt() ? $productDTO->getUpdatedAt()->format(DateTimeFormat::ZULU) : null,
         ];
@@ -72,6 +75,7 @@ class ProductAssembler implements DataAssemblerInterface
                 return $categoryAssembler->writeDTO($category);
             }, $product['categories']) : [];
 
+        $deletedAt = isset($product['deleted_at']) ? strtotime($product['deleted_at']) : null;
         $createdAt = strtotime($product['created_at']);
         $updatedAt = strtotime($product['updated_at']);
 
@@ -85,7 +89,10 @@ class ProductAssembler implements DataAssemblerInterface
         $productDTO->setUrl($product['url']);
         $productDTO->setCategories($categories);
         $productDTO->setGrossSalePrice(isset($product['gross_sale_price']) ? $product['gross_sale_price'] : null);
+        $productDTO->setCurrency($product['currency']);
+        $productDTO->setSku($product['sku']);
         $productDTO->setStock($product['stock']);
+        $productDTO->setDeletedAt($deletedAt ? (new \DateTime())->setTimestamp($deletedAt) : null);
         $productDTO->setCreatedAt($createdAt ? (new \DateTime())->setTimestamp($createdAt) : null);
         $productDTO->setUpdatedAt($updatedAt ? (new \DateTime())->setTimestamp($updatedAt) : null);
 
