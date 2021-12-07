@@ -25,6 +25,12 @@ interface PageEventBuilderInterface
     public function setProductId(string $productId): PageEventBuilderInterface;
 
     /**
+     * @param string $frameId
+     * @return PageEventBuilderInterface
+     */
+    public function setFrameId(string $frameId): PageEventBuilderInterface;
+
+    /**
      * @param string $type
      * @return PageEventBuilderInterface
      */

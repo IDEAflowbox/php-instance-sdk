@@ -38,6 +38,11 @@ class PageEvent
     /**
      * @var string|null
      */
+    protected $frameId;
+
+    /**
+     * @var string|null
+     */
     protected $url;
 
     /**
@@ -118,6 +123,22 @@ class PageEvent
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
+    }
+
+    /**
+     * @param string|null $frameId
+     */
+    public function setFrameId(?string $frameId): void
+    {
+        $this->frameId = $frameId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFrameId(): ?string
+    {
+        return $this->frameId;
     }
 
     /**

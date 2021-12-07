@@ -25,6 +25,7 @@ class PageEventAssembler implements DataAssemblerInterface
             'event_time' => $pageEventDTO->getEventTime() ? $pageEventDTO->getEventTime()->format(DateTimeFormat::ZULU) : null,
             'event_type' => $pageEventDTO->getEventType(),
             'product_id' => $pageEventDTO->getProductId(),
+            'frame_id' => $pageEventDTO->getFrameId(),
             'url' => $pageEventDTO->getUrl(),
         ];
     }
@@ -40,7 +41,8 @@ class PageEventAssembler implements DataAssemblerInterface
         $pageEventDTO->setId($pageEvent['id']);
         $pageEventDTO->setUserId($pageEvent['user_id']);
         $pageEventDTO->setEventType($pageEvent['event_type']);
-        $pageEventDTO->setProductId($pageEvent['product_id']);
+        $pageEventDTO->setProductId(isset($pageEvent['product_id']) ? $pageEvent['product_id'] : null);
+        $pageEventDTO->setFrameId(isset($pageEvent['frame_id']) ? $pageEvent['frame_id'] : null);
         $pageEventDTO->setUrl($pageEvent['url']);
         if ($eventTime) {
             $pageEventDTO->setEventTime((new \DateTime())->setTimestamp($eventTime));

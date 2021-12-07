@@ -18,9 +18,14 @@ class PageEventBuilder implements PageEventBuilderInterface
     protected $userId;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $productId;
+
+    /**
+     * @var string|null
+     */
+    protected $frameId;
 
     /**
      * @var string
@@ -53,6 +58,16 @@ class PageEventBuilder implements PageEventBuilderInterface
     }
 
     /**
+     * @param string $frameId
+     * @return PageEventBuilderInterface
+     */
+    public function setFrameId(string $frameId): PageEventBuilderInterface
+    {
+        $this->frameId = $frameId;
+        return $this;
+    }
+
+    /**
      * @param string $type
      * @return PageEventBuilderInterface
      */
@@ -81,6 +96,7 @@ class PageEventBuilder implements PageEventBuilderInterface
         $pageEvent->setUserId($this->userId);
         $pageEvent->setEventType($this->type);
         $pageEvent->setProductId($this->productId);
+        $pageEvent->setFrameId($this->frameId);
         $pageEvent->setUrl($this->url);
 
         return $pageEvent;
