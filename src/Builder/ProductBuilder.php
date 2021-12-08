@@ -151,10 +151,10 @@ class ProductBuilder implements ProductBuilderInterface
     }
 
     /**
-     * @param float $grossSalePrice
+     * @param float|null $grossSalePrice
      * @return ProductBuilderInterface
      */
-    public function setGrossSalePrice(float $grossSalePrice): ProductBuilderInterface
+    public function setGrossSalePrice(?float $grossSalePrice): ProductBuilderInterface
     {
         $this->grossSalePrice = $grossSalePrice;
         return $this;

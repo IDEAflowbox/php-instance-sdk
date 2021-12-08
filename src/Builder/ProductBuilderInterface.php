@@ -56,10 +56,10 @@ interface ProductBuilderInterface
     public function setGrossPrice(float $grossPrice): ProductBuilderInterface;
 
     /**
-     * @param float $grossSalePrice
+     * @param float|null $grossSalePrice
      * @return ProductBuilderInterface
      */
-    public function setGrossSalePrice(float $grossSalePrice): ProductBuilderInterface;
+    public function setGrossSalePrice(?float $grossSalePrice): ProductBuilderInterface;
 
     /**
      * @param string $currency
