@@ -48,20 +48,20 @@ class PageEventBuilder implements PageEventBuilderInterface
     }
 
     /**
-     * @param string $productId
+     * @param string|null $productId
      * @return PageEventBuilderInterface
      */
-    public function setProductId(string $productId): PageEventBuilderInterface
+    public function setProductId(?string $productId): PageEventBuilderInterface
     {
         $this->productId = $productId;
         return $this;
     }
 
     /**
-     * @param string $frameId
+     * @param string|null $frameId
      * @return PageEventBuilderInterface
      */
-    public function setFrameId(string $frameId): PageEventBuilderInterface
+    public function setFrameId(?string $frameId): PageEventBuilderInterface
     {
         $this->frameId = $frameId;
         return $this;
