@@ -49,6 +49,12 @@ interface EventBuilderInterface
     public function setCartId(string $cartId): EventBuilderInterface;
 
     /**
+     * @param \DateTime|null $eventTime
+     * @return EventBuilderInterface
+     */
+    public function setEventTime(?\DateTime $eventTime = null): EventBuilderInterface;
+
+    /**
      * @return Event
      */
     public function getResult(): Event;

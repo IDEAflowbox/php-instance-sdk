@@ -59,6 +59,24 @@ class UserCRUD extends BaseCRUD
      * @throws \Cyberkonsultant\Exception\ServerException
      * @throws \Unirest\Exception
      */
+    public function create(User $user)
+    {
+        $userAssembler = new UserAssembler();
+        $response = $this->cyberkonsultant->post(sprintf('/shop/users'), [
+            'json' => $userAssembler->readDTO($user)
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, UserAssembler::class);
+    }
+
+    /**
+     * @param User $user
+     * @return mixed
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
     public function update(User $user)
     {
         $userAssembler = new UserAssembler();
@@ -67,5 +85,23 @@ class UserCRUD extends BaseCRUD
         ]);
 
         return $this->cyberkonsultant->getEdgeResponse($response, UserAssembler::class);
+    }
+
+    /**
+     * @param array $usersIds
+     * @param string $finalUserId
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function merge(array $usersIds, string $finalUserId)
+    {
+        $this->cyberkonsultant->post('/shop/users/merge', [
+            'json' => [
+                'users_ids' => $usersIds,
+                'final_user_id' => $finalUserId,
+            ]
+        ]);
     }
 }

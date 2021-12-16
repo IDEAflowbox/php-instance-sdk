@@ -56,45 +56,19 @@ class Event
     protected $price;
 
     /**
-     * Event constructor.
-     * @param string|null $id
-     * @param string $userId
-     * @param \DateTime|null $eventTime
-     * @param string $eventType
-     * @param int|null $userScore
-     * @param string $productId
-     * @param string $categoryId
-     * @param string|null $cartId
-     * @param float $price
-     */
-    public function __construct(
-        ?string $id,
-        string $userId,
-        ?\DateTime $eventTime,
-        string $eventType,
-        ?int $userScore,
-        string $productId,
-        string $categoryId,
-        ?string $cartId,
-        float $price
-    ) {
-        $this->id = $id;
-        $this->userId = $userId;
-        $this->eventTime = $eventTime;
-        $this->eventType = $eventType;
-        $this->userScore = $userScore;
-        $this->productId = $productId;
-        $this->categoryId = $categoryId;
-        $this->cartId = $cartId;
-        $this->price = $price;
-    }
-
-    /**
      * @return string|null
      */
     public function getId(): ?string
     {
         return $this->id;
+    }
+
+    /**
+     * @param string|null $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
     }
 
     /**
@@ -106,11 +80,27 @@ class Event
     }
 
     /**
+     * @param string $userId
+     */
+    public function setUserId(string $userId): void
+    {
+        $this->userId = $userId;
+    }
+
+    /**
      * @return \DateTime|null
      */
     public function getEventTime(): ?\DateTime
     {
         return $this->eventTime;
+    }
+
+    /**
+     * @param \DateTime|null $eventTime
+     */
+    public function setEventTime(?\DateTime $eventTime): void
+    {
+        $this->eventTime = $eventTime;
     }
 
     /**
@@ -122,11 +112,27 @@ class Event
     }
 
     /**
+     * @param string $eventType
+     */
+    public function setEventType(string $eventType): void
+    {
+        $this->eventType = $eventType;
+    }
+
+    /**
      * @return int|null
      */
     public function getUserScore(): ?int
     {
         return $this->userScore;
+    }
+
+    /**
+     * @param int|null $userScore
+     */
+    public function setUserScore(?int $userScore): void
+    {
+        $this->userScore = $userScore;
     }
 
     /**
@@ -138,11 +144,27 @@ class Event
     }
 
     /**
+     * @param string $productId
+     */
+    public function setProductId(string $productId): void
+    {
+        $this->productId = $productId;
+    }
+
+    /**
      * @return string
      */
     public function getCategoryId(): string
     {
         return $this->categoryId;
+    }
+
+    /**
+     * @param string $categoryId
+     */
+    public function setCategoryId(string $categoryId): void
+    {
+        $this->categoryId = $categoryId;
     }
 
     /**
@@ -154,10 +176,26 @@ class Event
     }
 
     /**
+     * @param string|null $cartId
+     */
+    public function setCartId(?string $cartId): void
+    {
+        $this->cartId = $cartId;
+    }
+
+    /**
      * @return float
      */
     public function getPrice(): float
     {
         return $this->price;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
     }
 }

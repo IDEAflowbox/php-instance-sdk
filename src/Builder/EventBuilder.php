@@ -43,6 +43,11 @@ class EventBuilder implements EventBuilderInterface
     protected $cartId;
 
     /**
+     * @var \DateTime|null
+     */
+    protected $eventTime;
+
+    /**
      * @param string $userId
      * @return EventBuilderInterface
      */
@@ -103,20 +108,36 @@ class EventBuilder implements EventBuilderInterface
     }
 
     /**
+     * @return \DateTime|null
+     */
+    public function getEventTime(): ?\DateTime
+    {
+        return $this->eventTime;
+    }
+
+    /**
+     * @param \DateTime|null $eventTime
+     * @return EventBuilderInterface
+     */
+    public function setEventTime(?\DateTime $eventTime = null): EventBuilderInterface
+    {
+        $this->eventTime = $eventTime;
+        return $this;
+    }
+
+    /**
      * @return Event
      */
     public function getResult(): Event
     {
-        return new Event(
-            null,
-            $this->userId,
-            null,
-            $this->type,
-            null,
-            $this->productId,
-            $this->categoryId,
-            $this->cartId,
-            $this->price
-        );
+        $event = new Event();
+        $event->setUserId($this->userId);
+        $event->setEventType($this->type);
+        $event->setProductId($this->productId);
+        $event->setCategoryId($this->categoryId);
+        $event->setCartId($this->cartId);
+        $event->setPrice($this->price);
+        $event->setEventTime($this->eventTime);
+        return $event;
     }
 }
