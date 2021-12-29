@@ -21,7 +21,7 @@ class ButtonBuilder implements ButtonBuilderInterface
     protected $dimensionsBuilder;
 
     /**
-     * @var int
+     * @var string
      */
     protected $borderRadius;
 
@@ -64,10 +64,10 @@ class ButtonBuilder implements ButtonBuilderInterface
     }
 
     /**
-     * @param int $borderRadius
+     * @param string $borderRadius
      * @return ButtonBuilderInterface
      */
-    public function setBorderRadius(int $borderRadius): ButtonBuilderInterface
+    public function setBorderRadius(string $borderRadius): ButtonBuilderInterface
     {
         $this->borderRadius = $borderRadius;
         return $this;

@@ -16,7 +16,7 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Style;
 class Frame
 {
     /**
-     * @var int
+     * @var string
      */
     protected $borderRadius;
 
@@ -43,14 +43,14 @@ class Frame
     /**
      * RecommendationFrameConfigurationFrame constructor.
      *
-     * @param int $borderRadius
+     * @param string $borderRadius
      * @param Dimensions $dimensions
      * @param Style $style
      * @param ImageStyle $imageStyle
      * @param Button $button
      */
     public function __construct(
-        int $borderRadius,
+        string $borderRadius,
         Dimensions $dimensions,
         Style $style,
         ImageStyle $imageStyle,
@@ -64,9 +64,9 @@ class Frame
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getBorderRadius(): int
+    public function getBorderRadius(): string
     {
         return $this->borderRadius;
     }
@@ -104,9 +104,9 @@ class Frame
     }
 
     /**
-     * @param int $borderRadius
+     * @param string $borderRadius
      */
-    public function setBorderRadius(int $borderRadius): void
+    public function setBorderRadius(string $borderRadius): void
     {
         $this->borderRadius = $borderRadius;
     }

@@ -20,10 +20,10 @@ interface ButtonBuilderInterface
     public function getDimensionsBuilder(): DimensionsBuilderInterface;
 
     /**
-     * @param int $borderRadius
+     * @param string $borderRadius
      * @return ButtonBuilderInterface
      */
-    public function setBorderRadius(int $borderRadius): ButtonBuilderInterface;
+    public function setBorderRadius(string $borderRadius): ButtonBuilderInterface;
 
     /**
      * @param string $position

@@ -18,10 +18,10 @@ use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ButtonBuilde
 interface FrameBuilderInterface
 {
     /**
-     * @param int $borderRadius
+     * @param string $borderRadius
      * @return FrameBuilderInterface
      */
-    public function setBorderRadius(int $borderRadius): FrameBuilderInterface;
+    public function setBorderRadius(string $borderRadius): FrameBuilderInterface;
 
     /**
      * @return DimensionsBuilderInterface

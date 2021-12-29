@@ -18,7 +18,7 @@ class Button
     protected $dimensions;
 
     /**
-     * @var int
+     * @var string
      */
     protected $borderRadius;
 
@@ -40,14 +40,14 @@ class Button
     /**
      * RecommendationFrameConfigurationFrameButton constructor.
      * @param Dimensions $dimensions
-     * @param int $borderRadius
+     * @param string $borderRadius
      * @param string $position
      * @param string $backgroundColor
      * @param string $textColor
      */
     public function __construct(
         Dimensions $dimensions,
-        int $borderRadius,
+        string $borderRadius,
         string $position,
         string $backgroundColor,
         string $textColor
@@ -68,9 +68,9 @@ class Button
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getBorderRadius(): int
+    public function getBorderRadius(): string
     {
         return $this->borderRadius;
     }
@@ -108,9 +108,9 @@ class Button
     }
 
     /**
-     * @param int $borderRadius
+     * @param string $borderRadius
      */
-    public function setBorderRadius(int $borderRadius): void
+    public function setBorderRadius(string $borderRadius): void
     {
         $this->borderRadius = $borderRadius;
     }
