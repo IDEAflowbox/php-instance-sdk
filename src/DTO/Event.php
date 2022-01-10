@@ -10,6 +10,12 @@ namespace Cyberkonsultant\DTO;
  */
 class Event
 {
+    public const VIEW = 'view';
+    public const CART = 'cart';
+    public const WISHLIST = 'wishlist';
+    public const PURCHASE = 'purchase';
+    public const RECOMMENDATION_FRAME = 'recommendation_frame';
+
     /**
      * @var string|null
      */
