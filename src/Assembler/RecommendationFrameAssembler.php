@@ -52,7 +52,7 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
     public function writeDTO(array $frame): RecommendationFrame
     {
         $configuration = null;
-        if (isset($frame['configuration'])) {
+        if (isset($frame['configuration']) && $frame['frame_type'] === "simple") {
             $configuration = $this->configurationAssembler->writeDTO($frame['configuration']);
         }
 
