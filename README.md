@@ -10,16 +10,6 @@ Cyberkonsultant SDK for PHP jest biblioteką napisaną w języku PHP, dostarczaj
 ---
 
 ## Instalacja
-W pliku composer.json swojego projektu, należy dać repozytorium, tak jak jest to przedstawione poniżej:
-
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://repos.o323.com/cyberkonsultant/php-instance-sdk"
-        }
-    ]
-
-Następnie należy zainstalować bibliotekę:
 
     composer require cyberkonsultant/php-instance-sdk
 
