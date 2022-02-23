@@ -10,6 +10,7 @@ use Cyberkonsultant\Authentication\Credentials;
 use Cyberkonsultant\DTO\PaginationResponse;
 use Cyberkonsultant\Exception\CyberkonsultantSDKException;
 use Cyberkonsultant\Scope\Crm;
+use Cyberkonsultant\Scope\Misc;
 use Cyberkonsultant\Scope\Shop;
 use Cyberkonsultant\Scope\Voice;
 use Unirest\Response;
@@ -163,6 +164,14 @@ class Cyberkonsultant
     public function getCrmScope(): Crm
     {
         return new Crm($this);
+    }
+
+    /**
+     * @return Misc
+     */
+    public function getMiscScope(): Misc
+    {
+        return new Misc($this);
     }
 
     /**
