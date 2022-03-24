@@ -52,6 +52,20 @@ class UserCRUD extends BaseCRUD
     }
 
     /**
+     * @param string $email
+     * @return User
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function findByEmail(string $email): User
+    {
+        $response = $this->cyberkonsultant->get(sprintf('/shop/users/find-by-email?value=%s', $email));
+        return $this->cyberkonsultant->getEdgeResponse($response, UserAssembler::class);
+    }
+
+    /**
      * @param User $user
      * @return mixed
      * @throws \Cyberkonsultant\Exception\ClientException
