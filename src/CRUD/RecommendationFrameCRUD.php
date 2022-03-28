@@ -70,6 +70,18 @@ class RecommendationFrameCRUD extends BaseCRUD
     }
 
     /**
+     * @param string $id
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function delete(string $id): void
+    {
+        $this->cyberkonsultant->delete(sprintf('/shop/frames/%s', $id));
+    }
+
+    /**
      * @param RecommendationFrame $recommendationFrame
      * @return mixed
      * @throws \Cyberkonsultant\Exception\ClientException

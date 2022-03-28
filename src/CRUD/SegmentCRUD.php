@@ -52,6 +52,18 @@ class SegmentCRUD extends BaseCRUD
     }
 
     /**
+     * @param string $id
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function delete(string $id): void
+    {
+        $this->cyberkonsultant->delete(sprintf('/crm/segments/%s', $id));
+    }
+
+    /**
      * @param Segment $segment
      * @return Segment
      * @throws \Cyberkonsultant\Exception\ClientException
@@ -63,6 +75,24 @@ class SegmentCRUD extends BaseCRUD
     {
         $segmentAssembler = new SegmentAssembler();
         $response = $this->cyberkonsultant->post('/crm/segments', [
+            'json' => $segmentAssembler->readDTO($segment)
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, SegmentAssembler::class);
+    }
+
+    /**
+     * @param Segment $segment
+     * @return mixed
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function update(Segment $segment)
+    {
+        $segmentAssembler = new SegmentAssembler();
+        $response = $this->cyberkonsultant->put(sprintf('/shop/segments/%s', $segment->getId()), [
             'json' => $segmentAssembler->readDTO($segment)
         ]);
 
