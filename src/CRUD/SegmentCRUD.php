@@ -92,7 +92,7 @@ class SegmentCRUD extends BaseCRUD
     public function update(Segment $segment)
     {
         $segmentAssembler = new SegmentAssembler();
-        $response = $this->cyberkonsultant->put(sprintf('/shop/segments/%s', $segment->getId()), [
+        $response = $this->cyberkonsultant->put(sprintf('/crm/segments/%s', $segment->getId()), [
             'json' => $segmentAssembler->readDTO($segment)
         ]);
 
