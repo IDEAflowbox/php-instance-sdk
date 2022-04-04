@@ -31,13 +31,13 @@ class SettingsCRUD extends BaseCRUD
     /**
      * @param string $metaKey
      * @param string|null $metaValue
-     * @return Sender
+     * @return Settings
      * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
      * @throws \Cyberkonsultant\Exception\ServerException
      * @throws \Unirest\Exception
      */
-    public function update(string $metaKey, ?string $metaValue): Sender
+    public function update(string $metaKey, ?string $metaValue): Settings
     {
         $response = $this->cyberkonsultant->post('/misc/settings', [
             'json' => [
