@@ -57,11 +57,6 @@ class RecommendationFrame
      */
     protected $configuration;
 
-    public function __construct(?string $type = null)
-    {
-        $this->frameType = $type;
-    }
-
     /**
      * @return string|null
      */

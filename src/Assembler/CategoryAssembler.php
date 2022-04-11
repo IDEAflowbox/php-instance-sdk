@@ -33,12 +33,14 @@ class CategoryAssembler implements DataAssemblerInterface
      */
     public function writeDTO(array $category): Category
     {
-        return new Category(
-            $category['id'],
-            $category['name'],
-            $category['url'],
-            $category['image'],
-            isset($category['associated_to']) ? $category['associated_to'] : null
-        );
+        $categoryDto = new Category();
+        $categoryDto->setId($category['id']);
+        $categoryDto->setName($category['name']);
+        $categoryDto->setUrl($category['url']);
+        $categoryDto->setImage($category['image']);
+        if (isset($category['associated_to'])) {
+            $categoryDto->setAssociatedTo($category['associated_to']);
+        }
+        return $categoryDto;
     }
 }

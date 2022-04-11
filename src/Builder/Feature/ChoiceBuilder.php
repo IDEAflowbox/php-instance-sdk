@@ -49,9 +49,9 @@ class ChoiceBuilder implements ChoiceBuilderInterface
      */
     public function getResult(): Choice
     {
-        return new Choice(
-            $this->id,
-            $this->name
-        );
+        $choice = new Choice();
+        $choice->setId($this->id);
+        $choice->setName($this->name);
+        return $choice;
     }
 }

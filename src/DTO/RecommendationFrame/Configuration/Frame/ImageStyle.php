@@ -21,17 +21,6 @@ class ImageStyle
     protected $backgroundColor;
 
     /**
-     * ImageStyle constructor.
-     * @param string $height
-     * @param string $backgroundColor
-     */
-    public function __construct(string $height, string $backgroundColor)
-    {
-        $this->height = $height;
-        $this->backgroundColor = $backgroundColor;
-    }
-
-    /**
      * @return string
      */
     public function getHeight(): string

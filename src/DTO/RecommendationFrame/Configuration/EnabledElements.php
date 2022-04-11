@@ -26,19 +26,6 @@ class EnabledElements
     protected $contents;
 
     /**
-     * EnabledElements constructor.
-     * @param bool $thumbnail
-     * @param bool $button
-     * @param bool $contents
-     */
-    public function __construct(bool $thumbnail, bool $button, bool $contents)
-    {
-        $this->thumbnail = $thumbnail;
-        $this->button = $button;
-        $this->contents = $contents;
-    }
-
-    /**
      * @return bool
      */
     public function isThumbnail(): bool

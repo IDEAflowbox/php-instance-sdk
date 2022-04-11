@@ -122,14 +122,14 @@ class DimensionsBuilder implements DimensionsBuilderInterface
      */
     public function getResult(): Dimensions
     {
-        return new Dimensions(
-            $this->width,
-            $this->height,
-            $this->marginTop,
-            $this->marginBottom,
-            $this->marginSide,
-            $this->spaceBetweenElements
-        );
+        $dimensions = new Dimensions();
+        $dimensions->setWidth($this->width);
+        $dimensions->setHeight($this->height);
+        $dimensions->setMarginTop($this->marginTop);
+        $dimensions->setMarginBottom($this->marginBottom);
+        $dimensions->setMarginSide($this->marginSide);
+        $dimensions->setSpaceBetweenElements($this->spaceBetweenElements);
+        return $dimensions;
     }
 
     /**

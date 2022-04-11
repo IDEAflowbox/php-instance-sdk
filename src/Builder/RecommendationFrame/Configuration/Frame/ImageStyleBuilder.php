@@ -58,10 +58,10 @@ class ImageStyleBuilder implements ImageStyleBuilderInterface
      */
     public function getResult(): ImageStyle
     {
-        return new ImageStyle(
-            $this->height,
-            $this->backgroundColor
-        );
+        $imageStyle = new ImageStyle();
+        $imageStyle->setHeight($this->height);
+        $imageStyle->setBackgroundColor($this->backgroundColor);
+        return $imageStyle;
     }
 
     /**

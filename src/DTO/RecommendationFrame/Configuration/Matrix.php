@@ -21,17 +21,6 @@ class Matrix
     protected $rows;
 
     /**
-     * Matrix constructor.
-     * @param int $columns
-     * @param int $rows
-     */
-    public function __construct(int $columns, int $rows)
-    {
-        $this->columns = $columns;
-        $this->rows = $rows;
-    }
-
-    /**
      * @return int
      */
     public function getColumns(): int

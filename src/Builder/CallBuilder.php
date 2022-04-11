@@ -36,6 +36,9 @@ class CallBuilder implements CallBuilderInterface
 
     public function getResult(): Call
     {
-        return new Call(null, $this->orderNumber, $this->callerNumber);
+        $call = new Call();
+        $call->setOrderNumber($this->orderNumber);
+        $call->setCallerNumber($this->callerNumber);
+        return $call;
     }
 }

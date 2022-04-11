@@ -21,17 +21,6 @@ class ProductFeature
     protected $choiceId;
 
     /**
-     * ProductFeature constructor.
-     * @param string $featureId
-     * @param string $choiceId
-     */
-    public function __construct(string $featureId, string $choiceId)
-    {
-        $this->featureId = $featureId;
-        $this->choiceId = $choiceId;
-    }
-
-    /**
      * @return string
      */
     public function getFeatureId(): string

@@ -26,19 +26,6 @@ class Navigation
     protected $color;
 
     /**
-     * Navigation constructor.
-     * @param string $size
-     * @param string $style
-     * @param string $color
-     */
-    public function __construct(string $size, string $style, string $color)
-    {
-        $this->size = $size;
-        $this->style = $style;
-        $this->color = $color;
-    }
-
-    /**
      * @return string
      */
     public function getSize(): string

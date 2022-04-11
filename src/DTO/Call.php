@@ -31,25 +31,6 @@ class Call
     protected $processed = false;
 
     /**
-     * Call constructor.
-     * @param string|null $id
-     * @param string $orderNumber
-     * @param string $callerNumber
-     * @param bool $processed
-     */
-    public function __construct(
-        ?string $id,
-        string $orderNumber,
-        string $callerNumber,
-        bool $processed = false
-    ) {
-        $this->id = $id;
-        $this->orderNumber = $orderNumber;
-        $this->callerNumber = $callerNumber;
-        $this->processed = $processed;
-    }
-
-    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -79,5 +60,37 @@ class Call
     public function isProcessed(): bool
     {
         return $this->processed;
+    }
+
+    /**
+     * @param string|null $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param string $orderNumber
+     */
+    public function setOrderNumber(string $orderNumber): void
+    {
+        $this->orderNumber = $orderNumber;
+    }
+
+    /**
+     * @param string $callerNumber
+     */
+    public function setCallerNumber(string $callerNumber): void
+    {
+        $this->callerNumber = $callerNumber;
+    }
+
+    /**
+     * @param bool $processed
+     */
+    public function setProcessed(bool $processed): void
+    {
+        $this->processed = $processed;
     }
 }

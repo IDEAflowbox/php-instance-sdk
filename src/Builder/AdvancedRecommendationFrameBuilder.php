@@ -37,7 +37,8 @@ class AdvancedRecommendationFrameBuilder extends RecommendationFrameBaseBuilder 
      */
     public function getResult(): RecommendationFrame
     {
-        $recommendationFrame = new RecommendationFrame(self::FRAME_TYPE);
+        $recommendationFrame = new RecommendationFrame();
+        $recommendationFrame->setFrameType(self::FRAME_TYPE);
         $recommendationFrame->setName($this->name);
         $recommendationFrame->setGroupId($this->groupId);
         $recommendationFrame->setNumberOfProducts($this->numberOfProducts);

@@ -22,7 +22,7 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame;
 class FrameBuilder implements FrameBuilderInterface
 {
     /**
-     * @var int
+     * @var string
      */
     protected $borderRadius;
 
@@ -107,13 +107,13 @@ class FrameBuilder implements FrameBuilderInterface
      */
     public function getResult(): Frame
     {
-        return new Frame(
-            $this->borderRadius,
-            $this->getDimensionsBuilder()->getResult(),
-            $this->getStyleBuilder()->getResult(),
-            $this->getImageStyleBuilder()->getResult(),
-            $this->getButtonBuilder()->getResult()
-        );
+        $frame = new Frame();
+        $frame->setBorderRadius($this->borderRadius);
+        $frame->setDimensions($this->getDimensionsBuilder()->getResult());
+        $frame->setStyle($this->getStyleBuilder()->getResult());
+        $frame->setImageStyle($this->getImageStyleBuilder()->getResult());
+        $frame->setButton($this->getButtonBuilder()->getResult());
+        return $frame;
     }
 
     public function endFrameBuilder(): ConfigurationBuilderInterface

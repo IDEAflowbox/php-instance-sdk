@@ -30,9 +30,9 @@ class MatrixAssembler
      */
     public function writeDTO(array $matrix): Matrix
     {
-        return new Matrix(
-            $matrix['columns'],
-            $matrix['rows']
-        );
+        $matrixDto = new Matrix();
+        $matrixDto->setColumns($matrix['columns']);
+        $matrixDto->setRows($matrix['rows']);
+        return $matrixDto;
     }
 }

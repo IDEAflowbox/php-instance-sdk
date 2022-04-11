@@ -77,11 +77,11 @@ class NavigationBuilder implements NavigationBuilderInterface
      */
     public function getResult(): Navigation
     {
-        return new Navigation(
-            $this->size,
-            $this->style,
-            $this->color
-        );
+        $navigation = new Navigation();
+        $navigation->setSize($this->size);
+        $navigation->setStyle($this->style);
+        $navigation->setColor($this->color);
+        return $navigation;
     }
 
     /**

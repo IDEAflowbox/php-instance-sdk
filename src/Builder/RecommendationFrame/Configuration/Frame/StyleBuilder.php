@@ -73,11 +73,11 @@ class StyleBuilder implements StyleBuilderInterface
      */
     public function getResult(): Style
     {
-        return new Style(
-            $this->backgroundColor,
-            $this->borderColor,
-            $this->borderColorOnHover
-        );
+        $style = new Style();
+        $style->setBackgroundColor($this->backgroundColor);
+        $style->setBorderColor($this->borderColor);
+        $style->setBorderColorOnHover($this->borderColorOnHover);
+        return $style;
     }
 
     /**

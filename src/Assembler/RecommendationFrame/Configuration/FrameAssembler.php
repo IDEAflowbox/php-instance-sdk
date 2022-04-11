@@ -68,12 +68,12 @@ class FrameAssembler
      */
     public function writeDTO(array $frame): Frame
     {
-        return new Frame(
-            $frame['border_radius'],
-            $this->dimensionsAssembler->writeDTO($frame['dimensions']),
-            $this->styleAssembler->writeDTO($frame['style']),
-            $this->imageStyleAssembler->writeDTO($frame['image_style']),
-            $this->buttonAssembler->writeDTO($frame['button'])
-        );
+        $frameDto = new Frame();
+        $frameDto->setBorderRadius($frame['border_radius']);
+        $frameDto->setDimensions($this->dimensionsAssembler->writeDTO($frame['dimensions']));
+        $frameDto->setStyle($this->styleAssembler->writeDTO($frame['style']));
+        $frameDto->setImageStyle($this->imageStyleAssembler->writeDTO($frame['image_style']));
+        $frameDto->setButton($this->buttonAssembler->writeDTO($frame['button']));
+        return $frameDto;
     }
 }

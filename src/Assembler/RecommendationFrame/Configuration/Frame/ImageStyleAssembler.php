@@ -30,9 +30,9 @@ class ImageStyleAssembler
      */
     public function writeDTO(array $imageStyle): ImageStyle
     {
-        return new ImageStyle(
-            $imageStyle['height'],
-            $imageStyle['background_color']
-        );
+        $imageStyleDto = new ImageStyle();
+        $imageStyleDto->setHeight($imageStyle['height']);
+        $imageStyleDto->setBackgroundColor($imageStyle['background_color']);
+        return $imageStyleDto;
     }
 }

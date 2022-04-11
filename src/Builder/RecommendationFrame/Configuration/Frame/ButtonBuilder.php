@@ -108,13 +108,13 @@ class ButtonBuilder implements ButtonBuilderInterface
      */
     public function getResult(): Button
     {
-        return new Button(
-            $this->getDimensionsBuilder()->getResult(),
-            $this->borderRadius,
-            $this->position,
-            $this->backgroundColor,
-            $this->textColor
-        );
+        $button = new Button();
+        $button->setDimensions($this->getDimensionsBuilder()->getResult());
+        $button->setBorderRadius($this->borderRadius);
+        $button->setPosition($this->position);
+        $button->setBackgroundColor($this->backgroundColor);
+        $button->setTextColor($this->textColor);
+        return $button;
     }
 
     /**

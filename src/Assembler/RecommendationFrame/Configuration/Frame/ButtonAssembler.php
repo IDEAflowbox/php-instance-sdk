@@ -47,12 +47,12 @@ class ButtonAssembler
      */
     public function writeDTO(array $button): Button
     {
-        return new Button(
-            $this->dimensionsAssembler->writeDTO($button['dimensions']),
-            $button['border_radius'],
-            $button['position'],
-            $button['background_color'],
-            $button['text_color']
-        );
+        $buttonDto = new Button();
+        $buttonDto->setDimensions($this->dimensionsAssembler->writeDTO($button['dimensions']));
+        $buttonDto->setBorderRadius($button['border_radius']);
+        $buttonDto->setPosition($button['position']);
+        $buttonDto->setBackgroundColor($button['background_color']);
+        $buttonDto->setTextColor($button['text_color']);
+        return $buttonDto;
     }
 }

@@ -68,10 +68,11 @@ class DimensionsBuilder implements DimensionsBuilderInterface
             throw new CyberkonsultantSDKException('Properties `width` and `height` are both required in the frame button dimensions scope');
         }
 
-        return new Dimensions(
-            $this->width,
-            $this->height
-        );
+        $dimensions = new Dimensions();
+        $dimensions->setWidth($this->width);
+        $dimensions->setHeight($this->height);
+
+        return $dimensions;
     }
 
     /**

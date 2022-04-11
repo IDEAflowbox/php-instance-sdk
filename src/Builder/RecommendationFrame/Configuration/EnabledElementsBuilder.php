@@ -58,11 +58,11 @@ class EnabledElementsBuilder implements EnabledElementsBuilderInterface
 
     public function getResult(): EnabledElements
     {
-        return new EnabledElements(
-            $this->thumbnail,
-            $this->button,
-            $this->contents
-        );
+        $enabledElements = new EnabledElements();
+        $enabledElements->setThumbnail($this->thumbnail);
+        $enabledElements->setButton($this->button);
+        $enabledElements->setContents($this->contents);
+        return $enabledElements;
     }
 
     public function endEnabledElementsBuilder(): ConfigurationBuilderInterface

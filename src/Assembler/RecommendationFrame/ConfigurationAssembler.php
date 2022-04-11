@@ -75,12 +75,12 @@ class ConfigurationAssembler
      */
     public function writeDTO(array $configuration): Configuration
     {
-        return new Configuration(
-            $this->matrixAssembler->writeDTO($configuration['matrix']),
-            $this->enabledElementsAssembler->writeDTO($configuration['enabled_elements']),
-            $this->navigationAssembler->writeDTO($configuration['navigation']),
-            $this->textAssembler->writeDTO($configuration['text']),
-            $this->frameAssembler->writeDTO($configuration['frame'])
-        );
+        $configurationDto = new Configuration();
+        $configurationDto->setMatrix($this->matrixAssembler->writeDTO($configuration['matrix']));
+        $configurationDto->setEnabledElements($this->enabledElementsAssembler->writeDTO($configuration['enabled_elements']));
+        $configurationDto->setNavigation($this->navigationAssembler->writeDTO($configuration['navigation']));
+        $configurationDto->setText($this->textAssembler->writeDTO($configuration['text']));
+        $configurationDto->setFrame($this->frameAssembler->writeDTO($configuration['frame']));
+        return $configurationDto;
     }
 }

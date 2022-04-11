@@ -206,18 +206,18 @@ class ProductBuilder implements ProductBuilderInterface
      */
     public function addCategory(string $id): ProductBuilderInterface
     {
-        $this->categories[] = new Category(
-            $id,
-            null,
-            null,
-            null
-        );
+        $category = new Category();
+        $category->setImage($id);
+        $this->categories[] = $category;
         return $this;
     }
 
     public function addFeature(string $featureId, string $choiceId): ProductBuilderInterface
     {
-        $this->features[] = new ProductFeature($featureId, $choiceId);
+        $productFeature = new ProductFeature();
+        $productFeature->setFeatureId($featureId);
+        $productFeature->setChoiceId($choiceId);
+        $this->features[] = $productFeature;
         return $this;
     }
 

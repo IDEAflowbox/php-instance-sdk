@@ -62,10 +62,10 @@ class TextBuilder implements TextBuilderInterface
      */
     public function getResult(): Text
     {
-        return new Text(
-            $this->productContents,
-            $this->button
-        );
+        $text = new Text();
+        $text->setProductContents($this->productContents);
+        $text->setButton($this->button);
+        return $text;
     }
 
     /**

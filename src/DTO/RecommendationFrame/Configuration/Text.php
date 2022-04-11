@@ -21,17 +21,6 @@ class Text
     protected $button;
 
     /**
-     * Text constructor.
-     * @param string $productContents
-     * @param string $button
-     */
-    public function __construct(string $productContents, string $button)
-    {
-        $this->productContents = $productContents;
-        $this->button = $button;
-    }
-
-    /**
      * @return string
      */
     public function getProductContents(): string

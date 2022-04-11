@@ -34,13 +34,13 @@ class DimensionsAssembler
      */
     public function writeDTO(array $dimensions): Dimensions
     {
-        return new Dimensions(
-            $dimensions['width'],
-            $dimensions['height'],
-            $dimensions['margin_top'],
-            $dimensions['margin_bottom'],
-            $dimensions['margin_side'],
-            $dimensions['space_between_elements']
-        );
+        $dimensionsDto = new Dimensions();
+        $dimensionsDto->setWidth($dimensions['width']);
+        $dimensionsDto->setHeight($dimensions['height']);
+        $dimensionsDto->setMarginTop($dimensions['margin_top']);
+        $dimensionsDto->setMarginBottom($dimensions['margin_bottom']);
+        $dimensionsDto->setMarginSide($dimensions['margin_side']);
+        $dimensionsDto->setSpaceBetweenElements($dimensions['space_between_elements']);
+        return $dimensionsDto;
     }
 }

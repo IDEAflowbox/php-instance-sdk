@@ -38,28 +38,6 @@ class Button
     protected $textColor;
 
     /**
-     * RecommendationFrameConfigurationFrameButton constructor.
-     * @param Dimensions $dimensions
-     * @param string $borderRadius
-     * @param string $position
-     * @param string $backgroundColor
-     * @param string $textColor
-     */
-    public function __construct(
-        Dimensions $dimensions,
-        string $borderRadius,
-        string $position,
-        string $backgroundColor,
-        string $textColor
-    ) {
-        $this->dimensions = $dimensions;
-        $this->borderRadius = $borderRadius;
-        $this->position = $position;
-        $this->backgroundColor = $backgroundColor;
-        $this->textColor = $textColor;
-    }
-
-    /**
      * @return Dimensions
      */
     public function getDimensions(): Dimensions

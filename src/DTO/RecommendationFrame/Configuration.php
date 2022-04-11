@@ -42,28 +42,6 @@ class Configuration
     protected $frame;
 
     /**
-     * RecommendationFrameConfiguration constructor.
-     * @param Matrix $matrix
-     * @param EnabledElements $enabledElements
-     * @param Navigation $navigation
-     * @param Text $text
-     * @param Frame $frame
-     */
-    public function __construct(
-        Matrix $matrix,
-        EnabledElements $enabledElements,
-        Navigation $navigation,
-        Text $text,
-        Frame $frame
-    ) {
-        $this->matrix = $matrix;
-        $this->enabledElements = $enabledElements;
-        $this->navigation = $navigation;
-        $this->text = $text;
-        $this->frame = $frame;
-    }
-
-    /**
      * @return Matrix
      */
     public function getMatrix(): Matrix

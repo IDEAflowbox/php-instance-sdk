@@ -46,12 +46,12 @@ class FeatureAssembler implements DataAssemblerInterface
     public function writeDTO(array $feature): Feature
     {
         $choiceAssembler = $this->choiceAssembler;
-        return new Feature(
-            $feature['id'],
-            $feature['name'],
-            array_map(static function ($choice) use ($choiceAssembler) {
-                return $choiceAssembler->writeDTO($choice);
-            }, $feature['choices'])
-        );
+        $featureDto = new Feature();
+        $featureDto->setId($feature['id']);
+        $featureDto->setName($feature['name']);
+        $featureDto->setChoices(array_map(static function ($choice) use ($choiceAssembler) {
+            return $choiceAssembler->writeDTO($choice);
+        }, $feature['choices']));
+        return $featureDto;
     }
 }

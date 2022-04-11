@@ -68,7 +68,10 @@ class MatrixBuilder implements MatrixBuilderInterface
             throw new CyberkonsultantSDKException('Properties `columns` and `rows` are both required in the matrix scope');
         }
 
-        return new Matrix($this->columns, $this->rows);
+        $matrix = new Matrix();
+        $matrix->setColumns($this->columns);
+        $matrix->setRows($this->rows);
+        return $matrix;
     }
 
     /**

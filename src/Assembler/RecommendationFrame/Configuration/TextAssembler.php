@@ -30,9 +30,9 @@ class TextAssembler
      */
     public function writeDTO(array $text): Text
     {
-        return new Text(
-            $text['product_contents'],
-            $text['button']
-        );
+        $textDto = new Text();
+        $textDto->setProductContents($text['product_contents']);
+        $textDto->setButton($text['button']);
+        return $textDto;
     }
 }

@@ -33,11 +33,13 @@ class CallAssembler implements DataAssemblerInterface
      */
     public function writeDTO(array $call): Call
     {
-        return new Call(
-            isset($call['id']) ? $call['id'] : null,
-            $call['order_number'],
-            $call['caller_number'],
-            $call['processed']
-        );
+        $callDto = new Call();
+        if (isset($call['id'])) {
+            $callDto->setId($call['id']);
+        }
+        $callDto->setOrderNumber($call['order_number']);
+        $callDto->setCallerNumber($call['caller_number']);
+        $callDto->setProcessed($call['processed']);
+        return $callDto;
     }
 }

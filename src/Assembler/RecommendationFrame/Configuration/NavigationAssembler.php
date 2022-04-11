@@ -31,10 +31,10 @@ class NavigationAssembler
      */
     public function writeDTO(array $navigation): Navigation
     {
-        return new Navigation(
-            $navigation['size'],
-            $navigation['style'],
-            $navigation['color']
-        );
+        $navigationDto = new Navigation();
+        $navigationDto->setSize($navigation['size']);
+        $navigationDto->setStyle($navigation['style']);
+        $navigationDto->setColor($navigation['color']);
+        return $navigationDto;
     }
 }

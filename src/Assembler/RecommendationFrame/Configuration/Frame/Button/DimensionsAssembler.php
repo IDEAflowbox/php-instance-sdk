@@ -30,9 +30,9 @@ class DimensionsAssembler
      */
     public function writeDTO(array $dimensions): Dimensions
     {
-        return new Dimensions(
-            $dimensions['width'],
-            $dimensions['height']
-        );
+        $dimensionsDto = new Dimensions();
+        $dimensionsDto->setWidth($dimensions['width']);
+        $dimensionsDto->setHeight($dimensions['height']);
+        return $dimensionsDto;
     }
 }

@@ -18,44 +18,22 @@ class Category
     /**
      * @var string|null
      */
-    protected $name;
+    protected $name = null;
 
     /**
      * @var string|null
      */
-    protected $image;
+    protected $image = null;
 
     /**
      * @var string|null
      */
-    protected $url;
+    protected $url = null;
 
     /**
      * @var string|null
      */
-    protected $associatedTo;
-
-    /**
-     * Category constructor.
-     * @param string $id
-     * @param string|null $name
-     * @param string|null $url
-     * @param string|null $image
-     * @param string|null $associatedTo
-     */
-    public function __construct(
-        string $id,
-        ?string $name,
-        ?string $url,
-        ?string $image,
-        ?string $associatedTo = null
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->image = $image;
-        $this->url = $url;
-        $this->associatedTo = $associatedTo;
-    }
+    protected $associatedTo = null;
 
     /**
      * @return string

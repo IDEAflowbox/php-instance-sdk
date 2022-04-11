@@ -31,10 +31,10 @@ class EnabledElementsAssembler
      */
     public function writeDTO(array $enabledElements): EnabledElements
     {
-        return new EnabledElements(
-            $enabledElements['thumbnail'],
-            $enabledElements['button'],
-            $enabledElements['contents']
-        );
+        $enabledElementsDto = new EnabledElements();
+        $enabledElementsDto->setThumbnail($enabledElements['thumbnail']);
+        $enabledElementsDto->setButton($enabledElements['button']);
+        $enabledElementsDto->setContents($enabledElements['contents']);
+        return $enabledElementsDto;
     }
 }

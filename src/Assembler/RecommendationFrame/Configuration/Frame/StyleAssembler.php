@@ -31,10 +31,10 @@ class StyleAssembler
      */
     public function writeDTO(array $style): Style
     {
-        return new Style(
-            $style['background_color'],
-            $style['border_color'],
-            $style['border_color_on_hover']
-        );
+        $styleDto = new Style();
+        $styleDto->setBackgroundColor($style['background_color']);
+        $styleDto->setBorderColor($style['border_color']);
+        $styleDto->setBorderColorOnHover($style['border_color_on_hover']);
+        return $styleDto;
     }
 }

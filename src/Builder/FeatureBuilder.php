@@ -63,10 +63,10 @@ class FeatureBuilder implements FeatureBuilderInterface
      */
     public function getResult(): Feature
     {
-        return new Feature(
-            $this->id,
-            $this->name,
-            $this->choices
-        );
+        $feature = new Feature();
+        $feature->setId($this->id);
+        $feature->setName($this->name);
+        $feature->setChoices($this->choices);
+        return $feature;
     }
 }

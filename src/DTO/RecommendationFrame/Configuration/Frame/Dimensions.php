@@ -41,31 +41,6 @@ class Dimensions
     protected $spaceBetweenElements;
 
     /**
-     * Dimensions constructor.
-     * @param string $width
-     * @param string $height
-     * @param string $marginTop
-     * @param string $marginBottom
-     * @param string $marginSide
-     * @param string $spaceBetweenElements
-     */
-    public function __construct(
-        string $width,
-        string $height,
-        string $marginTop,
-        string $marginBottom,
-        string $marginSide,
-        string $spaceBetweenElements
-    ) {
-        $this->width = $width;
-        $this->height = $height;
-        $this->marginTop = $marginTop;
-        $this->marginBottom = $marginBottom;
-        $this->marginSide = $marginSide;
-        $this->spaceBetweenElements = $spaceBetweenElements;
-    }
-
-    /**
      * @return string
      */
     public function getWidth(): string

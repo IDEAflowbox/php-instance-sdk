@@ -31,10 +31,10 @@ class ChoiceAssembler
      */
     public function writeDTO(array $choice): Choice
     {
-        return new Choice(
-            $choice['id'],
-            $choice['name'],
-            $choice['associated_to']
-        );
+        $choiceDto = new Choice();
+        $choiceDto->setId($choice['id']);
+        $choiceDto->setName($choice['name']);
+        $choiceDto->setAssociatedTo($choice['associated_to']);
+        return $choiceDto;
     }
 }

@@ -56,7 +56,8 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
             $configuration = $this->configurationAssembler->writeDTO($frame['configuration']);
         }
 
-        $frameDTO = new RecommendationFrame($frame['frame_type']);
+        $frameDTO = new RecommendationFrame();
+        $frameDTO->setFrameType($frame['frame_type']);
         $frameDTO->setId($frame['id']);
         $frameDTO->setName($frame['name']);
         $frameDTO->setGroupId($frame['group_id']);

@@ -113,13 +113,13 @@ class ConfigurationBuilder implements ConfigurationBuilderInterface
      */
     public function getResult(): Configuration
     {
-        return new Configuration(
-            $this->getMatrixBuilder()->getResult(),
-            $this->getEnabledElementsBuilder()->getResult(),
-            $this->getNavigationBuilder()->getResult(),
-            $this->getTextBuilder()->getResult(),
-            $this->getFrameBuilder()->getResult()
-        );
+        $configuration = new Configuration();
+        $configuration->setMatrix($this->getMatrixBuilder()->getResult());
+        $configuration->setEnabledElements($this->getEnabledElementsBuilder()->getResult());
+        $configuration->setNavigation($this->getNavigationBuilder()->getResult());
+        $configuration->setText($this->getTextBuilder()->getResult());
+        $configuration->setFrame($this->getFrameBuilder()->getResult());
+        return $configuration;
     }
 
     /**

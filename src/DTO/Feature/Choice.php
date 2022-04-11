@@ -26,19 +26,6 @@ class Choice
     protected $associatedTo = null;
 
     /**
-     * Filter constructor.
-     * @param string $id
-     * @param string $name
-     * @param string|null $associatedTo
-     */
-    public function __construct(string $id, string $name, ?string $associatedTo = null)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->associatedTo = $associatedTo;
-    }
-
-    /**
      * @return string
      */
     public function getId(): string
@@ -60,5 +47,29 @@ class Choice
     public function getAssociatedTo(): ?string
     {
         return $this->associatedTo;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param string|null $associatedTo
+     */
+    public function setAssociatedTo(?string $associatedTo): void
+    {
+        $this->associatedTo = $associatedTo;
     }
 }

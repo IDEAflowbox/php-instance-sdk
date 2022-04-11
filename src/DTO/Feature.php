@@ -28,22 +28,6 @@ class Feature
     protected $choices;
 
     /**
-     * Category constructor.
-     * @param string $id
-     * @param string $name
-     * @param Choice[] $choices
-     */
-    public function __construct(
-        string $id,
-        string $name,
-        array $choices
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->choices = $choices;
-    }
-
-    /**
      * @return string
      */
     public function getId(): string
@@ -65,5 +49,29 @@ class Feature
     public function getChoices(): array
     {
         return $this->choices;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param Choice[] $choices
+     */
+    public function setChoices(array $choices): void
+    {
+        $this->choices = $choices;
     }
 }

@@ -41,29 +41,6 @@ class Frame
     protected $button;
 
     /**
-     * RecommendationFrameConfigurationFrame constructor.
-     *
-     * @param string $borderRadius
-     * @param Dimensions $dimensions
-     * @param Style $style
-     * @param ImageStyle $imageStyle
-     * @param Button $button
-     */
-    public function __construct(
-        string $borderRadius,
-        Dimensions $dimensions,
-        Style $style,
-        ImageStyle $imageStyle,
-        Button $button
-    ) {
-        $this->dimensions = $dimensions;
-        $this->borderRadius = $borderRadius;
-        $this->style = $style;
-        $this->imageStyle = $imageStyle;
-        $this->button = $button;
-    }
-
-    /**
      * @return string
      */
     public function getBorderRadius(): string

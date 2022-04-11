@@ -77,11 +77,11 @@ class CategoryBuilder implements CategoryBuilderInterface
      */
     public function getResult(): Category
     {
-        return new Category(
-            $this->id,
-            $this->name,
-            $this->url,
-            $this->image
-        );
+        $category = new Category();
+        $category->setId($this->id);
+        $category->setName($this->name);
+        $category->setUrl($this->url);
+        $category->setImage($this->image);
+        return $category;
     }
 }

@@ -21,17 +21,6 @@ class Dimensions
     protected $height;
 
     /**
-     * Dimensions constructor.
-     * @param string $width
-     * @param string $height
-     */
-    public function __construct(string $width, string $height)
-    {
-        $this->width = $width;
-        $this->height = $height;
-    }
-
-    /**
      * @return string
      */
     public function getWidth(): string
