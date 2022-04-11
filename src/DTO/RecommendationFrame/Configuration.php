@@ -17,66 +17,66 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Text;
 class Configuration
 {
     /**
-     * @var Matrix
+     * @var Matrix|null
      */
-    protected $matrix;
+    protected $matrix = null;
 
     /**
-     * @var EnabledElements
+     * @var EnabledElements|null
      */
-    protected $enabledElements;
+    protected $enabledElements = null;
 
     /**
-     * @var Navigation
+     * @var Navigation|null
      */
-    protected $navigation;
+    protected $navigation = null;
 
     /**
-     * @var Text
+     * @var Text|null
      */
-    protected $text;
+    protected $text = null;
 
     /**
-     * @var Frame
+     * @var Frame|null
      */
-    protected $frame;
+    protected $frame = null;
 
     /**
-     * @return Matrix
+     * @return Matrix|null
      */
-    public function getMatrix(): Matrix
+    public function getMatrix(): ?Matrix
     {
         return $this->matrix;
     }
 
     /**
-     * @return EnabledElements
+     * @return EnabledElements|null
      */
-    public function getEnabledElements(): EnabledElements
+    public function getEnabledElements(): ?EnabledElements
     {
         return $this->enabledElements;
     }
 
     /**
-     * @return Navigation
+     * @return Navigation|null
      */
-    public function getNavigation(): Navigation
+    public function getNavigation(): ?Navigation
     {
         return $this->navigation;
     }
 
     /**
-     * @return Text
+     * @return Text|null
      */
-    public function getText(): Text
+    public function getText(): ?Text
     {
         return $this->text;
     }
 
     /**
-     * @return Frame
+     * @return Frame|null
      */
-    public function getFrame(): Frame
+    public function getFrame(): ?Frame
     {
         return $this->frame;
     }

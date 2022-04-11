@@ -13,9 +13,9 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Button\Dimension
 class Button
 {
     /**
-     * @var Dimensions
+     * @var Dimensions|null
      */
-    protected $dimensions;
+    protected $dimensions = null;
 
     /**
      * @var string
@@ -38,9 +38,9 @@ class Button
     protected $textColor;
 
     /**
-     * @return Dimensions
+     * @return Dimensions|null
      */
-    public function getDimensions(): Dimensions
+    public function getDimensions(): ?Dimensions
     {
         return $this->dimensions;
     }

@@ -21,24 +21,24 @@ class Frame
     protected $borderRadius;
 
     /**
-     * @var Dimensions
+     * @var Dimensions|null
      */
-    protected $dimensions;
+    protected $dimensions = null;
 
     /**
-     * @var Style
+     * @var Style|null
      */
-    protected $style;
+    protected $style = null;
 
     /**
-     * @var ImageStyle
+     * @var ImageStyle|null
      */
-    protected $imageStyle;
+    protected $imageStyle = null;
 
     /**
-     * @var Button
+     * @var Button|null
      */
-    protected $button;
+    protected $button = null;
 
     /**
      * @return string
@@ -49,33 +49,33 @@ class Frame
     }
 
     /**
-     * @return Dimensions
+     * @return Dimensions|null
      */
-    public function getDimensions(): Dimensions
+    public function getDimensions(): ?Dimensions
     {
         return $this->dimensions;
     }
 
     /**
-     * @return Style
+     * @return Style|null
      */
-    public function getStyle(): Style
+    public function getStyle(): ?Style
     {
         return $this->style;
     }
 
     /**
-     * @return ImageStyle
+     * @return ImageStyle|null
      */
-    public function getImageStyle(): ImageStyle
+    public function getImageStyle(): ?ImageStyle
     {
         return $this->imageStyle;
     }
 
     /**
-     * @return Button
+     * @return Button|null
      */
-    public function getButton(): Button
+    public function getButton(): ?Button
     {
         return $this->button;
     }

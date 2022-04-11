@@ -55,7 +55,7 @@ class RecommendationFrame
     /**
      * @var Configuration|null
      */
-    protected $configuration;
+    protected $configuration = null;
 
     /**
      * @return string|null
