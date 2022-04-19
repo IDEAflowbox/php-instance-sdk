@@ -62,6 +62,8 @@ class Client
      */
     public function sendRequest(string $method, string $uri, array $options = []): Response
     {
+        Request::timeout(5);
+
         $uri = ltrim($uri, '/');
         $uri = $this->options['base_uri'].$uri;
         $query = $options['query'] ?? [];
