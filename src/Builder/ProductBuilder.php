@@ -20,6 +20,11 @@ class ProductBuilder implements ProductBuilderInterface
     protected $id;
 
     /**
+     * @var string|null
+     */
+    protected $parentId;
+
+    /**
      * @var string
      */
     protected $name;
@@ -27,7 +32,7 @@ class ProductBuilder implements ProductBuilderInterface
     /**
      * @var string|null
      */
-    protected $image;
+    protected $image = null;
 
     /**
      * @var string
@@ -47,7 +52,7 @@ class ProductBuilder implements ProductBuilderInterface
     /**
      * @var float|null
      */
-    protected $grossSalePrice;
+    protected $grossSalePrice = null;
 
     /**
      * @var int
@@ -86,6 +91,16 @@ class ProductBuilder implements ProductBuilderInterface
     public function setId(string $id): ProductBuilderInterface
     {
         $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @param string|null $parentId
+     * @return ProductBuilderInterface
+     */
+    public function setParentId(?string $parentId): ProductBuilderInterface
+    {
+        $this->parentId = $parentId;
         return $this;
     }
 
@@ -207,7 +222,7 @@ class ProductBuilder implements ProductBuilderInterface
     public function addCategory(string $id): ProductBuilderInterface
     {
         $category = new Category();
-        $category->setImage($id);
+        $category->setId($id);
         $this->categories[] = $category;
         return $this;
     }
@@ -228,6 +243,7 @@ class ProductBuilder implements ProductBuilderInterface
     {
         $product = new Product();
         $product->setId($this->id);
+        $product->setParentId($this->parentId);
         $product->setName($this->name);
         $product->setImage($this->image);
         $product->setDescription($this->description);

@@ -16,6 +16,11 @@ class Product
     protected $id;
 
     /**
+     * @var string|null
+     */
+    protected $parentId = null;
+
+    /**
      * @var string
      */
     protected $name;
@@ -23,22 +28,22 @@ class Product
     /**
      * @var string|null
      */
-    protected $currency;
+    protected $currency = null;
 
     /**
      * @var string|null
      */
-    protected $sku;
+    protected $sku = null;
 
     /**
      * @var string|null
      */
-    protected $image;
+    protected $image = null;
 
     /**
      * @var string|null
      */
-    protected $description;
+    protected $description = null;
 
     /**
      * @var float
@@ -53,7 +58,7 @@ class Product
     /**
      * @var float|null
      */
-    protected $grossSalePrice;
+    protected $grossSalePrice = null;
 
     /**
      * @var int
@@ -68,17 +73,17 @@ class Product
     /**
      * @var \DateTime|null
      */
-    protected $createdAt;
+    protected $createdAt = null;
 
     /**
      * @var \DateTime|null
      */
-    protected $updatedAt;
+    protected $updatedAt = null;
 
     /**
      * @var \DateTime|null
      */
-    protected $deletedAt;
+    protected $deletedAt = null;
 
     /**
      * @var Category[]
@@ -104,6 +109,22 @@ class Product
     public function setId(string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getParentId(): ?string
+    {
+        return $this->parentId;
+    }
+
+    /**
+     * @param string|null $parentId
+     */
+    public function setParentId(?string $parentId): void
+    {
+        $this->parentId = $parentId;
     }
 
     /**

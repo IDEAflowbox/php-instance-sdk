@@ -18,6 +18,7 @@ class ProductAssembler implements DataAssemblerInterface
      * @var CategoryAssembler
      */
     protected $categoryAssembler;
+
     /**
      * @var ProductFeatureAssembler
      */
@@ -42,6 +43,7 @@ class ProductAssembler implements DataAssemblerInterface
         $productFeatureAssembler = $this->productFeatureAssembler;
         return [
             'id' => $productDTO->getId(),
+            'parent_id' => $productDTO->getParentId(),
             'name' => $productDTO->getName(),
             'image' => $productDTO->getImage(),
             'description' => $productDTO->getDescription(),
@@ -81,6 +83,7 @@ class ProductAssembler implements DataAssemblerInterface
 
         $productDTO = new Product();
         $productDTO->setId($product['id']);
+        $productDTO->setParentId(isset($product['parent_id']) ? $product['parent_id'] : null);
         $productDTO->setName($product['name']);
         $productDTO->setImage($product['image']);
         $productDTO->setDescription($product['description']);

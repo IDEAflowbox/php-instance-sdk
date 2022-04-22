@@ -19,7 +19,7 @@ try {
         ->setStock(987654)
         ->setSku("123/XX/EE")
         ->setCurrency("PLN")
-        ->addCategory("12")
+        ->addCategory("79")
         ->addFeature("php", "sdk")
         ->addFeature("php2", "sdk2")
         ->getResult()
