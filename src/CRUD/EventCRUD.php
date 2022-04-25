@@ -54,4 +54,22 @@ class EventCRUD extends BaseCRUD
 
         return $this->cyberkonsultant->getEdgeResponse($response, EventAssembler::class);
     }
+
+    /**
+     * @param array<Event> $event
+     * @return void
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function createBatch(array $events): void
+    {
+        $eventAssembler = new EventAssembler();
+        $this->cyberkonsultant->post('/shop/events/batch', [
+            'json' => array_map(function (Event $event) use ($eventAssembler) {
+                return $eventAssembler->readDTO($event);
+            }, $events)
+        ]);
+    }
 }
