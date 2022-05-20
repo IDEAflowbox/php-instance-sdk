@@ -53,6 +53,11 @@ class RecommendationFrame
     protected $xpath;
 
     /**
+     * @var string
+     */
+    protected $xpathInjectionPosition;
+
+    /**
      * @var Configuration|null
      */
     protected $configuration = null;
@@ -183,6 +188,22 @@ class RecommendationFrame
     public function setXpath(string $xpath): void
     {
         $this->xpath = $xpath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getXpathInjectionPosition(): string
+    {
+        return $this->xpathInjectionPosition;
+    }
+
+    /**
+     * @param string $xpathInjectionPosition
+     */
+    public function setXpathInjectionPosition(string $xpathInjectionPosition): void
+    {
+        $this->xpathInjectionPosition = $xpathInjectionPosition;
     }
 
     /**

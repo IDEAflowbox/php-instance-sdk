@@ -41,6 +41,7 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
             'minimal_stock' => $frameDTO->getMinimalStock(),
             'custom_html' => $frameDTO->getCustomHtml(),
             'xpath' => $frameDTO->getXpath(),
+            'xpath_injection_position' => $frameDTO->getXpathInjectionPosition(),
             'configuration' => $frameDTO->getConfiguration() ? $this->configurationAssembler->readDTO($frameDTO->getConfiguration()) : null,
         ];
     }
@@ -65,6 +66,7 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
         $frameDTO->setMinimalStock($frame['minimal_stock']);
         $frameDTO->setCustomHtml($frame['custom_html']);
         $frameDTO->setXpath($frame['xpath']);
+        $frameDTO->setXpathInjectionPosition($frame['xpath_injection_position']);
         $frameDTO->setConfiguration($configuration);
         return $frameDTO;
     }
