@@ -25,7 +25,7 @@ class RecommendationFrame
     /**
      * @var string|null
      */
-    protected $groupId;
+    protected $groupId = null;
 
     /**
      * @var string
