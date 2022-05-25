@@ -25,7 +25,7 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
     /**
      * @var string|null
      */
-    protected $groupId;
+    protected $groupId = null;
 
     /**
      * @var int
