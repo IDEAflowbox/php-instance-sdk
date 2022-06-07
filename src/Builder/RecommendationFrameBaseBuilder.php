@@ -104,14 +104,16 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
      * @param string $xpath
      * @param string $xpathInjectionPosition
      * @param string|null $filter
+     * @param int $priority
      * @return RecommendationFrameBaseBuilderInterface
      */
-    public function addRenderSettings(string $xpath, string $xpathInjectionPosition, ?string $filter = null): RecommendationFrameBaseBuilderInterface
+    public function addRenderSettings(string $xpath, string $xpathInjectionPosition, ?string $filter = null, int $priority = 0): RecommendationFrameBaseBuilderInterface
     {
         $renderSettings = new RenderSettings();
         $renderSettings->setXpath($xpath);
         $renderSettings->setXpathInjectionPosition($xpathInjectionPosition);
         $renderSettings->setFilter($filter);
+        $renderSettings->setPriority($priority);
 
         $this->renderSettings[] = $renderSettings;
         return $this;
