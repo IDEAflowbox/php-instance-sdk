@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Cyberkonsultant\Builder;
 
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration;
+use Cyberkonsultant\DTO\RecommendationFrame\RenderSettings;
 
 /**
  * Class RecommendationFrameBaseBuilder
@@ -39,8 +40,14 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
 
     /**
      * @var string
+     * @deprecated
      */
     protected $xpath;
+
+    /**
+     * @var array|[]RenderSettings
+     */
+    protected $renderSettings = [];
 
     /**
      * @param string $name
@@ -85,10 +92,28 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
     /**
      * @param string $xpath
      * @return RecommendationFrameBaseBuilderInterface
+     * @deprecated Will be removed since 1.5.0. Use addRenderSettings() instead.
      */
     public function setXpath(string $xpath): RecommendationFrameBaseBuilderInterface
     {
         $this->xpath = $xpath;
+        return $this;
+    }
+
+    /**
+     * @param string $xpath
+     * @param string $xpathInjectionPosition
+     * @param string|null $filter
+     * @return RecommendationFrameBaseBuilderInterface
+     */
+    public function addRenderSettings(string $xpath, string $xpathInjectionPosition, ?string $filter = null): RecommendationFrameBaseBuilderInterface
+    {
+        $renderSettings = new RenderSettings();
+        $renderSettings->setXpath($xpath);
+        $renderSettings->setXpathInjectionPosition($xpathInjectionPosition);
+        $renderSettings->setFilter($filter);
+
+        $this->renderSettings[] = $renderSettings;
         return $this;
     }
 }
