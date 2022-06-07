@@ -49,13 +49,20 @@ class RecommendationFrame
 
     /**
      * @var string
+     * @deprecated
      */
     protected $xpath;
 
     /**
      * @var string
+     * @deprecated
      */
     protected $xpathInjectionPosition;
+
+    /**
+     * @var array|[]RenderSettings
+     */
+    protected $renderSettings = [];
 
     /**
      * @var Configuration|null
@@ -176,6 +183,7 @@ class RecommendationFrame
 
     /**
      * @return string
+     * @deprecated Will be removed since 1.5.0. Use getRenderSettings() instead.
      */
     public function getXpath(): string
     {
@@ -184,6 +192,7 @@ class RecommendationFrame
 
     /**
      * @param string $xpath
+     * @deprecated Will be removed since 1.5.0. Use setRenderSettings() instead.
      */
     public function setXpath(string $xpath): void
     {
@@ -192,6 +201,7 @@ class RecommendationFrame
 
     /**
      * @return string
+     * @deprecated Will be removed since 1.5.0. Use getRenderSettings() instead.
      */
     public function getXpathInjectionPosition(): string
     {
@@ -200,6 +210,7 @@ class RecommendationFrame
 
     /**
      * @param string $xpathInjectionPosition
+     * @deprecated Will be removed since 1.5.0. Use setRenderSettings() instead.
      */
     public function setXpathInjectionPosition(string $xpathInjectionPosition): void
     {
@@ -220,5 +231,21 @@ class RecommendationFrame
     public function setConfiguration(?Configuration $configuration): void
     {
         $this->configuration = $configuration;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRenderSettings(): array
+    {
+        return $this->renderSettings;
+    }
+
+    /**
+     * @param array $renderSettings
+     */
+    public function setRenderSettings(array $renderSettings): void
+    {
+        $this->renderSettings = $renderSettings;
     }
 }
