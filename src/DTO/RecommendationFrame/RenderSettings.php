@@ -26,6 +26,11 @@ class RenderSettings
     protected $filter;
 
     /**
+     * @var int
+     */
+    protected $priority = 0;
+
+    /**
      * @return string
      */
     public function getXpath(): string
@@ -71,5 +76,21 @@ class RenderSettings
     public function setFilter(?string $filter): void
     {
         $this->filter = $filter;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPriority(): int
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param int $priority
+     */
+    public function setPriority(int $priority): void
+    {
+        $this->priority = $priority;
     }
 }

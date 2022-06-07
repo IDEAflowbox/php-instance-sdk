@@ -22,6 +22,7 @@ class RenderSettingsAssembler
             'xpath' => $renderSettingsDTO->getXpath(),
             'xpath_injection_position' => $renderSettingsDTO->getXpathInjectionPosition(),
             'filter' => $renderSettingsDTO->getFilter(),
+            'priority' => $renderSettingsDTO->getPriority(),
         ];
     }
 
@@ -35,6 +36,7 @@ class RenderSettingsAssembler
         $renderSettingsDto->setXpath($renderSettings['xpath']);
         $renderSettingsDto->setXpathInjectionPosition($renderSettings['xpath_injection_position']);
         $renderSettingsDto->setFilter($renderSettings['filter']);
+        $renderSettingsDto->setPriority($renderSettings['priority']);
         return $renderSettingsDto;
     }
 }
