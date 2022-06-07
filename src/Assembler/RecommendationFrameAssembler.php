@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Cyberkonsultant\Assembler;
 
 use Cyberkonsultant\Assembler\RecommendationFrame\ConfigurationAssembler;
+use Cyberkonsultant\Assembler\RecommendationFrame\RenderSettingsAssembler;
 use Cyberkonsultant\DTO\RecommendationFrame;
 
 /**
@@ -19,11 +20,17 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
     protected $configurationAssembler;
 
     /**
+     * @var RenderSettingsAssembler
+     */
+    protected $renderSettingsAssembler;
+
+    /**
      * RecommendationFrameAssembler constructor.
      */
     public function __construct()
     {
         $this->configurationAssembler = new ConfigurationAssembler();
+        $this->renderSettingsAssembler = new RenderSettingsAssembler();
     }
 
     /**
@@ -32,6 +39,7 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
      */
     public function readDTO(RecommendationFrame $frameDTO): array
     {
+        $renderSettingsAssembler = $this->renderSettingsAssembler;
         return [
             'id' => $frameDTO->getId(),
             'name' => $frameDTO->getName(),
@@ -43,6 +51,9 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
             'xpath' => $frameDTO->getXpath(),
             'xpath_injection_position' => $frameDTO->getXpathInjectionPosition(),
             'configuration' => $frameDTO->getConfiguration() ? $this->configurationAssembler->readDTO($frameDTO->getConfiguration()) : null,
+            'render_settings' => array_map(static function ($renderSettings) use ($renderSettingsAssembler) {
+                return $renderSettingsAssembler->readDTO($renderSettings);
+            }, $frameDTO->getRenderSettings()),
         ];
     }
 
@@ -52,6 +63,8 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
      */
     public function writeDTO(array $frame): RecommendationFrame
     {
+        $renderSettingsAssembler = $this->renderSettingsAssembler;
+
         $configuration = null;
         if (isset($frame['configuration']) && $frame['frame_type'] === "simple") {
             $configuration = $this->configurationAssembler->writeDTO($frame['configuration']);
@@ -68,6 +81,9 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
         $frameDTO->setXpath($frame['xpath']);
         $frameDTO->setXpathInjectionPosition($frame['xpath_injection_position']);
         $frameDTO->setConfiguration($configuration);
+        $frameDTO->setRenderSettings(array_map(static function ($filter) use ($renderSettingsAssembler) {
+            return $renderSettingsAssembler->writeDTO($filter);
+        }, $frame['render_settings']));
         return $frameDTO;
     }
 }
