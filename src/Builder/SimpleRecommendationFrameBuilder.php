@@ -49,7 +49,6 @@ class SimpleRecommendationFrameBuilder extends RecommendationFrameBaseBuilder im
         $recommendationFrame->setGroupId($this->groupId);
         $recommendationFrame->setNumberOfProducts($this->numberOfProducts);
         $recommendationFrame->setMinimalStock($this->minimalStock);
-        $recommendationFrame->setXpath($this->xpath);
         $recommendationFrame->setConfiguration($this->getConfigurationBuilder()->getResult());
         return $recommendationFrame;
     }

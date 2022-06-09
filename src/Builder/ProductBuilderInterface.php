@@ -25,13 +25,6 @@ interface ProductBuilderInterface
     public function setParentId(string $parentId): ProductBuilderInterface;
 
     /**
-     * @param string $code
-     * @return ProductBuilderInterface
-     * @deprecated since version 1.2.6. Use method `setId` instead.
-     */
-    public function setCode(string $code): ProductBuilderInterface;
-
-    /**
      * @param string $name
      * @return ProductBuilderInterface
      */

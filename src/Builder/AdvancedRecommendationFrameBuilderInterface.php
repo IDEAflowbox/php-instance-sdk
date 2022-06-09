@@ -10,7 +10,6 @@ namespace Cyberkonsultant\Builder;
  * @method AdvancedRecommendationFrameBuilderInterface setName(string $name)
  * @method AdvancedRecommendationFrameBuilderInterface setGroupId(string $groupId)
  * @method AdvancedRecommendationFrameBuilderInterface setNumberOfProducts(int $numberOfProducts)
- * @method AdvancedRecommendationFrameBuilderInterface setXPath(string $xpath)
  */
 interface AdvancedRecommendationFrameBuilderInterface extends RecommendationFrameBaseBuilderInterface
 {

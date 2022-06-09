@@ -105,17 +105,6 @@ class ProductBuilder implements ProductBuilderInterface
     }
 
     /**
-     * @param string $code
-     * @return ProductBuilderInterface
-     * @deprecated since version 1.2.6
-     */
-    public function setCode(string $code): ProductBuilderInterface
-    {
-        $this->id = $code;
-        return $this;
-    }
-
-    /**
      * @param string $name
      * @return ProductBuilderInterface
      */

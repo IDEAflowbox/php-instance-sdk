@@ -44,7 +44,6 @@ class AdvancedRecommendationFrameBuilder extends RecommendationFrameBaseBuilder 
         $recommendationFrame->setNumberOfProducts($this->numberOfProducts);
         $recommendationFrame->setMinimalStock($this->minimalStock);
         $recommendationFrame->setCustomHtml($this->customHtml);
-        $recommendationFrame->setXpath($this->xpath);
         return $recommendationFrame;
     }
 }
