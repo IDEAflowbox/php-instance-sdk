@@ -48,8 +48,6 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
             'number_of_products' => $frameDTO->getNumberOfProducts(),
             'minimal_stock' => $frameDTO->getMinimalStock(),
             'custom_html' => $frameDTO->getCustomHtml(),
-            'xpath' => $frameDTO->getXpath(),
-            'xpath_injection_position' => $frameDTO->getXpathInjectionPosition(),
             'configuration' => $frameDTO->getConfiguration() ? $this->configurationAssembler->readDTO($frameDTO->getConfiguration()) : null,
             'render_settings' => array_map(static function ($renderSettings) use ($renderSettingsAssembler) {
                 return $renderSettingsAssembler->readDTO($renderSettings);
@@ -78,8 +76,6 @@ class RecommendationFrameAssembler implements DataAssemblerInterface
         $frameDTO->setNumberOfProducts($frame['number_of_products']);
         $frameDTO->setMinimalStock($frame['minimal_stock']);
         $frameDTO->setCustomHtml($frame['custom_html']);
-        $frameDTO->setXpath($frame['xpath']);
-        $frameDTO->setXpathInjectionPosition($frame['xpath_injection_position']);
         $frameDTO->setConfiguration($configuration);
         $frameDTO->setRenderSettings(array_map(static function ($filter) use ($renderSettingsAssembler) {
             return $renderSettingsAssembler->writeDTO($filter);

@@ -39,12 +39,6 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
     protected $minimalStock = 0;
 
     /**
-     * @var string
-     * @deprecated
-     */
-    protected $xpath;
-
-    /**
      * @var array|[]RenderSettings
      */
     protected $renderSettings = [];
@@ -86,17 +80,6 @@ abstract class RecommendationFrameBaseBuilder implements RecommendationFrameBase
     public function setMinimalStock(int $minimalStock): RecommendationFrameBaseBuilderInterface
     {
         $this->minimalStock = $minimalStock;
-        return $this;
-    }
-
-    /**
-     * @param string $xpath
-     * @return RecommendationFrameBaseBuilderInterface
-     * @deprecated Will be removed since 1.5.0. Use addRenderSettings() instead.
-     */
-    public function setXpath(string $xpath): RecommendationFrameBaseBuilderInterface
-    {
-        $this->xpath = $xpath;
         return $this;
     }
 

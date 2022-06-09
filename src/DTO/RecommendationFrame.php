@@ -48,18 +48,6 @@ class RecommendationFrame
     protected $customHtml;
 
     /**
-     * @var string
-     * @deprecated
-     */
-    protected $xpath;
-
-    /**
-     * @var string
-     * @deprecated
-     */
-    protected $xpathInjectionPosition;
-
-    /**
      * @var array|[]RenderSettings
      */
     protected $renderSettings = [];
@@ -179,42 +167,6 @@ class RecommendationFrame
     public function setCustomHtml(?string $customHtml): void
     {
         $this->customHtml = $customHtml;
-    }
-
-    /**
-     * @return string
-     * @deprecated Will be removed since 1.5.0. Use getRenderSettings() instead.
-     */
-    public function getXpath(): string
-    {
-        return $this->xpath;
-    }
-
-    /**
-     * @param string $xpath
-     * @deprecated Will be removed since 1.5.0. Use setRenderSettings() instead.
-     */
-    public function setXpath(string $xpath): void
-    {
-        $this->xpath = $xpath;
-    }
-
-    /**
-     * @return string
-     * @deprecated Will be removed since 1.5.0. Use getRenderSettings() instead.
-     */
-    public function getXpathInjectionPosition(): string
-    {
-        return $this->xpathInjectionPosition;
-    }
-
-    /**
-     * @param string $xpathInjectionPosition
-     * @deprecated Will be removed since 1.5.0. Use setRenderSettings() instead.
-     */
-    public function setXpathInjectionPosition(string $xpathInjectionPosition): void
-    {
-        $this->xpathInjectionPosition = $xpathInjectionPosition;
     }
 
     /**

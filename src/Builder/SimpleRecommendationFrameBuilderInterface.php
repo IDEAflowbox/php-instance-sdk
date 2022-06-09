@@ -12,7 +12,6 @@ use Cyberkonsultant\Builder\RecommendationFrame\ConfigurationBuilderInterface;
  * @method SimpleRecommendationFrameBuilderInterface setName(string $name)
  * @method SimpleRecommendationFrameBuilderInterface setGroupId(string $groupId)
  * @method SimpleRecommendationFrameBuilderInterface setNumberOfProducts(int $numberOfProducts)
- * @method SimpleRecommendationFrameBuilderInterface setXPath(string $xpath)
  */
 interface SimpleRecommendationFrameBuilderInterface extends RecommendationFrameBaseBuilderInterface
 {
