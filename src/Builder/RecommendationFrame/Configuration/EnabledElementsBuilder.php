@@ -16,17 +16,22 @@ class EnabledElementsBuilder implements EnabledElementsBuilderInterface
     /**
      * @var bool
      */
-    protected $thumbnail = true;
+    protected $image = true;
+
+    /**
+     * @var bool
+     */
+    protected $productName = true;
+
+    /**
+     * @var bool
+     */
+    protected $price = true;
 
     /**
      * @var bool
      */
     protected $button = true;
-
-    /**
-     * @var bool
-     */
-    protected $contents = true;
 
     /**
      * @var ConfigurationBuilderInterface
@@ -38,9 +43,21 @@ class EnabledElementsBuilder implements EnabledElementsBuilderInterface
         $this->parent = $parent;
     }
 
-    public function setThumbnail(bool $thumbnail): EnabledElementsBuilderInterface
+    public function setImage(bool $image): EnabledElementsBuilderInterface
     {
-        $this->thumbnail = $thumbnail;
+        $this->image = $image;
+        return $this;
+    }
+
+    public function setProductName(bool $productName): EnabledElementsBuilderInterface
+    {
+        $this->productName = $productName;
+        return $this;
+    }
+
+    public function setPrice(bool $price): EnabledElementsBuilderInterface
+    {
+        $this->price = $price;
         return $this;
     }
 
@@ -50,18 +67,13 @@ class EnabledElementsBuilder implements EnabledElementsBuilderInterface
         return $this;
     }
 
-    public function setContents(bool $contents): EnabledElementsBuilderInterface
-    {
-        $this->contents = $contents;
-        return $this;
-    }
-
     public function getResult(): EnabledElements
     {
         $enabledElements = new EnabledElements();
-        $enabledElements->setThumbnail($this->thumbnail);
+        $enabledElements->setImage($this->image);
+        $enabledElements->setProductName($this->productName);
+        $enabledElements->setPrice($this->price);
         $enabledElements->setButton($this->button);
-        $enabledElements->setContents($this->contents);
         return $enabledElements;
     }
 

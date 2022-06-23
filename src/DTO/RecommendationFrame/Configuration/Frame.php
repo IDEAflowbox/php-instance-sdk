@@ -3,11 +3,6 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\DTO\RecommendationFrame\Configuration;
 
-use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Button;
-use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Dimensions;
-use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\ImageStyle;
-use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame\Style;
-
 /**
  * Class Frame
  *
@@ -18,105 +13,63 @@ class Frame
     /**
      * @var string
      */
-    protected $borderRadius;
+    protected $sidePadding;
 
     /**
-     * @var Dimensions|null
+     * @var string
      */
-    protected $dimensions = null;
+    protected $marginBottom;
 
     /**
-     * @var Style|null
+     * @var string
      */
-    protected $style = null;
-
-    /**
-     * @var ImageStyle|null
-     */
-    protected $imageStyle = null;
-
-    /**
-     * @var Button|null
-     */
-    protected $button = null;
+    protected $marginBetween;
 
     /**
      * @return string
      */
-    public function getBorderRadius(): string
+    public function getSidePadding(): string
     {
-        return $this->borderRadius;
+        return $this->sidePadding;
     }
 
     /**
-     * @return Dimensions|null
+     * @param string $sidePadding
      */
-    public function getDimensions(): ?Dimensions
+    public function setSidePadding(string $sidePadding): void
     {
-        return $this->dimensions;
+        $this->sidePadding = $sidePadding;
     }
 
     /**
-     * @return Style|null
+     * @return string
      */
-    public function getStyle(): ?Style
+    public function getMarginBottom(): string
     {
-        return $this->style;
+        return $this->marginBottom;
     }
 
     /**
-     * @return ImageStyle|null
+     * @param string $marginBottom
      */
-    public function getImageStyle(): ?ImageStyle
+    public function setMarginBottom(string $marginBottom): void
     {
-        return $this->imageStyle;
+        $this->marginBottom = $marginBottom;
     }
 
     /**
-     * @return Button|null
+     * @return string
      */
-    public function getButton(): ?Button
+    public function getMarginBetween(): string
     {
-        return $this->button;
+        return $this->marginBetween;
     }
 
     /**
-     * @param string $borderRadius
+     * @param string $marginBetween
      */
-    public function setBorderRadius(string $borderRadius): void
+    public function setMarginBetween(string $marginBetween): void
     {
-        $this->borderRadius = $borderRadius;
-    }
-
-    /**
-     * @param Dimensions $dimensions
-     */
-    public function setDimensions(Dimensions $dimensions): void
-    {
-        $this->dimensions = $dimensions;
-    }
-
-    /**
-     * @param Style $style
-     */
-    public function setStyle(Style $style): void
-    {
-        $this->style = $style;
-    }
-
-    /**
-     * @param ImageStyle $imageStyle
-     */
-    public function setImageStyle(ImageStyle $imageStyle): void
-    {
-        $this->imageStyle = $imageStyle;
-    }
-
-    /**
-     * @param Button $button
-     */
-    public function setButton(Button $button): void
-    {
-        $this->button = $button;
+        $this->marginBetween = $marginBetween;
     }
 }

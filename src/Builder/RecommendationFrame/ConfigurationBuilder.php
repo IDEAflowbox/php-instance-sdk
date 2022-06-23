@@ -3,16 +3,22 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Builder\RecommendationFrame;
 
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\AnimationsBuilder;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\AnimationsBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ArrowBuilder;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ArrowBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ButtonBuilder;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ButtonBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\EnabledElementsBuilder;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\EnabledElementsBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\FrameBuilder;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\FrameBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ImageBuilder;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ImageBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\MatrixBuilder;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\MatrixBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\NavigationBuilder;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\NavigationBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\TextBuilder;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\TextBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ProductBuilder;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ProductBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrameBaseBuilderInterface;
 use Cyberkonsultant\Builder\SimpleRecommendationFrameBuilderInterface;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration;
@@ -35,19 +41,34 @@ class ConfigurationBuilder implements ConfigurationBuilderInterface
     protected $enabledElementsBuilder;
 
     /**
-     * @var NavigationBuilderInterface
+     * @var ImageBuilderInterface
      */
-    protected $navigationBuilder;
-
-    /**
-     * @var TextBuilderInterface
-     */
-    protected $textBuilder;
+    protected $imageBuilder;
 
     /**
      * @var FrameBuilderInterface
      */
     protected $frameBuilder;
+
+    /**
+     * @var ProductBuilderInterface
+     */
+    protected $productBuilder;
+
+    /**
+     * @var ArrowBuilderInterface
+     */
+    protected $arrowBuilder;
+
+    /**
+     * @var ButtonBuilderInterface
+     */
+    protected $buttonBuilder;
+
+    /**
+     * @var AnimationsBuilderInterface
+     */
+    protected $animationsBuilder;
 
     /**
      * @var SimpleRecommendationFrameBuilderInterface
@@ -63,9 +84,12 @@ class ConfigurationBuilder implements ConfigurationBuilderInterface
         $this->parent = $parent;
         $this->matrixBuilder = new MatrixBuilder($this);
         $this->enabledElementsBuilder = new EnabledElementsBuilder($this);
-        $this->navigationBuilder = new NavigationBuilder($this);
-        $this->textBuilder = new TextBuilder($this);
+        $this->imageBuilder = new ImageBuilder($this);
         $this->frameBuilder = new FrameBuilder($this);
+        $this->productBuilder = new ProductBuilder($this);
+        $this->arrowBuilder = new ArrowBuilder($this);
+        $this->buttonBuilder = new ButtonBuilder($this);
+        $this->animationsBuilder = new AnimationsBuilder($this);
     }
 
     /**
@@ -85,19 +109,11 @@ class ConfigurationBuilder implements ConfigurationBuilderInterface
     }
 
     /**
-     * @return NavigationBuilderInterface
+     * @return ImageBuilderInterface
      */
-    public function getNavigationBuilder(): NavigationBuilderInterface
+    public function getImageBuilder(): ImageBuilderInterface
     {
-        return $this->navigationBuilder;
-    }
-
-    /**
-     * @return TextBuilderInterface
-     */
-    public function getTextBuilder(): TextBuilderInterface
-    {
-        return $this->textBuilder;
+        return $this->imageBuilder;
     }
 
     /**
@@ -109,6 +125,38 @@ class ConfigurationBuilder implements ConfigurationBuilderInterface
     }
 
     /**
+     * @return ProductBuilderInterface
+     */
+    public function getProductBuilder(): ProductBuilderInterface
+    {
+        return $this->productBuilder;
+    }
+
+    /**
+     * @return ArrowBuilderInterface
+     */
+    public function getArrowBuilder(): ArrowBuilderInterface
+    {
+        return $this->arrowBuilder;
+    }
+
+    /**
+     * @return ButtonBuilderInterface
+     */
+    public function getButtonBuilder(): ButtonBuilderInterface
+    {
+        return $this->buttonBuilder;
+    }
+
+    /**
+     * @return AnimationsBuilderInterface
+     */
+    public function getAnimationsBuilder(): AnimationsBuilderInterface
+    {
+        return $this->animationsBuilder;
+    }
+
+    /**
      * @return Configuration
      */
     public function getResult(): Configuration
@@ -116,9 +164,12 @@ class ConfigurationBuilder implements ConfigurationBuilderInterface
         $configuration = new Configuration();
         $configuration->setMatrix($this->getMatrixBuilder()->getResult());
         $configuration->setEnabledElements($this->getEnabledElementsBuilder()->getResult());
-        $configuration->setNavigation($this->getNavigationBuilder()->getResult());
-        $configuration->setText($this->getTextBuilder()->getResult());
+        $configuration->setImage($this->getImageBuilder()->getResult());
         $configuration->setFrame($this->getFrameBuilder()->getResult());
+        $configuration->setProduct($this->getProductBuilder()->getResult());
+        $configuration->setArrow($this->getArrowBuilder()->getResult());
+        $configuration->setButton($this->getButtonBuilder()->getResult());
+        $configuration->setAnimations($this->getAnimationsBuilder()->getResult());
         return $configuration;
     }
 

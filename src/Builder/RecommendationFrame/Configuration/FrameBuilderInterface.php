@@ -5,10 +5,6 @@ namespace Cyberkonsultant\Builder\RecommendationFrame\Configuration;
 
 use Cyberkonsultant\Builder\RecommendationFrame\ConfigurationBuilderInterface;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\DimensionsBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\StyleBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ImageStyleBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ButtonBuilderInterface;
 
 /**
  * Interface FrameBuilderInterface
@@ -18,30 +14,22 @@ use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ButtonBuilde
 interface FrameBuilderInterface
 {
     /**
-     * @param string $borderRadius
+     * @param string $sidePadding
      * @return FrameBuilderInterface
      */
-    public function setBorderRadius(string $borderRadius): FrameBuilderInterface;
+    public function setSidePadding(string $sidePadding): FrameBuilderInterface;
 
     /**
-     * @return DimensionsBuilderInterface
+     * @param string $marginBottom
+     * @return FrameBuilderInterface
      */
-    public function getDimensionsBuilder(): DimensionsBuilderInterface;
+    public function setMarginBottom(string $marginBottom): FrameBuilderInterface;
 
     /**
-     * @return StyleBuilderInterface
+     * @param string $marginBetween
+     * @return FrameBuilderInterface
      */
-    public function getStyleBuilder(): StyleBuilderInterface;
-
-    /**
-     * @return ImageStyleBuilderInterface
-     */
-    public function getImageStyleBuilder(): ImageStyleBuilderInterface;
-
-    /**
-     * @return ButtonBuilderInterface
-     */
-    public function getButtonBuilder(): ButtonBuilderInterface;
+    public function setMarginBetween(string $marginBetween): FrameBuilderInterface;
 
     /**
      * @return Frame

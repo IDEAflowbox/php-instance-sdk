@@ -14,22 +14,28 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\EnabledElements;
 interface EnabledElementsBuilderInterface
 {
     /**
-     * @param bool $thumbnail
+     * @param bool $image
      * @return EnabledElementsBuilderInterface
      */
-    public function setThumbnail(bool $thumbnail): EnabledElementsBuilderInterface;
+    public function setImage(bool $image): EnabledElementsBuilderInterface;
+
+    /**
+     * @param bool $productName
+     * @return EnabledElementsBuilderInterface
+     */
+    public function setProductName(bool $productName): EnabledElementsBuilderInterface;
+
+    /**
+     * @param bool $price
+     * @return EnabledElementsBuilderInterface
+     */
+    public function setPrice(bool $price): EnabledElementsBuilderInterface;
 
     /**
      * @param bool $button
      * @return EnabledElementsBuilderInterface
      */
     public function setButton(bool $button): EnabledElementsBuilderInterface;
-
-    /**
-     * @param bool $contents
-     * @return EnabledElementsBuilderInterface
-     */
-    public function setContents(bool $contents): EnabledElementsBuilderInterface;
 
     /**
      * @return EnabledElements

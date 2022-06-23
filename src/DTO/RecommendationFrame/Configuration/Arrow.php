@@ -4,11 +4,11 @@ declare(strict_types=1);
 namespace Cyberkonsultant\DTO\RecommendationFrame\Configuration;
 
 /**
- * Class Navigation
+ * Class Arrow
  *
  * @package Cyberkonsultant
  */
-class Navigation
+class Arrow
 {
     /**
      * @var string
@@ -34,22 +34,6 @@ class Navigation
     }
 
     /**
-     * @return string
-     */
-    public function getStyle(): string
-    {
-        return $this->style;
-    }
-
-    /**
-     * @return string
-     */
-    public function getColor(): string
-    {
-        return $this->color;
-    }
-
-    /**
      * @param string $size
      */
     public function setSize(string $size): void
@@ -58,11 +42,27 @@ class Navigation
     }
 
     /**
+     * @return string
+     */
+    public function getStyle(): string
+    {
+        return $this->style;
+    }
+
+    /**
      * @param string $style
      */
     public function setStyle(string $style): void
     {
         $this->style = $style;
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor(): string
+    {
+        return $this->color;
     }
 
     /**

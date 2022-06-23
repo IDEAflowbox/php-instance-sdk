@@ -13,7 +13,17 @@ class EnabledElements
     /**
      * @var bool
      */
-    protected $thumbnail;
+    protected $image;
+
+    /**
+     * @var bool
+     */
+    protected $productName;
+
+    /**
+     * @var bool
+     */
+    protected $price;
 
     /**
      * @var bool
@@ -21,16 +31,51 @@ class EnabledElements
     protected $button;
 
     /**
-     * @var bool
+     * @return bool
      */
-    protected $contents;
+    public function isImage(): bool
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param bool $image
+     */
+    public function setImage(bool $image): void
+    {
+        $this->image = $image;
+    }
 
     /**
      * @return bool
      */
-    public function isThumbnail(): bool
+    public function isProductName(): bool
     {
-        return $this->thumbnail;
+        return $this->productName;
+    }
+
+    /**
+     * @param bool $productName
+     */
+    public function setProductName(bool $productName): void
+    {
+        $this->productName = $productName;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPrice(): bool
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param bool $price
+     */
+    public function setPrice(bool $price): void
+    {
+        $this->price = $price;
     }
 
     /**
@@ -42,34 +87,10 @@ class EnabledElements
     }
 
     /**
-     * @return bool
-     */
-    public function isContents(): bool
-    {
-        return $this->contents;
-    }
-
-    /**
-     * @param bool $thumbnail
-     */
-    public function setThumbnail(bool $thumbnail): void
-    {
-        $this->thumbnail = $thumbnail;
-    }
-
-    /**
      * @param bool $button
      */
     public function setButton(bool $button): void
     {
         $this->button = $button;
-    }
-
-    /**
-     * @param bool $contents
-     */
-    public function setContents(bool $contents): void
-    {
-        $this->contents = $contents;
     }
 }

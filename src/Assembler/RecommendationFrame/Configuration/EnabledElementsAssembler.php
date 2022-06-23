@@ -19,9 +19,10 @@ class EnabledElementsAssembler
     public function readDTO(EnabledElements $enabledElementsDTO): array
     {
         return [
-            'thumbnail' => $enabledElementsDTO->isThumbnail(),
+            'image' => $enabledElementsDTO->isImage(),
+            'product_name' => $enabledElementsDTO->isProductName(),
+            'price' => $enabledElementsDTO->isPrice(),
             'button' => $enabledElementsDTO->isButton(),
-            'contents' => $enabledElementsDTO->isContents(),
         ];
     }
 
@@ -32,9 +33,10 @@ class EnabledElementsAssembler
     public function writeDTO(array $enabledElements): EnabledElements
     {
         $enabledElementsDto = new EnabledElements();
-        $enabledElementsDto->setThumbnail($enabledElements['thumbnail']);
+        $enabledElementsDto->setImage($enabledElements['image']);
+        $enabledElementsDto->setProductName($enabledElements['product_name']);
+        $enabledElementsDto->setPrice($enabledElements['price']);
         $enabledElementsDto->setButton($enabledElements['button']);
-        $enabledElementsDto->setContents($enabledElements['contents']);
         return $enabledElementsDto;
     }
 }

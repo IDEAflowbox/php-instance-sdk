@@ -3,10 +3,6 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Assembler\RecommendationFrame\Configuration;
 
-use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame\ButtonAssembler;
-use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame\DimensionsAssembler;
-use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame\ImageStyleAssembler;
-use Cyberkonsultant\Assembler\RecommendationFrame\Configuration\Frame\StyleAssembler;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame;
 
 /**
@@ -17,48 +13,15 @@ use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame;
 class FrameAssembler
 {
     /**
-     * @var DimensionsAssembler
-     */
-    protected $dimensionsAssembler;
-
-    /**
-     * @var StyleAssembler
-     */
-    protected $styleAssembler;
-
-    /**
-     * @var ImageStyleAssembler
-     */
-    protected $imageStyleAssembler;
-
-    /**
-     * @var ButtonAssembler
-     */
-    protected $buttonAssembler;
-
-    /**
-     * FrameAssembler constructor.
-     */
-    public function __construct()
-    {
-        $this->dimensionsAssembler = new DimensionsAssembler();
-        $this->styleAssembler = new StyleAssembler();
-        $this->imageStyleAssembler = new ImageStyleAssembler();
-        $this->buttonAssembler = new ButtonAssembler();
-    }
-
-    /**
      * @param Frame $frameDTO
      * @return array
      */
     public function readDTO(Frame $frameDTO): array
     {
         return [
-            'border_radius' => $frameDTO->getBorderRadius(),
-            'dimensions' => $this->dimensionsAssembler->readDTO($frameDTO->getDimensions()),
-            'style' => $this->styleAssembler->readDTO($frameDTO->getStyle()),
-            'image_style' => $this->imageStyleAssembler->readDTO($frameDTO->getImageStyle()),
-            'button' => $this->buttonAssembler->readDTO($frameDTO->getButton()),
+            'side_padding' => $frameDTO->getSidePadding(),
+            'margin_bottom' => $frameDTO->getMarginBottom(),
+            'margin_between' => $frameDTO->getMarginBetween(),
         ];
     }
 
@@ -69,11 +32,9 @@ class FrameAssembler
     public function writeDTO(array $frame): Frame
     {
         $frameDto = new Frame();
-        $frameDto->setBorderRadius($frame['border_radius']);
-        $frameDto->setDimensions($this->dimensionsAssembler->writeDTO($frame['dimensions']));
-        $frameDto->setStyle($this->styleAssembler->writeDTO($frame['style']));
-        $frameDto->setImageStyle($this->imageStyleAssembler->writeDTO($frame['image_style']));
-        $frameDto->setButton($this->buttonAssembler->writeDTO($frame['button']));
+        $frameDto->setSidePadding($frame['side_padding']);
+        $frameDto->setMarginBottom($frame['margin_bottom']);
+        $frameDto->setMarginBetween($frame['margin_between']);
         return $frameDto;
     }
 }

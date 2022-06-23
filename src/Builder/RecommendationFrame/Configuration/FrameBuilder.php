@@ -3,14 +3,6 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Builder\RecommendationFrame\Configuration;
 
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ButtonBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ButtonBuilder;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\DimensionsBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\DimensionsBuilder;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ImageStyleBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\ImageStyleBuilder;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\StyleBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\Frame\StyleBuilder;
 use Cyberkonsultant\Builder\RecommendationFrame\ConfigurationBuilderInterface;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration\Frame;
 
@@ -24,27 +16,17 @@ class FrameBuilder implements FrameBuilderInterface
     /**
      * @var string
      */
-    protected $borderRadius;
+    protected $sidePadding;
 
     /**
-     * @var DimensionsBuilderInterface
+     * @var string
      */
-    protected $dimensionsBuilder;
+    protected $marginBottom;
 
     /**
-     * @var StyleBuilderInterface
+     * @var string
      */
-    protected $styleBuilder;
-
-    /**
-     * @var ImageStyleBuilderInterface
-     */
-    protected $imageStyleBuilder;
-
-    /**
-     * @var ButtonBuilderInterface
-     */
-    protected $buttonBuilder;
+    protected $marginBetween;
 
     /**
      * @var ConfigurationBuilderInterface
@@ -54,52 +36,24 @@ class FrameBuilder implements FrameBuilderInterface
     public function __construct(ConfigurationBuilderInterface $parent)
     {
         $this->parent = $parent;
-        $this->dimensionsBuilder = new DimensionsBuilder($this);
-        $this->styleBuilder = new StyleBuilder($this);
-        $this->imageStyleBuilder = new ImageStyleBuilder($this);
-        $this->buttonBuilder = new ButtonBuilder($this);
     }
 
-    /**
-     * @param string $borderRadius
-     * @return FrameBuilderInterface
-     */
-    public function setBorderRadius(string $borderRadius): FrameBuilderInterface
+    public function setSidePadding(string $sidePadding): FrameBuilderInterface
     {
-        $this->borderRadius = $borderRadius;
+        $this->sidePadding = $sidePadding;
         return $this;
     }
 
-    /**
-     * @return DimensionsBuilderInterface
-     */
-    public function getDimensionsBuilder(): DimensionsBuilderInterface
+    public function setMarginBottom(string $marginBottom): FrameBuilderInterface
     {
-        return $this->dimensionsBuilder;
+        $this->marginBottom = $marginBottom;
+        return $this;
     }
 
-    /**
-     * @return StyleBuilderInterface
-     */
-    public function getStyleBuilder(): StyleBuilderInterface
+    public function setMarginBetween(string $marginBetween): FrameBuilderInterface
     {
-        return $this->styleBuilder;
-    }
-
-    /**
-     * @return ImageStyleBuilderInterface
-     */
-    public function getImageStyleBuilder(): ImageStyleBuilderInterface
-    {
-        return $this->imageStyleBuilder;
-    }
-
-    /**
-     * @return ButtonBuilderInterface
-     */
-    public function getButtonBuilder(): ButtonBuilderInterface
-    {
-        return $this->buttonBuilder;
+        $this->marginBetween = $marginBetween;
+        return $this;
     }
 
     /**
@@ -108,11 +62,9 @@ class FrameBuilder implements FrameBuilderInterface
     public function getResult(): Frame
     {
         $frame = new Frame();
-        $frame->setBorderRadius($this->borderRadius);
-        $frame->setDimensions($this->getDimensionsBuilder()->getResult());
-        $frame->setStyle($this->getStyleBuilder()->getResult());
-        $frame->setImageStyle($this->getImageStyleBuilder()->getResult());
-        $frame->setButton($this->getButtonBuilder()->getResult());
+        $frame->setSidePadding($this->sidePadding);
+        $frame->setMarginBottom($this->marginBottom);
+        $frame->setMarginBetween($this->marginBetween);
         return $frame;
     }
 

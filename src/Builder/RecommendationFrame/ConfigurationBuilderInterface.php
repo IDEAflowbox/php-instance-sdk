@@ -3,11 +3,14 @@ declare(strict_types=1);
 
 namespace Cyberkonsultant\Builder\RecommendationFrame;
 
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\AnimationsBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ArrowBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ButtonBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\EnabledElementsBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\FrameBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ImageBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrame\Configuration\MatrixBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\NavigationBuilderInterface;
-use Cyberkonsultant\Builder\RecommendationFrame\Configuration\TextBuilderInterface;
+use Cyberkonsultant\Builder\RecommendationFrame\Configuration\ProductBuilderInterface;
 use Cyberkonsultant\Builder\RecommendationFrameBaseBuilderInterface;
 use Cyberkonsultant\DTO\RecommendationFrame\Configuration;
 
@@ -29,19 +32,34 @@ interface ConfigurationBuilderInterface
     public function getEnabledElementsBuilder(): EnabledElementsBuilderInterface;
 
     /**
-     * @return NavigationBuilderInterface
+     * @return ImageBuilderInterface
      */
-    public function getNavigationBuilder(): NavigationBuilderInterface;
-
-    /**
-     * @return TextBuilderInterface
-     */
-    public function getTextBuilder(): TextBuilderInterface;
+    public function getImageBuilder(): ImageBuilderInterface;
 
     /**
      * @return FrameBuilderInterface
      */
     public function getFrameBuilder(): FrameBuilderInterface;
+
+    /**
+     * @return ProductBuilderInterface
+     */
+    public function getProductBuilder(): ProductBuilderInterface;
+
+    /**
+     * @return ArrowBuilderInterface
+     */
+    public function getArrowBuilder(): ArrowBuilderInterface;
+
+    /**
+     * @return ButtonBuilderInterface
+     */
+    public function getButtonBuilder(): ButtonBuilderInterface;
+
+    /**
+     * @return AnimationsBuilderInterface
+     */
+    public function getAnimationsBuilder(): AnimationsBuilderInterface;
 
     /**
      * @return Configuration
