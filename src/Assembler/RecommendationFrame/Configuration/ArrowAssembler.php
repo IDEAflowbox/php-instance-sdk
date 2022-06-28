@@ -34,7 +34,7 @@ class ArrowAssembler
         $arrowDto = new Arrow();
         $arrowDto->setSize($arrow['size']);
         $arrowDto->setColor($arrow['color']);
-        $arrowDto->setSize($arrow['style']);
+        $arrowDto->setStyle($arrow['style']);
         return $arrowDto;
     }
 }
