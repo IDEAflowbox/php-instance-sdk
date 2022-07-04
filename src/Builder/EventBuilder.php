@@ -43,6 +43,11 @@ class EventBuilder implements EventBuilderInterface
     protected $cartId;
 
     /**
+     * @var string|null
+     */
+    protected $frameId;
+
+    /**
      * @var \DateTime|null
      */
     protected $eventTime;
@@ -108,6 +113,17 @@ class EventBuilder implements EventBuilderInterface
     }
 
     /**
+     * @param string $frameId
+     * @return EventBuilderInterface
+     */
+    public function setFrameId(string $frameId): EventBuilderInterface
+    {
+        $this->frameId = $frameId;
+        return $this;
+    }
+
+
+    /**
      * @return \DateTime|null
      */
     public function getEventTime(): ?\DateTime
@@ -136,6 +152,7 @@ class EventBuilder implements EventBuilderInterface
         $event->setProductId($this->productId);
         $event->setCategoryId($this->categoryId);
         $event->setCartId($this->cartId);
+        $event->setFrameId($this->frameId);
         $event->setPrice($this->price);
         $event->setEventTime($this->eventTime);
         return $event;

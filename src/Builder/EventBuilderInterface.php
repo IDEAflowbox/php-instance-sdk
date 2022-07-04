@@ -49,6 +49,12 @@ interface EventBuilderInterface
     public function setCartId(string $cartId): EventBuilderInterface;
 
     /**
+     * @param string $frameId
+     * @return EventBuilderInterface
+     */
+    public function setFrameId(string $frameId): EventBuilderInterface;
+
+    /**
      * @param \DateTime|null $eventTime
      * @return EventBuilderInterface
      */

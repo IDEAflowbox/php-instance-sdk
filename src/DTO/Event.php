@@ -57,6 +57,11 @@ class Event
     protected $cartId;
 
     /**
+     * @var string|null
+     */
+    protected $frameId;
+
+    /**
      * @var float
      */
     protected $price;
@@ -187,6 +192,22 @@ class Event
     public function setCartId(?string $cartId): void
     {
         $this->cartId = $cartId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFrameId(): ?string
+    {
+        return $this->frameId;
+    }
+
+    /**
+     * @param string|null $frameId
+     */
+    public function setFrameId(?string $frameId): void
+    {
+        $this->frameId = $frameId;
     }
 
     /**
