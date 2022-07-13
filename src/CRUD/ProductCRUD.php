@@ -46,6 +46,7 @@ class ProductCRUD extends BaseCRUD
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
      * @throws \Cyberkonsultant\Exception\ServerException
      * @throws \Unirest\Exception
+     * @deprecated since version 1.5.5, will be removed since 1.6.0. Use ProductsTransactionCRUD.
      */
     public function create(Product $product): SuccessResponse
     {
@@ -69,6 +70,7 @@ class ProductCRUD extends BaseCRUD
      * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
      * @throws \Cyberkonsultant\Exception\ServerException
      * @throws \Unirest\Exception
+     * @deprecated since version 1.5.5, will be removed since 1.6.0. Use ProductsTransactionCRUD.
      */
     public function createMany(array $products): SuccessResponse
     {

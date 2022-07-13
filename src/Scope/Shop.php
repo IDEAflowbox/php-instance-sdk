@@ -8,6 +8,7 @@ use Cyberkonsultant\CRUD\EventCRUD;
 use Cyberkonsultant\CRUD\FeatureCRUD;
 use Cyberkonsultant\CRUD\GroupCRUD;
 use Cyberkonsultant\CRUD\ProductCRUD;
+use Cyberkonsultant\CRUD\ProductsTransactionCRUD;
 use Cyberkonsultant\CRUD\RecommendationFrameCRUD;
 use Cyberkonsultant\CRUD\UserCRUD;
 use Cyberkonsultant\Cyberkonsultant;
@@ -45,6 +46,11 @@ class Shop
     public $product;
 
     /**
+     * @var ProductsTransactionCRUD
+     */
+    public $productsTransaction;
+
+    /**
      * @var GroupCRUD
      */
     public $group;
@@ -71,6 +77,7 @@ class Shop
         $this->event = new EventCRUD($this->cyberkonsultant);
         $this->user = new UserCRUD($this->cyberkonsultant);
         $this->product = new ProductCRUD($this->cyberkonsultant);
+        $this->productsTransaction = new ProductsTransactionCRUD($this->cyberkonsultant);
         $this->group = new GroupCRUD($this->cyberkonsultant);
         $this->category = new CategoryCRUD($this->cyberkonsultant);
         $this->feature = new FeatureCRUD($this->cyberkonsultant);

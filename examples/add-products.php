@@ -25,9 +25,12 @@ try {
         ->getResult()
     ;
 
-    dump(
-        $shop->product->createMany([$product])
-    );
+    $transactionId = $shop->productsTransaction->beginTransaction();
+    $shop->productsTransaction->append($transactionId, [$product]); // Page 1
+    $shop->productsTransaction->append($transactionId, [$product]); // Page 2
+    $shop->productsTransaction->append($transactionId, [$product]); // Page 3
+    $shop->productsTransaction->perform($transactionId);
+    dump($shop->productsTransaction->getTransaction($transactionId));
 } catch (\Cyberkonsultant\Exception\ClientException $e) {
     dump(
         $sdk->getEdgeResponse($e->getResponse(), \Cyberkonsultant\Assembler\ErrorResponseAssembler::class)
