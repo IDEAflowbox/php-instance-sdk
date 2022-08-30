@@ -43,6 +43,12 @@ class Cyberkonsultant
     protected $client;
 
     /**
+     * Default timeout
+     * @var int
+     */
+    protected $timeout = 5;
+
+    /**
      * Cyberkonsultant constructor.
      *
      * @param array $config
@@ -75,7 +81,7 @@ class Cyberkonsultant
      */
     public function get(string $uri, array $options = []): Response
     {
-        return $this->client->sendRequest('GET', $uri, $options);
+        return $this->client->sendRequest('GET', $uri, $options, $this->timeout);
     }
 
     /**
@@ -91,7 +97,7 @@ class Cyberkonsultant
      */
     public function post(string $uri, array $options = []): Response
     {
-        return $this->client->sendRequest('post', $uri, $options);
+        return $this->client->sendRequest('post', $uri, $options, $this->timeout);
     }
 
     /**
@@ -107,7 +113,7 @@ class Cyberkonsultant
      */
     public function delete(string $uri, array $options = []): Response
     {
-        return $this->client->sendRequest('DELETE', $uri, $options);
+        return $this->client->sendRequest('DELETE', $uri, $options, $this->timeout);
     }
 
     /**
@@ -123,7 +129,7 @@ class Cyberkonsultant
      */
     public function patch(string $uri, array $options = []): Response
     {
-        return $this->client->sendRequest('PATCH', $uri, $options);
+        return $this->client->sendRequest('PATCH', $uri, $options, $this->timeout);
     }
 
     /**
@@ -139,7 +145,7 @@ class Cyberkonsultant
      */
     public function put(string $uri, array $options = []): Response
     {
-        return $this->client->sendRequest('PUT', $uri, $options);
+        return $this->client->sendRequest('PUT', $uri, $options, $this->timeout);
     }
 
     /**
@@ -221,5 +227,13 @@ class Cyberkonsultant
         }
 
         return $assembler->writeDTO($this->parseResponse($response));
+    }
+
+    /**
+     * @param int $timeout
+     */
+    public function setTimeout(int $timeout): void
+    {
+        $this->timeout = $timeout;
     }
 }

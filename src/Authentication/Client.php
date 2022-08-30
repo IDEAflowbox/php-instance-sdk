@@ -54,15 +54,16 @@ class Client
      * @param string $method
      * @param string $uri
      * @param array $options
+     * @param int $timeout
      * @return Response
      * @throws CyberkonsultantSDKException
      * @throws \Cyberkonsultant\Exception\ClientException
      * @throws \Cyberkonsultant\Exception\ServerException
      * @throws \Unirest\Exception
      */
-    public function sendRequest(string $method, string $uri, array $options = []): Response
+    public function sendRequest(string $method, string $uri, array $options = [], int $timeout = 5): Response
     {
-        Request::timeout(5);
+        Request::timeout($timeout);
         
         $uri = ltrim($uri, '/');
         $uri = $this->options['base_uri'].$uri;
