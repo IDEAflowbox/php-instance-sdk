@@ -64,7 +64,8 @@ class Client
     public function sendRequest(string $method, string $uri, array $options = [], int $timeout = 5): Response
     {
         Request::timeout($timeout);
-        
+        Request::verifyPeer(false);
+
         $uri = ltrim($uri, '/');
         $uri = $this->options['base_uri'].$uri;
         $query = $options['query'] ?? [];
