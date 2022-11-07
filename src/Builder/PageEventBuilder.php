@@ -99,7 +99,7 @@ class PageEventBuilder implements PageEventBuilderInterface
      */
     public function setEventTime(?\DateTime $eventTime = null): PageEventBuilderInterface
     {
-        $this->eventTime = $ventTime;
+        $this->eventTime = $eventTime;
         return $this;
     }
 
