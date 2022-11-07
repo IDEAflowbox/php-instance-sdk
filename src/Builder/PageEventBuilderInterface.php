@@ -43,6 +43,12 @@ interface PageEventBuilderInterface
     public function setUrl(string $url): PageEventBuilderInterface;
 
     /**
+     * @param \DateTime|null $eventTime
+     * @return PageEventBuilderInterface
+     */
+    public function setEventTime(?\DateTime $eventTime = null): PageEventBuilderInterface;
+
+    /**
      * @return PageEvent
      */
     public function getResult(): PageEvent;

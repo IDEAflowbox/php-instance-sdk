@@ -38,6 +38,11 @@ class PageEventBuilder implements PageEventBuilderInterface
     protected $url;
 
     /**
+     * @var \DateTime|null
+     */
+    protected $eventTime;
+
+    /**
      * @param string $userId
      * @return PageEventBuilderInterface
      */
@@ -87,6 +92,17 @@ class PageEventBuilder implements PageEventBuilderInterface
         return $this;
     }
 
+
+    /**
+     * @param \DateTime|null $eventTime
+     * @return PageEventBuilderInterface
+     */
+    public function setEventTime(?\DateTime $eventTime = null): PageEventBuilderInterface
+    {
+        $this->eventTime = $ventTime;
+        return $this;
+    }
+
     /**
      * @return PageEvent
      */
@@ -98,6 +114,7 @@ class PageEventBuilder implements PageEventBuilderInterface
         $pageEvent->setProductId($this->productId);
         $pageEvent->setFrameId($this->frameId);
         $pageEvent->setUrl($this->url);
+        $pageEvent->setEventTime($this->eventTime);
 
         return $pageEvent;
     }
