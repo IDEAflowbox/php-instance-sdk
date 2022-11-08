@@ -88,7 +88,7 @@ class PageEvent
     /**
      * @param \DateTime $eventTime
      */
-    public function setEventTime(\DateTime $eventTime): void
+    public function setEventTime(?\DateTime $eventTime): void
     {
         $this->eventTime = $eventTime;
     }
