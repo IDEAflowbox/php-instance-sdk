@@ -37,10 +37,10 @@ interface EventBuilderInterface
     public function setPrice(float $price): EventBuilderInterface;
 
     /**
-     * @param string $categoryId
+     * @param string|null $categoryId
      * @return EventBuilderInterface
      */
-    public function setCategoryId(string $categoryId): EventBuilderInterface;
+    public function setCategoryId(?string $categoryId): EventBuilderInterface;
 
     /**
      * @param string $cartId

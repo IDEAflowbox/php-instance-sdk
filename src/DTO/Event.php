@@ -47,7 +47,7 @@ class Event
     protected $productId;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $categoryId;
 
@@ -163,17 +163,17 @@ class Event
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCategoryId(): string
+    public function getCategoryId(): ?string
     {
         return $this->categoryId;
     }
 
     /**
-     * @param string $categoryId
+     * @param string|null $categoryId
      */
-    public function setCategoryId(string $categoryId): void
+    public function setCategoryId(?string $categoryId): void
     {
         $this->categoryId = $categoryId;
     }

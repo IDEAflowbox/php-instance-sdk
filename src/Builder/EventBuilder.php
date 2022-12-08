@@ -33,7 +33,7 @@ class EventBuilder implements EventBuilderInterface
     protected $price;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $categoryId;
 
@@ -93,10 +93,10 @@ class EventBuilder implements EventBuilderInterface
     }
 
     /**
-     * @param string $categoryId
+     * @param string|null $categoryId
      * @return EventBuilderInterface
      */
-    public function setCategoryId(string $categoryId): EventBuilderInterface
+    public function setCategoryId(?string $categoryId): EventBuilderInterface
     {
         $this->categoryId = $categoryId;
         return $this;
