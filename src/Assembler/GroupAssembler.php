@@ -35,7 +35,8 @@ class GroupAssembler implements DataAssemblerInterface
         return [
             'id' => $groupDTO->getId(),
             'name' => $groupDTO->getName(),
-            'criteria' => $this->criteriaAssembler->readDTO($groupDTO->getCriteria())
+            'criteria' => $this->criteriaAssembler->readDTO($groupDTO->getCriteria()),
+            'exclude_uncategorized' => $groupDTO->getExcludeUncategorized(),
         ];
     }
 
@@ -49,6 +50,7 @@ class GroupAssembler implements DataAssemblerInterface
         $groupDTO->setId($group['id']);
         $groupDTO->setName($group['name']);
         $groupDTO->setCriteria($this->criteriaAssembler->writeDTO($group['criteria']));
+        $groupDTO->setExcludeUncategorized($group['exclude_uncategorized']);
         return $groupDTO;
     }
 }

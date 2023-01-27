@@ -39,6 +39,20 @@ class GroupCRUD extends BaseCRUD
     }
 
     /**
+     * @param string $id
+     * @return Group
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function find(string $id): Group
+    {
+        $response = $this->cyberkonsultant->get(sprintf('/shop/groups/%s', $id));
+        return $this->cyberkonsultant->getEdgeResponse($response, GroupAssembler::class);
+    }
+
+    /**
      * @param Group $group
      * @return Group
      * @throws \Cyberkonsultant\Exception\ClientException
@@ -50,6 +64,24 @@ class GroupCRUD extends BaseCRUD
     {
         $groupAssembler = new GroupAssembler();
         $response = $this->cyberkonsultant->post('/shop/groups', [
+            'json' => $groupAssembler->readDTO($group)
+        ]);
+
+        return $this->cyberkonsultant->getEdgeResponse($response, GroupAssembler::class);
+    }
+
+    /**
+     * @param Group $group
+     * @return Group
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function update(Group $group): Group
+    {
+        $groupAssembler = new GroupAssembler();
+        $response = $this->cyberkonsultant->put(sprintf('/shop/groups/%s', $group->getId()), [
             'json' => $groupAssembler->readDTO($group)
         ]);
 
@@ -94,5 +126,17 @@ class GroupCRUD extends BaseCRUD
     {
         $response = $this->cyberkonsultant->get(sprintf('/shop/groups/%s/products-ids', $groupId));
         return json_decode($response->raw_body);
+    }
+
+    /**
+     * @param string $id
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     * @throws \Unirest\Exception
+     */
+    public function delete(string $id): void
+    {
+        $this->cyberkonsultant->delete(sprintf('/shop/groups/%s', $id));
     }
 }

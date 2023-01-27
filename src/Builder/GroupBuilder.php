@@ -20,6 +20,11 @@ class GroupBuilder implements GroupBuilderInterface
     protected $name;
 
     /**
+     * @var bool
+     */
+    protected $excludeUncategorized;
+
+    /**
      * @var CriteriaBuilderInterface
      */
     protected $criteriaBuilder;
@@ -39,6 +44,16 @@ class GroupBuilder implements GroupBuilderInterface
     public function setName(string $name): GroupBuilderInterface
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @param bool $exclude
+     * @return GroupBuilderInterface
+     */
+    public function setExcludeUncategorized(bool $exclude): GroupBuilderInterface
+    {
+        $this->excludeUncategorized = $exclude;
         return $this;
     }
 

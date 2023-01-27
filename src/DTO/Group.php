@@ -28,6 +28,11 @@ class Group
     protected $criteria;
 
     /**
+     * @var bool
+     */
+    protected $excludeUncategorized = false;
+
+    /**
      * @param string|null $id
      */
     public function setId(?string $id): void
@@ -73,5 +78,21 @@ class Group
     public function setCriteria(Criteria $criteria): void
     {
         $this->criteria = $criteria;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getExcludeUncategorized(): bool
+    {
+        return $this->excludeUncategorized;
+    }
+
+    /**
+     * @param bool $excludeUncategorized
+     */
+    public function setExcludeUncategorized(bool $excludeUncategorized): void
+    {
+        $this->excludeUncategorized = $excludeUncategorized;
     }
 }

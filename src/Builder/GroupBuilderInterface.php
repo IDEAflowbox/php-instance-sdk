@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Cyberkonsultant\Builder;
 
 use Cyberkonsultant\Builder\Group\CriteriaBuilderInterface;
-use Cyberkonsultant\DTO\Event;
 use Cyberkonsultant\DTO\Group;
 
 /**
@@ -19,6 +18,12 @@ interface GroupBuilderInterface
      * @return GroupBuilderInterface
      */
     public function setName(string $name): GroupBuilderInterface;
+
+    /**
+     * @param bool $exclude
+     * @return GroupBuilderInterface
+     */
+    public function setExcludeUncategorized(bool $exclude): GroupBuilderInterface;
 
     /**
      * @return CriteriaBuilderInterface
