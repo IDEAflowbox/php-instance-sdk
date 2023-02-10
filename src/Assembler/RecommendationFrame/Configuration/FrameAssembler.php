@@ -24,7 +24,7 @@ class FrameAssembler
             'margin_between' => $frameDTO->getMarginBetween(),
             'wrapper_styles' => $frameDTO->getWrapperStyles(),
             'title_text' => $frameDTO->getTitleText(),
-            'title_wrapper_styles' => $frameDTO->getWrapperStyles(),
+            'title_wrapper_styles' => $frameDTO->getTitleWrapperStyles(),
             'title_styles' => $frameDTO->getTitleStyles(),
         ];
     }
