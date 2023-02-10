@@ -22,6 +22,10 @@ class FrameAssembler
             'side_padding' => $frameDTO->getSidePadding(),
             'margin_bottom' => $frameDTO->getMarginBottom(),
             'margin_between' => $frameDTO->getMarginBetween(),
+            'wrapper_styles' => $frameDTO->getWrapperStyles(),
+            'title_text' => $frameDTO->getTitleText(),
+            'title_wrapper_styles' => $frameDTO->getWrapperStyles(),
+            'title_styles' => $frameDTO->getTitleStyles(),
         ];
     }
 
@@ -35,6 +39,10 @@ class FrameAssembler
         $frameDto->setSidePadding($frame['side_padding']);
         $frameDto->setMarginBottom($frame['margin_bottom']);
         $frameDto->setMarginBetween($frame['margin_between']);
+        $frameDto->setWrapperStyles($frame['wrapper_styles']);
+        $frameDto->setTitleText($frame['title_text']);
+        $frameDto->setTitleWrapperStyles($frame['title_wrapper_styles']);
+        $frameDto->setTitleStyles($frame['title_styles']);
         return $frameDto;
     }
 }

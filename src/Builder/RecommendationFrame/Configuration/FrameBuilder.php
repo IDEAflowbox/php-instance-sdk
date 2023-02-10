@@ -29,6 +29,26 @@ class FrameBuilder implements FrameBuilderInterface
     protected $marginBetween;
 
     /**
+     * @var string
+     */
+    protected $wrapperStyles;
+
+    /**
+     * @var string
+     */
+    protected $titleText;
+
+    /**
+     * @var string
+     */
+    protected $titleWrapperStyles;
+
+    /**
+     * @var string
+     */
+    protected $titleStyles;
+
+    /**
      * @var ConfigurationBuilderInterface
      */
     protected $parent;
@@ -56,6 +76,31 @@ class FrameBuilder implements FrameBuilderInterface
         return $this;
     }
 
+    public function setWrapperStyles(string $wrapperStyles): FrameBuilderInterface
+    {
+        $this->wrapperStyles = $wrapperStyles;
+        return $this;
+    }
+
+    public function setTitleText(string $titleText): FrameBuilderInterface
+    {
+        $this->titleText = $titleText;
+        return $this;
+    }
+
+    public function setTitleWrapperStyles(string $titleWrapperStyles): FrameBuilderInterface
+    {
+        $this->titleWrapperStyles = $titleWrapperStyles;
+        return $this;
+    }
+
+    public function setTitleStyles(string $titleStyles): FrameBuilderInterface
+    {
+        $this->titleStyles = $titleStyles;
+        return $this;
+    }
+
+
     /**
      * @return Frame
      */
@@ -65,6 +110,10 @@ class FrameBuilder implements FrameBuilderInterface
         $frame->setSidePadding($this->sidePadding);
         $frame->setMarginBottom($this->marginBottom);
         $frame->setMarginBetween($this->marginBetween);
+        $frame->setWrapperStyles($this->wrapperStyles);
+        $frame->setTitleText($this->titleText);
+        $frame->setTitleWrapperStyles($this->titleWrapperStyles);
+        $frame->setTitleStyles($this->titleStyles);
         return $frame;
     }
 
