@@ -53,6 +53,11 @@ class EventBuilder implements EventBuilderInterface
     protected $eventTime;
 
     /**
+     * @var int
+     */
+    protected $quantity;
+
+    /**
      * @param string $userId
      * @return EventBuilderInterface
      */
@@ -142,6 +147,16 @@ class EventBuilder implements EventBuilderInterface
     }
 
     /**
+     * @param int $quantity
+     * @return EventBuilderInterface
+     */
+    public function setQuantity(int $quantity): EventBuilderInterface
+    {
+        $this->quantity = $quantity;
+        return $this;
+    }
+
+    /**
      * @return Event
      */
     public function getResult(): Event
@@ -155,6 +170,7 @@ class EventBuilder implements EventBuilderInterface
         $event->setFrameId($this->frameId);
         $event->setPrice($this->price);
         $event->setEventTime($this->eventTime);
+        $event->setQuantity($this->quantity);
         return $event;
     }
 }

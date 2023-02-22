@@ -61,6 +61,12 @@ interface EventBuilderInterface
     public function setEventTime(?\DateTime $eventTime = null): EventBuilderInterface;
 
     /**
+     * @param int $quantity
+     * @return EventBuilderInterface
+     */
+    public function setQuantity(int $quantity): EventBuilderInterface;
+
+    /**
      * @return Event
      */
     public function getResult(): Event;

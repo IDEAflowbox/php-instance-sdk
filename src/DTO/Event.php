@@ -67,6 +67,11 @@ class Event
     protected $price;
 
     /**
+     * @var int
+     */
+    protected $quantity = 1;
+
+    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -224,5 +229,21 @@ class Event
     public function setPrice(float $price): void
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity(int $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 }
