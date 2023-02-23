@@ -26,24 +26,24 @@ class Frame
     protected $marginBetween;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected $wrapperStyles;
+    protected $wrapperStyles = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected $titleText;
+    protected $titleText = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected $titleWrapperStyles;
+    protected $titleWrapperStyles = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected $titleStyles;
+    protected $titleStyles = null;
 
     /**
      * @return string
@@ -94,65 +94,65 @@ class Frame
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getWrapperStyles(): string
+    public function getWrapperStyles(): ?string
     {
         return $this->wrapperStyles;
     }
 
     /**
-     * @param string $wrapperStyles
+     * @param string|null $wrapperStyles
      */
-    public function setWrapperStyles(string $wrapperStyles): void
+    public function setWrapperStyles(?string $wrapperStyles): void
     {
         $this->wrapperStyles = $wrapperStyles;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitleText(): string
+    public function getTitleText(): ?string
     {
         return $this->titleText;
     }
 
     /**
-     * @param string $titleText
+     * @param string|null $titleText
      */
-    public function setTitleText(string $titleText): void
+    public function setTitleText(?string $titleText): void
     {
         $this->titleText = $titleText;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitleWrapperStyles(): string
+    public function getTitleWrapperStyles(): ?string
     {
         return $this->titleWrapperStyles;
     }
 
     /**
-     * @param string $titleWrapperStyles
+     * @param string|null $titleWrapperStyles
      */
-    public function setTitleWrapperStyles(string $titleWrapperStyles): void
+    public function setTitleWrapperStyles(?string $titleWrapperStyles): void
     {
         $this->titleWrapperStyles = $titleWrapperStyles;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitleStyles(): string
+    public function getTitleStyles(): ?string
     {
         return $this->titleStyles;
     }
 
     /**
-     * @param string $titleStyles
+     * @param string|null $titleStyles
      */
-    public function setTitleStyles(string $titleStyles): void
+    public function setTitleStyles(?string $titleStyles): void
     {
         $this->titleStyles = $titleStyles;
     }

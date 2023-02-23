@@ -32,28 +32,28 @@ interface FrameBuilderInterface
     public function setMarginBetween(string $marginBetween): FrameBuilderInterface;
 
     /**
-     * @param string $wrapperStyles
+     * @param string|null $wrapperStyles
      * @return FrameBuilderInterface
      */
-    public function setWrapperStyles(string $wrapperStyles): FrameBuilderInterface;
+    public function setWrapperStyles(?string $wrapperStyles): FrameBuilderInterface;
 
     /**
-     * @param string $titleText
+     * @param string|null $titleText
      * @return FrameBuilderInterface
      */
-    public function setTitleText(string $titleText): FrameBuilderInterface;
+    public function setTitleText(?string $titleText): FrameBuilderInterface;
 
     /**
-     * @param string $titleWrapperStyles
+     * @param string|null $titleWrapperStyles
      * @return FrameBuilderInterface
      */
-    public function setTitleWrapperStyles(string $titleWrapperStyles): FrameBuilderInterface;
+    public function setTitleWrapperStyles(?string $titleWrapperStyles): FrameBuilderInterface;
 
     /**
-     * @param string $titleStyles
+     * @param string|null $titleStyles
      * @return FrameBuilderInterface
      */
-    public function setTitleStyles(string $titleStyles): FrameBuilderInterface;
+    public function setTitleStyles(?string $titleStyles): FrameBuilderInterface;
 
     /**
      * @return Frame
