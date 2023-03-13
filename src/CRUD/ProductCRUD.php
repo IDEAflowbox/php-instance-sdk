@@ -88,4 +88,16 @@ class ProductCRUD extends BaseCRUD
 
         return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
     }
+
+    /**
+     * @return SuccessResponse
+     * @throws \Cyberkonsultant\Exception\ClientException
+     * @throws \Cyberkonsultant\Exception\CyberkonsultantSDKException
+     * @throws \Cyberkonsultant\Exception\ServerException
+     */
+    public function sync(): SuccessResponse
+    {
+        $response = $this->cyberkonsultant->post('/shop/products/sync');
+        return $this->cyberkonsultant->getEdgeResponse($response, SuccessResponseAssembler::class);
+    }
 }
