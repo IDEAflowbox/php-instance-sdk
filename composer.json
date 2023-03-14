@@ -1,7 +1,7 @@
 {
     "name": "cyberkonsultant/php-instance-sdk",
     "description": "Cyberkonsultant Instance SDK for PHP",
-    "version": "1.6.9",
+    "version": "1.6.10",
     "type": "library",
     "require": {
         "php": "^7.1|^8.0",
