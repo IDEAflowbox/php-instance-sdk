@@ -67,6 +67,12 @@ interface EventBuilderInterface
     public function setQuantity(int $quantity): EventBuilderInterface;
 
     /**
+     * @param string $orderId
+     * @return EventBuilderInterface
+     */
+    public function setOrderId(string $orderId): EventBuilderInterface;
+
+    /**
      * @return Event
      */
     public function getResult(): Event;

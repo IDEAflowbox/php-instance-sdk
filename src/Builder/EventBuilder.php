@@ -58,6 +58,11 @@ class EventBuilder implements EventBuilderInterface
     protected $quantity;
 
     /**
+     * @var string|null
+     */
+    protected $orderId;
+
+    /**
      * @param string $userId
      * @return EventBuilderInterface
      */
@@ -127,7 +132,6 @@ class EventBuilder implements EventBuilderInterface
         return $this;
     }
 
-
     /**
      * @return \DateTime|null
      */
@@ -157,6 +161,16 @@ class EventBuilder implements EventBuilderInterface
     }
 
     /**
+     * @param string $orderId
+     * @return EventBuilderInterface
+     */
+    public function setOrderId(string $orderId): EventBuilderInterface
+    {
+        $this->orderId = $orderId;
+        return $this;
+    }
+
+    /**
      * @return Event
      */
     public function getResult(): Event
@@ -171,6 +185,7 @@ class EventBuilder implements EventBuilderInterface
         $event->setPrice($this->price);
         $event->setEventTime($this->eventTime);
         $event->setQuantity($this->quantity);
+        $event->setOrderId($this->orderId);
         return $event;
     }
 }

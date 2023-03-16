@@ -72,6 +72,11 @@ class Event
     protected $quantity = 1;
 
     /**
+     * @var string|null
+     */
+    protected $orderId;
+
+    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -245,5 +250,21 @@ class Event
     public function setQuantity(int $quantity): void
     {
         $this->quantity = $quantity;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getOrderId(): ?string
+    {
+        return $this->orderId;
+    }
+
+    /**
+     * @param string|null $orderId
+     */
+    public function setOrderId(?string $orderId): void
+    {
+        $this->orderId = $orderId;
     }
 }

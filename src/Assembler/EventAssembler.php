@@ -31,6 +31,7 @@ class EventAssembler implements DataAssemblerInterface
             'frame_id' => $eventDTO->getFrameId(),
             'price' => $eventDTO->getPrice(),
             'quantity' => $eventDTO->getQuantity(),
+            'order_id' => $eventDTO->getOrderId(),
         ];
     }
 
@@ -52,6 +53,7 @@ class EventAssembler implements DataAssemblerInterface
         $eventDTO->setFrameId($event['frame_id']);
         $eventDTO->setPrice($event['price']);
         $eventDTO->setQuantity($event['quantity']);
+        $eventDTO->setOrderId($event['order_id']);
         if ($eventTime) {
             $eventDTO->setEventTime((new \DateTime())->setTimestamp($eventTime));
         }
